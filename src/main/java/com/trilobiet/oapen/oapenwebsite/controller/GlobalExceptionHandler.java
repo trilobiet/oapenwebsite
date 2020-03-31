@@ -3,7 +3,8 @@ package com.trilobiet.oapen.oapenwebsite.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,7 +22,7 @@ import com.trilobiet.oapen.oapenwebsite.data.ResourceNotFoundException;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-	protected final Logger log = Logger.getLogger(this.getClass());
+	protected final Logger log = LogManager.getLogger(this.getClass());
 	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

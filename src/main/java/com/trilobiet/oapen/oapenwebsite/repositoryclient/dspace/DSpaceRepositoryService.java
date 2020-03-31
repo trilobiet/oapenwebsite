@@ -7,7 +7,8 @@ import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.cache.annotation.Cacheable;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -20,7 +21,7 @@ public class DSpaceRepositoryService implements RepositoryService {
 	private final String baseUrl;
 	private final String featuredCollectionId;
 	
-	protected final Logger log = Logger.getLogger(this.getClass());
+	protected final Logger log = LogManager.getLogger(this.getClass());
 	
 	public DSpaceRepositoryService(String baseUrl, String featuredCollectionId) {
 		this.baseUrl = baseUrl;

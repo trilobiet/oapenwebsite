@@ -1,6 +1,7 @@
 package com.trilobiet.oapen.oapenwebsite.controller;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import com.trilobiet.oapen.oapenwebsite.rss.RssService;
 @Controller
 public class BaseController {
 
-	protected final Logger log = Logger.getLogger(this.getClass());
+	protected final Logger log = LogManager.getLogger(this.getClass());
 	
 	@Autowired
 	protected TopicService topicService;
