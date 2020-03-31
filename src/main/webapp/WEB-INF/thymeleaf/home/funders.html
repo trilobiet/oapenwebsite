@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="funders">
+
+	<h3 class="title is-6 oapen-section-caption">
+		Collections
+	</h3>
+
+	<div class="columns">
+
+		<div class="column" th:each="funder: ${funders}">
+			<a th:href="@{'/topic/'}+${funder.slug}">
+				<figure>
+					<img th:src="${funderlogos.get(funder.id)}" th:alt="${'Logo '+funder.name}">
+					<figcaption th:text="${funder.name}">
+						Funder name
+					</figcaption>
+				</figure>
+			</a>
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

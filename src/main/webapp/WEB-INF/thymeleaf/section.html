@@ -1,0 +1,52 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${section.name}">section name</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-main" th:classappend="${bodyClass}">
+
+		<div class="container">
+		
+			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+		
+			<div class="content oapen-primary">
+
+				<h1 th:text="${section.name}">Section name</h1>
+
+				<div th:utext="${section.description}">
+					Section description
+				</div>
+
+			</div>
+			
+			<div class="oapen-toc content">
+
+				<h3 class="oapen-toc-header">In this section</h3>
+
+				<ul th:classappend="${#lists.size(section.topics) gt 7} ? 'oapen-two-col'">
+					<li th:each="topic: ${section.topics}">
+						<a th:href="@{'/'}+${section.slug}+'/'+${topic.slug}" th:text="${topic.name}">
+							Topic name
+						</a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+
+	</main>
+
+</body>
+</html>
+
+
+
+

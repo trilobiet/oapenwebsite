@@ -1,0 +1,200 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${topic.name}">topic name</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="oapen-main oapen-funder-feature">
+
+		<!--
+		Hero
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<section class="hero oapen-funder-hero"
+		 th:style="${funderBanner!=null?'background-image:url('+funderBanner+')':''}">
+
+			<div class="hero-body">
+
+				<div class="container">
+
+					<h1 class="title is-1" th:text="${topic.name}">
+						Funder name
+					</h1>
+
+					<h2 class="title is-3" th:utext="${topic.description}">
+						Funder tagline (description)
+				    </h2>
+
+				</div>
+			</div>
+
+		</section>
+
+		<!--
+		Intro
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<section class="section">
+
+			<div class="container">
+
+				<article th:each="article:${articles}" th:if="${articleStat.index<2}"
+				     class="oapen-article" th:classappend="${article.cssClass}">
+
+					<div class="columns">
+
+						<div class="column is-three-quarter">
+						
+							<div class="oapen-primary content" th:utext="${article.content}">
+								Article content
+							</div>
+							
+							<div class="container content oapen-toc" th:if="${#lists.size(topic.articles) gt 1}">
+				
+								<h3 class="oapen-toc-header">Read more</h3>
+				
+								<ul th:classappend="${#lists.size(topic.articles) gt 7} ? 'oapen-two-col'">
+									<!--/* skip first article (index=1) */-->
+									<li th:if="${articleStat.index>0}"
+									    th:each="article: ${topic.articles}">
+				
+										<a th:href="@{'/article/'}+${article.slug}"
+										   th:text="${article.title}">
+											Link to Article
+										</a>
+				
+									</li>
+				
+								</ul>
+				
+							</div>
+						
+						</div>
+
+						<div class="column is-one-quarter oapen-funder-logo">
+							<a th:href="${funderUrl}" target="_blank"><!-- argument='homepage' -->
+								<img th:src="${funderLogo}" alt="logo"/>
+							</a>	
+						</div>
+
+					</div>
+
+				</article>
+	
+			</div>
+
+		</section>
+
+		<!--
+		Featured titles
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<section class="section">
+
+			<div class="container">
+
+				<h3 class="title is-5">
+					From the <span th:text="${topic.name}">Funder name</span> collection
+				</h3>
+
+				<div class="columns is-multiline is-mobile">
+
+					<div class="column is-one-sixth-tablet is-one-third-mobile" th:each="item: ${featuredItems}">
+
+						<a class="card" th:href="${item.url}">
+							<div class="card-image">
+								<figure class="image is-2by3">
+									<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
+								</figure>
+								<!-- /* figcaption th:text="${dspace_api}+${item.thumbnailPath}"></figcaption> */ -->
+							</div>
+							<footer class="card-footer">
+								<span class="card-footer-item" th:text="${item.title}">
+									Ut wisi enim ad minim veniam
+								</span>
+							</footer>
+						</a>
+
+					</div>
+
+				</div><!-- columns -->
+
+			</div><!-- container -->
+
+		</section>
+
+		<!--
+		Search this collection
+		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+		<section class="section oapen-funder-search">
+
+			<div class="container">
+
+				<h3 class="title is-5">
+					Search the <span th:text="${topic.name}">Funder name</span> collection
+				</h3>
+
+				<!-- /* 
+					http://doab-test.huma-num.fr/discover
+						?filtertype_1=collection
+						&filter_relational_operator_1=equals
+						&filter_1=Swiss+National+Science+Foundation+(SNF)
+						&submit_apply_filter=
+						&query=Ordnung 
+				*/ -->
+				
+				<div class="level">
+
+					<!-- Left side -->
+					<div class="level-left">
+					
+						<form th:action="${settings.dspace_site}+'discover'" class="level-item">
+							<div class="field has-addons">
+								<p class="control">
+									<input class="input" type="text" name="query" placeholder="Search term">
+									<input type="hidden" name="filtertype_1" value="collection" />
+									<input type="hidden" name="filter_relational_operator_1" value="equals" />
+									<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}" />
+								</p>
+								<p class="control">
+									<button type="submit" class="button is-dark">
+										<span class="icon is-small">
+											<i class="fas fa-search" aria-hidden="true"></i>
+										</span>
+									</button>
+								</p>
+							</div>
+						</form>
+
+					</div>
+
+					<!-- Right side -->
+					<div class="level-right">
+						<p class="level-item">
+							<a class="button is-danger"
+							   th:href="${settings.dspace_site}+'browse?type=collection&value='+${collection}">
+								<span>Browse this collection</span>
+								<span class="icon is-small">
+									<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+								</span>
+							</a>
+						</p>
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
+
+	</main>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Showcases
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="showcases">
+
+	<div class="columns is-multiline is-desktop">
+
+		<div class="column is-half-desktop oapen-home-showcase" th:each="article: ${showcases}" th:classappend="${article.cssClass}">
+
+			<div>
+				<h3 class="title is-3">
+					<a th:href="@{'/article/'}+${article.slug}" th:text="${article.title}">
+						Showcase
+					</a>
+				</h3>
+				<th:block th:utext="${article.summary}">
+					Showcase dummy text
+				</th:block>
+			</div>
+
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

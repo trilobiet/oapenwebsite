@@ -1,0 +1,46 @@
+<ehcache xsi:noNamespaceSchemaLocation="ehcache.xsd"
+	updateCheck="true"
+	monitoring="autodetect"
+	dynamicConfig="true"
+	maxBytesLocalHeap="200M">
+
+	<diskStore path="java.io.tmpdir"/>
+	
+	<!-- Total of added caches may not exceed maxBytesLocalHeap of entire cache -->
+	
+	<cache name="sectionsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="180"
+		overflowToDisk="true"/>
+	
+	<cache name="topicsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="120"
+		overflowToDisk="true"/>
+	
+	<cache name="articlesCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="120"
+		overflowToDisk="true"/>
+		
+	<cache name="filesCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="36000"
+		overflowToDisk="true"/>
+		
+	<cache name="relationsCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="36000"
+		overflowToDisk="true"/>
+
+	<cache name="dspaceCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="14400"
+		overflowToDisk="true"/>
+		
+	<cache name="rssCache"
+		maxBytesLocalHeap="25M"
+		timeToLiveSeconds="43200"
+		overflowToDisk="true"/>
+
+</ehcache>

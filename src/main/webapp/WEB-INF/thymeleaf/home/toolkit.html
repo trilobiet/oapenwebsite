@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="toolkit" th:if="${topictoolkit}">
+
+	<div class="columns">
+
+		<div class="column is-one-third oapen-toolkit-title">
+			<span>OAPEN</span> Toolkit
+			<i class="fal fa-box-full" aria-hidden="true"></i>
+		</div>
+
+		<div class="column">
+
+			<div class="oapen-toolkit-desc" th:utext="${topictoolkit.description}">
+				Topic description
+			</div>
+
+			<div class="buttons oapen-toolkit-buttons">
+
+				<div class="button is-link is-rounded">
+					<span class="icon is-small">
+						<i class="fas fa-download" aria-hidden="true"></i>
+					</span>
+					<a th:href="${toolkitdownload}">Download Toolkit</a>
+				</div>
+
+				<div class="button is-danger is-rounded">
+					<a th:href="@{'/topic/'}+${topictoolkit.slug}">Read more</a>
+					<span class="icon is-small">
+						<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+					</span>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

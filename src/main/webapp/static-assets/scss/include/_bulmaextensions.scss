@@ -1,0 +1,22 @@
+
+//
+// Modifications of or extensions to Bulma css
+//
+
+@media screen and (min-width: 769px) {
+
+	.column.is-one-sixth, .column.is-one-sixth-tablet {
+	    flex: none;
+	    width: 16.6666%; 
+	}
+
+}
+
+@media screen and (min-width: 769px) {
+
+	.column.is-three-fifths, .column.is-three-fifths-tablet {
+	    flex: none;
+	    width: 60%; 
+	}
+
+}

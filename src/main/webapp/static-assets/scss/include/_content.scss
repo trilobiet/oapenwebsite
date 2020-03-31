@@ -1,0 +1,235 @@
+h1, h2, h3, h4, h5, .oapen-header {
+	
+	// font-family: "Lexend Deca", sans-serif; 
+	font-family: "Roboto Slab", serif;
+}	
+
+h1.title {
+	color: $purple;
+}
+
+.title {
+	font-weight:  $weight-normal;
+	color: $red1;
+	line-height: 1.325;
+}
+
+.intro {
+	font-family: Roboto Slab;	
+}	 
+
+.content {
+	
+	.title {
+		font-weight: $weight-normal;
+	}	
+
+	p {
+		max-width: 55em;	
+	}
+	
+	hr {
+		background-color: #ccc;
+		height: 1px;
+	}	
+	
+	/*.chapeau, &>p:first-of-type {
+		font-size: 1.35em;
+	} */		
+	
+	h1, h2, h3, h4, h5, h6 {
+		font-family: Roboto Slab;
+		font-weight: 400;
+		line-height: 1.325;
+	}	
+	
+	h1 { font-size: 2.5rem; color: $red1; }	
+	h2 { font-size: 2rem; }		
+	h3 { font-size: 1.5rem; }		
+	h4 { font-size: 1.25rem; }		
+	h5 { font-size: 1rem; font-weight: bold; }		
+	h6 { font-size: .9rem; font-weight: bold; }		
+}
+
+.oapen-section-caption {
+	
+	padding-bottom: .5em;
+	border-bottom: solid 1px #ccc;
+	font-family: Roboto Condensed;
+	text-transform: uppercase;
+	color: #666;
+}
+
+.oapen-primary {
+	
+	@media screen and (min-width: 1024px) {
+		
+		padding: 2rem;
+		background-color: #faf6f6;
+		
+		/*@at-root {
+			div:first-of-type &,
+			article:first-of-type &,
+			section:first-of-type & {
+				margin-top: -2rem;	
+			}
+		}*/
+	}	
+}	
+
+.oapen-toc {
+	
+	padding: 2rem;
+	background-color: $light-blue; 
+	
+	.oapen-toc-header {
+		font-size: 1.25rem;
+	}	
+
+	.oapen-two-col {
+		column-count: 2;
+		column-width: 20em;	
+	}	
+
+	a {
+		color: $nice-blue;	
+	}	
+}	
+
+.oapen-summary {
+	
+	padding: 2rem;
+	border-bottom: solid 1px #ddd; 
+}	
+
+
+.oapen-article {
+	
+	margin-bottom: 1rem;
+
+	&:nth-of-type(n+2) {
+
+		// subsequent headers scale one step down
+		h1 { font-size: 2rem; color: #333; }	
+		h2 { font-size: 1.75rem; }	
+		h3 { font-size: 1.5rem; }
+	}	
+	
+	.content {
+		/*
+		padding: 2rem;
+		margin-left: -2rem;
+		margin-top: -2rem;
+		background: #faf6f6;
+		*/
+		
+		p,ul,ol,li {
+			max-width: 50em;	
+		}	
+	}
+
+	.column:empty {
+		display: none;	
+	}			
+}
+
+
+.oapen-linked-articles,
+.oapen-related-articles,
+.oapen-section-topics { 
+	
+	ul {
+		margin: 1em 0;
+		font-size: 95%;
+	}
+}	
+
+.oapen-attachments {
+	
+	background: #999;
+	padding: 1rem 2rem;
+	color: white;
+	a {
+		color: white;
+	}	
+
+	ul {
+		margin: 1.5em 0;
+		padding: 0 1em;
+		
+		li {
+			margin: 1em 0;	
+		}	
+	}
+
+	.is-title {
+		color: white;
+	}	
+}
+
+.oapen-snippets {
+
+	iframe {
+		width: 100%;	
+	}		
+
+	/* height sizing is handled by script */
+
+}	
+
+
+.oapen-blogpost {
+	
+	.oapen-date {
+		opacity: .8;
+		font-size: 80%;
+		font-weight: bolder;
+		text-transform: uppercase;
+	}
+
+	.oapen-blogpost-hbar {
+		
+		font-size: 90%;
+		padding: .5em 1em;
+		background: #dfdfdf;
+		
+		a {
+			color: #444;
+		}	
+		img {
+			vertical-align: middle;
+		}	
+				
+	}	
+}	
+
+.oapen-hypotheses-items {
+	
+	ul {
+		margin: 1em 0;	
+	}	
+
+	li {
+		margin: 0 0 1em 0;
+		padding: 0 0 1em 0;
+		border-bottom: solid 1px #eee;	
+	}	
+
+	.oapen-blogpost-title {
+		font-size: 1.15rem;
+	}	 
+		
+	.oapen-blogpost-description {
+		font-size: 95%;
+	}	
+
+	.oapen-date {
+		opacity: .6;
+		font-size: 80%;
+		font-weight: bolder;
+		text-transform: uppercase;
+	}		
+	
+}	
+
+	

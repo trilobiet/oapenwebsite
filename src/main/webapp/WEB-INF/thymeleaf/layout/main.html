@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+
+<head>
+
+	<meta charset="utf-8"/>
+	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">OAPEN</title>
+	<link rel="stylesheet" th:href="@{/static-assets/css/styles.css?v=1.09}"/>
+	<link rel="stylesheet" th:href="@{/static-assets/css/contenttypes.css?v=1.09}"/>
+	
+	<link rel="stylesheet" th:href="@{/static-assets/fontawesome-pro-5.12.1-web/css/all.min.css?v=1.06}"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+	
+	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
+	<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">	
+
+</head>
+
+<body th:classappend="${bodyClass}">
+
+	<!--
+		HEADER
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<header id="OapenHeader">
+
+		<div class="container">
+
+			<!-- logo, search/deposit/join -->
+			<nav class="oapen-topnav" role="navigation">
+
+				<div class="level topnav">
+
+					<div class="level-left">
+
+						<a th:href="@{'/'}">
+							<img th:src="@{/static-assets/images/layout/oapenlogo_01_colour.jpg}" width="150" alt="Logo Oapen" class="oapen-logo">
+						</a>
+
+					</div>
+
+					<div class="level-right">
+
+						<ul class="buttons">
+
+							<li>
+								<a th:href="${settings.dspace_site}"
+								   class="button oapen-btn-search">
+									Search
+								</a>
+							</li>
+
+							<li th:each="mnusection: ${headerSections}">
+								<a th:text="${mnusection.name}"
+								   th:href="@{'/'}+${mnusection.slug}"
+								   class="button" th:classappend="oapen-btn-+${mnusection.slug}">
+									Button right
+								</a>
+							</li>
+
+						</ul>
+
+					</div>
+
+				</div>
+
+			</nav>
+
+		</div><!-- /container -->
+
+		<nav class="navbar oapen-mainnav" role="navigation">
+
+			<div class="container">
+
+				<div class="navbar-brand">
+
+					<!-- hamburger -->
+					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+						<span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span>
+					</a>
+
+				</div>
+
+				<div id="navbarMain" class="navbar-menu">
+
+					<ul class="navbar-start">
+
+						<li th:each="mnusection: ${menuLeftSections}" class="oapen-nav-dropdown">
+							<th:block th:insert="layout/submenu :: section_navigation">
+								sub menu
+							</th:block>
+						</li>
+
+					</ul>
+					
+					<ul class="navbar-end oapen-nav-right">
+
+						<li th:each="mnusection: ${menuRightSections}" class="oapen-nav-dropdown">
+							<th:block th:insert="layout/submenu :: section_navigation">
+								sub menu
+							</th:block>
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+
+		</nav>
+
+	</header>
+
+	<!--
+		MAIN
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content">
+
+		<hr class="is-sr-only"/>
+
+		<div class="container content">
+
+			<!-- content -->
+			<!-- ============================================================================ -->
+			<!-- This content is only used for static prototyping purposes (natural templates)-->
+			<!-- and is therefore entirely optional, as this markup fragment will be included -->
+			<!-- from "fragments/header.html" at runtime.                                     -->
+			<!-- ============================================================================ -->
+
+			<h1>Static content for prototyping purposes only</h1>
+
+			<p>
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+				Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+				Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+				Phasellus et placerat elit.
+			</p>
+			<!-- /content -->
+
+		</div>
+
+	</main>
+
+
+	<!--
+		FOOTER
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<footer class="footer">
+
+		<hr class="is-sr-only"/>
+
+		<div class="container">
+
+			<div class="oapen-ftr-header">
+				<h3 class="is-sr-only">Oapen - Publishing in European Networks</h3>
+			</div>
+
+			<div class="columns oapen-footer-columns">
+
+		  		<div class="column oapen-footer-nav">
+
+		  			<ul class="menu-list">
+
+						<li th:each="mnusection: ${footerSections}">
+							<a th:href="@{'/'}+${mnusection.slug}"
+							   th:text="${mnusection.name}">
+							   Footer Menu Item
+							</a>
+						</li>
+
+					</ul>
+
+				</div><!-- /footer-nav -->
+
+				<div class="column">
+
+					<div class="oapen-newsletter">
+
+						<h3 class="title is-6">Newsletter</h3>
+
+						<i class="fal fa-envelope-open-text"></i>
+
+						<ul>
+							<li>
+								<a href="http://eepurl.com/kEPGr">
+									Subscribe to our newsletter
+								</a>
+							</li>
+							<li>
+								<a href="http://us4.campaign-archive2.com/home/?u=314fa411ba5eaaee7244c95e1&id=e31e6f80e1">
+									view our news archive
+								</a>
+							</li>
+						</ul>
+
+					</div>
+
+					<div class="oapen-social-links">
+
+						<h3 class="title is-6">Follow us on</h3>
+
+						<ul>
+							<li>
+								<a href="https://twitter.com/oapenbooks">
+									<i class="fab fa-twitter-square"></i>
+									<span class="is-sr-only">Twitter</span>
+								</a>
+							</li>
+							<li>
+								<a href="https://www.facebook.com/OAPENbooks">
+									<i class="fab fa-facebook-square"></i>
+									<span class="is-sr-only">Facebook</span>
+								</a>
+							</li>
+						</ul>
+
+					</div>
+
+				</div>
+
+				<div class="column oapen-credits">
+
+					<h3 class="title is-6">Credits</h3>
+
+					<ul>
+						<li>
+							<a href="https://www.scoss.org/">
+								<img th:src="@{/static-assets/images/logo-scoss.png}" width="100" alt="logo Scoss"/>
+								<span class="is-sr-only">Scoss</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://europa.eu/european-union/index_en">
+								<img th:src="@{/static-assets/images/eu-flag.png}" width="100" alt="logo EU"/>
+								<span class="is-sr-only">European Union</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://www.huma-num.fr/">
+								<img th:src="@{/static-assets/images/logo-humanum.png}" width="100" alt="OAPEN Library is hosted by Huma-Num"/>
+								<span class="is-sr-only">OAPEN Library is hosted by Huma-Num</span>
+							</a>
+						</li>
+					</ul>
+
+				</div>
+
+				<div class="column oapen-addresses">
+
+					<hr class="is-sr-only"/>
+
+					<p>
+						OAPEN is based in the Netherlands, with its registered office in the National Library in The Hague.
+					</p>
+					<p>
+						Director: Eelco Ferwerda
+					</p>
+					<address>
+						Address:<br/>
+						OAPEN Foundation<br/>
+						Prins Willem-Alexanderhof 5<br/>
+						2525 BE The Hague
+					</address>
+					<address>
+						Postal address:<br/>
+						OAPEN Foundation<br/>
+						P.O. Box 90407<br/>
+						2509 LK The Hague
+					</address>
+					<p>
+						Websites:<br/>
+						OAPEN Home: <a href="https://library.oapen.org">www.oapen.org</a><br/>
+						OAPEN Library: <a href="https://library.oapen.org">library.oapen.org</a><br/>
+						DOAB: <a href="https://www.doabooks.org">www.doabooks.org</a>
+					</p>
+
+				</div>
+
+
+			</div><!-- /footer columns -->
+
+
+			<div class="content has-text-centered">
+
+				<div class="is-size-7">
+					&copy;2019-<span th:text="${#dates.year(#dates.createNow())}">2020</span> OAPEN
+					|
+					<a href="https://www.trilobiet.nl">website by Trilobiet</a>
+				</div>
+
+			</div>
+
+		</div>
+
+	</footer>
+
+	<script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
+	<script th:src="@{/static-assets/js/scripts.js?v=1.01}"></script>
+	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+	<!-- /* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */ -->
+	
+	<th:block th:insert="include/googleanalyticsscript :: script">
+		Google Analytics
+	</th:block>
+	
+	<th:block th:insert="include/cookiespopupscript :: thescript">
+		Cookies Consent Popup
+	</th:block>
+	
+	<!----------------------------------- 
+	Website by	 
+    _____     _ _       _     _      _   
+   |_   _| __(_) | ___ | |__ (_) ___| |_ 
+     | || '__| | |/ _ \| '_ \| |/ _ \ __|
+     | || |  | | | (_) | |_) | |  __/ |_ 
+     |_||_|  |_|_|\___/|_.__/|_|\___|\__|
+                                       	
+	2020 www.trilobiet.nl
+	------------------------------------>
+
+</body>
+</html>

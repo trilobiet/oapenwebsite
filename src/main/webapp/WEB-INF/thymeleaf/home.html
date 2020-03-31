@@ -1,0 +1,156 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Online Library and Publication Platform</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
+	<main layout:fragment="content" class="oapen-main home">
+
+		<section class="oapen-home-hero">
+
+			<div class="container">
+
+				<!-- 
+				<h1 class="title is-1">OAPEN</h1>
+				<h2 class="title is-3">Online library and publication platform</h2>
+				-->
+
+				<th:block th:insert="home/herosearch :: hero">
+					Hero content
+				</th:block>
+
+			</div>
+
+		</section>
+
+		<section class="section oapen-page-intro">
+
+			<div class="container section">
+				<p class="is-size-5" th:utext="${home_intro}">
+					Home intro text
+				</p>
+			</div>
+
+		</section>
+		
+		<section class="section oapen-home-showcases">
+
+			<div class="container">
+				<th:block th:insert="home/showcases :: showcases">
+					Search form
+				</th:block>
+			</div>
+
+		</section>
+
+		<!-- /*
+		<section class="section oapen-home-searchpanel">
+
+			<div class="container">
+				<th:block th:insert="home/searchform :: searchform">
+					Search form
+				</th:block>
+			</div>
+
+		</section>
+		*/ -->
+
+		<section class="section oapen-home-featured">
+
+			<div class="container">
+				<th:block th:insert="home/featuredtitles :: featured">
+					Search form
+				</th:block>
+			</div>
+
+		</section>
+
+		<section class="section oapen-home-collections">
+
+			<div class="container">
+				<th:block th:insert="home/funders :: funders">
+					Search form
+				</th:block>
+			</div>
+
+		</section>
+
+		<section class="section oapen-home-toolkit" th:if="${topictoolkit}">
+
+			<div class="container">
+				<th:block th:insert="home/toolkit :: toolkit">
+					Toolkit banner
+				</th:block>
+			</div>
+
+		</section>
+
+		<div class="section">
+
+			<div class="container">
+
+				<div class="columns">
+
+					<div class="column">
+
+						<section class="section oapen-home-news">
+
+							<div class="container">
+							
+								<div class="columns is-multiline">
+
+									<th:block th:insert="home/spotlights :: spotlights">
+										Spotlights
+									</th:block>
+									
+									<th:block th:insert="home/blogposts :: blogposts">
+										Blog Posts
+									</th:block>
+									
+								</div>	
+								
+							</div>
+
+						</section>
+
+					</div>
+
+					<div class="column is-4">
+
+						<section class="section oapen-home-news">
+
+							<div class="container">
+								<th:block th:insert="home/socialmedia :: socialmedia">
+									Social Media
+								</th:block>
+							</div>
+
+						</section>
+
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+
+		<span th:text="${ip}" style="display:none">ip</span>
+
+	</main>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Spotlights
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="blogposts">
+
+	<!-- blogposts -->
+	<div class="column is-half-desktop oapen-home-spotlight" th:each="blogPost: ${rssItems}">
+
+		<div class="title is-6 oapen-section-caption">Blog Post</div>
+
+		<h4 class="title is-5">
+			<a th:href="@{'/blog/?link='}+ ${@viewhelpers.urlEncode(blogPost.link)}" th:text="${blogPost.title}">Title</a>
+		</h4>
+
+		<p th:utext="${@viewhelpers.abbreviateMiddle(blogPost.description,' ... ',350)}">
+			Showcase dummy text
+		</p>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,298 @@
+
+@import "compass";
+@import "compass/css3";
+
+@import "include/settings";
+
+// choose one on production:
+@import "include/hero3";
+
+
+.oapen-funder-hero {
+	
+	margin-top: -3rem;
+	margin-bottom: 1rem;
+	background-color: $oapen-blue;
+	// @include background-image(linear-gradient(left, rgb(11, 98, 157) 0%, rgb(10, 62, 98) 100%)); 
+	// @include background-image(linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .6) 100% ));
+	// background-image: url(../images/bg-wellcome-trust.jpg);
+	background-size: cover;
+	background-position-y: 12%;
+
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
+	.title {
+		color: white;
+		text-shadow: 3px 3px 8px #0004;	
+	}	
+	
+	.title.is-3 {
+		opacity: .95;
+		color: #eee;
+		text-shadow: 2px 2px 4px #0003;	
+	}
+}
+
+.oapen-funder-feature {
+	
+	margin-top: 1.5rem;
+	
+	article h1:first-of-type {
+		// display: none;
+		font-size: 2rem;
+	}	
+
+	.content p:first-of-type {
+		font-size: 1.5rem;	
+	}	
+	
+	.oapen-funder-logo {
+		
+		img {
+			display: block;
+			margin: auto;	
+		}	
+	}	
+	
+	.card {
+		display: block;
+		box-shadow: none;	
+		
+		.card-image {
+			padding: .5em 1.75em 0 1.75em;	
+		}	
+	
+		.card-footer {
+			font-size: 90%;	
+			padding: 0 1em;
+			color: $blue;
+		}	
+	}
+	
+}	
+
+.oapen-home-showcases {
+	
+	.columns {
+		
+		.column {
+			display: flex;
+			
+			&>div {
+				padding: .75rem;	
+				
+				&:before {
+					font-size: 2em;
+					font-family: $FontAwesome;
+					color: #999;
+					content: "\f5fd";
+				}				
+
+				.title a {
+					color: $red;
+				}	
+			}	
+		
+			@media screen and (min-width: 768px) {
+
+				&>div {
+					position: relative;
+					margin-left: 145px;
+					border-left: solid 4px #ccc;
+					
+					&:before {
+						position:absolute;
+						top:32px;				
+						left:-110px;
+						font-size: 4em;
+						font-family: $FontAwesome;
+						color: #999;
+						content: "\f5fd";
+					}				
+				}	
+			}
+		}
+	
+		.oapen-deposit>div:before { content: "\f5fd"; font-weight:300; }	// font-weight:900 = solid
+		.oapen-discovery>div:before { content: "\f57c"; font-weight:300; }
+		.oapen-dissemination>div:before { content: "\f78a"; font-weight:300; }
+		.oapen-scoss>div:before { content: "\f559"; font-weight:300; }
+	}	
+	
+}	
+
+.oapen-home-featured {
+	
+	margin-left: .75em;
+	margin-right: .75em;
+	overflow: hidden;	
+}	
+
+
+#slider {
+	
+	.card {
+		background: transparent;
+		box-shadow: none;
+	}	
+
+	.card-image .image img {
+		height: 180px;
+		width: auto;
+		margin: auto;
+	}	
+}
+
+.oapen-home-searchpanel {
+	
+	.columns {
+		background: $blue;
+		color: white;
+		@include border-radius(6px,6px);
+		
+		.column {
+			padding: 2rem;
+		}	
+	}
+
+	.title {
+		color: white;
+	}	
+	
+	ul {
+		column-count: 2;
+	}		
+
+	a {
+		text-decoration: none !important;
+		color: white;	
+	}	
+}	
+
+
+.oapen-home-collections {
+	
+	.column {
+	}	
+
+	a {
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		align-items: center;		
+	}
+	
+	figure {
+		
+		text-align: center;
+		
+		img {
+			max-width: 80%;
+		}	
+	
+		figcaption {
+			display: none; 
+		}		
+	}	
+	
+}
+
+
+.oapen-home-spotlight {
+	
+	.column {
+		
+		height: 100%;
+		
+		&>div {
+			font-size: 87.5%;	
+			border-top: solid 1px #aaa;
+			padding-top: 1.25rem;	
+		}	
+	}	
+
+	img {
+		width: 125px;	
+		max-width: 30%; // mobile scaling
+		float: left;
+		margin: 0 20px 20px 0;	
+	}	
+		
+	a {
+		color: $red;		
+	}		
+}
+	
+	
+.oapen-home-toolkit {
+ 	
+ 	padding-top: 0;
+ 	padding-bottom: 0;
+ 	margin-top: 1.5rem;
+ 	margin-bottom: 1.5rem;
+ 	
+ 	background: #ffa500cc;
+ 	
+ 	.column {
+ 		
+ 		background: orange;
+ 		
+	 	&:first-child {
+	 		text-align: right;
+	 		padding: 3.5rem 5% 3.5rem 1rem; 
+	 	}	
+
+	 	&:last-child {
+	 		padding-top: 3.5rem;	
+	 		padding-bottom: 3.5rem;
+	 		padding-right: 2rem;
+	 	}	
+ 	}	
+ 
+ 	.oapen-toolkit-title {
+ 		font-size: 2.5rem;
+ 		font-family: Roboto Slab;
+ 		font-weight: 500;
+ 		color: #fff;	
+ 		
+ 		span { 
+ 			opacity: .85;
+ 			font-weight: 400;
+ 		}
+ 	
+	 	i {
+	 		display: block;
+	 		margin-top: 20px;	
+	 		opacity: .9;
+	 		color: white;
+	 		font-size: 6rem;
+	 	}	
+ 	
+ 	}	
+ 
+ 	.oapen-toolkit-desc {
+ 		h1,h2,h3,h4,h5,h6 {
+ 			margin-bottom: 1.5rem;
+ 			line-height: 1.125;
+ 			font-size: 1.25rem;
+ 			font-weight: 400;
+ 			color: black;
+ 		}		
+ 	}	
+ 
+ 	.oapen-toolkit-buttons {
+ 		margin-top: 1em;
+ 		padding-top: 1em;
+ 		.button a {
+ 			color: white;	
+ 		}		
+ 	}	
+ 	
+ 	.title {
+ 		color: #000;
+ 	}	
+ 	
+ }	
+
+	 	
