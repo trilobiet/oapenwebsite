@@ -18,7 +18,7 @@
 
 	<div class="columns">
 
-		<form th:action="${settings.dspace_site}+'/discover'" class="column">
+		<form th:action="${settings.dspace_site+'discover'}" class="column">
 
 			<h3 class="title is-3">
 				Search OAPEN
@@ -44,10 +44,10 @@
 			</h3>
 
 			<ul>
-				<li><a th:href="${settings.dspace_site}+'browse?type=classification_text'">Subject</a></li>
-				<li><a th:href="${settings.dspace_site}+'browse?type=publisher'">Publisher</a></li>
-				<li><a th:href="${settings.dspace_site}+'browse?type=language'">Language</a></li>
-				<li><a th:href="${settings.dspace_site}+'browse?type=collection'">Collections</a></li>
+				<li><a th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a></li>
+				<li><a th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a></li>
+				<li><a th:href="${settings.dspace_site+'browse?type=language'}">Language</a></li>
+				<li><a th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a></li>
 			</ul>
 
 		</div>

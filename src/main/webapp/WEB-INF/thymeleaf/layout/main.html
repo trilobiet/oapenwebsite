@@ -54,7 +54,7 @@
 
 							<li th:each="mnusection: ${headerSections}">
 								<a th:text="${mnusection.name}"
-								   th:href="@{'/'}+${mnusection.slug}"
+								   th:href="@{'/'+${mnusection.slug}}"
 								   class="button" th:classappend="oapen-btn-+${mnusection.slug}">
 									Button right
 								</a>
@@ -165,7 +165,7 @@
 		  			<ul class="menu-list">
 
 						<li th:each="mnusection: ${footerSections}">
-							<a th:href="@{'/'}+${mnusection.slug}"
+							<a th:href="@{'/'+${mnusection.slug}}"
 							   th:text="${mnusection.name}">
 							   Footer Menu Item
 							</a>

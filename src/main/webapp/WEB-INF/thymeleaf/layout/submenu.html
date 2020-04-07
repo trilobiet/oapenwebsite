@@ -16,7 +16,7 @@
 <th:block th:fragment="section_navigation">
 
 	<a th:text="${mnusection.name}"
-	   th:href="@{'/'}+${mnusection.slug}"
+	   th:href="@{'/'+${mnusection.slug}}"
 	   class="navbar-item navbar-link"
 	   th:classappend="${section!=null and mnusection.id==section.id}?'is-active'">
 		Navbar Item
@@ -26,7 +26,7 @@
 		<div class="container is-fluid">
 			<ul>
 				<li th:each="mnutopic: ${mnusection.topics}">
-					<a th:href="@{'/'}+${mnusection.slug}+'/'+${mnutopic.slug}"
+					<a th:href="@{'/'+${mnusection.slug}+'/'+${mnutopic.slug}}"
 					   th:text="${mnutopic.name}"
 					   class="navbar-item">
 						topic name

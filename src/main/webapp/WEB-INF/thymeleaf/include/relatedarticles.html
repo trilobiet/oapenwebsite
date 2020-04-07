@@ -19,7 +19,7 @@
 			<ul>
 
 				<li th:each="article:${linked}">
-					<a th:href="@{'/article/'}+${article.slug}"
+					<a th:href="@{'/article/'+${article.slug}}"
 					   th:text="${article.title}">article title</a>
 				</li>
 
@@ -34,7 +34,7 @@
 			<ul>
 
 				<li th:each="article:${related}">
-					<a th:href="@{'/article/'}+${article.slug}"
+					<a th:href="@{'/article/'+${article.slug}}"
 					   th:text="${article.title}">article title</a>
 				</li>
 

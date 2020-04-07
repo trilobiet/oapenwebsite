@@ -21,7 +21,7 @@
 		<div class="title is-6 oapen-section-caption">Blog Post</div>
 
 		<h4 class="title is-5">
-			<a th:href="@{'/blog/?link='}+ ${@viewhelpers.urlEncode(blogPost.link)}" th:text="${blogPost.title}">Title</a>
+			<a th:href="@{'/blog/?link='+ ${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">Title</a>
 		</h4>
 
 		<p th:utext="${@viewhelpers.abbreviateMiddle(blogPost.description,' ... ',350)}">

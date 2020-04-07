@@ -21,7 +21,7 @@
 
 			<div>
 				<h3 class="title is-3">
-					<a th:href="@{'/article/'}+${article.slug}" th:text="${article.title}">
+					<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
 						Showcase
 					</a>
 				</h3>

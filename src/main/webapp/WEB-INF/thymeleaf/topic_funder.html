@@ -62,7 +62,7 @@
 									<li th:if="${articleStat.index>0}"
 									    th:each="article: ${topic.articles}">
 				
-										<a th:href="@{'/article/'}+${article.slug}"
+										<a th:href="@{'/article/'+${article.slug}}"
 										   th:text="${article.title}">
 											Link to Article
 										</a>
@@ -151,7 +151,7 @@
 					<!-- Left side -->
 					<div class="level-left">
 					
-						<form th:action="${settings.dspace_site}+'discover'" class="level-item">
+						<form th:action="${settings.dspace_site+'discover'}" class="level-item">
 							<div class="field has-addons">
 								<p class="control">
 									<input class="input" type="text" name="query" placeholder="Search term">
@@ -175,7 +175,7 @@
 					<div class="level-right">
 						<p class="level-item">
 							<a class="button is-danger"
-							   th:href="${settings.dspace_site}+'browse?type=collection&value='+${collection}">
+							   th:href="${settings.dspace_site+'browse?type=collection&value='+collection}">
 								<span>Browse this collection</span>
 								<span class="icon is-small">
 									<i class="fas fa-caret-circle-right" aria-hidden="true"></i>

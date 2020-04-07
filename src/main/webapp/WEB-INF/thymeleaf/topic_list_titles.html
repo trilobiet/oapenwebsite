@@ -39,7 +39,7 @@
 
 			<ul th:classappend="${#lists.size(topic.articles) gt 7} ? 'oapen-two-col'">
 				<li th:each="article : ${topic.articles}">
-					<a th:href="@{'/'}+${section.slug}+'/article/'+${article.slug}" th:text="${article.title}">
+					<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}" th:text="${article.title}">
 						Link to article
 					</a>
 				</li>

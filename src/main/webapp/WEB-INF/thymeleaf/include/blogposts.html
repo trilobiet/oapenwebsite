@@ -23,7 +23,7 @@
 						THU 26 Mar 2020				
 					</p>
 					<h4 class="oapen-blogpost-title">
-						<a th:href="@{'/blog/?link='}+ ${@viewhelpers.urlEncode(blogPost.link)}" th:text="${blogPost.title}">
+						<a th:href="@{'/blog/?link='+${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">
 							Blogpost title
 						</a>
 					</h4>

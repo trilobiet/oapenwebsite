@@ -24,7 +24,7 @@
 						-
 						<span th:text="${section.index}">index</span>
 						<h3>
-							<a th:href="@{'/'}+${section.slug}" th:text="${section.name}">
+							<a th:href="@{'/'+${section.slug}}" th:text="${section.name}">
 								Section name
 							</a>
 						</h3>
@@ -34,14 +34,14 @@
 
 								<span th:text="${topic.index}">topic index</span>
 
-								<a th:href="@{'/topic/'}+${topic.slug}" th:text="${topic.name}">
+								<a th:href="@{'/topic/'+${topic.slug}}" th:text="${topic.name}">
 									topic name
 								</a>
 
 								<ul>
 									<li th:each="article: ${topic.articles}">
 
-										<a th:href="@{'/article/'}+${article.slug}"
+										<a th:href="@{'/article/'+${article.slug}}"
 										   th:text="${article.title}">article title</a>
 
 									</li>

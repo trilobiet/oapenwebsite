@@ -23,7 +23,7 @@
 	<div class="columns">
 
 		<div class="column" th:each="funder: ${funders}">
-			<a th:href="@{'/topic/'}+${funder.slug}">
+			<a th:href="@{'/topic/'+${funder.slug}}">
 				<figure>
 					<img th:src="${funderlogos.get(funder.id)}" th:alt="${'Logo '+funder.name}">
 					<figcaption th:text="${funder.name}">
