@@ -57,16 +57,6 @@ public class TopicController extends BaseController {
 
 			String funderUrl = CmsUtils.getParamValue(topic, "homepage");
 			mv.addObject("funderUrl",funderUrl); 
-			
-			try { // even when this fails, page must be shown
-				String collection = CmsUtils.getParamValue(topic, "collection");
-				List<RepositoryItem> featuredItems = repositoryService.getFunderItems(collection, 12);
-				mv.addObject("collection", collection);
-				mv.addObject("featuredItems", featuredItems);
-			}
-			catch( Exception e) {
-				log.error(e);
-			}
 		}
 		else {
 

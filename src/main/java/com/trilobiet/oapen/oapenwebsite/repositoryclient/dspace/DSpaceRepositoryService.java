@@ -57,6 +57,8 @@ public class DSpaceRepositoryService implements RepositoryService {
 		ObjectMapper mapper = new ObjectMapper();
 		DSpaceItem[] items;
 		
+		// TODO set a timeout by using an InputStream, then pass that to the mapper
+		
 		try {
 			items = mapper.readValue(new URL(url), DSpaceItem[].class);
 		} catch (IOException e) {

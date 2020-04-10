@@ -32,24 +32,6 @@ public class HomeController extends BaseController {
 		
 		// Catch all errors here: home page must always be rendered, erroneous sections can be empty
 		
-		List<RepositoryItem> featuredItems = null;
-		try {
-			featuredItems = repositoryService.getFeaturedItems(10);
-			mv.addObject("featuredItems", featuredItems);
-		} catch (Exception e) {
-			log.warn(e);
-			log.warn("Will fall back to list of newest items.");
-		}
-
-		if (featuredItems == null || featuredItems.isEmpty()) {
-			try {
-				featuredItems = repositoryService.getNewestItems(10);
-				mv.addObject("featuredItems", featuredItems);
-			} catch (Exception e) {
-				log.error(e);
-			}
-		}
-		
 		try {
 			Optional<Snippet> introText = snippetService.getSnippet("home-intro");
 			if (introText.isPresent() ) mv.addObject("home_intro",introText.get().getCode());

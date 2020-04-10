@@ -7,8 +7,8 @@
 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">OAPEN</title>
-	<link rel="stylesheet" th:href="@{/static-assets/css/styles.css?v=1.09}"/>
-	<link rel="stylesheet" th:href="@{/static-assets/css/contenttypes.css?v=1.09}"/>
+	<link rel="stylesheet" th:href="@{/static-assets/css/styles.css?v=1.10}"/>
+	<link rel="stylesheet" th:href="@{/static-assets/css/contenttypes.css?v=1.10}"/>
 	
 	<link rel="stylesheet" th:href="@{/static-assets/fontawesome-pro-5.12.1-web/css/all.min.css?v=1.06}"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
@@ -16,7 +16,7 @@
 	
 	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
 	<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">	
-
+	
 </head>
 
 <body th:classappend="${bodyClass}">
@@ -233,15 +233,20 @@
 							</a>
 						</li>
 						<li>
-							<a href="https://europa.eu/european-union/index_en">
-								<img th:src="@{/static-assets/images/eu-flag.png}" width="100" alt="logo EU"/>
-								<span class="is-sr-only">European Union</span>
-							</a>
-						</li>
-						<li>
 							<a href="https://www.huma-num.fr/">
 								<img th:src="@{/static-assets/images/logo-humanum.png}" width="100" alt="OAPEN Library is hosted by Huma-Num"/>
 								<span class="is-sr-only">OAPEN Library is hosted by Huma-Num</span>
+							</a>
+						</li>
+						<li>
+							<a href="https://europa.eu/european-union/index_en">
+								<img th:src="@{/static-assets/images/eu-flag.png}" width="100" alt="logo EU"/>
+								<span class="is-sr-only">European Union</span>
+								<br/>
+								<small class="is-size-7">
+									This project received funding from the European Union’s Horizon 2020 research 
+									and innovation programme under grant agreement No 871069.								
+								</small>
 							</a>
 						</li>
 					</ul>
@@ -263,12 +268,6 @@
 						OAPEN Foundation<br/>
 						Prins Willem-Alexanderhof 5<br/>
 						2525 BE The Hague
-					</address>
-					<address>
-						Postal address:<br/>
-						OAPEN Foundation<br/>
-						P.O. Box 90407<br/>
-						2509 LK The Hague
 					</address>
 					<p>
 						Websites:<br/>
@@ -297,7 +296,10 @@
 
 	</footer>
 
+	<!-- / Local version of the cdn scripts are available in static-assets/js/ in case the CDN disappears / -->
+
 	<script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
 	<script th:src="@{/static-assets/js/scripts.js?v=1.01}"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<!-- /* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */ -->
