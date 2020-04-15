@@ -2,13 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Spring Boot Thymeleaf Application - Fragments</title>
+    <meta name=”robots” content=”noindex,follow”/>
+    <title>OAPEN Funder Selection</title>
 </head>
 <body>
-
-<div th:fragment="header">
-    <h1>Thymeleaf Fragments</h1>
-</div>
 
 <!--
 	Searchform
@@ -16,27 +13,35 @@
 
 <th:block th:fragment="fundertitles">
 
-	<div class="columns is-multiline is-mobile" id="FunderTitles">
+	<div id="FunderTitles">
 
-		<div class="column is-one-sixth-tablet is-one-third-mobile" th:each="item: ${featuredItems}">
-
-			<a class="card" th:href="${item.url}">
-				<div class="card-image">
-					<figure class="image is-2by3">
-						<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
-					</figure>
-					<!-- /* figcaption th:text="${dspace_api}+${item.thumbnailPath}"></figcaption> */ -->
-				</div>
-				<footer class="card-footer">
-					<span class="card-footer-item" th:text="${item.title}">
-						Ut wisi enim ad minim veniam
-					</span>
-				</footer>
-			</a>
-
-		</div>
-
-	</div><!-- columns -->
+		<h3 class="title is-5">
+			From the <span th:text="${topic.name}">Funder name</span> collection
+		</h3>
+	
+		<div class="columns is-multiline is-mobile">
+		
+			<div class="column is-one-sixth-tablet is-one-third-mobile" th:each="item: ${featuredItems}">
+	
+				<a class="card" th:href="${item.url}">
+					<div class="card-image">
+						<figure class="image is-2by3">
+							<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
+						</figure>
+						<!-- /* figcaption th:text="${dspace_api}+${item.thumbnailPath}"></figcaption> */ -->
+					</div>
+					<footer class="card-footer">
+						<span class="card-footer-item" th:text="${item.title}">
+							Ut wisi enim ad minim veniam
+						</span>
+					</footer>
+				</a>
+	
+			</div>
+	
+		</div><!-- columns -->
+	
+	</div>	
 				
 </th:block>
 

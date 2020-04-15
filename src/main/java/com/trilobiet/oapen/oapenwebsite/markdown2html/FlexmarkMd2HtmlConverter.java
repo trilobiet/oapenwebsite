@@ -6,6 +6,7 @@ import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.vladsch.flexmark.ext.attributes.AttributesExtension;
 import com.vladsch.flexmark.ext.footnotes.FootnoteExtension;
 import com.vladsch.flexmark.ext.tables.TablesExtension;
 import com.vladsch.flexmark.ext.typographic.TypographicExtension;
@@ -29,7 +30,9 @@ public class FlexmarkMd2HtmlConverter implements Md2HtmlConverter {
 		options.set(Parser.EXTENSIONS, Arrays.asList(
 			FootnoteExtension.create(),
 			TablesExtension.create(),
-			TypographicExtension.create()
+			TypographicExtension.create(),
+			// allow for attributes like [Link name](https://www.your.url){target="_blank" title="interesting"}
+			AttributesExtension.create()  
 		));
 		
 		//options.set(Parser.HEADING_NO_LEAD_SPACE, true);

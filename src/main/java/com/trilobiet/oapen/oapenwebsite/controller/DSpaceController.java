@@ -58,6 +58,7 @@ public class DSpaceController extends BaseController {
 					.orElseThrow( () -> new ResourceNotFoundException() );
 			String collection = CmsUtils.getParamValue(topic, "collection");
 			List<RepositoryItem> featuredItems = repositoryService.getFunderItems(collection, 12);
+			mv.addObject("topic", topic);
 			mv.addObject("collection", collection);
 			mv.addObject("featuredItems", featuredItems);
 		}

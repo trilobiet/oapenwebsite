@@ -5,7 +5,7 @@
 	<groupId>com.trilobiet.oapen</groupId>
 	<artifactId>oapenwebsite</artifactId>
 	<packaging>war</packaging>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Spring 4 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 

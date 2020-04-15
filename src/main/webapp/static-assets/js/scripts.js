@@ -32,7 +32,7 @@ jQuery(document).ready( function() {
 		$(this).load( src, function() {
 			bulmaCarousel.attach('#slider', {
 				slidesToScroll: 1,
-				slidesToShow: 6,
+				slidesToShow: 7,
 			});
 		});				
 	});	  

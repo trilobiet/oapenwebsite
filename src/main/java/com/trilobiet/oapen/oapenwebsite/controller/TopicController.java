@@ -46,6 +46,9 @@ public class TopicController extends BaseController {
 		else if (topic.getType().equals("funder")) {
 			
 			mv =  new ModelAndView("topic_funder");
+			
+			String collection = CmsUtils.getParamValue(topic, "collection");
+			mv.addObject("collection", collection);
 
 			String logoName = CmsUtils.getParamValue(topic, "logo");
 			File fl = fileService.getFirstWithName(logoName).orElseGet(() -> new File());
