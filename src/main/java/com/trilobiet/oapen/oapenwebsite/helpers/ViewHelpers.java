@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.apache.commons.text.WordUtils;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
@@ -54,6 +55,12 @@ public class ViewHelpers {
 		
 		return r;
 	}
+
+	public static String abbreviate(String input, int length) {
+		
+		return WordUtils.abbreviate(input, length, -1, "...");
+	}
+	
 	
 	/**
 	 * https://stackoverflow.com/questions/31868404/how-to-abbreviate-string-at-the-middle-without-cutting-words

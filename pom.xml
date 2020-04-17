@@ -5,7 +5,7 @@
 	<groupId>com.trilobiet.oapen</groupId>
 	<artifactId>oapenwebsite</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<name>Spring 4 Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
@@ -129,6 +129,13 @@
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
 			<version>2.10.6</version>
+		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-text</artifactId>
+			<version>1.8</version>
 		</dependency>
 
 	</dependencies>

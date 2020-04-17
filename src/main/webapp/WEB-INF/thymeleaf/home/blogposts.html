@@ -24,7 +24,7 @@
 			<a th:href="@{'/blog/?link='+ ${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">Title</a>
 		</h4>
 
-		<p th:utext="${@viewhelpers.abbreviateMiddle(blogPost.description,' ... ',350)}">
+		<p th:utext="${@viewhelpers.abbreviate(blogPost.description, 300)}">
 			Showcase dummy text
 		</p>
 

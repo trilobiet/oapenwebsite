@@ -27,7 +27,7 @@
 							Blogpost title
 						</a>
 					</h4>
-					<p class="oapen-blogpost-description" th:utext="${@viewhelpers.abbreviateMiddle(blogPost.description,' ... ',300)}">
+					<p class="oapen-blogpost-description" th:utext="${@viewhelpers.abbreviate(blogPost.description,300)}">
 						Blogpost Description
 					</p>
 					 

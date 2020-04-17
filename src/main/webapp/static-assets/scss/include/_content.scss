@@ -49,6 +49,10 @@ h1.title {
 	h4 { font-size: 1.25rem; }		
 	h5 { font-size: 1rem; font-weight: bold; }		
 	h6 { font-size: .9rem; font-weight: bold; }		
+	
+	a[target="_blank"] { 
+		@include fa-after('\f08e', .85em);
+	} 
 }
 
 .oapen-section-caption {
