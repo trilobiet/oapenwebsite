@@ -16,7 +16,6 @@ import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
 import com.trilobiet.oapen.oapenwebsite.data.ResourceNotFoundException;
 import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
-import com.trilobiet.oapen.oapenwebsite.repositoryclient.RepositoryItem;
 
 @Controller
 public class TopicController extends BaseController {
