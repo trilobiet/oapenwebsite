@@ -11,11 +11,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.File;
-import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
 import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 import com.trilobiet.oapen.oapenwebsite.rss.RssItem;
 
@@ -32,21 +34,21 @@ public class HomeController extends BaseController {
 		// Catch all errors here: home page must always be rendered, erroneous sections can be empty
 		
 		try {
-			Optional<Snippet> introText = snippetService.getSnippet("home-intro");
+			Optional<SnippetImp> introText = snippetService.getSnippet("home-intro");
 			if (introText.isPresent() ) mv.addObject("home_intro",introText.get().getCode());
 		} catch (Exception e) {
 			log.error(e);
 		}
 		
 		try {
-			List<Article> showcases = articleService.getByFieldContainsValue("params", "showcase=true");
+			List<ArticleImp> showcases = articleService.getByFieldContainsValue("params", "showcase=true");
 			mv.addObject("showcases",showcases);
 		} catch (Exception e) {
 			log.error(e);
 		}
 		
 		try {
-			List<Topic> topics = topicService.getByFieldContainsValue("params", "topic=toolkit");
+			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=toolkit");
 			if(topics.isEmpty()) mv.addObject("topictoolkit",null);
 			else {
 				Topic topic = topics.get(0);
@@ -59,7 +61,7 @@ public class HomeController extends BaseController {
 		}
 
 		try {
-			List<Article> spotlights = articleService.getByFieldValue("spotlight", "true");
+			List<ArticleImp> spotlights = articleService.getByFieldValue("spotlight", "true");
 			mv.addObject("spotlights",spotlights);
 		} catch (Exception e) {
 			log.error(e);
@@ -74,15 +76,15 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			Optional<Snippet> otwitter = snippetService.getSnippet("twitter-timeline");
-			Snippet ttl = otwitter.orElseGet(()->new Snippet());
+			Optional<SnippetImp> otwitter = snippetService.getSnippet("twitter-timeline");
+			Snippet ttl = otwitter.orElseGet(()->new SnippetImp());
 			mv.addObject("twittertimeline",ttl);
 		} catch (Exception e) {
 			log.error(e);
 		}
 		
 		try {
-			List<Topic> funders = topicService.getByFieldValue("type", "funder");
+			List<TopicImp> funders = topicService.getByFieldValue("type", "funder");
 			mv.addObject("funders",funders);
 
 			// Get associated logo url (digital ocean) for all funders
@@ -108,7 +110,7 @@ public class HomeController extends BaseController {
 	public ModelAndView showSitemap() throws Exception {
 		
 		ModelAndView mv = new ModelAndView("sitemap"); 
-		List<Section> sections = topicService.getSections();
+		List<SectionImp> sections = sectionService.getSections();
 		mv.addObject("sections", sections);
 
 		return mv;

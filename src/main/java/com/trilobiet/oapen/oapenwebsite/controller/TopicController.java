@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.trilobiet.graphqlweb.datamodel.Article;
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
 import com.trilobiet.graphqlweb.datamodel.File;
-import com.trilobiet.graphqlweb.datamodel.Section;
 import com.trilobiet.graphqlweb.datamodel.Topic;
-import com.trilobiet.oapen.oapenwebsite.data.ResourceNotFoundException;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 
 @Controller
@@ -32,7 +32,7 @@ public class TopicController extends BaseController {
 		Topic topic = topicService.getTopicBySlug(slug)
 				.orElseThrow( () -> new ResourceNotFoundException() );
 		
-		List<Article> articles = articleService.getArticlesByTopic(topic);
+		List<ArticleImp> articles = articleService.getArticlesByTopic(topic);
 		
 		ModelAndView mv = new ModelAndView("");
 
@@ -50,11 +50,11 @@ public class TopicController extends BaseController {
 			mv.addObject("collection", collection);
 
 			String logoName = CmsUtils.getParamValue(topic, "logo");
-			File fl = fileService.getFirstWithName(logoName).orElseGet(() -> new File());
+			File fl = fileService.getFirstWithName(logoName).orElseGet(() -> new FileImp());
 			mv.addObject("funderLogo",fl.getUrl()); 
 
 			String bannerName = CmsUtils.getParamValue(topic, "banner");
-			File fb = fileService.getFirstWithName(bannerName).orElseGet(() -> new File());
+			File fb = fileService.getFirstWithName(bannerName).orElseGet(() -> new FileImp());
 			mv.addObject("funderBanner",fb.getUrl()); 
 
 			String funderUrl = CmsUtils.getParamValue(topic, "homepage");
@@ -78,8 +78,8 @@ public class TopicController extends BaseController {
 		}
 		
 		if(sectionslug != null) {
-			Optional<Section> osection = topicService.getSectionBySlug(sectionslug);
-			mv.addObject("section",osection.orElse(new Section()));
+			Optional<SectionImp> osection = sectionService.getSectionBySlug(sectionslug);
+			mv.addObject("section",osection.orElse(new SectionImp()));
 		}		
 
 		mv.addObject("topic", topic);

@@ -23,7 +23,7 @@
 			<artifactId>graphqlweb</artifactId>
 			<version>1.0.0</version>
 			<scope>system</scope>
-			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/graphqlweb-0.0.37-SNAPSHOT-jar-with-dependencies.jar</systemPath>
+			<systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/graphqlweb-0.0.38-generics-SNAPSHOT-jar-with-dependencies.jar</systemPath>
 		</dependency>	
 	
 		<dependency>
@@ -80,26 +80,6 @@
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>2.0.5</version>
-		</dependency>		
-
-		<!-- Option 1: Markdown to HTML conversion -->
-		<dependency>
-			<groupId>com.atlassian.commonmark</groupId>
-			<artifactId>commonmark</artifactId>
-			<version>0.13.1</version>
-		</dependency>		
-		<!-- Option 1: Markdown to HTML Tables conversion -->
-		<dependency>
-			<groupId>com.atlassian.commonmark</groupId>
-			<artifactId>commonmark-ext-gfm-tables</artifactId>
-			<version>0.13.1</version>
-		</dependency>		
-		
-		<!-- Option 2: Markdown to HTML conversion -->
-		<dependency>
-		    <groupId>com.vladsch.flexmark</groupId>
-		    <artifactId>flexmark-all</artifactId>
-		    <version>0.60.2</version>
 		</dependency>		
 
 		<!-- Json  -->

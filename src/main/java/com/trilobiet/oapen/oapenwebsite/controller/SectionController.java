@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.oapen.oapenwebsite.data.ResourceNotFoundException;
 import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 
 @Controller
@@ -19,7 +18,7 @@ public class SectionController extends BaseController {
 
 		ModelAndView mv = new ModelAndView("section");
 		
-		Section section = topicService.getSectionBySlug(slug)
+		Section section = sectionService.getSectionBySlug(slug)
 				.orElseThrow(ResourceNotFoundException::new);
 		
 		mv.addObject("section", section);

@@ -10,8 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.oapen.oapenwebsite.data.TopicService;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.SectionService;
 import com.trilobiet.oapen.oapenwebsite.helpers.oapen.OapenMenuParser;
 
 /**
@@ -22,7 +22,7 @@ import com.trilobiet.oapen.oapenwebsite.helpers.oapen.OapenMenuParser;
 public class GlobalAdvice {
 	
 	@Autowired
-	protected TopicService topicService;
+	protected SectionService<SectionImp> sectionService;
 	
 	@Autowired
 	public Environment environment;	
@@ -41,8 +41,8 @@ public class GlobalAdvice {
     @ModelAttribute(name="navigation")
     public void addAttributes(Model model) throws Exception {
 
-		List<Section> sections = topicService.getSections();
-		OapenMenuParser menuparser = new OapenMenuParser(sections);
+		List<SectionImp> sections = sectionService.getSections();
+		OapenMenuParser<SectionImp> menuparser = new OapenMenuParser<>(sections);
 		model.addAttribute("headerSections", menuparser.getSectionsForHeader());
 		model.addAttribute("menuLeftSections", menuparser.getSectionsForMainLeft());
 		model.addAttribute("menuRightSections", menuparser.getSectionsForMainRight());

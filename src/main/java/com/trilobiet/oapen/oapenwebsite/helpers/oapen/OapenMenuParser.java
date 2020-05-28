@@ -6,40 +6,40 @@ import java.util.stream.Collectors;
 
 import com.trilobiet.graphqlweb.datamodel.Section;
 
-public class OapenMenuParser {
+public class OapenMenuParser<S extends Section> {
 
-	final List<Section> sections;
+	final List<S> sections;
 
-	public OapenMenuParser(List<Section> sections) {
+	public OapenMenuParser(List<S> sections) {
 		this.sections = sections;
 	}
 	
-	public List<Section> getSectionsForHeader() {
+	public List<S> getSectionsForHeader() {
 		
 		return getMenu(3);
 	}
 
-	public List<Section> getSectionsForMainLeft() {
+	public List<S> getSectionsForMainLeft() {
 		
 		return getMenu(1);
 	}
 	
-	public List<Section> getSectionsForMainRight() {
+	public List<S> getSectionsForMainRight() {
 		
 		return getMenu(2);
 	}
 	
-	public List<Section> getSectionsForFooter() {
+	public List<S> getSectionsForFooter() {
 		
-		List<Section> f = new ArrayList<>(getMenu(1));
+		List<S> f = new ArrayList<>(getMenu(1));
 		f.addAll(getMenu(2));
 		return f;
 	}
 	
 
-	private List<Section> getMenu(final int group) {
+	private List<S> getMenu(final int group) {
 
-		List<Section> list = sections.stream()
+		List<S> list = sections.stream()
 			.filter( section -> section.getGroupNumber() == group )
 			.filter( section -> section.isHasMenuItem() == true )
 			.collect(Collectors.toList());
