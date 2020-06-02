@@ -5,6 +5,7 @@
 	maxBytesLocalHeap="200M">
 
 	<diskStore path="java.io.tmpdir"/>
+	<sizeOfPolicy maxDepth="10000" maxDepthExceededBehavior="continue"/>
 	
 	<!-- Total of added caches may not exceed maxBytesLocalHeap of entire cache -->
 	
@@ -28,11 +29,6 @@
 		timeToLiveSeconds="36000"
 		overflowToDisk="true"/>
 		
-	<cache name="relationsCache"
-		maxBytesLocalHeap="25M"
-		timeToLiveSeconds="270"
-		overflowToDisk="true"/>
-
 	<cache name="dspaceCache"
 		maxBytesLocalHeap="25M"
 		timeToLiveSeconds="14400"

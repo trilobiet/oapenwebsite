@@ -32,7 +32,7 @@ public class ThymeleafConfiguration {
 		SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
 		templateResolver.setPrefix("/WEB-INF/thymeleaf/");
 		templateResolver.setSuffix(".html");
-		templateResolver.setTemplateMode("HTML5");
+		templateResolver.setTemplateMode("HTML");
 		templateResolver.setCharacterEncoding("UTF-8");
 		templateResolver.setCacheable(false); // false so you do not need to reboot tomcat after every change
 		return templateResolver;

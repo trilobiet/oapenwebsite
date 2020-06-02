@@ -1,11 +1,14 @@
 package com.trilobiet.oapen.oapenwebsite.repositoryclient.dspace;
 
+import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Bitstream {
+public class Bitstream implements Serializable {
+	
+	private static final long serialVersionUID = 593346853366131724L;
 
 	private String name, bundleName;
 	private List<Metadata> metadata;

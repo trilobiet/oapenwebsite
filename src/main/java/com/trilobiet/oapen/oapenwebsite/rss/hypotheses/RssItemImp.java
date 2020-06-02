@@ -1,11 +1,14 @@
 package com.trilobiet.oapen.oapenwebsite.rss.hypotheses;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import com.trilobiet.oapen.oapenwebsite.rss.RssItem;
 
-public class RssItemImp implements RssItem {
+public class RssItemImp implements RssItem, Serializable {
 	
+	private static final long serialVersionUID = -200073972568322341L;
+
 	private String title, author, description, contents, link;
 	private LocalDate date;
 	

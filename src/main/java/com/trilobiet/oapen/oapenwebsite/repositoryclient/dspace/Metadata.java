@@ -1,10 +1,14 @@
 package com.trilobiet.oapen.oapenwebsite.repositoryclient.dspace;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Metadata {
+public class Metadata implements Serializable {
 
+	private static final long serialVersionUID = 8429936168497733095L;
+	
 	private String key, value, qualifier;
 
 	public String getKey() {

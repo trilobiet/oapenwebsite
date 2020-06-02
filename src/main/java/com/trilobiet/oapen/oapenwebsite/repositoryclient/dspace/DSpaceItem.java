@@ -1,5 +1,6 @@
 package com.trilobiet.oapen.oapenwebsite.repositoryclient.dspace;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -10,8 +11,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.trilobiet.oapen.oapenwebsite.repositoryclient.RepositoryItem;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class DSpaceItem implements RepositoryItem {
+public class DSpaceItem implements RepositoryItem, Serializable {
 	
+	private static final long serialVersionUID = 5161385077323821050L;
+
 	@JsonProperty("name") 
 	private String name;
 	private String handle;

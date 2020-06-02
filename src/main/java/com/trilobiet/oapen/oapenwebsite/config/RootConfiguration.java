@@ -40,6 +40,8 @@ import com.trilobiet.oapen.oapenwebsite.rss.hypotheses.HypothesesRssService;
 )
 public class RootConfiguration {
 	
+	// TODO: ehcache re-connect to services
+	
 	@Autowired
 	public Environment env;	
 	
@@ -53,7 +55,7 @@ public class RootConfiguration {
 		return new Md2HtmlSectionConverter<SectionImp>( markdownflavour() );
 	}
 
-	@Bean 
+	@Bean(name = "sectionService")
 	public HtmlSectionService<SectionImp> sectionService() {
 		return new HtmlSectionService<>( env.getProperty("url_strapi"), sectionMdConverter());
 	}
