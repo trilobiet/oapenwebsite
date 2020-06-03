@@ -40,37 +40,16 @@
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="section">
 
-			<div class="container">
-
-				<article th:each="article:${articles}" th:if="${articleStat.index<2}"
-				     class="oapen-article" th:classappend="${article.cssClass}">
+			<div class="container" th:if="${firstarticle}">
+			
+				<article class="oapen-article" th:classappend="${firstarticle.cssClass}">
 
 					<div class="columns">
 
 						<div class="column is-three-quarter">
 						
-							<div class="oapen-primary content" th:utext="${article.content}">
+							<div class="oapen-primary content" th:utext="${firstarticle.content}">
 								Article content
-							</div>
-							
-							<div class="container content oapen-toc" th:if="${#lists.size(topic.articles) gt 1}">
-				
-								<h3 class="oapen-toc-header">Read more</h3>
-				
-								<ul th:classappend="${#lists.size(topic.articles) gt 7} ? 'oapen-two-col'">
-									<!--/* skip first article (index=1) */-->
-									<li th:if="${articleStat.index>0}"
-									    th:each="article: ${topic.articles}">
-				
-										<a th:href="@{'/article/'+${article.slug}}"
-										   th:text="${article.title}">
-											Link to Article
-										</a>
-				
-									</li>
-				
-								</ul>
-				
 							</div>
 						
 						</div>
@@ -84,7 +63,37 @@
 					</div>
 
 				</article>
+				
+				<div class="columns" th:if="${#lists.size(articles) gt 1}">
+				
+					<div class="column is-three-quarter">
+				
+						<div class="content oapen-toc is-three-quarter" >
+			
+							<h3 class="oapen-toc-header">Read more</h3>
+			
+							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
+								<!--/* skip first article (index=1) */-->
+								<li th:if="${articleStat.index>0}"
+								    th:each="article: ${articles}">
+			
+									<a th:href="@{'/article/'+${article.slug}}"
+									   th:text="${article.title}">
+										Link to Article
+									</a>
+			
+								</li>
+			
+							</ul>
+			
+						</div>
+						
+					</div>	
+					
+					<div class="column is-one-quarter"></div>
 	
+				</div>
+				
 			</div>
 
 		</section>

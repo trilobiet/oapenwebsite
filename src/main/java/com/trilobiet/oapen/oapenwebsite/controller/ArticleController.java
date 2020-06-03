@@ -1,16 +1,18 @@
 package com.trilobiet.oapen.oapenwebsite.controller;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
+import com.trilobiet.graphqlweb.helpers.CmsUtils;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
-import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 
 @Controller
 public class ArticleController extends BaseController {
@@ -33,11 +35,8 @@ public class ArticleController extends BaseController {
 		mv.addObject("article", article);
 		mv.addObject( "bodyClass", CmsUtils.getCssClass(article) );
 		
-		//Set<ArticleOutline> linked = articleService.getLinked(article);
-		//mv.addObject("linked", linked);
-		// Set<ArticleOutline> related = articleService.getRelated(article);
-		// related.removeAll(linked); // no doubles
-		// mv.addObject("related", related);
+		Set<ArticleOutline> linked = articleService.getLinked(article);
+		mv.addObject("linked", linked);
 		
 		if(topicslug != null) {
 			Optional<TopicImp> otopic = topicService.getTopicBySlug(topicslug);

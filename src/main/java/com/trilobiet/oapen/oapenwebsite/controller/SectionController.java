@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.trilobiet.graphqlweb.datamodel.Section;
-import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
+import com.trilobiet.graphqlweb.helpers.CmsUtils;
 
 @Controller
 public class SectionController extends BaseController {

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.SectionService;
-import com.trilobiet.oapen.oapenwebsite.helpers.oapen.OapenMenuParser;
+import com.trilobiet.oapen.oapenwebsite.helpers.OapenMenuParser;
 
 /**
  * 

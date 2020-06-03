@@ -1,0 +1,91 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title th:text="${topic.name}">topic name</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
+
+		<div class="container">
+		
+			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+		
+			<div class="columns">
+			
+				<!-- main content -->
+				<div class="column is-three-quarters"> 
+				
+					<div class="content oapen-primary">
+
+						<h1 th:text="${topic.name}">
+							Topic title
+						</h1>
+		
+						<div th:utext="${topic.description}"
+						     class="topic" th:classappend="${topic.cssClass}">
+		
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit.
+							</p>
+		
+						</div>
+						
+					</div>	
+					
+					<div class="oapen-summaries">
+					
+						<article th:each="article: ${articles}" class="content oapen-summary">
+			
+							<h3 th:text="${article.title}">
+								Article title
+							</h3>
+			
+							<div th:utext="${article.summary}">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+								Phasellus et placerat elit.
+							</div>
+			
+							<p>
+								<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
+									Read more
+								</a>
+							</p>
+			
+						</article>
+						
+					</div>	
+					
+				</div>	
+					
+				<!-- sidebar -->
+				<div class="column">
+				
+					<th:block th:insert="include/currentsection :: topics"/>
+				
+				</div>
+
+			</div>
+			
+		</div>	
+
+	</main>
+
+</body>
+</html>
+
+
+
+

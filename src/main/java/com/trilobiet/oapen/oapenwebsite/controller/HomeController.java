@@ -14,11 +14,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.trilobiet.graphqlweb.helpers.CmsUtils;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.topic.TopicImp;
-import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 import com.trilobiet.oapen.oapenwebsite.rss.RssItem;
 
 @Controller

@@ -12,10 +12,10 @@ import org.springframework.web.servlet.ModelAndView;
 import com.trilobiet.graphqlweb.datamodel.ArticleOutline;
 import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.datamodel.Topic;
+import com.trilobiet.graphqlweb.helpers.CmsUtils;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
-import com.trilobiet.oapen.oapenwebsite.helpers.CmsUtils;
 
 @Controller
 public class TopicController extends BaseController {
@@ -29,13 +29,13 @@ public class TopicController extends BaseController {
 			@PathVariable(required=false, name="sectionslug" ) String sectionslug	
 		) throws Exception {
 		
+		ModelAndView mv;
+
 		Topic topic = topicService.getTopicBySlug(slug)
 				.orElseThrow( () -> new ResourceNotFoundException() );
 		
 		List<ArticleImp> articles = articleService.getArticlesByTopic(topic);
 		
-		ModelAndView mv = new ModelAndView("");
-
 		if (topic.getType().equals("redirect")) {
 			
 			String redirectUrl = CmsUtils.getParamValue(topic, "redirect");
@@ -44,7 +44,9 @@ public class TopicController extends BaseController {
 		}	
 		else if (topic.getType().equals("funder")) {
 			
-			mv =  new ModelAndView("topic_funder");
+			mv = new ModelAndView("topic_funder");
+			
+			if (!articles.isEmpty()) mv.addObject("firstarticle",articles.get(0));
 			
 			String collection = CmsUtils.getParamValue(topic, "collection");
 			mv.addObject("collection", collection);
@@ -62,7 +64,7 @@ public class TopicController extends BaseController {
 		}
 		else {
 
-			mv =  selectView(topic);
+			mv = selectView(topic);
 			
 			// When only one article is shown, get list of related articles based on tags
 			if (!articles.isEmpty() 
@@ -74,6 +76,7 @@ public class TopicController extends BaseController {
 				
 				Set<ArticleOutline> linked = articleService.getLinked(articles.get(0));
 				mv.addObject("linked", linked);
+				mv.addObject("firstarticle",articles.get(0));
 			}			
 		}
 		
@@ -81,7 +84,7 @@ public class TopicController extends BaseController {
 			Optional<SectionImp> osection = sectionService.getSectionBySlug(sectionslug);
 			mv.addObject("section",osection.orElse(new SectionImp()));
 		}		
-
+		
 		mv.addObject("topic", topic);
 		// articles may be an empty collection if we only need summaries (which are in the topic tree)
 		mv.addObject("articles", articles);
@@ -90,6 +93,7 @@ public class TopicController extends BaseController {
 		return mv;
 	}
 
+	
 	private ModelAndView selectView(Topic topic) {
 
 		if(topic.getArticleDisplay() != null) {
@@ -97,18 +101,20 @@ public class TopicController extends BaseController {
 			switch( topic.getArticleDisplay() ) {
 			
 				case "Show_lead_article_and_list_titles":
+					return new ModelAndView("topic_first_and_list_titles");
 				case "Show_first_article":
+					return new ModelAndView("topic_first_article");
 				case "Show_list_of_articles":
-					return new ModelAndView("topic");
+					return new ModelAndView("topic_list_articles");
 				case "Show_list_of_titles":
 					return new ModelAndView("topic_list_titles");
 				case "Show_list_of_summaries":					
-					return new ModelAndView("topic_summaries");
+					return new ModelAndView("topic_list_summaries");
 			}
 		}
 		
 		// None set, choose default 
-		return new ModelAndView("topic");
+		return new ModelAndView("topic_list_articles");
 	}
 	
 	

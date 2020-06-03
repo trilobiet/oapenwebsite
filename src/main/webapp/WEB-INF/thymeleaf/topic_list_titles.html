@@ -37,8 +37,8 @@
 
 			<h3 class="oapen-toc-header">Contents for this topic</h3>
 
-			<ul th:classappend="${#lists.size(topic.articles) gt 7} ? 'oapen-two-col'">
-				<li th:each="article : ${topic.articles}">
+			<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
+				<li th:each="article : ${articles}">
 					<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}" th:text="${article.title}">
 						Link to article
 					</a>
