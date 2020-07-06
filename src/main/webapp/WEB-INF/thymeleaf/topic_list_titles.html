@@ -12,40 +12,46 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<main class="section oapen-main" layout:fragment="content">
 
-		<div class="container content">
+		<div class="container">
+		
+			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
+			
+			<div class="content">
 
-			<h1 th:text="${topic.name}">
-				Topic title
-			</h1>
-
-			<div th:utext="${topic.description}"
-			     class="topic" th:classappend="${topic.cssClass}" >
-
-				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-					Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-					Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-					Phasellus et placerat elit.
-				</p>
-
+				<h1 th:text="${topic.name}">
+					Topic title
+				</h1>
+	
+				<div th:utext="${topic.description}"
+				     class="topic" th:classappend="${topic.cssClass}" >
+	
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+					</p>
+	
+				</div>
+			
 			</div>
 
-		</div>
-
-		<div class="container content oapen-toc">
-
-			<h3 class="oapen-toc-header">Contents for this topic</h3>
-
-			<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
-				<li th:each="article : ${articles}">
-					<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}" th:text="${article.title}">
-						Link to article
-					</a>
-				</li>
-			</ul>
-
-		</div>
+			<div class="oapen-toc content">
+	
+				<h3 class="oapen-toc-header">Contents for this topic</h3>
+	
+				<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
+					<li th:each="article : ${articles}">
+						<a th:if="${section}" th:href="@{'/'+${section.slug}+'/'+${topic.slug}+'/article/'+${article.slug}}" th:text="${article.title}">
+							Link to article
+						</a>
+						<a th:if="${section==null}" th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
+							Link to article
+						</a>
+					</li>
+				</ul>
+	
+			</div>
+			
+		</div>	
 
 	</main>
 
