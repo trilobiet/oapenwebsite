@@ -33,10 +33,14 @@ jQuery(document).ready( function() {
 			bulmaCarousel.attach('#slider', {
 				slidesToScroll: 1,
 				slidesToShow: 7,
+				pagination: false
 			});
 		});				
 	});	  
 	
+	// wrap content tables in a horizontal scrolling div
+	$(".content table").wrap("<div class='oapen-table-wrapper'></div>");
+	$("<div class='oapen-table-swipe'>swipe to view table</div>").insertBefore($(".oapen-table-wrapper"));
 	
 });
 

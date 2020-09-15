@@ -7,8 +7,8 @@
 	<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	<title layout:title-pattern="$CONTENT_TITLE | $LAYOUT_TITLE">OAPEN</title>
-	<link rel="stylesheet" th:href="@{/static-assets/css/styles.css?v=1.12}"/>
-	<link rel="stylesheet" th:href="@{/static-assets/css/contenttypes.css?v=1.12}"/>
+	<link rel="stylesheet" th:href="@{/static-assets/css/styles.css?v=1.15}"/>
+	<link rel="stylesheet" th:href="@{/static-assets/css/contenttypes.css?v=1.15}"/>
 	
 	<link rel="stylesheet" th:href="@{/static-assets/fontawesome-pro-5.12.1-web/css/all.min.css?v=1.06}"/>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/css/bulma-carousel.min.css">
@@ -153,12 +153,11 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<footer class="footer">
 
-		<hr class="is-sr-only"/>
-
 		<div class="container">
 
 			<div class="oapen-ftr-header">
-				<h3 class="is-sr-only">Oapen - Publishing in European Networks</h3>
+				<div class="is-sr-only">Oapen - Publishing in European Networks</div>
+				<hr class="is-hidden"/>
 			</div>
 
 			<div class="columns oapen-footer-columns">
@@ -182,7 +181,9 @@
 
 					<div class="oapen-newsletter">
 
-						<h3 class="title is-6">Newsletter</h3>
+						<div class="title is-6">Newsletter</div>
+						
+						<hr class="is-hidden"/>
 
 						<i class="fal fa-envelope-open-text"></i>
 
@@ -203,7 +204,9 @@
 
 					<div class="oapen-social-links">
 
-						<h3 class="title is-6">Follow us on</h3>
+						<div class="title is-6">Follow us on</div>
+						
+						<hr class="is-hidden"/>
 
 						<ul>
 							<li>
@@ -226,19 +229,28 @@
 
 				<div class="column oapen-credits">
 
-					<h3 class="title is-6">Credits</h3>
+					<div class="title is-6">Hosted by</div>
+					
+					<hr class="is-hidden"/>
+
+					<ul>
+						<li>
+							<a href="https://www.huma-num.fr/">
+								<img th:src="@{/static-assets/images/logo-humanum.png}" width="100" alt="OAPEN Library is hosted by Huma-Num"/>
+								<span class="is-sr-only">OAPEN Library is hosted by Huma-Num</span>
+							</a>
+						</li>
+					</ul>
+
+					<div class="title is-6">Credits</div>
+					
+					<hr class="is-hidden"/>
 
 					<ul>
 						<li>
 							<a href="https://www.scoss.org/">
 								<img th:src="@{/static-assets/images/logo-scoss.png}" width="100" alt="logo Scoss"/>
 								<span class="is-sr-only">Scoss</span>
-							</a>
-						</li>
-						<li>
-							<a href="https://www.huma-num.fr/">
-								<img th:src="@{/static-assets/images/logo-humanum.png}" width="100" alt="OAPEN Library is hosted by Huma-Num"/>
-								<span class="is-sr-only">OAPEN Library is hosted by Huma-Num</span>
 							</a>
 						</li>
 						<li>

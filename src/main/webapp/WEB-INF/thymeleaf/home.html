@@ -14,7 +14,7 @@
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
 	<main layout:fragment="content" class="oapen-main home">
 
-		<section class="oapen-home-hero">
+		<section class="section oapen-home-hero">
 
 			<div class="container">
 
@@ -26,9 +26,9 @@
 
 		</section>
 
-		<section class="section oapen-page-intro">
+		<section class="section oapen-home-intro">
 
-			<div class="container section">
+			<div class="container">
 				<p class="is-size-5" th:utext="${home_intro}">
 					Home intro text
 				</p>
@@ -36,16 +36,6 @@
 
 		</section>
 		
-		<section class="section oapen-home-showcases">
-
-			<div class="container">
-				<th:block th:insert="home/showcases :: showcases">
-					Showcases
-				</th:block>
-			</div>
-
-		</section>
-
 		<section class="section oapen-home-featured">
 		
 			<div class="container">
@@ -56,6 +46,16 @@
 				</div>
 				
 			</div>	
+
+		</section>
+
+		<section class="section oapen-home-showcases">
+
+			<div class="container">
+				<th:block th:insert="home/showcases :: showcases">
+					Showcases
+				</th:block>
+			</div>
 
 		</section>
 

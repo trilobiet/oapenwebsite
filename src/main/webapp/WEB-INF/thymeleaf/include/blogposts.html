@@ -14,7 +14,7 @@
 
 		<aside class="oapen-hypotheses-items" th:fragment="hypotheses" th:if="${not #lists.isEmpty(blogPosts)}">
 
-			<h5 class="is-title is-5 oapen-section-caption">More blog posts</h5>
+			<h2 class="is-title is-5 oapen-section-caption">More blog posts</h2>
 
 			<ul class="content">
 
@@ -22,11 +22,11 @@
 					<p class="oapen-date" th:text="${#temporals.format(blogPost.publicationDate,'E dd MMM yyyy')}">
 						THU 26 Mar 2020				
 					</p>
-					<h4 class="oapen-blogpost-title">
+					<h3 class="oapen-blogpost-title">
 						<a th:href="@{'/blog/?link='+${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">
 							Blogpost title
 						</a>
-					</h4>
+					</h3>
 					<p class="oapen-blogpost-description" th:utext="${@viewhelpers.abbreviate(blogPost.description,300)}">
 						Blogpost Description
 					</p>

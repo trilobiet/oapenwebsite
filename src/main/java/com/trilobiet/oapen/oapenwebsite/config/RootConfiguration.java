@@ -40,8 +40,6 @@ import com.trilobiet.oapen.oapenwebsite.rss.hypotheses.HypothesesRssService;
 )
 public class RootConfiguration {
 	
-	// TODO: ehcache re-connect to services
-	
 	@Autowired
 	public Environment env;	
 	
@@ -97,24 +95,6 @@ public class RootConfiguration {
 		return new HtmlFileService<>( env.getProperty("url_strapi") );
 	}
 
-	// Test: using a parameterized dao for some article subtype
-	/*
-	@Bean 
-	public Md2HtmlConverter<TKArticle> tkArticleMdConverter() {
-		return new Md2HtmlArticleConverter<TKArticle>( markdownflavour() );
-	}
-	@Bean 
-	public HtmlArticleService<TKArticle> tkarticleService() {
-		return new HtmlArticleService<>( tkArticleDao(), tkArticleMdConverter() );
-	}
-	@Bean
-	public GenericArticleDao<TKArticle> tkArticleDao() {
-		return new GenericArticleDao<>(env.getProperty("url_strapi"), TKArticle.class, TKArticleList.class);
-	}
-	*/
-	// test end
-
-	
 	@Bean 
 	public RssService rssService() {
 		return new HypothesesRssService(env.getProperty("url_feed_hypotheses"));

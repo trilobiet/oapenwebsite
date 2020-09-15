@@ -39,12 +39,12 @@
 	margin-top: 1.5rem;
 	
 	article h1:first-of-type {
-		// display: none;
-		font-size: 2rem;
+		font-size: $h1size;
 	}	
 
 	.content p:first-of-type {
-		font-size: 1.5rem;	
+		font-size: 1.15rem;
+		font-weight: bold;	
 	}	
 	
 	.oapen-funder-logo {
@@ -60,19 +60,32 @@
 		box-shadow: none;	
 		
 		.card-image {
-			padding: .5em 1.75em 0 1.75em;	
+			padding: .5em 1.75em 0 1.75em;
+			
+			figure {
+				border: solid 1px #eee;
+			}		
 		}	
 	
 		.card-footer {
-			font-size: 90%;	
 			padding: 0 1em;
+			border: none;
+			font-size: 90%;	
 			color: $blue;
 		}	
 	}
 	
 }	
 
+.oapen-home-intro {
+	margin-top: 1.5em;
+}	
+
 .oapen-home-showcases {
+	
+	.title {
+		margin-bottom: 1rem;	
+	}			
 	
 	.columns {
 		
@@ -80,7 +93,7 @@
 			display: flex;
 			
 			&>div {
-				padding: .75rem;	
+				padding: .5rem .75rem;	
 				
 				&:before {
 					font-size: 2em;
@@ -98,14 +111,14 @@
 
 				&>div {
 					position: relative;
-					margin-left: 145px;
+					margin-left: 100px;
 					border-left: solid 4px #ccc;
 					
 					&:before {
 						position:absolute;
-						top:32px;				
-						left:-110px;
-						font-size: 4em;
+						top:5px;				
+						left:-80px;
+						font-size: 3em;
 						font-family: $FontAwesome;
 						color: #999;
 						content: "\f5fd";
@@ -142,6 +155,21 @@
 		width: auto;
 		margin: auto;
 	}	
+
+	.card-content {
+		padding: 1rem 1.5rem 0 1.5rem;	
+	}	
+
+	.slider-navigation-previous {
+		background-color: #ddd;
+		left: 5px;
+	}	
+
+	.slider-navigation-next {
+		background-color: #ddd;
+		right: 5px;
+	}	
+
 }
 
 .oapen-home-searchpanel {
@@ -221,7 +249,11 @@
 		
 	a {
 		color: $red;		
-	}		
+	}
+
+	.title {
+		margin-bottom: 1rem;	
+	}			
 }
 	
 	
@@ -251,24 +283,26 @@
  	}	
  
  	.oapen-toolkit-title {
- 		font-size: 2.5rem;
  		font-family: Roboto Slab;
- 		font-weight: 500;
- 		color: #fff;	
+ 		color: #fff;
  		
- 		span { 
- 			opacity: .85;
+ 		h1 {
+	 		font-size: 3rem;
+ 			opacity: .75;
+ 		}		
+ 		h4 {
+ 			font-size: 1.6rem;
  			font-weight: 400;
- 		}
+ 		}	
  	
-	 	i {
+ 		.oapen-toolbox-icon {
 	 		display: block;
-	 		margin-top: 20px;	
-	 		opacity: .9;
-	 		color: white;
-	 		font-size: 6rem;
+	 		margin-top: 10px;
+		 	img {
+		 		filter: invert(100%);
+		 		width: 25%;
+		 	}	
 	 	}	
- 	
  	}	
  
  	.oapen-toolkit-desc {
@@ -284,8 +318,11 @@
  	.oapen-toolkit-buttons {
  		margin-top: 1em;
  		padding-top: 1em;
- 		.button a {
- 			color: white;	
+ 		.button {
+ 			background-color: $steelblue;
+ 			a {
+ 				color: white;	
+ 			}
  		}		
  	}	
  	

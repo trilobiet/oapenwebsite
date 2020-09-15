@@ -46,9 +46,9 @@
 					
 						<article th:each="article: ${articles}" class="content oapen-summary">
 			
-							<h3 th:text="${article.title}">
+							<h2 th:text="${article.title}">
 								Article title
-							</h3>
+							</h2>
 			
 							<div th:utext="${article.summary}">
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit.

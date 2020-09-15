@@ -1,6 +1,5 @@
 h1, h2, h3, h4, h5, .oapen-header {
 	
-	// font-family: "Lexend Deca", sans-serif; 
 	font-family: "Roboto Slab", serif;
 }	
 
@@ -37,19 +36,32 @@ h1.title {
 		font-size: 1.35em;
 	} */		
 	
-	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3 {
 		font-family: Roboto Slab;
 		font-weight: 400;
 		line-height: 1.325;
+		color: $grey-dark;
+		a { word-break: break-word; }
 	}	
+
+	h4, h5, h6 {
+		font-family: Roboto;
+		font-weight: 700;
+		line-height: 1.325;
+		color: #000000;
+		a { word-break: break-word; }
+	}	
+
+	h1 { font-size: $h1size; }	
+	h2 { font-size: $h2size; }		
+	h3 { font-size: $h3size; }		
 	
-	h1 { font-size: 2.5rem; color: $red1; }	
-	h2 { font-size: 2rem; }		
-	h3 { font-size: 1.5rem; }		
-	h4 { font-size: 1.25rem; }		
-	h5 { font-size: 1rem; font-weight: bold; }		
-	h6 { font-size: .9rem; font-weight: bold; }		
-	
+	h4 { font-size: $h4size; }		
+	h5 { font-size: $h5size; }
+	h6 { font-size: $h6size; font-style: italic; }
+
+	h1 { color: $red1; }	
+
 	a[target="_blank"] { 
 		@include fa-after('\f08e', .85em);
 	} 
@@ -62,6 +74,10 @@ h1.title {
 	font-family: Roboto Condensed;
 	text-transform: uppercase;
 	color: #666;
+	
+	&.title {
+		font-size: .9rem;	
+	}
 }
 
 .oapen-primary {
@@ -87,7 +103,8 @@ h1.title {
 	background-color: $light-blue; 
 	
 	.oapen-toc-header {
-		font-size: 1.25rem;
+		font-size: $h3size;
+		font-family: Roboto Slab;
 	}	
 
 	.oapen-two-col {
@@ -97,6 +114,9 @@ h1.title {
 
 	a {
 		color: $nice-blue;	
+		&:visited {
+			color: #57B;
+		}
 	}	
 }	
 
@@ -113,19 +133,17 @@ h1.title {
 
 	&:nth-of-type(n+2) {
 
-		// subsequent headers scale one step down
-		h1 { font-size: 2rem; color: #333; }	
-		h2 { font-size: 1.75rem; }	
-		h3 { font-size: 1.5rem; }
+		// in a(n aggregated) list of articles, subsequent article headers 
+		// are scaled one step down
+		h1 { font-size: $h2size; color: #333; }	
+		h2 { font-size: $h3size; }	
+		h3 { font-size: $h4size; }
+		h4 { font-size: $h5size; }
+		h5 { font-size: $h6size; }
+		h6 { font-size: $h6size; }
 	}	
 	
 	.content {
-		/*
-		padding: 2rem;
-		margin-left: -2rem;
-		margin-top: -2rem;
-		background: #faf6f6;
-		*/
 		
 		p,ul,ol,li {
 			max-width: 50em;	
@@ -153,8 +171,14 @@ h1.title {
 	background: #999;
 	padding: 1rem 2rem;
 	color: white;
+	
+	.oapen-attachments-header {
+		font-size: $h3size;
+		font-family: Roboto Slab;
+	}	
+	
 	a {
-		color: white;
+		color: white; 
 	}	
 
 	ul {
@@ -180,6 +204,25 @@ h1.title {
 	/* height sizing is handled by script */
 
 }	
+
+
+.oapen-prevnext {
+	
+	display: flex; 
+	justify-content: space-between; 
+	margin: 1rem 0;
+	font-size: 95%;
+
+	.oapen-prevarticle {
+		margin-right: auto;
+		@include fa-before('\f104', $valign:baseline);
+	}
+	.oapen-nextarticle {
+		margin-left: auto;
+		@include fa-after('\f105', $valign:baseline);
+	}
+	
+}
 
 
 .oapen-blogpost {
@@ -235,5 +278,40 @@ h1.title {
 	}		
 	
 }	
+
+.oapen-table-wrapper {
+	
+	margin: 1em 0 2em 0;
+	
+	/* Do NOT remove media query: this doesn't work
+	for flex layouts, so can only be used on the small mobile layout
+	(usually the only place where it is needed too).*/  
+	@media screen and (max-width: 768px) { 
+	
+		overflow-x: auto;
+		
+		table td {
+			min-width: 15em;
+		}
+	}		
+}	
+
+.oapen-table-swipe {
+
+	display: none;
+	font-size: 85%;
+	background: #f4f4f4;
+	white-space: nowrap;
+	@include fa-before('\f177', 1em, .15em, bottom) {};
+	@include fa-after('\f178', 1em, .15em, bottom) {};
+
+	@media screen and (max-width: 768px) {
+		display: block;
+		text-align: center;
+	}		
+}
+
+
+
 
 	

@@ -15,7 +15,11 @@
 		<th:block th:fragment="attachments" th:with="attachments=${@viewhelpers.attachments(article.media)}">
 
 			<div class="oapen-attachments content" th:if="${not #lists.isEmpty(attachments)}">
-				<h3 class="is-title">Files</h3>
+			
+				<div class="oapen-attachments-header">Files</div>
+				
+				<hr class="is-hidden"/>
+			
 				<ul>
 					<li th:each="attachment:${attachments}">
 						<a data-fancybox="gallery" th:href="${attachment.url}" th:text="${attachment.name}">
@@ -23,6 +27,7 @@
 						</a>
 					</li>
 				</ul>
+				
 			</div>
 
 		</th:block>

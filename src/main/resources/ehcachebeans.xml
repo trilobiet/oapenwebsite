@@ -44,7 +44,7 @@
 			<cache:cacheable method="getArticlesByTopic" cache="articlesCache" key="#topic.id" />
 			<cache:cacheable method="getArticleBySlug" cache="articlesCache" key="#slug" />
 			<cache:cacheable method="getByFieldValue" cache="articlesCache" key="#field+'-is-'+#value" />
-			<cache:cacheable method="getByFieldContainsValue" cache="articlesCache" key="#field+'-contains-'+#value" />
+			<!--<cache:cacheable method="getByFieldContainsValue" cache="articlesCache" key="#field+'-contains-'+#value" />-->
 			<cache:cacheable method="selectArticlesForTopic" cache="articlesCache" key="#topic.id" />
 		</cache:caching>
 	</cache:advice>

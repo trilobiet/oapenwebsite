@@ -20,3 +20,14 @@
 	}
 
 }
+
+.breadcrumb li {
+	
+	overflow: hidden;
+	
+	a {
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}		
+}	

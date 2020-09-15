@@ -15,16 +15,20 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="showcases">
 
+	<div class="title is-6 oapen-section-caption is-hidden">Showcase</div>
+	
+	<hr class="is-hidden"/>
+
 	<div class="columns is-multiline is-desktop">
 
 		<div class="column is-half-desktop oapen-home-showcase" th:each="article: ${showcases}" th:classappend="${article.cssClass}">
 
 			<div>
-				<h3 class="title is-3">
+				<h2 class="title is-5">
 					<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
-						Showcase
+						Showcase title
 					</a>
-				</h3>
+				</h2>
 				<th:block th:utext="${article.summary}">
 					Showcase dummy text
 				</th:block>

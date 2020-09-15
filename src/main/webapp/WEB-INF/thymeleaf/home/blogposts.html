@@ -19,10 +19,12 @@
 	<div class="column is-half-desktop oapen-home-spotlight" th:each="blogPost: ${rssItems}">
 
 		<div class="title is-6 oapen-section-caption">Blog Post</div>
+		
+		<hr class="is-hidden"/>
 
-		<h4 class="title is-5">
+		<h2 class="title is-5">
 			<a th:href="@{'/blog/?link='+ ${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">Title</a>
-		</h4>
+		</h2>
 
 		<p th:utext="${@viewhelpers.abbreviate(blogPost.description, 300)}">
 			Showcase dummy text

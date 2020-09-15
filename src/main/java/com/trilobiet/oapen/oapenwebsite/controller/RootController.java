@@ -19,7 +19,7 @@ public class RootController {
 		return new ModelAndView("forward:/static-assets/images/favicon.ico");
 	}
 	
-	@CacheEvict(value={"sectionsCache","topicsCache","articlesCache","filesCache","relationsCache","dspaceCache"}, allEntries=true)
+	@CacheEvict(value={"sectionsCache","topicsCache","articlesCache","filesCache","rssCache","dspaceCache"}, allEntries=true)
 	@RequestMapping("/clearCache") 
 	public ModelAndView clearCache(Model model) {
 		return new ModelAndView("redirect:/home");

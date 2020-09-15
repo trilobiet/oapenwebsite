@@ -28,7 +28,9 @@
 			
 			<div class="oapen-toc content">
 
-				<h3 class="oapen-toc-header">In this section</h3>
+				<div class="oapen-toc-header">In this section</div>
+				
+				<hr class="is-hidden"/>
 
 				<ul th:classappend="${#lists.size(section.topics) gt 7} ? 'oapen-two-col'">
 					<li th:each="topic: ${section.topics}">

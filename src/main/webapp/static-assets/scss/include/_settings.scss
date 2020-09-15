@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Lexend+Deca|Roboto|Roboto+Condensed:400&display=swap&subset=latin-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:400&display=swap&subset=latin-ext');
 @import url('https://fonts.googleapis.com/css?family=Lato|Roboto+Slab:300,400,500&display=swap');
 
 // Lexend-deca :  titles
@@ -25,6 +25,7 @@ $blue: #478ab7;
 $red1: #c30000;
 $purple: #c30000; 
 $darkblue: #136ba6;
+$steelblue: #1d72aa;
 
 
 // Update Bulma's global variables
@@ -52,5 +53,13 @@ $input-shadow: none;
 $navbar-box-shadow-color: #000;
 
 $section-padding: 1.5rem;  
+
+// content heading sizes:
+$h1size: 2rem;
+$h2size: 1.45rem;
+$h3size: 1.15rem;
+$h4size: 1rem;
+$h5size: .9rem;
+$h6size: .9rem;
 
 

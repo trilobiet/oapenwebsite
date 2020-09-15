@@ -1,7 +1,7 @@
 @mixin fa-before($code, $fontsize: 1em, $gapsize: .3em, $valign: middle) {
 	&::before {
 		content: $code;
-		font-family: FontAwesome;
+		font-family: $FontAwesome;
 		font-size: $fontsize;
 		font-style: normal;
 		margin-right: $gapsize;
@@ -17,7 +17,7 @@
 @mixin fa-after($code, $fontsize: 1em, $gapsize: .3em, $valign: middle) {
 	&::after {
 		content: $code;
-		font-family: FontAwesome;
+		font-family: $FontAwesome;
 		font-size: $fontsize;
 		font-style: normal;		
 		margin-left: $gapsize;

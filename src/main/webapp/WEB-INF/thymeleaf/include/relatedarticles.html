@@ -12,9 +12,11 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<main class="oapen-main" layout:fragment="content">
 
-		<aside class="oapen-related-articles" th:fragment="linked" th:if="${not #lists.isEmpty(linked)}">
+		<nav class="oapen-related-articles" th:fragment="linked" th:if="${not #lists.isEmpty(linked)}">
 
-			<h5 class="is-title is-5 oapen-section-caption">Linked</h5>
+			<div class="is-title is-5 oapen-section-caption">Linked</div>
+			
+			<hr class="is-hidden"/>
 
 			<ul>
 
@@ -25,11 +27,13 @@
 
 			</ul>
 
-		</aside>
+		</nav>
 
-		<aside class="oapen-linked-articles" th:fragment="related" th:if="${not #lists.isEmpty(related)}">
+		<nav class="oapen-linked-articles" th:fragment="related" th:if="${not #lists.isEmpty(related)}">
 
-			<h5 class="is-title is-5 oapen-section-caption">Related</h5>
+			<div class="is-title is-5 oapen-section-caption">Related</div>
+			
+			<hr class="is-hidden"/>
 
 			<ul>
 
@@ -40,7 +44,7 @@
 
 			</ul>
 
-		</aside>
+		</nav>
 
 	</main>
 

@@ -48,13 +48,13 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=toolkit");
+			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=tooltest");
 			if(topics.isEmpty()) mv.addObject("topictoolkit",null);
 			else {
 				Topic topic = topics.get(0);
 				mv.addObject("topictoolkit",topic);
-				String toolkitdownload = CmsUtils.getParamValue(topic, "download");
-				mv.addObject("toolkitdownload",toolkitdownload);
+				String toolkitUrl = CmsUtils.getParamValue(topic, "href");
+				mv.addObject("toolkitUrl",toolkitUrl);
 			}
 		} catch (Exception e) {
 			log.error(e);
