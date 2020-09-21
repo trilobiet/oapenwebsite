@@ -14,31 +14,40 @@
 	Searchform
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<th:block th:fragment="toolkit" th:if="${topictoolkit}">
+<th:block th:fragment="toolkit">
 
-	<div class="columns">
+	<div class="container">
 
-		<div class="column is-two-fifths oapen-toolkit-title">
-			<h4>OAPEN</h4>
-			<h1>OA books Toolkit</h1>
-			<div class="oapen-toolbox-icon">
-				<img th:src="@{/static-assets/images/layout/toolkit.svg}" width="100" />
-			</div>	 
-		</div>
+		<div class="columns is-vcentered">
 
-		<div class="column">
+			<div class="column is-two-fifths oapen-toolkit-title">
+			
+				<h4>OAPEN</h4> 
 
-			<div class="oapen-toolkit-desc" th:utext="${topictoolkit.description}">
-				Topic description
+				<h1>OA Books Toolkit</h1>
+
+				<div class="oapen-toolbox-icon">
+					<img th:src="@{/static-assets/images/layout/toolkit.svg}" width="100" />
+				</div>	 
+
 			</div>
 
-			<div class="buttons oapen-toolkit-buttons">
+			<div class="column">
 
-				<div class="button is-danger is-rounded">
-					<a th:href="${toolkitUrl}">Go to the Toolkit</a>
-					<span class="icon is-small">
-						<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-					</span>
+				<div class="content" th:utext="${topictoolkit.description}">
+					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
+					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
+				</div>
+
+				<div class="buttons oapen-toolkit-buttons">
+				
+					<a th:href="${toolkitUrl}" class="button is-danger is-rounded">
+						<span>Go to the Toolkit</span>
+						<span class="icon is-small">
+							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
+						</span>
+					</a>
+
 				</div>
 
 			</div>
