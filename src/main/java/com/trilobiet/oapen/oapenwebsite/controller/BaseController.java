@@ -47,5 +47,22 @@ public class BaseController {
 
 	@Autowired
 	protected Environment environment;	
+	
+	/**
+	 * Use to prepend section to prevnext links
+	 * 
+	 * @param sectionslug
+	 * @return
+	 */
+	protected String sectionPrefix(String sectionslug) {
+		
+		StringBuilder sb = new StringBuilder();
+		
+		if (sectionslug != null) {
+			sb.append("/").append(sectionslug);
+		}
+		
+		return sb.append("/article/").toString();
+	}
     
 }

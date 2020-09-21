@@ -48,26 +48,9 @@ public class ArticleController extends BaseController {
 			mv.addObject("section",osection.orElse(new SectionImp()));
 		}
 		
-		mv.addObject("sectiontopicprefix", sectionTopicPrefix( sectionslug, topicslug ));
+		mv.addObject("sectionprefix", sectionPrefix( sectionslug ));
 		
 		return mv;
 	}
-	
-	
-	private String sectionTopicPrefix(String sectionslug, String topicslug) {
-		
-		StringBuilder sb = new StringBuilder();
-		
-		if (sectionslug != null) {
-			sb.append("/").append(sectionslug);
-			if (topicslug != null) sb.append("/").append(topicslug);
-		}
-		else {
-			if (topicslug != null) sb.append("/topic").append(topicslug);
-		}
-		
-		return sb.append("/article/").toString();
-	}
-	
 	
 }

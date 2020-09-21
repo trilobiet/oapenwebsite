@@ -90,6 +90,9 @@ public class TopicController extends BaseController {
 		mv.addObject("articles", articles);
 		mv.addObject("bodyClass", CmsUtils.getCssClass(topic) );
 		
+		// for prevnext links
+		mv.addObject("sectionprefix", sectionPrefix( sectionslug ));		
+		
 		return mv;
 	}
 

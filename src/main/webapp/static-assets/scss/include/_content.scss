@@ -19,6 +19,12 @@ h1.title {
 
 .content {
 	
+	// some full out written links may cross the border...
+	overflow-x: hidden;
+	a {
+		overflow-wrap: anywhere;		
+	}	
+	
 	.title {
 		font-weight: $weight-normal;
 	}	
@@ -65,6 +71,12 @@ h1.title {
 	a[target="_blank"] { 
 		@include fa-after('\f08e', .85em);
 	} 
+
+	ul {
+		@media screen and (max-width: 768px) {
+			margin-left: 1em;
+		}		
+	}	
 }
 
 .oapen-section-caption {
@@ -214,11 +226,15 @@ h1.title {
 	font-size: 95%;
 
 	.oapen-prevarticle {
-		margin-right: auto;
+		margin-right: .5em;
+		min-width: 40%;
+		text-align: left;
 		@include fa-before('\f104', $valign:baseline);
 	}
 	.oapen-nextarticle {
-		margin-left: auto;
+		margin-left: .5em;
+		min-width: 40%;
+		text-align: right;
 		@include fa-after('\f105', $valign:baseline);
 	}
 	

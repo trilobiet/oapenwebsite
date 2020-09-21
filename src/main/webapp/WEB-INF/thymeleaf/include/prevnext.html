@@ -18,13 +18,13 @@
 				
 				<a class="oapen-prevarticle"
 				   th:if="${article.prevArticle != null && article.prevArticle.publish}" 
-				   th:href="@{${sectiontopicprefix}+${article.prevArticle.slug}}" 
+				   th:href="@{${sectionprefix}+${article.prevArticle.slug}}" 
 				   th:text="${article.prevArticle.title}">
 				   <i class="fas fa-angle-left">&nbsp;previous&nbsp;article</i>
 				</a> 	
 				<a class="oapen-nextarticle" 
 				   th:if="${article.nextArticle != null && article.nextArticle.publish}"
-				   th:href="@{${sectiontopicprefix}+${article.nextArticle.slug}}" 
+				   th:href="@{${sectionprefix}+${article.nextArticle.slug}}" 
 				   th:text="${article.nextArticle.title}">
 				   <i class="fas fa-angle-right">next&nbsp;article&nbsp;</i>
 				</a>
