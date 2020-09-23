@@ -48,7 +48,7 @@ public class HomeController extends BaseController {
 		}
 		
 		try {
-			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=tooltest");
+			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=toolkit");
 			if(topics.isEmpty()) mv.addObject("topictoolkit",null);
 			else {
 				Topic topic = topics.get(0);
