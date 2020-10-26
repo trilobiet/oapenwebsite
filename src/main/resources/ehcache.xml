@@ -4,7 +4,7 @@
 	dynamicConfig="true"
 	maxBytesLocalHeap="200M">
 
-	<diskStore path="java.io.tmpdir"/>
+	<diskStore path="java.io.tmpdir/ehcache/oapenwebsite"/>
 	<sizeOfPolicy maxDepth="10000" maxDepthExceededBehavior="continue"/>
 	
 	<!-- Total of added caches may not exceed maxBytesLocalHeap of entire cache -->
