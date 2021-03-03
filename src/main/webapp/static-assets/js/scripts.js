@@ -42,6 +42,14 @@ jQuery(document).ready( function() {
 	$(".content table").wrap("<div class='oapen-table-wrapper'></div>");
 	$("<div class='oapen-table-swipe'>swipe to view table</div>").insertBefore($(".oapen-table-wrapper"));
 	
+	// faqs
+	$(".oapen-foldout h3").click( function(){
+	
+		$(this).toggleClass("expanded")
+	
+	});
+	
+	
 });
 
 

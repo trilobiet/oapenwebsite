@@ -358,4 +358,40 @@
  	
 }	
 
+
+// h3 + blockquote constitute a faq-like foldout
+.content .oapen-foldout {
+
+	h3 {
+		margin: .5em 0;
+		font-size: $h4size;
+		cursor: pointer;
+		color: $blue;
+		// @include fa-after('\f0da'); 
+		
+		& + blockquote {
+			display: none;
+		}
+		
+		&:hover {
+			color: #666;
+		} 
+	}
+
+
+	h3.expanded {
+		
+		font-size: $h3size;
+		color: $grey-dark;
+		
+		& + blockquote {
+			display: block;
+			background-color: #f3eeee;
+			border-color: rgba( $blue, .7 )
+		}
+	}
+	
+}	
+
+
 	 	
