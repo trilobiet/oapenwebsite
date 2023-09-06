@@ -49,6 +49,7 @@
 
 		</section>
 
+		<!--/*  
 		<section class="section oapen-home-showcases">
 
 			<div class="container">
@@ -58,26 +59,18 @@
 			</div>
 
 		</section>
+		*/-->
 
-		<section class="section oapen-home-collections">
+		<section class="section oapen-home-highlights">
 
 			<div class="container">
-				<th:block th:insert="home/funders :: funders">
-					Funder collections
+				<th:block th:insert="home/highlights :: highlights">
+					Highlights
 				</th:block>
 			</div>
 
 		</section>
 
-		<section class="section oapen-home-toolkit" th:if="${topictoolkit}">
-
-			<div class="container">
-				<th:block th:insert="home/toolkit :: toolkit">
-					Toolkit banner
-				</th:block>
-			</div>
-
-		</section>
 
 		<div class="section">
 
@@ -109,6 +102,7 @@
 
 					</div>
 
+					<!-- /* 
 					<div class="column is-4">
 
 						<section class="section oapen-home-news">
@@ -122,12 +116,33 @@
 						</section>
 
 					</div>
+					*/ -->
 
 				</div>
 
 			</div>
 
 		</div>
+		
+		<section class="section oapen-home-toolkit" th:if="${topictoolkit}">
+
+			<div class="container">
+				<th:block th:insert="home/toolkit :: toolkit">
+					Toolkit banner
+				</th:block>
+			</div>
+
+		</section>
+
+		<section class="section oapen-home-collections">
+
+			<div class="container">
+				<th:block th:insert="home/funders :: funders">
+					Funder collections
+				</th:block>
+			</div>
+
+		</section>
 
 		<span th:text="${ip}" style="display:none">your ip</span>
 

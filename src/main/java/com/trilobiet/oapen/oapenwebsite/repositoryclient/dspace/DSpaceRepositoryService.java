@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,14 +21,16 @@ public class DSpaceRepositoryService implements RepositoryService {
 	
 	private final String baseUrl;
 	private final String featuredCollectionId;
+	private final int daysBackNewest;
 	
 	protected final Logger log = LogManager.getLogger(this.getClass());
 	
-	public DSpaceRepositoryService(String baseUrl, String featuredCollectionId) {
+	public DSpaceRepositoryService(String baseUrl, Map<String,String> config) {
 		this.baseUrl = baseUrl;
-		this.featuredCollectionId = featuredCollectionId;
+		this.featuredCollectionId = config.get("featuredCollectionId");
+		this.daysBackNewest = Integer.parseInt(config.get("daysBackNewest"));
 	}
-
+	
 	@Override
 	@Cacheable(value="dspaceCache",key="#root.methodName") // key="'somefancyname'" or any SpEL expression
 	public List<RepositoryItem> getFeaturedItems(int count) throws RepositoryException {
@@ -86,10 +89,13 @@ public class DSpaceRepositoryService implements RepositoryService {
 		
 		StringBuilder sb = new StringBuilder(baseUrl);
 		
-		sb.append("/rest/search?expand=bitstreams,metadata")
+		sb.append("/rest/search/")
+		  .append("?query=dc.date.accessioned_dt:[*%20TO%20NOW-" + daysBackNewest + "DAY]")
+		  .append("+AND+dc.type:book")
+		  .append("&sort=dc.date.accessioned_dt")
 		  .append("&limit=")
 		  .append(count)
-		  .append("&query=dc.type:book");
+		  .append("&expand=bitstreams,metadata");
 		
 		return sb.toString();
 	}

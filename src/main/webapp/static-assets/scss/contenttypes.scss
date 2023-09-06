@@ -81,6 +81,33 @@
 	margin-top: 1.5em;
 }	
 
+
+.oapen-home-highlights {
+	
+	.oapen-home-highlight {
+
+		padding: 5px 0;
+		
+		.column {
+			background-color: #CBB;
+			padding: 2rem 3rem;
+			color: #333;
+		}
+		
+		h2, h2 a {
+			color: #fff;
+			font-size: $h1size;
+		}
+		
+		.oapen-image img {
+			display: block;
+			margin: auto;
+		}
+	
+	}
+}
+
+/*
 .oapen-home-showcases {
 	
 	.title {
@@ -132,8 +159,8 @@
 		.oapen-dissemination>div:before { content: "\f78a"; font-weight:300; }
 		.oapen-scoss>div:before { content: "\f559"; font-weight:300; }
 	}	
-	
 }	
+*/
 
 .oapen-home-featured {
 	
@@ -158,6 +185,8 @@
 
 	.card-content {
 		padding: 1rem 1.5rem 0 1.5rem;	
+		text-align: center;
+		font-size: 80%;
 	}	
 
 	.slider-navigation-previous {

@@ -20,9 +20,9 @@
 	
 	<hr class="is-hidden"/>
 
-	<div class="columns">
+	<div class="columns is-mobile is-multiline is-centered">
 
-		<div class="column" th:each="funder: ${funders}">
+		<div class="column is-half-mobile is-one-third-tablet is-one-fifth-desktop" th:each="funder: ${funders}">
 			<a th:href="@{'/topic/'+${funder.slug}}">
 				<figure>
 					<img th:src="${funderlogos.get(funder.id)}" th:alt="${'Logo '+funder.name}">

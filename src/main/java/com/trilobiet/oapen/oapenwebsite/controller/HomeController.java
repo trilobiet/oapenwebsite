@@ -40,13 +40,22 @@ public class HomeController extends BaseController {
 			log.error(e);
 		}
 		
+		/*
 		try {
 			List<ArticleImp> showcases = articleService.getByFieldContainsValue("params", "showcase=true");
 			mv.addObject("showcases",showcases);
 		} catch (Exception e) {
 			log.error(e);
 		}
+		*/
 		
+		try {
+			List<ArticleImp> highlights = articleService.getByFieldContainsValue("params", "highlight");
+			mv.addObject("highlights",highlights);
+		} catch (Exception e) {
+			log.error(e);
+		}
+
 		try {
 			List<TopicImp> topics = topicService.getByFieldContainsValue("params", "topic=toolkit");
 			if(topics.isEmpty()) mv.addObject("topictoolkit",null);

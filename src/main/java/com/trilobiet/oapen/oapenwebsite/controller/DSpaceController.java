@@ -22,6 +22,7 @@ public class DSpaceController extends BaseController {
 		ModelAndView mv = new ModelAndView("include/featuredtitles");  
 		
 		List<RepositoryItem> featuredItems = null;
+		/*
 		try {
 			featuredItems = repositoryService.getFeaturedItems(10);
 			mv.addObject("featuredItems", featuredItems);
@@ -37,6 +38,13 @@ public class DSpaceController extends BaseController {
 			} catch (Exception e) {
 				log.error(e);
 			}
+		}*/
+		
+		try {
+			featuredItems = repositoryService.getNewestItems(10);
+			mv.addObject("featuredItems", featuredItems);
+		} catch (Exception e) {
+			log.error(e);
 		}
 		
 		return mv;

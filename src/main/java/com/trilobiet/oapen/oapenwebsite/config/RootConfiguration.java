@@ -1,6 +1,10 @@
 package com.trilobiet.oapen.oapenwebsite.config;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ComponentScan.Filter;
@@ -99,12 +103,26 @@ public class RootConfiguration {
 	public RssService rssService() {
 		return new HypothesesRssService(env.getProperty("url_feed_hypotheses"));
 	}
+
+	@Value("#{${dspace_repo_client_config}}")
+	public Map<String,String> repoClientConfig;
+	
+	@Bean
+	Map<String,String> getRepoClientConfig() {
+		
+		Map<String,String> map = new HashMap<>();
+		
+		for (String key : repoClientConfig.keySet())
+			map.put(key, repoClientConfig.get(key));
+		
+		return map;
+	}
 	
 	@Bean 
 	public RepositoryService repositoryService() {
 		return new DSpaceRepositoryService(
 			env.getProperty("url_dspace_api"), 
-			env.getProperty("dspace_featured_collection_id")
+			getRepoClientConfig()
 		);
 	}
 	
