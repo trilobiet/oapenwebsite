@@ -3,6 +3,7 @@ package com.trilobiet.oapen.oapenwebsite.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.section.SectionImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.SectionService;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.service.SnippetService;
+import com.trilobiet.graphqlweb.implementations.aexpgraphql2.snippet.SnippetImp;
 import com.trilobiet.oapen.oapenwebsite.helpers.OapenMenuParser;
 
 /**
@@ -23,6 +26,9 @@ public class GlobalAdvice {
 	
 	@Autowired
 	protected SectionService<SectionImp> sectionService;
+	
+	@Autowired
+	protected SnippetService<SnippetImp> snippetService;
 	
 	@Autowired
 	public Environment environment;	
@@ -47,6 +53,19 @@ public class GlobalAdvice {
 		model.addAttribute("menuLeftSections", menuparser.getSectionsForMainLeft());
 		model.addAttribute("menuRightSections", menuparser.getSectionsForMainRight());
 		model.addAttribute("footerSections", menuparser.getSectionsForFooter());
+    }	
+    
+	// Add these snippets to all model-views
+    @ModelAttribute(name="globalsnippets")
+    public void addGlobalSnippets(Model model) throws Exception {
+	    
+		try {
+			Optional<SnippetImp> jcf = snippetService.getSnippet("JIRA Contact form");
+			if (jcf.isPresent() ) model.addAttribute("jira_contact_form", jcf.get().getCode());
+		} catch (Exception e) {
+			//log.error(e);
+		}
+	
     }	
 	
 }

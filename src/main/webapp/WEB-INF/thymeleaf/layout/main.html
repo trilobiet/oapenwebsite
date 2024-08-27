@@ -63,6 +63,12 @@
 									Button right
 								</a>
 							</li>
+							
+							<!--/*
+							<li>
+								<div th:utext="${jira_contact_form}">jira_contact_form</div>
+							</li>
+							*/-->							
 
 						</ul>
 
@@ -230,16 +236,14 @@
 						<hr class="is-hidden"/>
 
 						<ul>
-							<li>
+							<li style="height:32px;width:32px;">
 								<a href="https://twitter.com/oapenbooks">
-									<i class="fab fa-twitter-square"></i>
+									<svg height="100%" width="100%" viewBox="0 0 24 24" style="fill:#FBFEFF">
+										<g>
+											<path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+										</g>
+									</svg>
 									<span class="is-sr-only">Twitter</span>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.facebook.com/OAPENbooks">
-									<i class="fab fa-facebook-square"></i>
-									<span class="is-sr-only">Facebook</span>
 								</a>
 							</li>
 						</ul>
@@ -261,7 +265,7 @@
 								<span class="is-sr-only">European Union</span>
 								<br/>
 								<small class="is-size-7">
-									This project received funding from the European Union’s Horizon 2020 research 
+									OAPEN received funding from the European Union’s Horizon 2020 research 
 									and innovation programme under grant agreement No 683680, 810640, 871069 and 964352.
  								</small>
 							</a>
@@ -278,7 +282,7 @@
 								style="width:128px;height:128px;max-height:none;max-width:none;"/>
 								<br/>
 							<small class="is-size-7">
-								Support DOAB and the OAPEN Library
+								Support the OAPEN Library and DOAB 
 							</small>
 						</li>
 						<li>
@@ -300,7 +304,7 @@
 						OAPEN is based in the Netherlands, with its registered office in the National Library in The Hague.
 					</p>
 					<p>
-						Director: Niels Stern
+						Managing Director: Niels Stern
 					</p>
 					<address>
 						Address:<br/>
@@ -312,6 +316,7 @@
 						Websites:<br/>
 						OAPEN Home: <a href="https://www.oapen.org">www.oapen.org</a><br/>
 						OAPEN Library: <a href="https://library.oapen.org">library.oapen.org</a><br/>
+						OA Books Toolkit: <a href="https://oabooks-toolkit.org">oabooks-toolkit.org</a><br/>
 						DOAB: <a href="https://www.doabooks.org">www.doabooks.org</a>
 					</p>
 
@@ -339,7 +344,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
 	<script th:src="@{/static-assets/js/scripts.js?v=1.02}"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-	<!-- /* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */ -->
+	<!--/* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */-->
 	
 	<th:block th:insert="include/googleanalyticsscript :: script">
 		Google Analytics
