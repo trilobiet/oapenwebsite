@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name=”robots” content=”noindex,follow”/>
+    <title>OAPEN Featured Titles</title>
+</head>
+<body>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="featured">
+
+	<div id="FeaturedTitles">
+
+		<div class="title is-6 oapen-section-caption">New additions</div>
+		
+		<hr class="is-hidden"/>
+
+		<div id="slider" style="overflow:hidden;">
+	
+			<a th:each="item: ${featuredItems}"
+			   th:href="${item.url}"
+			   class="card">
+				<div class="card-image">
+					<figure class="image">
+						<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
+					</figure>
+				</div>
+				<div class="card-content">
+					<div class="item__title" th:text="${item.title}">
+						Item title
+					</div>
+				</div>
+			</a>
+	
+		</div><!-- /slider -->
+		
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,426 @@
+
+@import "compass";
+@import "compass/css3";
+
+@import "include/settings";
+
+// choose one on production:
+@import "include/hero3";
+
+
+.oapen-funder-hero {
+	
+	margin-top: -3rem;
+	margin-bottom: 1rem;
+	background-color: $oapen-blue;
+	// @include background-image(linear-gradient(left, rgb(11, 98, 157) 0%, rgb(10, 62, 98) 100%)); 
+	// @include background-image(linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, .6) 100% ));
+	// background-image: url(../images/bg-wellcome-trust.jpg);
+	background-size: cover;
+	background-position-y: 12%;
+
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	
+	.title {
+		color: white;
+		text-shadow: 3px 3px 8px #0004;	
+	}	
+	
+	.title.is-3 {
+		opacity: .95;
+		color: #eee;
+		text-shadow: 2px 2px 4px #0003;	
+	}
+}
+
+.oapen-funder-feature {
+	
+	margin-top: 1.5rem;
+	
+	article h1:first-of-type {
+		font-size: $h1size;
+	}	
+
+	.content p:first-of-type {
+		font-size: 1.15rem;
+		font-weight: bold;	
+	}	
+	
+	.oapen-funder-logo {
+		
+		img {
+			display: block;
+			margin: auto;	
+		}	
+	}	
+	
+	.card {
+		display: block;
+		box-shadow: none;	
+		
+		.card-image {
+			padding: .5em 1.75em 0 1.75em;
+			
+			figure {
+				border: solid 1px #eee;
+			}		
+		}	
+	
+		.card-footer {
+			padding: 0 1em;
+			border: none;
+			font-size: 90%;	
+			color: $blue;
+		}	
+	}
+	
+}	
+
+.oapen-home-intro {
+	margin-top: 1.5em;
+}	
+
+
+.oapen-home-highlights {
+	
+	.oapen-home-highlight {
+
+		padding: 5px 0;
+		
+		.column {
+			background-color: #CBB;
+			padding: 2rem 3rem;
+			color: #333;
+		}
+		
+		h2, h2 a {
+			color: #fff;
+			font-size: $h1size;
+		}
+		
+		.oapen-image img {
+			display: block;
+			margin: auto;
+		}
+	
+	}
+}
+
+/*
+.oapen-home-showcases {
+	
+	.title {
+		margin-bottom: 1rem;	
+	}			
+	
+	.columns {
+		
+		.column {
+			display: flex;
+			
+			&>div {
+				padding: .5rem .75rem;	
+				
+				&:before {
+					font-size: 2em;
+					font-family: $FontAwesome;
+					color: #999;
+					content: "\f5fd";
+				}				
+
+				.title a {
+					color: $red;
+				}	
+			}	
+		
+			@media screen and (min-width: 768px) {
+
+				&>div {
+					position: relative;
+					margin-left: 100px;
+					border-left: solid 4px #ccc;
+					
+					&:before {
+						position:absolute;
+						top:5px;				
+						left:-80px;
+						font-size: 3em;
+						font-family: $FontAwesome;
+						color: #999;
+						content: "\f5fd";
+					}				
+				}	
+			}
+		}
+	
+		.oapen-deposit>div:before { content: "\f5fd"; font-weight:300; }	// font-weight:900 = solid
+		.oapen-discovery>div:before { content: "\f57c"; font-weight:300; }
+		.oapen-dissemination>div:before { content: "\f78a"; font-weight:300; }
+		.oapen-scoss>div:before { content: "\f559"; font-weight:300; }
+	}	
+}	
+*/
+
+.oapen-home-featured {
+	
+	margin-left: .75em;
+	margin-right: .75em;
+	overflow: hidden;	
+}	
+
+
+#slider {
+	
+	.card {
+		background: transparent;
+		box-shadow: none;
+	}	
+
+	.card-image .image img {
+		height: 180px;
+		width: auto;
+		margin: auto;
+	}	
+
+	.card-content {
+		padding: 1rem 1.5rem 0 1.5rem;	
+		text-align: center;
+		font-size: 80%;
+	}	
+
+	.slider-navigation-previous {
+		background-color: #ddd;
+		left: 5px;
+	}	
+
+	.slider-navigation-next {
+		background-color: #ddd;
+		right: 5px;
+	}	
+
+}
+
+.oapen-home-searchpanel {
+	
+	.columns {
+		background: $blue;
+		color: white;
+		@include border-radius(6px,6px);
+		
+		.column {
+			padding: 2rem;
+		}	
+	}
+
+	.title {
+		color: white;
+	}	
+	
+	ul {
+		column-count: 2;
+	}		
+
+	a {
+		text-decoration: none !important;
+		color: white;	
+	}	
+}	
+
+
+.oapen-home-collections {
+	
+	.column {
+	}	
+
+	a {
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		align-items: center;		
+	}
+	
+	figure {
+		
+		text-align: center;
+		
+		img {
+			max-width: 80%;
+		}	
+	
+		figcaption {
+			display: none; 
+		}		
+	}	
+	
+}
+
+
+.oapen-home-spotlight {
+	
+	.column {
+		
+		height: 100%;
+		
+		&>div {
+			font-size: 87.5%;	
+			border-top: solid 1px #aaa;
+			padding-top: 1.25rem;	
+		}	
+	}	
+
+	img {
+		width: 125px;	
+		max-width: 30%; // mobile scaling
+		float: left;
+		margin: 0 20px 20px 0;	
+	}	
+		
+	a {
+		color: $red;		
+	}
+
+	.title {
+		margin-bottom: 1rem;	
+	}			
+}
+	
+	
+.oapen-home-toolkit {
+ 	
+ 	padding-top: 0;
+ 	padding-bottom: 0;
+ 	margin-top: 1.5rem;
+ 	margin-bottom: 1.5rem;
+ 	
+ 	// background: #ffa500cc;
+ 	background: orange;
+ 	
+ 	.content h1,.content h2,.content h3,.content h4,.content h5,.content h6,.content h7 {
+ 		font-size: $h3size;
+ 		color: #4a4a4a;
+ 	}	
+ 	
+ 	.column {
+ 		
+	 	&:first-child {
+	 		text-align: right;
+	 		padding: 2.5rem 5% 1.5rem 1rem; 
+	 		
+			@media screen and (max-width: 768px) {
+ 				padding: 1rem 5% 0 1rem;
+ 			}		 		
+	 	}	
+
+	 	&:last-child {
+	 		padding-top: 3.5rem;	
+	 		padding-bottom: 3.5rem;
+	 		padding-right: 2rem;
+
+			@media screen and (max-width: 768px) {
+ 				padding: 1rem 5% 2.5rem 1rem;
+ 			}		 		
+	 	}	
+ 	}	
+ 
+ 	.oapen-toolkit-title {
+ 		font-family: Roboto Slab;
+ 		//font-weight: 500;
+ 		color: #fff;
+ 		
+ 		h1 {
+	 		font-size: 3rem;
+ 			opacity: .75;
+ 		}		
+ 		h4 {
+ 			font-size: 1.6rem;
+ 			font-weight: 400;
+ 		}	
+ 	
+ 		.oapen-toolbox-icon {
+ 			
+	 		display: block;
+	 		margin-top: 10px;
+		 	
+		 	img {
+		 		filter: invert(100%);
+		 		width: 20%;
+		 		
+		 		@media screen and (max-width: 768px) {
+		 			width: 15%;
+		 		}	
+		 	}	
+	 	}	
+ 	}	
+ 
+ 	.oapen-browseby {
+ 		display: none;
+ 		margin: 0 1rem .5rem 0;
+ 		color: #4a4a4a;	
+ 	}	
+ 
+ 	.oapen-toolkit-buttons {
+ 		
+ 		margin-top: 1em;
+ 		padding-top: 1em;
+ 		
+ 		.button {
+ 			color: white;
+ 			border-width: 0;
+ 		}
+ 	
+ 		.button:nth-of-type(1) {
+ 			background-color: hsl(204, 71%, 39%);
+ 		}
+ 		.button:nth-of-type(2) {
+ 			background-color: hsl(348, 86%, 43%);
+ 		}
+ 		.button:nth-of-type(3) {
+ 			background-color: hsl(141, 53%, 31%);
+ 		}
+ 			
+ 	}	
+ 	
+ 	.title {
+ 		color: #000;
+ 	}	
+ 	
+}	
+
+
+// h3 + blockquote constitute a faq-like foldout
+.content .oapen-foldout {
+
+	h3 {
+		margin: .5em 0;
+		font-size: $h4size;
+		cursor: pointer;
+		color: $blue;
+		// @include fa-after('\f0da'); 
+		
+		& + blockquote {
+			display: none;
+		}
+		
+		&:hover {
+			color: #666;
+		} 
+	}
+
+
+	h3.expanded {
+		
+		font-size: $h3size;
+		color: $grey-dark;
+		
+		& + blockquote {
+			display: block;
+			background-color: #f3eeee;
+			border-color: rgba( $blue, .7 )
+		}
+	}
+	
+}	
+
+
+	 	

@@ -7,11 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
 import org.springframework.core.env.Environment;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.article.ArticleImp;
 import com.trilobiet.graphqlweb.implementations.aexpgraphql2.file.FileImp;
@@ -37,10 +34,10 @@ import com.trilobiet.oapen.oapenwebsite.rss.hypotheses.HypothesesRssService;
 
 @Configuration
 @ComponentScan (
-	basePackages = {"com.trilobiet.oapen.oapenwebsite"},
-	excludeFilters = {
-			@Filter( type=FilterType.ANNOTATION, value=EnableWebMvc.class ) 
-	}
+	basePackages = {"com.trilobiet.oapen.oapenwebsite"}
+	//, excludeFilters = {
+	//		@Filter( type=FilterType.ANNOTATION, value=EnableWebMvc.class ) 
+	//}
 )
 public class RootConfiguration {
 	

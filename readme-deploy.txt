@@ -1,8 +1,4 @@
 
-For Production:
-- build with maven 
-- install as ROOT.war to tomcat webapps_[name] directory
-- WEB-INF/web.xml set active profile to 'prod'
+This is a Spring Boot application.
 
-Eclipse development:
-- referenced project 'oapensitesearch' must be opened too. 
+Run as a systemd service (executable jar)

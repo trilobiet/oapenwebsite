@@ -24,7 +24,7 @@ import com.trilobiet.oapen.oapenwebsite.rss.RssItem;
 @Controller
 public class HomeController extends BaseController {
 
-	@RequestMapping("/home")
+	@RequestMapping({"/","/home"})
 	public ModelAndView showHome(HttpServletRequest request) {
 		
 		ModelAndView mv = new ModelAndView("home"); 

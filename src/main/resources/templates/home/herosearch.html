@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Searchform
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="hero">
+
+	<div class="columns">
+	
+		<div class="column is-three-fifths">
+			<h1 class="title is-1">OAPEN</h1>
+			<h2 class="title is-3">Online&nbsp;library of open&nbsp;access&nbsp;books</h2>
+		</div>
+		
+		<form th:action="${settings.dspace_site+'discover'}" class="column oapen-hero-search-form">
+		
+			<div>
+
+				<div class="field has-addons oapen-hero-search-input">
+					<div class="control">
+						<label for="ipt_search" class="is-hidden">Search query</label>
+						<input class="input" type="text" name="query" placeholder="Search OAPEN Library" id="ipt_search">
+					</div>
+					<div class="control">
+						<button type="submit" class="button is-dark">
+							Search
+						</button>
+					</div>
+				</div>
+	
+				<div class="field oapen-hero-search-browse">
+	
+					<span>
+						Browse by:
+					</span>
+					<ul>
+						<li><a th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a></li>
+						<li><a th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a></li>
+						<li><a th:href="${settings.dspace_site+'browse?type=language'}">Language</a></li>
+						<li><a th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a></li>
+					</ul>
+	
+				</div>
+			
+			</div>	
+
+		</form>
+
+	</div>
+
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+
