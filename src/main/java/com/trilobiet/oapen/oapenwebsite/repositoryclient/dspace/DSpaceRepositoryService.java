@@ -90,7 +90,9 @@ public class DSpaceRepositoryService implements RepositoryService {
 		StringBuilder sb = new StringBuilder(baseUrl);
 		
 		sb.append("/rest/search/")
-		  .append("?query=dc.date.accessioned_dt:[*%20TO%20NOW-" + daysBackNewest + "DAY]")
+		
+		  .append("?query=dc.date.accessioned_dt:")
+		  .append(urlEncodeUTF8("[* TO NOW-" + daysBackNewest + "DAY]"))
 		  .append("+AND+dc.type:book")
 		  .append("&sort=dc.date.accessioned_dt")
 		  .append("&limit=")
@@ -104,20 +106,27 @@ public class DSpaceRepositoryService implements RepositoryService {
 		
 		StringBuilder sb = new StringBuilder(baseUrl);
 		
-		try {
-			funder = URLEncoder.encode(funder,"UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			// of course UTF-8 is supported...
-		}
-				
 		sb.append("/rest/search?expand=bitstreams,metadata")
 		  .append("&limit=")
 		  .append(count)
-		  .append("&query=oapen.collection:%22")
-		  .append(funder)
-		  .append("%22+AND+dc.type:book");
+		  .append("&query=oapen.collection:")
+		  .append(urlEncodeUTF8("\"" + funder + "\""))
+		  .append("+AND+dc.type:book");
 		
 		return sb.toString();
+	}
+	
+	
+	private String urlEncodeUTF8(String s) {
+		
+		try {
+			s = URLEncoder.encode(s,"UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// This will not happen unless UTF-8 is not supported, which is rare
+			log.error("Could not encode url! " + e.getMessage());
+		}
+		
+		return s;
 	}
 	
 }
