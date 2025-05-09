@@ -16,3 +16,39 @@ And the following home brewn repositories:
 ## Version 3 2024
 
 - Switched to Spring Boot
+
+## Version 3.1 2025
+
+- Moved to UpCloud.com
+
+	UPDATE strapi36_oatoolkit.upload_file
+	SET url = replace(url,"fra1.digitaloceanspaces.com","o172i.upcloudobjects.com");
+	
+	UPDATE strapi36_doabooksweb.upload_file
+	SET url = replace(url,"ams3.digitaloceanspaces.com","o172i.upcloudobjects.com");
+	
+	UPDATE strapi36_oapenweb.upload_file
+	SET url = replace(url,"fra1.digitaloceanspaces.com","o172i.upcloudobjects.com");
+	
+	UPDATE strapi36_oapenweb.articles
+	SET 
+		content = replace(content,"fra1.digitaloceanspaces.com","o172i.upcloudobjects.com"),
+		content = replace(content,"ams3.digitaloceanspaces.com","o172i.upcloudobjects.com")
+	WHERE 
+		content LIKE '%.digitaloceanspaces.com%';
+	
+	UPDATE strapi36_doabooksweb.articles
+	SET 
+		content = replace(content,"fra1.digitaloceanspaces.com","o172i.upcloudobjects.com"),
+	    content = replace(content,"ams3.digitaloceanspaces.com","o172i.upcloudobjects.com")
+	WHERE 
+		content LIKE '%.digitaloceanspaces.com%';
+	    
+	UPDATE strapi36_oatoolkit.articles
+	SET 
+		content = replace(content,"fra1.digitaloceanspaces.com","o172i.upcloudobjects.com"),
+	    content = replace(content,"ams3.digitaloceanspaces.com","o172i.upcloudobjects.com")
+	WHERE 
+		content LIKE '%.digitaloceanspaces.com%';    
+	
+	
