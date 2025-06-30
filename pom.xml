@@ -81,8 +81,6 @@
 		<dependency>
 			<groupId>com.trilobiet</groupId>
 			<artifactId>graphqlweb</artifactId>
-			<!--<version>0.0.43</version>-->
-			<!-- TODO: version 0.0.46 with updated date fields! (created_at vs createdAt) -->
 			<version>0.0.46</version>
 		</dependency>
 
