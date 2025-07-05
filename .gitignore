@@ -8,3 +8,7 @@
 
 # Local dev-only Spring profile
 application-dev.properties
+
+# IDE-specific files
+.Rhistory
+.RData
