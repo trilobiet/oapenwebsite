@@ -2,3 +2,13 @@
 # ignore all hidden
 .*
 !/.gitignore
+
+# macOS Finder metadata
+.DS_Store
+
+# Local dev-only Spring profile
+application-dev.properties
+
+# IDE-specific files
+.Rhistory
+.RData
