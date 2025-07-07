@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layout/main}"
       xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+	<title>OAPEN Web - Sitemap</title>
+</head>
 
-  <head>
-    <title>Sitemap</title>
-  </head>
-  <body>
-    <!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-    <div layout:fragment="content">
+<body>
+	
+	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
+	<div layout:fragment="content">
 
 		<div class="section">
 
@@ -15,9 +16,7 @@
 
 				<h2>Sitemap</h2>
 
-				<!--<p th:text=${sections}></p>-->
-
-				<ul>
+					<ul>
 					<li th:each="section: ${sections}">
 
 						<span th:text="${section.groupNumber}">groupNumber</span>
