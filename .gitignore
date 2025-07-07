@@ -12,3 +12,6 @@ application-dev.properties
 # IDE-specific files
 .Rhistory
 .RData
+
+# Node.js dependencies
+node_modules/
