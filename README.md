@@ -13,6 +13,17 @@ And the following home brewn repositories:
 - GraphQL Java client https://github.com/trilobiet/graphqlweb
 - Strapi CMS API configuration for a simple website https://github.com/trilobiet/strapi-simple-website
 
+## Frontend build
+
+This step is only needed if you’re updating the SCSS files in `frontend/`:
+
+```bash
+npm install
+npm run build
+```
+
+This will compile Bulma v1 along with our custom styles and output a single `styles.min.css` file to the correct `static-assets/css/` directory, where it will be served by the Java/Maven application.
+
 ## Version 3 2024
 
 - Switched to Spring Boot

@@ -15,3 +15,4 @@ application-dev.properties
 
 # Node.js dependencies
 node_modules/
+.sass-cache/
