@@ -22,6 +22,8 @@
 		<java-version>11</java-version>
     	<maven.compiler.source>11</maven.compiler.source>
     	<maven.compiler.target>11</maven.compiler.target>		
+		<node.version>v20.19.1</node.version>
+		<npm.version>10.8.2</npm.version>
 	</properties>
 	
 	<dependencies>
@@ -101,7 +103,6 @@
 
 	</dependencies>
 	
-	
     <profiles>
     
         <profile>
@@ -134,6 +135,119 @@
 					<addResources>true</addResources>
 					<executable>true</executable>
 				</configuration>		
+			</plugin>
+			
+			<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>1.12.0</version>
+
+				<executions>
+
+					<execution>
+						<id>Install node and npm</id>
+						<goals>
+							<goal>install-node-and-npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<nodeVersion>${node.version}</nodeVersion>
+							<npmVersion>${npm.version}</npmVersion>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm install</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>install</arguments>
+						</configuration>
+					</execution>
+
+					<execution>
+						<id>npm build</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>generate-resources</phase>
+						<configuration>
+							<arguments>run build</arguments>
+						</configuration>
+					</execution>
+
+				</executions>
+				
+				<configuration>
+					<nodeVersion>${node.version}</nodeVersion>
+					<workingDirectory>frontend</workingDirectory>
+				</configuration>
+
+			</plugin>			
+			
+			<!-- copy generated jar to oapen-latest.jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<type>${project.packaging}</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${basedir}/latest-build</outputDirectory>
+							<destFileName>oapen-latest.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+
+			<!-- To prevent sensitive data from ending up in the jar, exclude all application-*.properties files. 
+			We will use an external application.properties instead. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/application-*.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		
+			<!-- install home brewn artifacts locally -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<groupId>com.trilobiet</groupId>
+					<artifactId>graphqlweb</artifactId>
+					<version>0.0.46</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/dependencies/graphqlweb-0.0.46-jar-with-dependencies.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
 			</plugin>
 
 		</plugins>

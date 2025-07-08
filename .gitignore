@@ -16,5 +16,7 @@ application*.properties
 .RData
 
 # Node.js dependencies
+node/
 node_modules/
 .sass-cache/
+/latest-build/
