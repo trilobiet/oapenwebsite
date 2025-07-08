@@ -6,8 +6,10 @@
 # macOS Finder metadata
 .DS_Store
 
-# Local dev-only Spring profile
-application-dev.properties
+# ignore application profiles - containing sensitive data ...
+application*.properties
+# ... except the anonymized template
+!application-xyz.properties
 
 # IDE-specific files
 .Rhistory
