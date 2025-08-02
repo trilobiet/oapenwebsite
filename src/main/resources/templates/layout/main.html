@@ -98,7 +98,7 @@
 
 					<ul class="bulma-navbar-start">
 
-						<li th:each="mnusection: ${menuLeftSections}" class="oapen-nav-dropdown">
+						<li th:each="mnusection: ${menuLeftSections}" class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable">
 							<th:block th:insert="layout/submenu :: section_navigation">
 								sub menu
 							</th:block>
@@ -108,7 +108,7 @@
 					
 					<ul class="bulma-navbar-end oapen-nav-right">
 
-						<li th:each="mnusection: ${menuRightSections}" class="oapen-nav-dropdown">
+						<li th:each="mnusection: ${menuRightSections}" class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable">
 							<th:block th:insert="layout/submenu :: section_navigation">
 								sub menu
 							</th:block>
@@ -348,6 +348,8 @@
 	<script th:src="@{/static-assets/js/scripts.js?v=1.02}"></script>
 	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
 	<!--/* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */-->
+
+	<script th:src="@{/static-assets/js/main.min.js}"></script>
 	
 	<th:block th:insert="include/googleanalyticsscript :: script">
 		Google Analytics

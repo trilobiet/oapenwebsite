@@ -20,6 +20,7 @@
 @forward "bulma/sass/helpers/spacing";      // .mt-4, .mb-2, etc.
 @forward "bulma/sass/helpers/visibility";   // .is-hidden-mobile, .is-block-tablet, etc.
 @forward "bulma/sass/helpers/flexbox";      // .is-flex, .is-justify-content-center, etc.
+@forward "bulma/sass/helpers/other"
 
 // Our own overrides & custom oa-* classes
 // @import "./oa-variables";      // colour and typography variables
