@@ -10,13 +10,13 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-main" th:classappend="${bodyClass}">
+	<main layout:fragment="content" class="bulma-section oapen-main" th:classappend="${bodyClass}">
 
-		<div class="container">
+		<div class="bulma-container">
 		
 			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
 		
-			<div class="content oapen-primary">
+			<div class="bulma-content oapen-primary">
 
 				<h1 th:text="${section.name}">Section name</h1>
 
@@ -26,11 +26,11 @@
 
 			</div>
 			
-			<div class="oapen-toc content">
+			<div class="oapen-toc bulma-content">
 
 				<div class="oapen-toc-header">In this section</div>
 				
-				<hr class="is-hidden"/>
+				<hr class="bulma-is-hidden"/>
 
 				<ul th:classappend="${#lists.size(section.topics) gt 7} ? 'oapen-two-col'">
 					<li th:each="topic: ${section.topics}">

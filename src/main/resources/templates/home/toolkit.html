@@ -15,11 +15,11 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="toolkit">
 
-	<div class="container">
+	<div class="bulma-container">
 
-		<div class="columns is-vcentered">
+		<div class="bulma-columns bulma-is-vcentered">
 
-			<div class="column is-two-fifths oapen-toolkit-title">
+			<div class="bulma-column bulma-is-two-fifths oapen-toolkit-title">
 			
 				<h4>OAPEN</h4> 
 
@@ -31,18 +31,18 @@
 
 			</div>
 
-			<div class="column">
+			<div class="bulma-column">
 
-				<div class="content" th:utext="${topictoolkit.description}">
+				<div class="bulma-content" th:utext="${topictoolkit.description}">
 					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
 					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
 				</div>
 
-				<div class="buttons oapen-toolkit-buttons">
+				<div class="bulma-buttons oapen-toolkit-buttons">
 				
-					<a th:href="${toolkitUrl}" class="button is-danger is-rounded">
+					<a th:href="${toolkitUrl}" class="bulma-button bulma-is-danger bulma-is-rounded">
 						<span>Go to the Toolkit</span>
-						<span class="icon is-small">
+						<span class="bulma-icon bulma-is-small">
 							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
 						</span>
 					</a>

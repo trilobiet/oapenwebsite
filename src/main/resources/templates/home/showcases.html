@@ -15,16 +15,16 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="showcases">
 
-	<div class="title is-6 oapen-section-caption is-hidden">Showcase</div>
+	<div class="bulma-title bulma-is-6 oapen-section-caption bulma-is-hidden">Showcase</div>
 	
-	<hr class="is-hidden"/>
+	<hr class="bulma-is-hidden"/>
 
-	<div class="columns is-multiline is-desktop">
+	<div class="bulma-columns bulma-is-multiline bulma-is-desktop">
 
-		<div class="column is-half-desktop oapen-home-showcase" th:each="article: ${showcases}" th:classappend="${article.cssClass}">
+		<div class="bulma-column bulma-is-half-desktop oapen-home-showcase" th:each="article: ${showcases}" th:classappend="${article.cssClass}">
 
 			<div>
-				<h2 class="title is-5">
+				<h2 class="bulma-title bulma-is-5">
 					<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
 						Showcase title
 					</a>

@@ -14,9 +14,9 @@
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
 	<main layout:fragment="content" class="oapen-main home">
 
-		<section class="section oapen-home-hero">
+		<section class="bulma-section oapen-home-hero">
 
-			<div class="container">
+			<div class="bulma-container">
 
 				<th:block th:insert="home/herosearch :: hero">
 					Hero content
@@ -26,21 +26,21 @@
 
 		</section>
 
-		<section class="section oapen-home-intro">
+		<section class="bulma-section oapen-home-intro">
 
-			<div class="container">
-				<p class="is-size-5" th:utext="${home_intro}">
+			<div class="bulma-container">
+				<p class="bulma-is-size-5" th:utext="${home_intro}">
 					Home intro text
 				</p>
 			</div>
 
 		</section>
 		
-		<section class="section oapen-home-featured">
+		<section class="bulma-section oapen-home-featured">
 		
-			<div class="container">
+			<div class="bulma-container">
 			
-				<a class="is-hidden" th:href="@{'/featuredtitles'}">Featured Titles</a>
+				<a class="bulma-is-hidden" th:href="@{'/featuredtitles'}">Featured Titles</a>
 		
 				<div class="carouselloader" th:data-src="@{'/featuredtitles'} + ' #FeaturedTitles'">
 				</div>
@@ -61,9 +61,9 @@
 		</section>
 		*/-->
 
-		<section class="section oapen-home-highlights">
+		<section class="bulma-section oapen-home-highlights">
 
-			<div class="container">
+			<div class="bulma-container">
 				<th:block th:insert="home/highlights :: highlights">
 					Highlights
 				</th:block>
@@ -72,19 +72,19 @@
 		</section>
 
 
-		<div class="section">
+		<div class="bulma-section">
 
-			<div class="container">
+			<div class="bulma-container">
 
-				<div class="columns">
+				<div class="bulma-columns">
 
-					<div class="column">
+					<div class="bulma-column">
 
-						<section class="section oapen-home-news">
+						<section class="bulma-section oapen-home-news">
 
-							<div class="container">
+							<div class="bulma-container">
 							
-								<div class="columns is-multiline is-desktop">
+								<div class="bulma-columns bulma-is-multiline bulma-is-desktop">
 
 									<th:block th:insert="home/spotlights :: spotlights">
 										Spotlights
@@ -124,9 +124,9 @@
 
 		</div>
 		
-		<section class="section oapen-home-toolkit" th:if="${topictoolkit}">
+		<section class="bulma-section oapen-home-toolkit" th:if="${topictoolkit}">
 
-			<div class="container">
+			<div class="bulma-container">
 				<th:block th:insert="home/toolkit :: toolkit">
 					Toolkit banner
 				</th:block>
@@ -134,9 +134,9 @@
 
 		</section>
 
-		<section class="section oapen-home-collections">
+		<section class="bulma-section oapen-home-collections">
 
-			<div class="container">
+			<div class="bulma-container">
 				<th:block th:insert="home/funders :: funders">
 					Funder collections
 				</th:block>

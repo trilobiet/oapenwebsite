@@ -10,35 +10,35 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
+	<main layout:fragment="content" class="bulma-section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
 	
-		<div class="container">
+		<div class="bulma-container">
 		
 			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
 		
-			<div class="columns">
+			<div class="bulma-columns">
 			
 				<!-- main content left -->
-				<div class="column is-three-quarters">
+				<div class="bulma-column bulma-is-three-quarters">
 				
 					<p th:if="${#lists.isEmpty(articles)}">Nothing here yet...</p>
 
 					<th:block th:if="${firstarticle}"> 
 
 						<article 
-							class="is-clearfix oapen-article oapen-primary" th:classappend="${firstarticle.cssClass}">
+							class="bulma-is-clearfix oapen-article oapen-primary" th:classappend="${firstarticle.cssClass}">
 							
-							<div class="columns">
+							<div class="bulma-columns">
 							
-								<div class="column">
+								<div class="bulma-column">
 		
-									<div th:utext="${firstarticle.content}" class="content">
+									<div th:utext="${firstarticle.content}" class="bulma-content">
 										Article content
 									</div>
 									
 								</div>
 			
-								<div class="column is-one-quarter" th:if="${not #lists.isEmpty(firstarticle.media)}">
+								<div class="bulma-column bulma-is-one-quarter" th:if="${not #lists.isEmpty(firstarticle.media)}">
 	
 									<figure class="oapen-image" th:each="media: ${@viewhelpers.images(firstarticle.media)}">
 										<a data-fancybox="gallery" th:href="${media.url}">
@@ -60,11 +60,11 @@
 					
 					<aside th:if="${#lists.size(articles) gt 1}">
 			
-						<div class="container content oapen-toc">
+						<div class="bulma-container bulma-content oapen-toc">
 			
 							<div class="oapen-toc-header">Contents for this topic</div>
 							
-							<hr class="is-hidden"/>
+							<hr class="bulma-is-hidden"/>
 			
 							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
 								<li th:each="article, iStat : ${articles}" th:if="${iStat.index gt 0}">
@@ -81,7 +81,7 @@
 				</div>
 			
 				<!-- sidebar right -->
-				<div class="column">
+				<div class="bulma-column">
 				
 					<th:block th:insert="include/currentsection :: topics"/>
 

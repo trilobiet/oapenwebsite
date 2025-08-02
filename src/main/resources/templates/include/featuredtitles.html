@@ -14,22 +14,22 @@
 
 	<div id="FeaturedTitles">
 
-		<div class="title is-6 oapen-section-caption">New additions</div>
+		<div class="bulma-title bulma-is-6 oapen-section-caption">New additions</div>
 		
-		<hr class="is-hidden"/>
+		<hr class="bulma-is-hidden"/>
 
 		<div id="slider" style="overflow:hidden;">
 	
 			<a th:each="item: ${featuredItems}"
 			   th:href="${item.url}"
-			   class="card">
-				<div class="card-image">
-					<figure class="image">
+			   class="bulma-card">
+				<div class="bulma-card-image">
+					<figure class="bulma-image">
 						<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
 					</figure>
 				</div>
-				<div class="card-content">
-					<div class="item__title" th:text="${item.title}">
+				<div class="bulma-card-content">
+					<div th:text="${item.title}">
 						Item title
 					</div>
 				</div>

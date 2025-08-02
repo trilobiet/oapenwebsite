@@ -17,18 +17,18 @@
 
 	<a th:text="${mnusection.name}"
 	   th:href="@{'/'+${mnusection.slug}}"
-	   class="navbar-item navbar-link"
+	   class="bulma-navbar-item bulma-navbar-link"
 	   th:classappend="${section!=null and mnusection.id==section.id}?'is-active'">
 		Navbar Item
 	</a>
 
-	<div class="navbar-dropdown">
-		<div class="container is-fluid">
+	<div class="bulma-navbar-dropdown">
+		<div class="bulma-container bulma-is-fluid">
 			<ul>
 				<li th:each="mnutopic: ${mnusection.topics}">
 					<a th:href="@{'/'+${mnusection.slug}+'/'+${mnutopic.slug}}"
 					   th:text="${mnutopic.name}"
-					   class="navbar-item">
+					   class="bulma-navbar-item">
 						topic name
 					</a>
 				</li>

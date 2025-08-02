@@ -30,14 +30,14 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<header id="OapenHeader">
 
-		<div class="container">
+		<div class="bulma-container">
 
 			<!-- logo, search/deposit/join -->
 			<nav class="oapen-topnav" role="navigation">
 
-				<div class="level topnav">
+				<div class="bulma-level topnav">
 
-					<div class="level-left">
+					<div class="bulma-level-left">
 
 						<a th:href="@{'/'}">
 							<img th:src="@{/static-assets/images/layout/oapenlogo 01 colour - open access.png}" width="150" alt="Logo Oapen" class="oapen-logo">
@@ -45,13 +45,13 @@
 
 					</div>
 
-					<div class="level-right">
+					<div class="bulma-level-right">
 
-						<ul class="buttons">
+						<ul class="bulma-buttons">
 
 							<li>
 								<a href="https://eepurl.com/kEPGr"
-								   class="button oapen-btn-newsletter">
+								   class="bulma-button oapen-btn-newsletter">
 									<i class="fas fa-envelope-open-text"></i>
 									Newsletter
 								</a>
@@ -60,7 +60,7 @@
 							<li th:each="mnusection: ${headerSections}">
 								<a th:text="${mnusection.name}"
 								   th:href="@{'/'+${mnusection.slug}}"
-								   class="button" th:classappend="oapen-btn-+${mnusection.slug}">
+								   class="bulma-button" th:classappend="oapen-btn-+${mnusection.slug}">
 									Button right
 								</a>
 							</li>
@@ -81,22 +81,22 @@
 
 		</div><!-- /container -->
 
-		<nav class="navbar oapen-mainnav" role="navigation">
+		<nav class="bulma-navbar oapen-mainnav" role="navigation">
 
-			<div class="container">
+			<div class="bulma-container">
 
-				<div class="navbar-brand">
+				<div class="bulma-navbar-brand">
 
 					<!-- hamburger -->
-					<a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
+					<a role="button" class="bulma-navbar-burger bulma-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
 						<span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span>
 					</a>
 
 				</div>
 
-				<div id="navbarMain" class="navbar-menu">
+				<div id="navbarMain" class="bulma-navbar-menu">
 
-					<ul class="navbar-start">
+					<ul class="bulma-navbar-start">
 
 						<li th:each="mnusection: ${menuLeftSections}" class="oapen-nav-dropdown">
 							<th:block th:insert="layout/submenu :: section_navigation">
@@ -106,7 +106,7 @@
 
 					</ul>
 					
-					<ul class="navbar-end oapen-nav-right">
+					<ul class="bulma-navbar-end oapen-nav-right">
 
 						<li th:each="mnusection: ${menuRightSections}" class="oapen-nav-dropdown">
 							<th:block th:insert="layout/submenu :: section_navigation">
@@ -129,9 +129,9 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<main layout:fragment="content">
 
-		<hr class="is-sr-only"/>
+		<hr class="bulma-is-sr-only"/>
 
-		<div class="container content">
+		<div class="bulma-container bulma-content">
 
 			<!-- content -->
 			<!-- ============================================================================ -->
@@ -159,20 +159,20 @@
 	<!--
 		FOOTER
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<footer class="footer">
+	<footer class="bulma-footer">
 
-		<div class="container">
+		<div class="bulma-container">
 
 			<div class="oapen-ftr-header">
-				<div class="is-sr-only">Oapen - Publishing in European Networks</div>
-				<hr class="is-hidden"/>
+				<div class="bulma-is-sr-only">Oapen - Publishing in European Networks</div>
+				<hr class="bulma-is-hidden"/>
 			</div>
 
-			<div class="columns oapen-footer-columns">
+			<div class="bulma-columns oapen-footer-columns">
 
-		  		<div class="column oapen-footer-nav">
+		  		<div class="bulma-column oapen-footer-nav">
 
-		  			<ul class="menu-list">
+		  			<ul class="bulma-menu-list">
 
 						<li th:each="mnusection: ${footerSections}">
 							<a th:href="@{'/'+${mnusection.slug}}"
@@ -185,13 +185,13 @@
 
 				</div><!-- /footer-nav -->
 
-				<div class="column">
+				<div class="bulma-column">
 				
 					<div class="oapen-footer-licence">
 						
-						<div class="title is-6">Licence</div>
+						<div class="bulma-title bulma-is-6">Licence</div>
 						
-						<hr class="is-hidden"/>
+						<hr class="bulma-is-hidden"/>
 						
 						<p>
 							If not noted otherwise all contents are available under Attribution 4.0
@@ -209,9 +209,9 @@
 					
 					<div class="oapen-newsletter">
 
-						<div class="title is-6">Newsletter</div>
+						<div class="bulma-title bulma-is-6">Newsletter</div>
 						
-						<hr class="is-hidden"/>
+						<hr class="bulma-is-hidden"/>
 
 						<i class="fal fa-envelope-open-text"></i>
 
@@ -232,21 +232,21 @@
 
 					<div class="oapen-social-links">
 
-						<div class="title is-6">Follow us on</div>
+						<div class="bulma-title bulma-is-6">Follow us on</div>
 						
-						<hr class="is-hidden"/>
+						<hr class="bulma-is-hidden"/>
 
 						<ul>
 							<li>
 								<a href="https://bsky.app/profile/oapenbooks.bsky.social">
 									<i class="fa-brands fa-bluesky"></i>
-									<span class="is-sr-only">Bluesky</span>
+									<span class="bulma-is-sr-only">Bluesky</span>
 								</a>
 							</li>
 							<li>
 								<a href="https://www.linkedin.com/company/oapen-foundation/posts/?feedView=all">
 									<i class="fa-brands fa-linkedin"></i>
-									<span class="is-sr-only">LinkedIn</span>
+									<span class="bulma-is-sr-only">LinkedIn</span>
 								</a>
 							</li>
 						</ul>
@@ -255,19 +255,19 @@
 
 				</div>
 
-				<div class="column oapen-credits">
+				<div class="bulma-column oapen-credits">
 
-					<div class="title is-6">Credits</div>
+					<div class="bulma-title bulma-is-6">Credits</div>
 					
-					<hr class="is-hidden"/>
+					<hr class="bulma-is-hidden"/>
 
 					<ul>
 						<li>
 							<a href="https://europa.eu/european-union/index_en">
 								<img th:src="@{/static-assets/images/eu-flag.png}" width="100" alt="logo EU"/>
-								<span class="is-sr-only">European Union</span>
+								<span class="bulma-is-sr-only">European Union</span>
 								<br/>
-								<small class="is-size-7">
+								<small class="bulma-is-size-7">
 									OAPEN received funding from the European Union’s Horizon 2020 research 
 									and innovation programme under grant agreement No 683680, 810640, 871069 and 964352.
  								</small>
@@ -275,16 +275,16 @@
 						</li>
 					</ul>
 
-					<div class="title is-6">Donate</div>
+					<div class="bulma-title is-6">Donate</div>
 					
-					<hr class="is-hidden"/>
+					<hr class="bulma-is-hidden"/>
 
 					<ul>
 						<li>
 							<img th:src="@{/static-assets/images/donation-qr-code.png}" alt="Donate to OAPEN Foundation"
 								style="width:128px;height:128px;max-height:none;max-width:none;"/>
 								<br/>
-							<small class="is-size-7">
+							<small class="bulma-is-size-7">
 								Support the OAPEN Library and DOAB 
 							</small>
 						</li>
@@ -299,9 +299,9 @@
 
 				</div>
 
-				<div class="column oapen-addresses">
+				<div class="bulma-column oapen-addresses">
 
-					<hr class="is-sr-only"/>
+					<hr class="bulma-is-sr-only"/>
 
 					<p>
 						OAPEN is based in the Netherlands, with its registered office in the National Library in The Hague.
@@ -329,9 +329,9 @@
 			</div><!-- /footer columns -->
 
 
-			<div class="content has-text-centered">
+			<div class="bulma-content bulma-has-text-centered">
 
-				<div class="is-size-7">
+				<div class="bulma-is-size-7">
 					<a href="https://www.trilobiet.nl">website by Trilobiet</a>
 				</div>
 

@@ -14,23 +14,23 @@
 
 	<div id="FunderTitles">
 
-		<h3 class="title is-5">
+		<h3 class="bulma-title bulma-is-5">
 			From the <span th:text="${topic.name}">Funder name</span> collection
 		</h3>
 	
-		<div class="columns is-multiline is-mobile">
+		<div class="bulma-columns bulma-is-multiline bulma-is-mobile">
 		
-			<div class="column is-one-sixth-tablet is-one-third-mobile" th:each="item: ${featuredItems}">
+			<div class="bulma-column bulma-is-one-sixth-tablet bulma-is-one-third-mobile" th:each="item: ${featuredItems}">
 	
-				<a class="card" th:href="${item.url}">
-					<div class="card-image">
-						<figure class="image is-2by3">
+				<a class="bulma-card" th:href="${item.url}">
+					<div class="bulma-card-image">
+						<figure class="bulma-image bulma-is-2by3">
 							<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
 						</figure>
 						<!-- /* figcaption th:text="${dspace_api}+${item.thumbnailPath}"></figcaption> */ -->
 					</div>
-					<footer class="card-footer">
-						<span class="card-footer-item" th:text="${item.title}">
+					<footer class="bulma-card-footer">
+						<span class="bulma-card-footer-item" th:text="${item.title}">
 							Ut wisi enim ad minim veniam
 						</span>
 					</footer>

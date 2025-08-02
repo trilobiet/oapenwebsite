@@ -15,30 +15,30 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="hero">
 
-	<div class="columns">
+	<div class="bulma-columns">
 	
-		<div class="column is-three-fifths">
-			<h1 class="title is-1">OAPEN</h1>
-			<h2 class="title is-3">Online&nbsp;library of open&nbsp;access&nbsp;books</h2>
+		<div class="bulma-column bulma-is-three-fifths">
+			<h1 class="bulma-title bulma-is-1">OAPEN</h1>
+			<h2 class="bulma-title bulma-is-3">Online&nbsp;library of open&nbsp;access&nbsp;books</h2>
 		</div>
 		
-		<form th:action="${settings.dspace_site+'discover'}" class="column oapen-hero-search-form">
+		<form th:action="${settings.dspace_site+'discover'}" class="bulma-column oapen-hero-search-form">
 		
 			<div>
 
-				<div class="field has-addons oapen-hero-search-input">
-					<div class="control">
-						<label for="ipt_search" class="is-hidden">Search query</label>
-						<input class="input" type="text" name="query" placeholder="Search OAPEN Library" id="ipt_search">
+				<div class="bulma-field bulma-has-addons oapen-hero-search-input">
+					<div class="bulma-control">
+						<label for="ipt_search" class="bulma-is-hidden">Search query</label>
+						<input class="bulma-input" type="text" name="query" placeholder="Search OAPEN Library" id="ipt_search">
 					</div>
-					<div class="control">
-						<button type="submit" class="button is-dark">
+					<div class="bulma-control">
+						<button type="submit" class="bulma-button bulma-is-dark">
 							Search
 						</button>
 					</div>
 				</div>
 	
-				<div class="field oapen-hero-search-browse">
+				<div class="bulma-field oapen-hero-search-browse">
 	
 					<span>
 						Browse by:

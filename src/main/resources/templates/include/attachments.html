@@ -10,15 +10,15 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main class="section oapen-main" layout:fragment="content">
+	<main class="bulma-section oapen-main" layout:fragment="content">
 
 		<th:block th:fragment="attachments" th:with="attachments=${@viewhelpers.attachments(article.media)}">
 
-			<div class="oapen-attachments content" th:if="${not #lists.isEmpty(attachments)}">
+			<div class="oapen-attachments bulma-content" th:if="${not #lists.isEmpty(attachments)}">
 			
 				<div class="oapen-attachments-header">Files</div>
 				
-				<hr class="is-hidden"/>
+				<hr class="bulma-is-hidden"/>
 			
 				<ul>
 					<li th:each="attachment:${attachments}">

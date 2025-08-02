@@ -15,18 +15,18 @@
 		<!--
 		Hero
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="hero oapen-funder-hero"
+		<section class="bulma-hero oapen-funder-hero"
 		 th:style="${funderBanner!=null?'background-image:url('+funderBanner+')':''}">
 
-			<div class="hero-body">
+			<div class="bulma-hero-body">
 
-				<div class="container">
+				<div class="bulma-container">
 
-					<h1 class="title is-1" th:text="${topic.name}">
+					<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">
 						Funder name
 					</h1>
 
-					<h2 class="title is-3" th:utext="${topic.description}">
+					<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
 						Funder tagline (description)
 				    </h2>
 
@@ -38,23 +38,23 @@
 		<!--
 		Intro
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="section">
+		<section class="bulma-section">
 
-			<div class="container" th:if="${firstarticle}">
+			<div class="bulma-container" th:if="${firstarticle}">
 			
 				<article class="oapen-article" th:classappend="${firstarticle.cssClass}">
 
-					<div class="columns">
+					<div class="bulma-columns">
 
-						<div class="column is-three-quarter">
+						<div class="bulma-column bulma-is-three-quarter">
 						
-							<div class="oapen-primary content" th:utext="${firstarticle.content}">
+							<div class="oapen-primary bulma-content" th:utext="${firstarticle.content}">
 								Article content
 							</div>
 						
 						</div>
 
-						<div class="column is-one-quarter oapen-funder-logo">
+						<div class="bulma-column bulma-is-one-quarter oapen-funder-logo">
 							<a th:href="${funderUrl}" target="_blank"><!-- argument='homepage' -->
 								<img th:src="${funderLogo}" alt="logo"/>
 							</a>	
@@ -64,14 +64,14 @@
 
 				</article>
 				
-				<div class="columns" th:if="${#lists.size(articles) gt 1}">
+				<div class="bulma-columns" th:if="${#lists.size(articles) gt 1}">
 				
-					<div class="column is-three-quarter">
+					<div class="bulma-column bulma-is-three-quarter">
 				
-						<div class="content oapen-toc is-three-quarter" >
+						<div class="bulma-content oapen-toc bulma-is-three-quarter" >
 			
 							<div class="oapen-toc-header">Read more</div>
-							<hr class="is-hidden"/>
+							<hr class="bulma-is-hidden"/>
 			
 							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
 								<!--/* skip first article (index=1) */-->
@@ -91,7 +91,7 @@
 						
 					</div>	
 					
-					<div class="column is-one-quarter"></div>
+					<div class="bulma-column bulma-is-one-quarter"></div>
 	
 				</div>
 				
@@ -102,11 +102,11 @@
 		<!--
 		Featured titles
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="section">
+		<section class="bulma-section">
 
-			<div class="container">
+			<div class="bulma-container">
 
-				<a class="is-hidden" th:href="@{'/fundertitles/'+${topic.slug}}" 
+				<a class="bulma-is-hidden" th:href="@{'/fundertitles/'+${topic.slug}}" 
 					th:text="'From the ' + ${topic.name} + ' collection'">Funder Titles</a>
 
 				<div class="ajaxloader" th:data-src="@{'/fundertitles/'+${topic.slug}} + ' #FunderTitles'">
@@ -119,11 +119,11 @@
 		<!--
 		Search this collection
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="section oapen-funder-search">
+		<section class="bulma-section oapen-funder-search">
 
-			<div class="container">
+			<div class="bulma-container">
 
-				<h3 class="title is-5">
+				<h3 class="bulma-title bulma-is-5">
 					Search the <span th:text="${topic.name}">Funder name</span> collection
 				</h3>
 
@@ -136,22 +136,22 @@
 						&query=Ordnung 
 				*/ -->
 				
-				<div class="level">
+				<div class="bulma-level">
 
 					<!-- Left side -->
-					<div class="level-left">
+					<div class="bulma-level-left">
 					
-						<form th:action="${settings.dspace_site+'discover'}" class="level-item">
-							<div class="field has-addons">
-								<p class="control">
-									<input class="input" type="text" name="query" placeholder="Search term">
+						<form th:action="${settings.dspace_site+'discover'}" class="bulma-level-item">
+							<div class="bulma-field bulma-has-addons">
+								<p class="bulma-control">
+									<input class="bulma-input" type="text" name="query" placeholder="Search term">
 									<input type="hidden" name="filtertype_1" value="collection" />
 									<input type="hidden" name="filter_relational_operator_1" value="equals" />
 									<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}" />
 								</p>
-								<p class="control">
-									<button type="submit" class="button is-dark">
-										<span class="icon is-small">
+								<p class="bulma-control">
+									<button type="submit" class="bulma-button is-dark">
+										<span class="bulma-icon bulma-is-small">
 											<i class="fas fa-search" aria-hidden="true"></i>
 										</span>
 									</button>
@@ -162,12 +162,12 @@
 					</div>
 
 					<!-- Right side -->
-					<div class="level-right">
-						<p class="level-item">
-							<a class="button is-danger"
+					<div class="bulma-level-right">
+						<p class="bulma-level-item">
+							<a class="bulma-button is-danger"
 							   th:href="${settings.dspace_site+'browse?type=collection&value='+collection}">
 								<span>Browse this collection</span>
-								<span class="icon is-small">
+								<span class="bulma-icon bulma-is-small">
 									<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
 								</span>
 							</a>

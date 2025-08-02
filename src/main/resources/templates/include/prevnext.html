@@ -10,11 +10,11 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main class="section oapen-main" layout:fragment="content">
+	<main class="bulma-section oapen-main" layout:fragment="content">
 
 		<th:block th:fragment="prevnext" th:if="${article.prevArticle !=null || article.nextArticle != null}">
 		
-			<nav class="oapen-prevnext content">
+			<nav class="oapen-prevnext bulma-content">
 				
 				<a class="oapen-prevarticle"
 				   th:if="${article.prevArticle != null && article.prevArticle.publish}" 

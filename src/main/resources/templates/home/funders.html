@@ -16,13 +16,13 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="funders">
 
-	<div class="title is-6 oapen-section-caption">Collections</div>
+	<div class="bulma-title bulma-is-6 oapen-section-caption">Collections</div>
 	
-	<hr class="is-hidden"/>
+	<hr class="bulma-is-hidden"/>
 
-	<div class="columns is-mobile is-multiline is-centered">
+	<div class="bulma-columns bulma-is-mobile bulma-is-multiline bulma-is-centered">
 
-		<div class="column is-half-mobile is-one-third-tablet is-one-fifth-desktop" th:each="funder: ${funders}">
+		<div class="bulma-column bulma-is-half-mobile bulma-is-one-third-tablet bulma-is-one-fifth-desktop" th:each="funder: ${funders}">
 			<a th:href="@{'/topic/'+${funder.slug}}">
 				<figure>
 					<img th:src="${funderlogos.get(funder.id)}" th:alt="${'Logo '+funder.name}">

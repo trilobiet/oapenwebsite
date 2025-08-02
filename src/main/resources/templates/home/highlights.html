@@ -15,16 +15,16 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="highlights">
 
-	<div class="title is-6 oapen-section-caption is-hidden">Highlights</div>
+	<div class="bulma-title bulma-is-6 oapen-section-caption bulma-is-hidden">Highlights</div>
 	
-	<hr class="is-hidden"/>
+	<hr class="bulma-is-hidden"/>
 
-	<div class="columns oapen-home-highlight" th:each="article: ${highlights}" th:classappend="${article.cssClass}">
+	<div class="bulma-columns oapen-home-highlight" th:each="article: ${highlights}" th:classappend="${article.cssClass}">
 
-		<div class="column is-three-quarter-desktop is-two-third-tablet">
+		<div class="bulma-column bulma-is-three-quarter-desktop bulma-is-two-third-tablet">
 
 			<div>
-				<h2 class="title is-5">
+				<h2 class="bulma-title bulma-is-5">
 					<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
 						Highlight title
 					</a>
@@ -36,7 +36,7 @@
 
 		</div>
 		
-		<div class="column is-one-quarter-desktop is-one-third-tablet" th:if="${not #lists.isEmpty(article.media)}">
+		<div class="bulma-column bulma-is-one-quarter-desktop bulma-is-one-third-tablet" th:if="${not #lists.isEmpty(article.media)}">
 
 			<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
 				<a data-fancybox="gallery" th:href="${media.url}">

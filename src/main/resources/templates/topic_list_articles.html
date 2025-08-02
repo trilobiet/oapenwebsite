@@ -10,35 +10,35 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
+	<main layout:fragment="content" class="bulma-section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
 	
-		<div class="container">
+		<div class="bulma-container">
 		
 			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
 		
-			<div class="columns">
+			<div class="bulma-columns">
 			
 				<!-- main content left -->
-				<div class="column is-three-quarters">
+				<div class="bulma-column bulma-is-three-quarters">
 				
 					<p th:if="${#lists.isEmpty(articles)}">Nothing here yet...</p>
 
 					<th:block th:each="article: ${articles}"> 
 
 						<article 
-							class="is-clearfix oapen-article oapen-primary" th:classappend="${article.cssClass}">
+							class="bulma-is-clearfix oapen-article oapen-primary" th:classappend="${article.cssClass}">
 							
-							<div class="columns">
+							<div class="bulma-columns">
 							
-								<div class="column">
+								<div class="bulma-column">
 		
-									<div th:utext="${article.content}" class="content">
+									<div th:utext="${article.content}" class="bulma-content">
 										Article content
 									</div>
 									
 								</div>
 			
-								<div class="column is-one-quarter" th:if="${not #lists.isEmpty(article.media)}">
+								<div class="bulma-column bulma-is-one-quarter" th:if="${not #lists.isEmpty(article.media)}">
 	
 									<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
 										<a data-fancybox="gallery" th:href="${media.url}">
@@ -61,7 +61,7 @@
 				</div>
 			
 				<!-- sidebar right -->
-				<div class="column">
+				<div class="bulma-column">
 				
 					<th:block th:insert="include/currentsection :: topics"/>
 

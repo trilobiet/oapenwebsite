@@ -10,18 +10,18 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
+	<main layout:fragment="content" class="bulma-section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
 
-		<div class="container">
+		<div class="bulma-container">
 		
 			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
 		
-			<div class="columns">
+			<div class="bulma-columns">
 			
 				<!-- main content -->
-				<div class="column is-three-quarters"> 
+				<div class="bulma-column bulma-is-three-quarters"> 
 				
-					<div class="content oapen-primary">
+					<div class="bulma-content oapen-primary">
 
 						<h1 th:text="${topic.name}">
 							Topic title
@@ -44,7 +44,7 @@
 					
 					<div class="oapen-summaries">
 					
-						<article th:each="article: ${articles}" class="content oapen-summary">
+						<article th:each="article: ${articles}" class="bulma-content oapen-summary">
 			
 							<h2 th:text="${article.title}">
 								Article title
@@ -71,7 +71,7 @@
 				</div>	
 					
 				<!-- sidebar -->
-				<div class="column">
+				<div class="bulma-column">
 				
 					<th:block th:insert="include/currentsection :: topics"/>
 				

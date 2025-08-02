@@ -14,9 +14,9 @@
 
 		<aside class="oapen-hypotheses-items" th:fragment="hypotheses" th:if="${not #lists.isEmpty(blogPosts)}">
 
-			<h2 class="is-title is-5 oapen-section-caption">More blog posts</h2>
+			<h2 class="bulma-is-title bulma-is-5 oapen-section-caption">More blog posts</h2>
 
-			<ul class="content">
+			<ul class="bulma-content">
 
 				<li th:each="blogPost:${blogPosts}">
 					<p class="oapen-date" th:text="${#temporals.format(blogPost.publicationDate,'E dd MMM yyyy')}">

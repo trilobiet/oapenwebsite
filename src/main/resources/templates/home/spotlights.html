@@ -16,13 +16,13 @@
 <th:block th:fragment="spotlights">
 
 	<!-- spotlights -->
-	<div class="column is-one-third-desktop oapen-home-spotlight" th:each="article: ${spotlights}">
+	<div class="bulma-column bulma-is-one-third-desktop oapen-home-spotlight" th:each="article: ${spotlights}">
 
-		<div class="title is-6 oapen-section-caption">Spotlight</div>
+		<div class="bulma-title bulma-is-6 oapen-section-caption">Spotlight</div>
 		
-		<hr class="is-hidden"/>
+		<hr class="bulma-is-hidden"/>
 
-		<h2 class="title is-5">
+		<h2 class="bulma-title bulma-is-5">
 			<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">Title</a>
 		</h2>
 

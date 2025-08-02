@@ -10,32 +10,32 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="section oapen-blog oapen-main">
+	<main layout:fragment="content" class="bulma-section oapen-blog oapen-main">
 	
-		<div class="container">
+		<div class="bulma-container">
 		
-			<nav class="breadcrumb" aria-label="breadcrumbs">
+			<nav class="bulma-breadcrumb" aria-label="breadcrumbs">
 				<ul>
 					<li>
 						<a th:href="@{'/'}">Home</a>
 					</li>
-					<li class="is-active">
+					<li class="bulma-is-active">
 						<a href="#" aria-current="page">OAPEN Blog</a>
 					</li>
 				</ul>
 			</nav>
 		
-			<div class="columns">
+			<div class="bulma-columns">
 			
 				<!-- main content left -->
-				<div class="column is-three-quarters">
+				<div class="bulma-column bulma-is-three-quarters">
 				
 					<p th:if="${featuredPost==null}">Nothing here yet...</p>
 
 					<article th:if="${featuredPost}"
-						class="is-clearfix oapen-blogpost">
+						class="bulma-is-clearfix oapen-blogpost">
 						
-						<div class="oapen-primary content">
+						<div class="oapen-primary bulma-content">
 						
 							<h1 th:text="${featuredPost.title}">Blog Title</h1>
 							
@@ -64,7 +64,7 @@
 				</div>
 			
 				<!-- sidebar right -->
-				<div class="column">
+				<div class="bulma-column">
 				
 					<th:block th:insert="include/blogposts :: hypotheses"/>
 				
