@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "sass --no-source-map --load-path=node_modules main.scss ../src/main/resources/static/static-assets/css/styles.min.css --style=compressed"
+    "build": "sass --no-source-map --load-path=node_modules main.scss ../src/main/resources/static/static-assets/css/main.min.css --style=compressed"
   },
   "keywords": [],
   "author": "",

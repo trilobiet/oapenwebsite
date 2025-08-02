@@ -1,1 +1,26 @@
-@use "bulma/bulma";
+// Configure Bulma’s utilities so that every class is prefixed with bulma-*
+@use "bulma/sass/utilities" with (
+  $class-prefix: "bulma-"
+);
+
+// Import the Bulma modules we need
+// Core modules (no theme or helpers yet)
+@forward "bulma/sass/base";
+@forward "bulma/sass/components";
+@forward "bulma/sass/elements";
+@forward "bulma/sass/form";
+@forward "bulma/sass/grid";
+@forward "bulma/sass/layout";
+
+// Only import the light theme, not the automatic dark mode
+@forward "bulma/sass/themes/light";
+
+// Re-import just the helper modules we need
+// Excludes Bulma’s built-in typography and colours, we’ll define own own later
+@forward "bulma/sass/helpers/spacing";      // .mt-4, .mb-2, etc.
+@forward "bulma/sass/helpers/visibility";   // .is-hidden-mobile, .is-block-tablet, etc.
+@forward "bulma/sass/helpers/flexbox";      // .is-flex, .is-justify-content-center, etc.
+
+// Our own overrides & custom oa-* classes
+// @import "./oa-variables";      // colour and typography variables
+// @import "./oa-custom-classes"; // all oa-* utilities/components
