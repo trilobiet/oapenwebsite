@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "build:css": "sass --no-source-map --load-path=node_modules main.scss ../src/main/resources/static/static-assets/css/main.min.css --style=compressed",
-    "build:js": "terser main.js --compress --mangle --output ../src/main/resources/static/static-assets/main.min.js",
+    "build:js": "terser main.js --compress --mangle --output ../src/main/resources/static/static-assets/js/main.min.js",
     "build": "npm run build:css && npm run build:js"
   },
   "keywords": [],
