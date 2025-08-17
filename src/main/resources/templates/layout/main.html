@@ -25,346 +25,351 @@
 
 <body th:classappend="${bodyClass}">
 
-	<!--
-		HEADER
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<header id="OapenHeader">
+  <!--
+    HEADER
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <header id="OapenHeader">
 
-		<div class="bulma-container">
+    <div class="bulma-container">
 
-			<!-- logo, search/deposit/join -->
-			<nav class="oapen-topnav" role="navigation">
+      <!-- logo, search/deposit/join -->
+      <nav class="oapen-topnav" role="navigation">
 
-				<div class="bulma-level topnav">
+        <div class="bulma-level topnav">
 
-					<div class="bulma-level-left">
+          <div class="bulma-level-left">
 
-						<a th:href="@{'/'}">
-							<img th:src="@{/static-assets/images/layout/oapenlogo 01 colour - open access.png}" width="150" alt="Logo Oapen" class="oapen-logo">
-						</a>
+            <a th:href="@{'/'}">
+              <img th:src="@{/static-assets/images/layout/oapenlogo 01 colour - open access.png}"
+                   width="150"
+                   alt="Logo Oapen"
+                   class="oapen-logo">
+            </a>
 
-					</div>
+          </div>
 
-					<div class="bulma-level-right">
+          <div class="bulma-level-right">
 
-						<ul class="bulma-buttons">
+            <ul class="bulma-buttons">
 
-							<li>
-								<a href="https://eepurl.com/kEPGr"
-								   class="bulma-button oapen-btn-newsletter">
-									<i class="fas fa-envelope-open-text"></i>
-									Newsletter
-								</a>
-							</li>
+              <li>
+                <a href="https://eepurl.com/kEPGr"
+                   class="bulma-button oapen-btn-newsletter">
+                  <i class="fas fa-envelope-open-text"></i>
+                  Newsletter
+                </a>
+              </li>
 
-							<li th:each="mnusection: ${headerSections}">
-								<a th:text="${mnusection.name}"
-								   th:href="@{'/'+${mnusection.slug}}"
-								   class="bulma-button" th:classappend="oapen-btn-+${mnusection.slug}">
-									Button right
-								</a>
-							</li>
-							
-							<!--/*
-							<li>
-								<div th:utext="${jira_contact_form}">jira_contact_form</div>
-							</li>
-							*/-->							
+              <li th:each="mnusection: ${headerSections}">
+                <a th:text="${mnusection.name}"
+                   th:href="@{'/'+${mnusection.slug}}"
+                   class="bulma-button"
+                   th:classappend="oapen-btn-+${mnusection.slug}">
+                  Button right
+                </a>
+              </li>
 
-						</ul>
+              <!--/*
+              <li>
+                <div th:utext="${jira_contact_form}">jira_contact_form</div>
+              </li>
+              */-->
 
-					</div>
+            </ul>
 
-				</div>
+          </div>
 
-			</nav>
+        </div>
 
-		</div><!-- /container -->
+      </nav>
 
-		<nav class="bulma-navbar oapen-mainnav" role="navigation">
+    </div><!-- /container -->
 
-			<div class="bulma-container">
+    <nav class="bulma-navbar oapen-mainnav" role="navigation">
 
-				<div class="bulma-navbar-brand">
+      <div class="bulma-container">
 
-					<!-- hamburger -->
-					<a role="button" class="bulma-navbar-burger bulma-burger" aria-label="menu" aria-expanded="false" data-target="navbarMain">
-						<span aria-hidden="true"></span> <span aria-hidden="true"></span> <span aria-hidden="true"></span>
-					</a>
+        <div class="bulma-navbar-brand">
 
-				</div>
+          <!-- hamburger -->
+          <a role="button"
+             class="bulma-navbar-burger bulma-burger"
+             aria-label="menu"
+             aria-expanded="false"
+             data-target="navbarMain">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
 
-				<div id="navbarMain" class="bulma-navbar-menu">
+        </div>
 
-					<ul class="bulma-navbar-start">
+        <div id="navbarMain" class="bulma-navbar-menu">
 
-						<li th:each="mnusection: ${menuLeftSections}" class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable">
-							<th:block th:insert="layout/submenu :: section_navigation">
-								sub menu
-							</th:block>
-						</li>
+          <ul class="bulma-navbar-start">
 
-					</ul>
-					
-					<ul class="bulma-navbar-end oapen-nav-right">
+            <li th:each="mnusection: ${menuLeftSections}"
+                class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable oapen-nav-dropdown">
+              <th:block th:insert="layout/submenu :: section_navigation">
+                sub menu
+              </th:block>
+            </li>
 
-						<li th:each="mnusection: ${menuRightSections}" class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable">
-							<th:block th:insert="layout/submenu :: section_navigation">
-								sub menu
-							</th:block>
-						</li>
+          </ul>
 
-					</ul>
+          <ul class="bulma-navbar-end oapen-nav-right">
 
-				</div>
+            <li th:each="mnusection: ${menuRightSections}"
+                class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable oapen-nav-dropdown">
+              <th:block th:insert="layout/submenu :: section_navigation">
+                sub menu
+              </th:block>
+            </li>
 
-			</div>
+          </ul>
 
-		</nav>
+        </div>
 
-	</header>
+      </div>
 
-	<!--
-		MAIN
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content">
-
-		<hr class="bulma-is-sr-only"/>
-
-		<div class="bulma-container bulma-content">
-
-			<!-- content -->
-			<!-- ============================================================================ -->
-			<!-- This content is only used for static prototyping purposes (natural templates)-->
-			<!-- and is therefore entirely optional, as this markup fragment will be included -->
-			<!-- from "fragments/header.html" at runtime.                                     -->
-			<!-- ============================================================================ -->
-
-			<h1>Static content for prototyping purposes only</h1>
-
-			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-				Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-				Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-				Phasellus et placerat elit.
-			</p>
-			<!-- /content -->
-
-		</div>
-
-	</main>
-
-
-	<!--
-		FOOTER
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<footer class="bulma-footer">
-
-		<div class="bulma-container">
-
-			<div class="oapen-ftr-header">
-				<div class="bulma-is-sr-only">Oapen - Publishing in European Networks</div>
-				<hr class="bulma-is-hidden"/>
-			</div>
-
-			<div class="bulma-columns oapen-footer-columns">
-
-		  		<div class="bulma-column oapen-footer-nav">
-
-		  			<ul class="bulma-menu-list">
-
-						<li th:each="mnusection: ${footerSections}">
-							<a th:href="@{'/'+${mnusection.slug}}"
-							   th:text="${mnusection.name}">
-							   Footer Menu Item
-							</a>
-						</li>
-
-					</ul>
-
-				</div><!-- /footer-nav -->
-
-				<div class="bulma-column">
-				
-					<div class="oapen-footer-licence">
-						
-						<div class="bulma-title bulma-is-6">Licence</div>
-						
-						<hr class="bulma-is-hidden"/>
-						
-						<p>
-							If not noted otherwise all contents are available under Attribution 4.0
-							International 
-							<a href="https://creativecommons.org/licenses/by/4.0/">(CC BY 4.0)</a>
-						</p> 
-						
-						<p>
-							<a href="https://creativecommons.org/licenses/by/4.0/">
-								<img th:src="@{/static-assets/images/CC-BY-300x105.png}" width="100" alt="CC-BY"/>
-							</a>
-						</p>
-					
-					</div>
-					
-					<div class="oapen-newsletter">
-
-						<div class="bulma-title bulma-is-6">Newsletter</div>
-						
-						<hr class="bulma-is-hidden"/>
-
-						<i class="fal fa-envelope-open-text"></i>
-
-						<ul>
-							<li>
-								<a href="https://eepurl.com/kEPGr">
-									Subscribe to our newsletter
-								</a>
-							</li>
-							<li>
-								<a href="https://us4.campaign-archive2.com/home/?u=314fa411ba5eaaee7244c95e1&id=e31e6f80e1">
-									view our news archive
-								</a>
-							</li>
-						</ul>
-
-					</div>
-
-					<div class="oapen-social-links">
-
-						<div class="bulma-title bulma-is-6">Follow us on</div>
-						
-						<hr class="bulma-is-hidden"/>
-
-						<ul>
-							<li>
-								<a href="https://bsky.app/profile/oapenbooks.bsky.social">
-									<i class="fa-brands fa-bluesky"></i>
-									<span class="bulma-is-sr-only">Bluesky</span>
-								</a>
-							</li>
-							<li>
-								<a href="https://www.linkedin.com/company/oapen-foundation/posts/?feedView=all">
-									<i class="fa-brands fa-linkedin"></i>
-									<span class="bulma-is-sr-only">LinkedIn</span>
-								</a>
-							</li>
-						</ul>
-
-					</div>
-
-				</div>
-
-				<div class="bulma-column oapen-credits">
-
-					<div class="bulma-title bulma-is-6">Credits</div>
-					
-					<hr class="bulma-is-hidden"/>
-
-					<ul>
-						<li>
-							<a href="https://europa.eu/european-union/index_en">
-								<img th:src="@{/static-assets/images/eu-flag.png}" width="100" alt="logo EU"/>
-								<span class="bulma-is-sr-only">European Union</span>
-								<br/>
-								<small class="bulma-is-size-7">
-									OAPEN received funding from the European Union’s Horizon 2020 research 
-									and innovation programme under grant agreement No 683680, 810640, 871069 and 964352.
- 								</small>
-							</a>
-						</li>
-					</ul>
-
-					<div class="bulma-title is-6">Donate</div>
-					
-					<hr class="bulma-is-hidden"/>
-
-					<ul>
-						<li>
-							<img th:src="@{/static-assets/images/donation-qr-code.png}" alt="Donate to OAPEN Foundation"
-								style="width:128px;height:128px;max-height:none;max-width:none;"/>
-								<br/>
-							<small class="bulma-is-size-7">
-								Support the OAPEN Library and DOAB 
-							</small>
-						</li>
-						<li>
-							<form action="https://www.paypal.com/donate" method="post" target="_top">
-								<input type="hidden" name="hosted_button_id" value="VPW4DRBLBM9J8" />
-								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" style="border:none" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-								<img alt="" border="0" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1" />
-							</form>
-						</li>
-					</ul>
-
-				</div>
-
-				<div class="bulma-column oapen-addresses">
-
-					<hr class="bulma-is-sr-only"/>
-
-					<p>
-						OAPEN is based in the Netherlands, with its registered office in the National Library in The Hague.
-					</p>
-					<p>
-						Managing Director: Niels Stern
-					</p>
-					<address>
-						Address:<br/>
-						OAPEN Foundation<br/>
-						Prins Willem-Alexanderhof 5<br/>
-						2595 BE The Hague
-					</address>
-					<p>
-						Websites:<br/>
-						OAPEN Home: <a href="https://www.oapen.org">www.oapen.org</a><br/>
-						OAPEN Library: <a href="https://library.oapen.org">library.oapen.org</a><br/>
-						OA Books Toolkit: <a href="https://oabooks-toolkit.org">oabooks-toolkit.org</a><br/>
-						DOAB: <a href="https://www.doabooks.org">www.doabooks.org</a>
-					</p>
-
-				</div>
-
-
-			</div><!-- /footer columns -->
-
-
-			<div class="bulma-content bulma-has-text-centered">
-
-				<div class="bulma-is-size-7">
-					<a href="https://www.trilobiet.nl">website by Trilobiet</a>
-				</div>
-
-			</div>
-
-		</div>
-
-	</footer>
-
-	<!-- / Local version of the cdn scripts are available in static-assets/js/ in case the CDN disappears / -->
-
-	<script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.4/dist/js/bulma-carousel.min.js"></script>
-	<script th:src="@{/static-assets/js/scripts.js?v=1.02}"></script>
-	<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-	<!--/* Loaded locally <script src="https://kit.fontawesome.com/33a853ba11.js" crossorigin="anonymous"></script> */-->
-
-	<script th:src="@{/static-assets/js/main.min.js}"></script>
-	
-	<th:block th:insert="include/googleanalyticsscript :: script">
-		Google Analytics
-	</th:block>
-	
-	<!----------------------------------- 
-	Website by	 
-    _____     _ _       _     _      _   
-   |_   _| __(_) | ___ | |__ (_) ___| |_ 
-     | || '__| | |/ _ \| '_ \| |/ _ \ __|
-     | || |  | | | (_) | |_) | |  __/ |_ 
-     |_||_|  |_|_|\___/|_.__/|_|\___|\__|
-                                       	
-	2020 www.trilobiet.nl
-	------------------------------------>
+    </nav>
+
+  </header>
+
+  <!--
+    MAIN
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <main layout:fragment="content">
+
+    <hr class="bulma-is-sr-only"/>
+
+    <div class="bulma-container bulma-content">
+
+      <!-- content -->
+      <!-- ============================================================================ -->
+      <!-- This content is only used for static prototyping purposes (natural templates)-->
+      <!-- and is therefore entirely optional, as this markup fragment will be included -->
+      <!-- from "fragments/header.html" at runtime.                                     -->
+      <!-- ============================================================================ -->
+
+      <h1>Static content for prototyping purposes only</h1>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+        Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+        Phasellus et placerat elit.
+      </p>
+      <!-- /content -->
+
+    </div>
+
+  </main>
+
+  <!--
+    FOOTER
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <footer class="bulma-footer">
+
+    <div class="bulma-container">
+
+      <div class="oapen-ftr-header">
+        <div class="bulma-is-sr-only">Oapen - Publishing in European Networks</div>
+        <hr class="bulma-is-hidden"/>
+      </div>
+
+      <div class="bulma-columns oapen-footer-columns">
+
+        <div class="bulma-column oapen-footer-nav">
+
+          <ul class="bulma-menu-list">
+
+            <li th:each="mnusection: ${footerSections}">
+              <a th:href="@{'/'+${mnusection.slug}}"
+                 th:text="${mnusection.name}">
+                Footer Menu Item
+              </a>
+            </li>
+
+          </ul>
+
+        </div><!-- /footer-nav -->
+
+        <div class="bulma-column">
+
+          <div class="oapen-footer-licence">
+
+            <div class="bulma-title bulma-is-6">Licence</div>
+
+            <hr class="bulma-is-hidden"/>
+
+            <p>
+              If not noted otherwise all contents are available under Attribution 4.0
+              International
+              <a href="https://creativecommons.org/licenses/by/4.0/">(CC BY 4.0)</a>
+            </p>
+
+            <p>
+              <a href="https://creativecommons.org/licenses/by/4.0/">
+                <img th:src="@{/static-assets/images/CC-BY-300x105.png}"
+                     width="100"
+                     alt="CC-BY"/>
+              </a>
+            </p>
+
+          </div>
+
+          <div class="oapen-newsletter">
+
+            <div class="bulma-title bulma-is-6">Newsletter</div>
+
+            <hr class="bulma-is-hidden"/>
+
+            <i class="fal fa-envelope-open-text"></i>
+
+            <ul>
+              <li>
+                <a href="https://eepurl.com/kEPGr">
+                  Subscribe to our newsletter
+                </a>
+              </li>
+              <li>
+                <a href="https://us4.campaign-archive2.com/home/?u=…">
+                  view our news archive
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+          <div class="oapen-social-links">
+
+            <div class="bulma-title bulma-is-6">Follow us on</div>
+
+            <hr class="bulma-is-hidden"/>
+
+            <ul>
+              <li>
+                <a href="https://bsky.app/profile/oapenbooks.bsky.social">
+                  <i class="fa-brands fa-bluesky"></i>
+                  <span class="bulma-is-sr-only">Bluesky</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/company/oapen-foundation">
+                  <i class="fa-brands fa-linkedin"></i>
+                  <span class="bulma-is-sr-only">LinkedIn</span>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+
+        <div class="bulma-column oapen-credits">
+
+          <div class="bulma-title bulma-is-6">Credits</div>
+
+          <hr class="bulma-is-hidden"/>
+
+          <ul>
+            <li>
+              <a href="https://europa.eu/european-union/index_en">
+                <img th:src="@{/static-assets/images/eu-flag.png}"
+                     width="100"
+                     alt="logo EU"/>
+                <span class="bulma-is-sr-only">European Union</span>
+                <br/>
+                <small class="bulma-is-size-7">
+                  OAPEN received funding from the European Union’s Horizon 2020…
+                </small>
+              </a>
+            </li>
+          </ul>
+
+          <div class="bulma-title bulma-is-6">Donate</div>
+
+          <hr class="bulma-is-hidden"/>
+
+          <ul>
+            <li>
+              <img th:src="@{/static-assets/images/donation-qr-code.png}"
+                   alt="Donate to OAPEN Foundation"
+                   style="width:128px;height:128px;"/>
+              <br/>
+              <small class="bulma-is-size-7">
+                Support the OAPEN Library and DOAB
+              </small>
+            </li>
+            <li>
+              <form action="https://www.paypal.com/donate" method="post" target="_top">
+                <input type="hidden"
+                       name="hosted_button_id"
+                       value="VPW4DRBLBM9J8"/>
+                <input type="image"
+                       src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
+                       style="border:none"
+                       name="submit"
+                       alt="Donate with PayPal"/>
+                <img alt=""
+                     border="0"
+                     src="https://www.paypal.com/en_NL/i/scr/pixel.gif"
+                     width="1"
+                     height="1"/>
+              </form>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="bulma-column oapen-addresses">
+
+          <hr class="bulma-is-sr-only"/>
+
+          <p>
+            OAPEN is based in the Netherlands, with its registered office…
+          </p>
+          <p>
+            Managing Director: Niels Stern
+          </p>
+          <address>
+            Address:<br/>
+            OAPEN Foundation<br/>
+            Prins Willem-Alexanderhof 5<br/>
+            2595 BE The Hague
+          </address>
+          <p>
+            Websites:<br/>
+            <a href="https://www.oapen.org">www.oapen.org</a><br/>
+            <a href="https://library.oapen.org">library.oapen.org</a><br/>
+            <a href="https://oabooks-toolkit.org">oabooks-toolkit.org</a><br/>
+            <a href="https://www.doabooks.org">www.doabooks.org</a>
+          </p>
+
+        </div>
+
+      </div><!-- /footer columns -->
+
+      <div class="bulma-content bulma-has-text-centered">
+
+        <div class="bulma-is-size-7">
+          <a href="https://www.trilobiet.nl">website by Trilobiet</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- Scripts -->
+  <script th:src="@{/static-assets/js/main.min.js}"></script>
+  <th:block th:insert="include/googleanalyticsscript :: script">
+    Google Analytics
+  </th:block>
 
 </body>
+
 </html>
