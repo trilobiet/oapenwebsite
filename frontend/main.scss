@@ -14,7 +14,17 @@
   $info:     $oa-scholarly-gold,
   $success:  $oa-ember-amber,
   $warning:  $oa-ember-amber,
-  $danger:   $oa-ink-black
+  $danger:   $oa-ink-black,
+  $scheme-main:  $oa-parchment-white,
+  $scheme-invert:$oa-ink-black,
+  $text:         $oa-ink-black,
+  $custom-colors: (
+    "ink":       ($oa-ink-black,       $oa-parchment-white),
+    "parchment": ($oa-parchment-white, $oa-ink-black),
+    "celestial": ($oa-celestial-blue,  $oa-parchment-white),
+    "gold":      ($oa-scholarly-gold,  $oa-ink-black),
+    "amber":     ($oa-ember-amber,     $oa-ink-black),
+  )
 );
 
 // Pull in all of Bulma (base, components, layout, themes, helpers…)
