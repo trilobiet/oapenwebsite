@@ -16,7 +16,9 @@
     overflow: visible;
   }
 
-  .bulma-navbar-menu { overflow: visible; }
+  .bulma-navbar-menu { 
+    overflow: visible; 
+  }
 
   .bulma-navbar-item,
   .bulma-navbar-link {
@@ -25,9 +27,14 @@
     color: var(--bulma-scheme-main);
   }
 
-  .bulma-navbar-link::after { display: none; }
+  // Remove Bulma’s carets after menu links
+  .bulma-navbar-link::after { 
+    display: none; 
+  }
 
-  .bulma-navbar-link { text-decoration: none; }
+  .bulma-navbar-link { 
+    text-decoration: none; 
+  }
 
   .bulma-navbar-link:hover,
   .bulma-navbar-link.bulma-is-active,
@@ -49,7 +56,9 @@
 
 // Megamenu (desktop)
 @media (min-width: 1024px) {
-  .oa-header .bulma-navbar-item.bulma-has-dropdown { position: static; }
+  .oa-header .bulma-navbar-item.bulma-has-dropdown { 
+    position: static; 
+  }
 
   .oa-header .oa-megamenu {
     position: absolute;
@@ -67,7 +76,9 @@
   }
 
   .oa-header .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-megamenu,
-  .oa-header .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu { display: block; }
+  .oa-header .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu { 
+    display: block; 
+  }
 
   .oa-header .oa-megamenu .bulma-columns {
     display: flex;
@@ -83,7 +94,9 @@
 
   // Remove Bulma’s white tile background in dropdown
   .oa-header .bulma-navbar-dropdown a.bulma-navbar-item,
-  .oa-header .bulma-navbar-dropdown .bulma-navbar-item { background: transparent; }
+  .oa-header .bulma-navbar-dropdown .bulma-navbar-item { 
+    background: transparent; 
+  }
 
   .oa-header .oa-megamenu .bulma-navbar-item {
     display: block;

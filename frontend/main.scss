@@ -29,12 +29,12 @@
 
 // Map Bulma’s semantic colors to our custom variables
 @use "bulma/sass/utilities/derived-variables" with (
-  $primary:       $oa-celestial-blue,
-  $link:          $oa-celestial-blue,
-  $info:          $oa-scholarly-gold,
-  $success:       $oa-ember-amber,
-  $warning:       $oa-ember-amber,
-  $danger:        $oa-ink-black,
+  $primary:  $oa-celestial-blue,
+  $link:     $oa-celestial-blue,
+  $info:     $oa-scholarly-gold,
+  $success:  $oa-celestial-blue,
+  $warning:  $oa-scholarly-gold,
+  $danger:   $oa-tomato-red,
   $scheme-main:   $oa-parchment-white,
   $scheme-invert: $oa-ink-black,
   $text:          $oa-ink-black,
@@ -43,7 +43,7 @@
     "parchment": ($oa-parchment-white, $oa-ink-black),
     "celestial": ($oa-celestial-blue,  $oa-parchment-white),
     "gold":      ($oa-scholarly-gold,  $oa-ink-black),
-    "amber":     ($oa-ember-amber,     $oa-ink-black),
+    "tomato":    ($oa-tomato-red,      $oa-parchment-white),
   )
 );
 
