@@ -1,19 +1,33 @@
+// ————————————————————————————————————————
+// main.scss
+// Import Bulma and OAPEN’s custom styles
+// Set colour palette, typography
+// and other customisations of Bulma
+// ————————————————————————————————————————
+
+
+// ————————————————————————————————————————
+// Import Bulma and OAPEN’s styles
+// ————————————————————————————————————————
+
 // Bring in OAPEN’s colour palette and typography variables
 @use "./oa-variables" as *;
 
 // Import Bulma’s entry-point with overrides
-// Prefix everything with “bulma-”
-// Map Bulma’s semantic colors to our custom variables
 @use "bulma/sass/utilities/initial-variables" with (
+  // Prefix everything with “bulma-”
   $class-prefix: "bulma-",
+
   // Disable Bulma’s default rounded border radius
   $radius-small: 0,
   $radius: 0,
   $radius-large: 0,
-  // keep .is-rounded available in case we do need it
+
+  // Keep .is-rounded available in case we do need it
   $radius-rounded: 9999px
 );
 
+// Map Bulma’s semantic colors to our custom variables
 @use "bulma/sass/utilities/derived-variables" with (
   $primary:  $oa-celestial-blue,
   $link:     $oa-celestial-blue,
@@ -37,4 +51,17 @@
 @use "bulma/bulma";
 
 // Our own custom oa-* classes — last resort, as Bulma should cover most use cases
-// @use "./oa-custom-classes";
+@use "./oa-custom-classes";
+
+// ————————————————————————————————————————
+// Bulma class overrides
+// ————————————————————————————————————————
+
+// Include a11y focus without shadows, since we are disabling/overriding them
+.bulma-input:focus,
+.bulma-textarea:focus,
+.bulma-select select:focus {
+  outline: 2px solid var(--bulma-link);
+  outline-offset: 2px;
+  box-shadow: none;
+};

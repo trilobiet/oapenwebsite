@@ -28,112 +28,48 @@
   <!--
     HEADER
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <header id="OapenHeader">
-
-    <div class="bulma-container">
-
-      <!-- logo, search/deposit/join -->
-      <nav class="oapen-topnav" role="navigation">
-
-        <div class="bulma-level topnav">
-
-          <div class="bulma-level-left">
-
-            <a th:href="@{'/'}">
-              <img th:src="@{/static-assets/images/layout/oapenlogo 01 colour - open access.png}"
-                   width="150"
-                   alt="Logo Oapen"
-                   class="oapen-logo">
-            </a>
-
-          </div>
-
-          <div class="bulma-level-right">
-
-            <ul class="bulma-buttons">
-
-              <li>
-                <a href="https://eepurl.com/kEPGr"
-                   class="bulma-button oapen-btn-newsletter">
-                  <i class="fas fa-envelope-open-text"></i>
-                  Newsletter
-                </a>
-              </li>
-
-              <li th:each="mnusection: ${headerSections}">
-                <a th:text="${mnusection.name}"
-                   th:href="@{'/'+${mnusection.slug}}"
-                   class="bulma-button"
-                   th:classappend="oapen-btn-+${mnusection.slug}">
-                  Button right
-                </a>
-              </li>
-
-              <!--/*
-              <li>
-                <div th:utext="${jira_contact_form}">jira_contact_form</div>
-              </li>
-              */-->
-
-            </ul>
-
-          </div>
-
-        </div>
-
-      </nav>
-
-    </div><!-- /container -->
-
-    <nav class="bulma-navbar oapen-mainnav" role="navigation">
-
+  <header id="OapenHeader" class="oa-header" role="banner">
+    <nav class="bulma-navbar bulma-is-ink oa-header--dark" role="navigation" aria-label="Main navigation">
       <div class="bulma-container">
 
+        <!-- brand + burger -->
         <div class="bulma-navbar-brand">
-
-          <!-- hamburger -->
-          <a role="button"
-             class="bulma-navbar-burger bulma-burger"
-             aria-label="menu"
-             aria-expanded="false"
-             data-target="navbarMain">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+          <a class="bulma-navbar-item oa-logo" th:href="@{'/'}" aria-label="OAPEN homepage">
+            <img th:src="@{/static-assets/images/logotype.svg}" alt="OAPEN" width="132" height="32">
           </a>
-
+          <a role="button" class="bulma-navbar-burger bulma-burger" aria-label="menu" aria-expanded="false" data-target="mainNav">
+            <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+          </a>
         </div>
 
-        <div id="navbarMain" class="bulma-navbar-menu">
-
-          <ul class="bulma-navbar-start">
-
-            <li th:each="mnusection: ${menuLeftSections}"
-                class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable oapen-nav-dropdown">
-              <th:block th:insert="layout/submenu :: section_navigation">
-                sub menu
-              </th:block>
+        <!-- Full menu -->
+        <div id="mainNav" class="bulma-navbar-menu">
+          <ul class="bulma-navbar-start oa-navbar-list" role="menubar">
+            <!-- Left sections -->
+            <li th:each="mnusection : ${menuLeftSections}"
+                class="bulma-navbar-item"
+                th:classappend="${#lists.isEmpty(mnusection.topics)} ? '' : ' bulma-has-dropdown bulma-is-hoverable'">
+              <th:block th:insert="layout/submenu :: section_navigation">submenu</th:block>
             </li>
 
-          </ul>
-
-          <ul class="bulma-navbar-end oapen-nav-right">
-
-            <li th:each="mnusection: ${menuRightSections}"
-                class="bulma-navbar-item bulma-has-dropdown bulma-is-hoverable oapen-nav-dropdown">
-              <th:block th:insert="layout/submenu :: section_navigation">
-                sub menu
-              </th:block>
+            <!-- Right sections (inline with left) -->
+            <li th:each="mnusection : ${menuRightSections}"
+                class="bulma-navbar-item"
+                th:classappend="${#lists.isEmpty(mnusection.topics)} ? '' : ' bulma-has-dropdown bulma-is-hoverable'">
+              <th:block th:insert="layout/submenu :: section_navigation">submenu</th:block>
             </li>
-
           </ul>
 
-        </div>
+          <!-- Newsletter -->
+          <div class="bulma-navbar-end">
+            <div class="bulma-navbar-item">
+              <a href="https://eepurl.com/kEPGr" class="bulma-button bulma-is-small bulma-is-shadowless">Newsletter</a>
+            </div>
+          </div>
+        </div><!-- /navbar-menu -->
 
-      </div>
-
+      </div><!-- /container -->
     </nav>
-
   </header>
 
   <!--
