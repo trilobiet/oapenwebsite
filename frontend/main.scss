@@ -5,7 +5,13 @@
 // Prefix everything with “bulma-”
 // Map Bulma’s semantic colors to our custom variables
 @use "bulma/sass/utilities/initial-variables" with (
-  $class-prefix: "bulma-"
+  $class-prefix: "bulma-",
+  // Disable Bulma’s default rounded border radius
+  $radius-small: 0,
+  $radius: 0,
+  $radius-large: 0,
+  // keep .is-rounded available in case we do need it
+  $radius-rounded: 9999px
 );
 
 @use "bulma/sass/utilities/derived-variables" with (
