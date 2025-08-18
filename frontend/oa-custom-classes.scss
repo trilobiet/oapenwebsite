@@ -155,11 +155,98 @@
   }
 }
 
-// Inputs focus (no shadow)
-.bulma-input:focus,
-.bulma-textarea:focus,
-.bulma-select select:focus {
-  outline: 2px solid var(--bulma-link);
-  outline-offset: 2px;
-  box-shadow: none;
+// Footer
+.oa-footer {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--bulma-scheme-invert);
+  color: var(--bulma-scheme-main);
+  line-height: 1.6;
+
+  a {
+    color: var(--bulma-scheme-main);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      color: var(--bulma-celestial);
+      text-decoration: none;
+    }
+  }
+
+  .bulma-title {
+    color: var(--bulma-scheme-main);
+    margin-bottom: .5rem;
+  }
+
+  address {
+    font-style: normal;
+  }
+
+  .oa-footer-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .oa-footer-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li + li {
+      margin-top: .25rem;
+    }
+  }
+
+  // Newsletter form
+  .oa-footer-form {
+    .bulma-input {
+      background: transparent;
+      border: 1px solid var(--bulma-scheme-main);
+      color: var(--bulma-scheme-main);
+
+      &::placeholder {
+        color: color-mix(in srgb, var(--bulma-scheme-main) 65%, transparent);
+      }
+
+      &:focus {
+        border-color: var(--bulma-scheme-main);
+        box-shadow: none;
+      }
+    }
+
+    .bulma-button {
+      background: var(--bulma-scheme-main);
+      color: var(--bulma-scheme-invert);
+      border-color: var(--bulma-scheme-main);
+
+      &:hover,
+      &:focus {
+        background: var(--bulma-celestial);
+        border-color: var(--bulma-celestial);
+        color: var(--bulma-scheme-main);
+      }
+    }
+  }
+
+  // "Watermarked" background logo
+  .oa-footer-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    img {
+      width: 80%;
+      max-width: 800px;
+      opacity: .07;
+      transform: translateY(5%);
+      filter: brightness(1.5);
+      mix-blend-mode: lighten;
+    }
+  }
 }

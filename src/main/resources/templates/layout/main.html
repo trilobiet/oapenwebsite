@@ -105,199 +105,117 @@
 
   <!--
     FOOTER
-  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <footer class="bulma-footer">
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+  <footer class="oa-footer bulma-section bulma-py-6 bulma-has-background-ink bulma-has-text-parchment" role="contentinfo">
+    <div class="oa-footer-bg" aria-hidden="true">
+      <img th:src="@{/static-assets/images/logotype.svg}" alt="">
+    </div>
 
-    <div class="bulma-container">
+    <div class="bulma-container oa-footer-content">
+      <h2 class="bulma-is-sr-only">OAPEN – Publishing in European Networks</h2>
 
-      <div class="oapen-ftr-header">
-        <div class="bulma-is-sr-only">Oapen - Publishing in European Networks</div>
-        <hr class="bulma-is-hidden"/>
+      <!-- Row A: Newsletter / Websites / Explore links -->
+      <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-desktop bulma-mb-6">
+        <!-- Newsletter -->
+        <section class="bulma-column bulma-is-6-desktop bulma-is-6-tablet oapen-newsletter">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Stay up to date</h3>
+          <form action="https://eepurl.com/kEPGr" method="get" target="_blank" class="oa-footer-form">
+            <div class="bulma-field bulma-has-addons">
+              <p class="bulma-control bulma-is-expanded">
+                <label class="bulma-is-sr-only" for="oa_newsletter">Email</label>
+                <input id="oa_newsletter" class="bulma-input" type="email" placeholder="name@email.com">
+              </p>
+              <p class="bulma-control">
+                <button type="submit" class="bulma-button bulma-is-shadowless">Sign up</button>
+              </p>
+            </div>
+          </form>
+          <p class="bulma-mt-4 oa-footer-small">
+            <a href="https://us4.campaign-archive2.com/home/?u=314fa411ba5eaaee7244c95e1&amp;id=e31e6f80e1" target="_blank">View newsletter archive</a>
+          </p>
+        </section>
+
+        <!-- Websites -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Websites</h3>
+          <ul class="oa-footer-list bulma-is-size-5">
+            <li><a href="https://www.oapen.org">oapen.org</a></li>
+            <li><a href="https://library.oapen.org">library.oapen.org</a></li>
+            <li><a href="https://oabooks-toolkit.org">oabooks-toolkit.org</a></li>
+            <li><a href="https://www.doabooks.org">doabooks.org</a></li>
+          </ul>
+        </section>
+
+        <!-- Explore -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Explore</h3>
+          <ul class="oa-footer-list bulma-is-size-5">
+            <li th:each="mnusection: ${footerSections}">
+              <a th:href="@{'/'+${mnusection.slug}}" th:text="${mnusection.name}">Section</a>
+            </li>
+          </ul>
+        </section>
       </div>
 
-      <div class="bulma-columns oapen-footer-columns">
+      <!-- Donate / Funding / Licence / Address -->
+      <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-multiline">
+        <!-- Donate -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Donate</h3>
+          <p class="oa-footer-small bulma-mb-3">Scan this QR code to support the OAPEN Library and DOAB</p>
+          <img th:src="@{/static-assets/images/donation-qr-code.png}" alt="Donate to OAPEN Foundation" width="128" height="128" class="bulma-mb-3">
+          <form action="https://www.paypal.com/donate" method="post" target="_top" class="oa-footer-paypal">
+            <input type="hidden" name="hosted_button_id" value="VPW4DRBLBM9J8">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal" style="border:none">
+            <img alt="" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </section>
 
-        <div class="bulma-column oapen-footer-nav">
-
-          <ul class="bulma-menu-list">
-
-            <li th:each="mnusection: ${footerSections}">
-              <a th:href="@{'/'+${mnusection.slug}}"
-                 th:text="${mnusection.name}">
-                Footer Menu Item
-              </a>
-            </li>
-
-          </ul>
-
-        </div><!-- /footer-nav -->
-
-        <div class="bulma-column">
-
-          <div class="oapen-footer-licence">
-
-            <div class="bulma-title bulma-is-6">Licence</div>
-
-            <hr class="bulma-is-hidden"/>
-
-            <p>
-              If not noted otherwise all contents are available under Attribution 4.0
-              International
-              <a href="https://creativecommons.org/licenses/by/4.0/">(CC BY 4.0)</a>
-            </p>
-
-            <p>
-              <a href="https://creativecommons.org/licenses/by/4.0/">
-                <img th:src="@{/static-assets/images/CC-BY-300x105.png}"
-                     width="100"
-                     alt="CC-BY"/>
-              </a>
-            </p>
-
-          </div>
-
-          <div class="oapen-newsletter">
-
-            <div class="bulma-title bulma-is-6">Newsletter</div>
-
-            <hr class="bulma-is-hidden"/>
-
-            <i class="fal fa-envelope-open-text"></i>
-
-            <ul>
-              <li>
-                <a href="https://eepurl.com/kEPGr">
-                  Subscribe to our newsletter
-                </a>
-              </li>
-              <li>
-                <a href="https://us4.campaign-archive2.com/home/?u=…">
-                  view our news archive
-                </a>
-              </li>
-            </ul>
-
-          </div>
-
-          <div class="oapen-social-links">
-
-            <div class="bulma-title bulma-is-6">Follow us on</div>
-
-            <hr class="bulma-is-hidden"/>
-
-            <ul>
-              <li>
-                <a href="https://bsky.app/profile/oapenbooks.bsky.social">
-                  <i class="fa-brands fa-bluesky"></i>
-                  <span class="bulma-is-sr-only">Bluesky</span>
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/company/oapen-foundation">
-                  <i class="fa-brands fa-linkedin"></i>
-                  <span class="bulma-is-sr-only">LinkedIn</span>
-                </a>
-              </li>
-            </ul>
-
-          </div>
-
-        </div>
-
-        <div class="bulma-column oapen-credits">
-
-          <div class="bulma-title bulma-is-6">Credits</div>
-
-          <hr class="bulma-is-hidden"/>
-
-          <ul>
-            <li>
-              <a href="https://europa.eu/european-union/index_en">
-                <img th:src="@{/static-assets/images/eu-flag.png}"
-                     width="100"
-                     alt="logo EU"/>
-                <span class="bulma-is-sr-only">European Union</span>
-                <br/>
-                <small class="bulma-is-size-7">
-                  OAPEN received funding from the European Union’s Horizon 2020…
-                </small>
-              </a>
-            </li>
-          </ul>
-
-          <div class="bulma-title bulma-is-6">Donate</div>
-
-          <hr class="bulma-is-hidden"/>
-
-          <ul>
-            <li>
-              <img th:src="@{/static-assets/images/donation-qr-code.png}"
-                   alt="Donate to OAPEN Foundation"
-                   style="width:128px;height:128px;"/>
-              <br/>
-              <small class="bulma-is-size-7">
-                Support the OAPEN Library and DOAB
-              </small>
-            </li>
-            <li>
-              <form action="https://www.paypal.com/donate" method="post" target="_top">
-                <input type="hidden"
-                       name="hosted_button_id"
-                       value="VPW4DRBLBM9J8"/>
-                <input type="image"
-                       src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif"
-                       style="border:none"
-                       name="submit"
-                       alt="Donate with PayPal"/>
-                <img alt=""
-                     border="0"
-                     src="https://www.paypal.com/en_NL/i/scr/pixel.gif"
-                     width="1"
-                     height="1"/>
-              </form>
-            </li>
-          </ul>
-
-        </div>
-
-        <div class="bulma-column oapen-addresses">
-
-          <hr class="bulma-is-sr-only"/>
-
-          <p>
-            OAPEN is based in the Netherlands, with its registered office…
+        <!-- Funding -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Funding</h3>
+          <p class="bulma-mb-2">
+            <a href="https://europa.eu/european-union/index_en">
+              <img th:src="@{/static-assets/images/eu-flag.png}" alt="European Union" width="100">
+              <span class="bulma-is-sr-only">European Union</span>
+            </a>
           </p>
-          <p>
-            Managing Director: Niels Stern
+          <p class="oa-footer-small">
+            OAPEN received funding from the EU’s Horizon 2020 research and innovation programme (grants 683680, 810640, 871069, 964352).
           </p>
-          <address>
-            Address:<br/>
-            OAPEN Foundation<br/>
-            Prins Willem-Alexanderhof 5<br/>
-            2595 BE The Hague
+        </section>
+
+        <!-- Licence -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Licence</h3>
+          <p class="oa-footer-small bulma-mb-2">
+            Unless noted otherwise, all content is available under
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+          </p>
+          <a href="https://creativecommons.org/licenses/by/4.0/">
+            <img th:src="@{/static-assets/images/CC-BY-300x105.png}" width="100" alt="CC-BY">
+          </a>
+        </section>
+
+        <!-- Address -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Address</h3>
+          <address class="oa-footer-small bulma-mb-2">
+            OAPEN Foundation<br>
+            Prins Willem-Alexanderhof 5<br>
+            2595 BE The Hague<br>
+            Netherlands
           </address>
-          <p>
-            Websites:<br/>
-            <a href="https://www.oapen.org">www.oapen.org</a><br/>
-            <a href="https://library.oapen.org">library.oapen.org</a><br/>
-            <a href="https://oabooks-toolkit.org">oabooks-toolkit.org</a><br/>
-            <a href="https://www.doabooks.org">www.doabooks.org</a>
-          </p>
+          <p class="oa-footer-small"><span class="bulma-has-text-weight-semibold">Managing Director:</span> Niels Stern</p>
+        </section>
+      </div>
 
-        </div>
-
-      </div><!-- /footer columns -->
-
-      <div class="bulma-content bulma-has-text-centered">
-
+      <div class="bulma-content bulma-has-text-centered bulma-mt-6">
         <div class="bulma-is-size-7">
           <a href="https://www.trilobiet.nl">website by Trilobiet</a>
         </div>
-
       </div>
-
     </div>
-
   </footer>
 
   <!-- Scripts -->
