@@ -11,50 +11,62 @@
 </div>
 
 <!--
-	Toolkit Callout
+  Toolkit CTA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="toolkit">
+  <div class="bulma-container">
+    <div class="bulma-columns bulma-is-vcentered bulma-is-variable bulma-is-5">
 
-	<div class="bulma-container">
+      <!-- Visual / label -->
+      <div class="bulma-column bulma-is-two-fifths bulma-has-text-centered">
+        <p class="bulma-title bulma-is-6 bulma-mb-1">OAPEN</p>
+        <h2 class="bulma-title bulma-is-2 bulma-mb-4">OA Books Toolkit</h2>
 
-		<div class="bulma-columns bulma-is-vcentered">
+        <figure class="bulma-image bulma-is-128x128 bulma-is-flex bulma-is-align-items-center bulma-is-justify-content-center bulma-has-background-ink bulma-has-text-parchment bulma-mx-auto">
+          <svg class="oa-promo-svg bulma-is-64x64"
+               xmlns="http://www.w3.org/2000/svg"
+               viewBox="0 0 50 50"
+               width="64"
+               height="64"
+               fill="currentColor"
+               aria-hidden="true">
+            <path d="M42.95,10.035h-7.27v-2.76c0-2.38-1.93-4.31-4.31-4.31H18.63c-2.38,0-4.31,1.93-4.31,4.31v2.76H7.05
+              c-3.34,0-6.05,2.71-6.05,6.05v9.68c0,1.39,1.13,2.52,2.52,2.52h0.02v12.04c0,3.7,3.01,6.71,6.71,6.71h29.5
+              c3.7,0,6.71-3.01,6.71-6.71v-12.04h0.02c1.39,0,2.52-1.13,2.52-2.52v-9.68c0-3.34-2.71-6.05-6.05-6.05z
+              M16.32,7.275c0-1.27,1.04-2.31,2.31-2.31h12.74c1.27,0,2.31,1.04,2.31,2.31v2.75H16.32z
+              M44.46,40.325c0,2.6-2.11,4.71-4.71,4.71h-29.5c-2.6,0-4.71-2.11-4.71-4.71v-12.04h2.92
+              c0.18,2.07,1.9,3.7,4.01,3.7s3.83-1.63,4.02-3.7h17.02c0.19,2.07,1.91,3.7,4.02,3.7s3.83-1.63,4.01-3.7h2.92z
+              M10.42,27.935v-3.34h4.1v3.34c0,1.13-0.92,2.05-2.05,2.05s-2.05-0.92-2.05-2.05z
+              M35.48,27.935v-3.34h4.1v3.34c0,1.13-0.92,2.05-2.05,2.05s-2.05-0.92-2.05-2.05z
+              M47,25.765c0,0.29-0.23,0.52-0.52,0.52h-4.9v-2.69c0-0.55-0.45-1-1-1h-6.1c-0.55,0-1,0.45-1,1v2.69H16.52v-2.69
+              c0-0.55-0.45-1-1-1h-6.1c-0.55,0-1,0.45-1,1v2.69h-4.9c-0.29,0-0.52-0.23-0.52-0.52v-9.68
+              c0-2.24,1.82-4.05,4.05-4.05h35.9c2.23,0,4.05,1.81,4.05,4.05z"/>
+            <path d="M36.13,34.335l-13.16,0.54c-1.01-1.82-2.93-2.97-5.04-2.97c-1.86,0-3.62,0.91-4.69,2.43
+              c-0.16,0.23-0.18,0.53-0.05,0.78c0.13,0.24,0.39,0.4,0.67,0.4h1.8l1.02,1.78l-1.02,1.78h-2.23
+              c-0.25,0-0.49,0.14-0.63,0.35c-0.14,0.22-0.15,0.5-0.04,0.73c0.94,1.98,2.98,3.25,5.17,3.25
+              c2.11,0,4.04-1.15,5.04-2.97l13.37-0.55h0.14c1.83,0,3.32-1.49,3.32-3.32
+              C39.46,35.825,37.97,34.335,36.13,34.335z M36.06,39.475l-13.51-0.56c-0.31-0.03-0.6,0.17-0.72,0.45
+              c-0.68,1.55-2.21,2.54-3.9,2.54c-1.17,0-2.29-0.49-3.08-1.33h1.24c0.27,0,0.52-0.14,0.65-0.37
+              l1.46-2.53c0.13-0.24,0.13-0.52,0-0.75l-1.46-2.53c-0.13-0.24-0.38-0.38-0.65-0.38h-0.35
+              c0.65-0.4,1.41-0.61,2.19-0.61c1.69,0,3.22,0.99,3.9,2.54c0.12,0.28,0.42,0.48,0.72,0.45
+              l13.58-0.56c1.01,0,1.83,0.82,1.83,1.82S37.14,39.475,36.06,39.475z"/>
+          </svg>
+        </figure>
+      </div>
 
-			<div class="bulma-column bulma-is-two-fifths oapen-toolkit-title">
-			
-				<h4>OAPEN</h4> 
+      <!-- Copy + CTA -->
+      <div class="bulma-column">
+        <h3 class="bulma-title bulma-is-5 bulma-mb-3">For authors</h3>
+        <div class="bulma-content bulma-mb-5">
+          <p class="bulma-is-size-5">
+            The toolkit helps authors navigate open-access book publishing, building trust through clear guidance. Browse lifecycle-based articles, FAQs or search by keyword.
+          </p>
+        </div>
+        <a th:href="${toolkitUrl}" class="bulma-button bulma-is-ink bulma-has-text-parchment bulma-is-medium bulma-is-shadowless">Go to the Toolkit</a>
+      </div>
 
-				<h1>OA Books Toolkit</h1>
-
-				<div class="oapen-toolbox-icon">
-					<img th:src="@{/static-assets/images/layout/toolkit.svg}" width="100" alt="toolkit icon"/>
-				</div>	 
-
-			</div>
-
-			<div class="bulma-column">
-
-				<div class="bulma-content" th:utext="${topictoolkit.description}">
-					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
-					Intro text. Intro text. Intro text. Intro text. Intro text. Intro text.
-				</div>
-
-				<div class="bulma-buttons oapen-toolkit-buttons">
-				
-					<a th:href="${toolkitUrl}" class="bulma-button bulma-is-danger bulma-is-rounded">
-						<span>Go to the Toolkit</span>
-						<span class="bulma-icon bulma-is-small">
-							<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-						</span>
-					</a>
-
-				</div>
-
-			</div>
-
-		</div>
-
-	</div>
-
+    </div>
+  </div>
 </th:block>
 
 <footer th:fragment="footer">

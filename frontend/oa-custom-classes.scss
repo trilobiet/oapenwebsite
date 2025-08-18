@@ -155,7 +155,14 @@
   }
 }
 
-// Funder collections logo grid
+// Promo section
+.oa-promo {
+  p {
+    max-width: 65ch;
+  }
+}
+
+// Funder collections / logo grid section
 .oa-collections {
   .bulma-columns {
     --columnGap: 2rem;

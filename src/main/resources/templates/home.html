@@ -12,7 +12,7 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-	<main layout:fragment="content" class="oapen-main home">
+	<main layout:fragment="content" class="oapen-main bulma-has-background-parchment">
 
 		<section class="bulma-section oapen-home-hero">
 
@@ -124,18 +124,13 @@
 
 		</div>
 		
-		<section class="bulma-section oapen-home-toolkit" th:if="${topictoolkit}">
-
-			<div class="bulma-container">
-				<th:block th:insert="home/toolkit :: toolkit">
-					Toolkit banner
-				</th:block>
-			</div>
-
+		<!-- Toolkit (or any other promo) CTA -->
+		<section class="bulma-has-background-gold bulma-has-text-ink bulma-py-6 oa-promo" th:if="${topictoolkit}">
+			<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
 		</section>
 
 		<!-- Funders collections — logo grid -->
-		<section class="bulma-section oapen-home-collections">
+		<section class="bulma-section">
 
 			<th:block th:insert="home/funders :: funders">
 				Funder collections

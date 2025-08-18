@@ -18,9 +18,10 @@
   // Prefix everything with “bulma-”
   $class-prefix: "bulma-",
 
-  // Disable Bulma’s default rounded border radius
-  $radius-small: 0,
+  // Disable all of Bulma’s default rounded border radius
   $radius: 0,
+  $radius-small: 0,
+  $radius-medium: 0, 
   $radius-large: 0,
 
   // Keep .is-rounded available in case we do need it
@@ -45,6 +46,14 @@
     "gold":      ($oa-scholarly-gold,  $oa-ink-black),
     "tomato":    ($oa-tomato-red,      $oa-parchment-white),
   )
+);
+
+// Modify Bulma’s default title colours
+@use "bulma/sass/elements/title" with (
+  $title-color: inherit,
+  $subtitle-color: inherit,
+  $title-strong-color: inherit,
+  $subtitle-strong-color: inherit
 );
 
 // Pull in all of Bulma (base, components, layout, themes, helpers…)
