@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Feed card 
+  (shared by blogposts and 
+  spotlights)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="card(title, url, summary, category)">
+  <article class="oa-feed-item">
+    <span class="bulma-tag bulma-is-rounded bulma-is-tomato bulma-mb-3 bulma-has-text-weight-semibold bulma-is-align-self-flex-start"
+          th:text="${category}">Category</span>
+
+    <h3 class="bulma-title bulma-is-4 oa-feed-title">
+      <a class="bulma-has-text-current bulma-has-text-weight-normal"
+         th:href="${url}"
+         th:text="${title}">Title</a>
+    </h3>
+
+    <!-- Clamp post excerpt -->
+    <p class="oa-feed-excerpt bulma-mt-2"
+       th:utext="${summary}">Summary</p>
+
+    <!-- “Read more link” -->
+    <a class="oa-feed-more bulma-mt-2"
+       th:href="${url}"
+       th:attrappend="aria-label=${'Read more: ' + title}">
+       Read more
+    </a>
+  </article>
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+
