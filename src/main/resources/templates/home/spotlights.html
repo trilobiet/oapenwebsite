@@ -14,24 +14,15 @@
 	Spotlights
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="spotlights">
-
-	<!-- spotlights -->
-	<div class="bulma-column bulma-is-one-third-desktop oapen-home-spotlight" th:each="article: ${spotlights}">
-
-		<div class="bulma-title bulma-is-6 oapen-section-caption">Spotlight</div>
-		
-		<hr class="bulma-is-hidden"/>
-
-		<h2 class="bulma-title bulma-is-5">
-			<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">Title</a>
-		</h2>
-
-		<th:block th:utext="${article.summary}">
-			Spotlight dummy text
-		</th:block>
-
-	</div>
-
+  <li class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-is-one-third-desktop bulma-is-flex"
+       th:each="article : ${spotlights}">
+    <th:block th:insert="~{home/feed_card :: card(
+      title=${article.title},
+      url=@{'/article/' + ${article.slug}},
+      summary=${@viewhelpers.abbreviate(article.summary, 220)},
+      category='Spotlight'
+    )}"></th:block>
+	</li>
 </th:block>
 
 <footer th:fragment="footer">

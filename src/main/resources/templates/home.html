@@ -71,58 +71,16 @@
 
 		</section>
 
-
-		<div class="bulma-section">
-
+		<!-- Feed (Spotlights + Blog) -->
+		<section class="bulma-section">
 			<div class="bulma-container">
-
-				<div class="bulma-columns">
-
-					<div class="bulma-column">
-
-						<section class="bulma-section oapen-home-news">
-
-							<div class="bulma-container">
-							
-								<div class="bulma-columns bulma-is-multiline bulma-is-desktop">
-
-									<th:block th:insert="home/spotlights :: spotlights">
-										Spotlights
-									</th:block>
-									
-									<th:block th:insert="home/blogposts :: blogposts">
-										Blog Posts
-									</th:block>
-									
-								</div>	
-								
-							</div>
-
-						</section>
-
-					</div>
-
-					<!--/* 
-					<div class="column is-4">
-
-						<section class="section oapen-home-news">
-
-							<div class="container">
-								<th:block th:insert="home/socialmedia :: socialmedia">
-									Social Media
-								</th:block>
-							</div>
-
-						</section>
-
-					</div>
-					*/-->
-
-				</div>
-
+				<h2 class="bulma-title bulma-is-3 bulma-mb-5 bulma-has-text-weight-normal">The latest from OAPEN</h2>
+				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-feed" role="list">
+					<th:block th:insert="home/spotlights :: spotlights">Spotlights</th:block>
+					<th:block th:insert="home/blogposts :: blogposts">Blog posts</th:block>
+				</ul>
 			</div>
-
-		</div>
+		</section>
 		
 		<!-- Toolkit (or any other promo) CTA -->
 		<section class="bulma-section bulma-has-background-gold bulma-has-text-ink bulma-py-6 oa-promo" th:if="${topictoolkit}">
