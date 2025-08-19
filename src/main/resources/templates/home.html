@@ -14,40 +14,25 @@
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
 	<main layout:fragment="content" class="oapen-main bulma-has-background-parchment">
 
-		<section class="bulma-section oapen-home-hero">
+		<!-- Hero (Featured Titles + Search + Intro/Slogan) -->
+		<section class="bulma-hero bulma-is-fullheight oapen-home-hero" role="region" aria-label="Homepage hero">
+			<div class="bulma-hero-body">
+				<div class="bulma-container">
+					<div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
+						<!-- Left: title, tagline, blurb, search, browse -->
+						<div class="bulma-column bulma-is-6-desktop">
+							<th:block th:insert="~{home/herosearch :: hero_left}">Hero content</th:block>
+						</div>
 
-			<div class="bulma-container">
-
-				<th:block th:insert="home/herosearch :: hero">
-					Hero content
-				</th:block>
-
-			</div>
-
-		</section>
-
-		<section class="bulma-section oapen-home-intro">
-
-			<div class="bulma-container">
-				<p class="bulma-is-size-5" th:utext="${home_intro}">
-					Home intro text
-				</p>
-			</div>
-
-		</section>
-		
-		<section class="bulma-section oapen-home-featured">
-		
-			<div class="bulma-container">
-			
-				<a class="bulma-is-hidden" th:href="@{'/featuredtitles'}">Featured Titles</a>
-		
-				<div class="carouselloader" th:data-src="@{'/featuredtitles'} + ' #FeaturedTitles'">
+						<!-- Right: featured titles stream -->
+						<div class="bulma-column bulma-is-6-desktop" role="region" aria-label="New additions" aria-live="polite">
+							<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
+						</div>
+					</div>
 				</div>
-				
-			</div>	
-
+			</div>
 		</section>
+
 
 		<!--/*  
 		<section class="section oapen-home-showcases">
@@ -61,7 +46,7 @@
 		</section>
 		*/-->
 
-		<section class="bulma-section oapen-home-highlights">
+		<!-- <section class="bulma-section oapen-home-highlights">
 
 			<div class="bulma-container">
 				<th:block th:insert="home/highlights :: highlights">
@@ -69,7 +54,7 @@
 				</th:block>
 			</div>
 
-		</section>
+		</section> -->
 
 		<!-- Feed (Spotlights + Blog) -->
 		<section class="bulma-section">

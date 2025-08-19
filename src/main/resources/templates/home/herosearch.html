@@ -11,53 +11,44 @@
 </div>
 
 <!--
-	Hero (with search form)
+	Hero (with search form and
+	browse shortcuts)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<th:block th:fragment="hero">
+<th:block th:fragment="hero_left">
+  <p class="bulma-title bulma-is-4 bulma-mb-1">OAPEN</p>
+  <h1 class="bulma-title bulma-is-1 bulma-mb-2">A world of open access books</h1>
+  <p class="bulma-subtitle bulma-is-4 bulma-mb-4">Open to all, built to last.</p>
 
-	<div class="bulma-columns">
-	
-		<div class="bulma-column bulma-is-three-fifths">
-			<h1 class="bulma-title bulma-is-1">OAPEN</h1>
-			<h2 class="bulma-title bulma-is-3">Online&nbsp;library of open&nbsp;access&nbsp;books</h2>
-		</div>
-		
-		<form th:action="${settings.dspace_site+'discover'}" class="bulma-column oapen-hero-search-form">
-		
-			<div>
+  <p class="bulma-is-size-5 bulma-mb-4">
+    OAPEN connects diverse, peer-reviewed open access books through a global, multilingual infrastructure.
+  </p>
+  <p class="bulma-mb-5">
+    <a th:href="@{'/about'}" class="bulma-link">Learn more about us →</a>
+  </p>
 
-				<div class="bulma-field bulma-has-addons oapen-hero-search-input">
-					<div class="bulma-control">
-						<label for="ipt_search" class="bulma-is-hidden">Search query</label>
-						<input class="bulma-input" type="text" name="query" placeholder="Search OAPEN Library" id="ipt_search">
-					</div>
-					<div class="bulma-control">
-						<button type="submit" class="bulma-button bulma-is-dark">
-							Search
-						</button>
-					</div>
-				</div>
-	
-				<div class="bulma-field oapen-hero-search-browse">
-	
-					<span>
-						Browse by:
-					</span>
-					<ul>
-						<li><a th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a></li>
-						<li><a th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a></li>
-						<li><a th:href="${settings.dspace_site+'browse?type=language'}">Language</a></li>
-						<li><a th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a></li>
-					</ul>
-	
-				</div>
-			
-			</div>	
+  <!-- Search form -->
+  <form th:action="${settings.dspace_site+'discover'}" class="oapen-hero-search-form" role="search">
+    <div class="bulma-field bulma-has-addons">
+      <p class="bulma-control bulma-is-expanded">
+        <label for="ipt_search" class="bulma-is-sr-only">Search query</label>
+        <input id="ipt_search" class="bulma-input oa-placeholder-75" type="text" name="query" placeholder="Search OAPEN Library">
+      </p>
+      <p class="bulma-control">
+        <button type="submit" class="bulma-button bulma-is-shadowless">Search</button>
+      </p>
+    </div>
+  </form>
 
-		</form>
-
-	</div>
-
+  <!-- Browse shortcuts -->
+  <div class="bulma-mt-4" role="group" aria-label="Browse by">
+    <span class="bulma-mr-2">Browse by:</span>
+    <div class="bulma-buttons bulma-are-small">
+      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
+      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
+      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
+      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
+    </div>
+  </div>
 </th:block>
 
 <footer th:fragment="footer">

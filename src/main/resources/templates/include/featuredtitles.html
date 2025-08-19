@@ -11,34 +11,33 @@
 	Featured Titles (new additions)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="featured">
+  <div id="FeaturedTitles" class="oa-featured-titles" role="region" aria-label="New additions">
+    <h2 class="bulma-title bulma-is-6 bulma-mb-3 bulma-is-sr-only" th:href="@{/featuredtitles}">New additions</h2>
 
-	<div id="FeaturedTitles">
+    <!-- a11y-friendly horizontal scroll; JS carousel can enhance later -->
+    <div id="slider" class="oa-carousel" tabindex="0" aria-roledescription="carousel" aria-label="Book covers">
 
-		<div class="bulma-title bulma-is-6 oapen-section-caption">New additions</div>
+      <a th:each="item : ${featuredItems}"
+         th:href="${item.url}"
+         class="bulma-card bulma-is-shadowless">
+
+        <div class="bulma-card-image">
+          <figure class="bulma-image bulma-is-2by3">
+            <img
+              th:src="${#strings.isEmpty(item.thumbnailPath)} ?
+                        @{/static-assets/images/missing.png} :
+                        @{|${settings.dspace_api}${item.thumbnailPath}|}"
+              th:alt="|${item.title} – cover|">
+          </figure>
+        </div>
+
+        <div class="bulma-card-content">
+          <div class="bulma-is-size-7" th:text="${item.title}">Item title</div>
+        </div>
+      </a>
+    </div>
 		
-		<hr class="bulma-is-hidden"/>
-
-		<div id="slider" style="overflow:hidden;">
-	
-			<a th:each="item: ${featuredItems}"
-			   th:href="${item.url}"
-			   class="bulma-card">
-				<div class="bulma-card-image">
-					<figure class="bulma-image">
-						<img th:src="${item.thumbnailPath}!=''?${settings.dspace_api}+${item.thumbnailPath}:@{'/static-assets/images/missing.png'}" alt="cover"/>
-					</figure>
-				</div>
-				<div class="bulma-card-content">
-					<div th:text="${item.title}">
-						Item title
-					</div>
-				</div>
-			</a>
-	
-		</div><!-- /slider -->
-		
-	</div>
-
+  </div>
 </th:block>
 
 <footer th:fragment="footer">
