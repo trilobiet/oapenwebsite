@@ -9,48 +9,51 @@
 
 // Header
 .oa-header {
-  .bulma-navbar {
-    min-height: 3rem;
-    background: var(--bulma-scheme-invert);
-    color: var(--bulma-scheme-main);
+
+  // Let the dropdown overflow the bar so hover doesn't break
+  .bulma-navbar,
+  .bulma-navbar-menu { 
     overflow: visible;
   }
+  // Remove Bulma’s default carets from navbar links
+  .bulma-navbar-link,
+  .bulma-navbar-item {
+    font-size: 0.9rem;
 
-  .bulma-navbar-menu { 
-    overflow: visible; 
+    &[data-no-caret]::after {
+      display: none;
+    }
+
+    // A11y 
+    &:focus-visible {
+      outline: 2px solid var(--bulma-link);
+      outline-offset: 2px;
+      box-shadow: none;
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-within,
+    &.bulma-is-active {
+      // stop Bulma hover bg tint
+      background: transparent;
+      --bulma-navbar-item-background-a: 0;
+    }
+
+    // Keep underline while hovering the dropdown panel   
+    &.bulma-has-dropdown:hover > .bulma-navbar-link,
+    &.bulma-has-dropdown:focus > .bulma-navbar-link,
+    &.bulma-has-dropdown:focus-within > .bulma-navbar-link {
+      text-decoration-line: underline;
+      text-decoration-color: var(--bulma-celestial);
+      text-decoration-thickness: 2.5px;
+      text-underline-offset: 10px;
+    }
   }
 
-  .bulma-navbar-item,
-  .bulma-navbar-link {
+  .bulma-navbar-dropdown .bulma-navbar-item {
     font-weight: 600;
-    padding: .75rem 1rem;
-    color: var(--bulma-scheme-main);
-  }
-
-  // Remove Bulma’s carets after menu links
-  .bulma-navbar-link::after { 
-    display: none; 
-  }
-
-  .bulma-navbar-link { 
-    text-decoration: none; 
-  }
-
-  .bulma-navbar-link:hover,
-  .bulma-navbar-link.bulma-is-active,
-  .bulma-navbar-item.bulma-is-active > .bulma-navbar-link,
-  .bulma-navbar-item.bulma-has-dropdown:is(:hover, :focus-within) > .bulma-navbar-link {
-    text-decoration-line: underline;
-    text-decoration-color: var(--bulma-celestial);
-    text-decoration-thickness: 5px;
-    text-underline-offset: 10px;
-  }
-
-  .bulma-navbar-link:focus,
-  .bulma-navbar-link:focus-visible {
-    outline: 2px solid var(--bulma-link);
-    outline-offset: 2px;
-    box-shadow: none;
+    font-size: 0.9rem;
   }
 }
 
@@ -270,80 +273,9 @@
 
 // Footer
 .oa-footer {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  background: var(--bulma-scheme-invert);
   color: var(--bulma-scheme-main);
-  line-height: 1.6;
 
-  a {
-    color: var(--bulma-scheme-main);
-    text-decoration: none;
-
-    &:hover,
-    &:focus {
-      color: var(--bulma-celestial);
-      text-decoration: none;
-    }
-  }
-
-  .bulma-title {
-    color: var(--bulma-scheme-main);
-    margin-bottom: .5rem;
-  }
-
-  address {
-    font-style: normal;
-  }
-
-  .oa-footer-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .oa-footer-list {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-
-    li + li {
-      margin-top: .25rem;
-    }
-  }
-
-  // Newsletter form
-  .oa-footer-form {
-    .bulma-input {
-      background: transparent;
-      border: 1px solid var(--bulma-scheme-main);
-      color: var(--bulma-scheme-main);
-
-      &::placeholder {
-        color: color-mix(in srgb, var(--bulma-scheme-main) 65%, transparent);
-      }
-
-      &:focus {
-        border-color: var(--bulma-scheme-main);
-        box-shadow: none;
-      }
-    }
-
-    .bulma-button {
-      background: var(--bulma-scheme-main);
-      color: var(--bulma-scheme-invert);
-      border-color: var(--bulma-scheme-main);
-
-      &:hover,
-      &:focus {
-        background: var(--bulma-celestial);
-        border-color: var(--bulma-celestial);
-        color: var(--bulma-scheme-main);
-      }
-    }
-  }
-
-  // "Watermarked" background logo
+  // Footer logo watermark image
   .oa-footer-bg {
     position: absolute;
     inset: 0;
@@ -360,6 +292,36 @@
       transform: translateY(5%);
       filter: brightness(1.5);
       mix-blend-mode: lighten;
+    }
+  }
+
+  .oa-footer-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li + li {
+      margin-top: .25rem;
+    }
+  }
+
+  // Keep inputs and buttons clean in the footer form
+  .oa-footer-form {
+    .bulma-input {
+      background: transparent;
+
+      &::placeholder {
+        color: color-mix(in srgb, currentColor 75%, transparent);
+        opacity: 1;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+
+    .bulma-button {
+      box-shadow: none;
     }
   }
 }
