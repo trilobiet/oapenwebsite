@@ -15,7 +15,10 @@
 	<main layout:fragment="content" class="oapen-main bulma-has-background-parchment">
 
 		<!-- Hero (Featured Titles + Search + Intro/Slogan) -->
-		<section class="bulma-hero bulma-is-fullheight oapen-home-hero" role="region" aria-label="Homepage hero">
+		<section role="region" 
+						 aria-label="Homepage hero"
+  					 class="bulma-hero bulma-is-fullheight oapen-home-hero bulma-is-medium oa-bg oa-is-parchment-overlay"
+  					 th:style="'--bg-image:url(' + @{/static-assets/bg/bg1.png} + '); --overlay-strength:.55'">
 			<div class="bulma-hero-body">
 				<div class="bulma-container">
 					<div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
@@ -35,6 +38,9 @@
 
 		<!-- By the numbers -->
 		<section id="oapen-numbers" class="bulma-hero bulma-is-medium bulma-has-background-ink bulma-has-text-parchment oapen-home-numbers">
+		<!-- <section id="oapen-numbers"
+  					 class="bulma-hero bulma-is-medium oa-home-numbers oa-bg oa-is-ink-overlay"
+  					 th:style="'--bg-image:url(' + @{/static-assets/bg/bg1.png} + '); --overlay-strength:.55'"> -->
 			<div class="bulma-hero-body bulma-is-align-items-center">
 				<div class="bulma-container">
 					<div class="bulma-columns bulma-is-multiline bulma-is-vcentered">
