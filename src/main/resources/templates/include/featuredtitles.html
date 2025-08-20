@@ -12,31 +12,36 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="featured">
   <div id="FeaturedTitles" class="oa-featured-titles" role="region" aria-label="New additions">
-    <h2 class="bulma-title bulma-is-6 bulma-mb-3 bulma-is-sr-only" th:href="@{/featuredtitles}">New additions</h2>
+    <h2 class="bulma-title bulma-is-6 bulma-mb-3 bulma-is-sr-only">New additions</h2>
 
-    <!-- a11y-friendly horizontal scroll; JS carousel can enhance later -->
-    <div id="slider" class="oa-carousel" tabindex="0" aria-roledescription="carousel" aria-label="Book covers">
+    <!-- CSS-only, a11y-friendly carousel (improved later with JS) -->
+    <div id="slider"
+         class="oa-carousel"
+         role="list"
+         aria-roledescription="carousel"
+         aria-label="New additions – book covers"
+         tabindex="0">
 
       <a th:each="item : ${featuredItems}"
          th:href="${item.url}"
-         class="bulma-card bulma-is-shadowless">
-
+         class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
+         role="listitem"
+         th:attr="aria-label=${item.title}">
         <div class="bulma-card-image">
-          <figure class="bulma-image bulma-is-2by3">
-            <img
-              th:src="${#strings.isEmpty(item.thumbnailPath)} ?
-                        @{/static-assets/images/missing.png} :
-                        @{|${settings.dspace_api}${item.thumbnailPath}|}"
-              th:alt="|${item.title} – cover|">
+          <figure class="bulma-image bulma-is-radiusless oa-cover-box">
+            <img class="oa-cover bulma-is-radiusless"
+                 th:src="${#strings.isEmpty(item.thumbnailPath)} ?
+                           @{/static-assets/images/missing.png} :
+                           @{|${settings.dspace_api}${item.thumbnailPath}|}"
+                 th:alt="|${item.title} – cover|">
           </figure>
         </div>
-
         <div class="bulma-card-content">
           <div class="bulma-is-size-7" th:text="${item.title}">Item title</div>
         </div>
       </a>
+
     </div>
-		
   </div>
 </th:block>
 
