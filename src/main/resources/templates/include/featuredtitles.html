@@ -24,7 +24,7 @@
 
       <a th:each="item : ${featuredItems}"
          th:href="${item.url}"
-         class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
+         class="bulma-card bulma-is-shadowless bulma-is-radiusless bulma-has-background-parchment oa-slide"
          role="listitem"
          th:attr="aria-label=${item.title}">
         <div class="bulma-card-image">
@@ -37,7 +37,7 @@
           </figure>
         </div>
         <div class="bulma-card-content">
-          <div class="bulma-is-size-7" th:text="${item.title}">Item title</div>
+          <p class="bulma-is-size-7" th:text="${item.title}">Item title</p>
         </div>
       </a>
 
