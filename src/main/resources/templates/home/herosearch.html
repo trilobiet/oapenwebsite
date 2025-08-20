@@ -29,13 +29,13 @@
 
   <!-- Search form -->
   <form th:action="${settings.dspace_site+'discover'}" class="oapen-hero-search-form" role="search">
-    <div class="bulma-field bulma-has-addons">
+    <div class="bulma-has-text-ink bulma-field bulma-has-addons oa-input-group">
       <p class="bulma-control bulma-is-expanded">
         <label for="ipt_search" class="bulma-is-sr-only">Search query</label>
-        <input id="ipt_search" class="bulma-input oa-placeholder-75" type="text" name="query" placeholder="Search OAPEN Library">
+        <input id="ipt_search" class="bulma-input oa-placeholder-75" type="text" name="query" placeholder="Search OAPEN Library" autofocus="autofocus">
       </p>
       <p class="bulma-control">
-        <button type="submit" class="bulma-button bulma-is-shadowless">Search</button>
+        <button type="submit" class="bulma-button bulma-is-ink bulma-is-shadowless">Search</button>
       </p>
     </div>
   </form>

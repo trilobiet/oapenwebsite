@@ -16,26 +16,41 @@
   spotlights)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="card(title, url, summary, category)">
-  <article class="oa-feed-item">
-    <span class="bulma-tag bulma-is-rounded bulma-is-primary bulma-inline-block bulma-mb-3 bulma-has-text-weight-semibold bulma-is-align-self-flex-start"
-          th:text="${category}">Category</span>
+  <article class="bulma-card bulma-is-radiusless bulma-is-shadowless oa-feed-item">
 
-    <h3 class="bulma-title bulma-is-4 oa-feed-title">
-      <a class="bulma-has-text-current bulma-has-text-weight-normal"
-         th:href="${url}"
-         th:text="${title}">Title</a>
-    </h3>
+    <div class="bulma-card-content bulma-is-flex bulma-is-flex-direction-column">
+      <span class="bulma-tag bulma-is-rounded bulma-is-light bulma-is-uppercase bulma-is-size-7 bulma-mb-3 bulma-is-align-self-flex-start"
+            th:text="${category}">Category</span>
 
-    <!-- Clamp post excerpt -->
-    <p class="oa-feed-excerpt bulma-mt-2"
-       th:utext="${summary}">Summary</p>
+      <!-- title -->
+      <h3 class="bulma-title bulma-is-5 bulma-mb-2 oa-feed-title">
+        <a class="bulma-has-text-current bulma-has-text-weight-normal"
+           th:href="${url}"
+           th:text="${title}">Title</a>
+      </h3>
 
-    <!-- “Read more link” -->
-    <a class="bulma-button bulma-is-small bulma-is-outlined bulma-is-dark bulma-is-align-self-flex-start"
-       th:href="${url}"
-       th:attrappend="aria-label=${'Read more: ' + title}">
-       Read more
-    </a>
+      <!-- MEDIA SLOT (image if available, else excerpt) -->
+      <div class="oa-feed-media bulma-mt-3">
+        <figure class="bulma-image bulma-is-3by2 bulma-mb-0" th:if="${imageUrl}">
+          <img th:src="${imageUrl}" th:alt="|${title} – image|">
+        </figure>
+
+        <!-- Excerpt as fallback (and for now) -->
+        <p class="oa-feed-excerpt bulma-is-size-6" th:unless="${imageUrl}" th:utext="${summary}">
+          Summary
+        </p>
+      </div>
+
+      <!-- CTA -->
+      <div class="bulma-mt-4">
+        <a class="bulma-button bulma-is-small bulma-is-outlined bulma-is-dark bulma-is-shadowless"
+           th:href="${url}"
+           th:attrappend="aria-label=${'Read more: ' + title}">
+          Read more
+        </a>
+      </div>
+    </div>
+
   </article>
 </th:block>
 
