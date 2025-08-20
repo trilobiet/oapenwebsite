@@ -8,9 +8,50 @@
 }
 
 // Section header divider
-.oa-section-header {
-  border-bottom: 2px solid currentColor;
+// .oa-section-header {
+//   border-bottom: 2px solid currentColor;
+// }
+.oa-section-header{
+  position: relative;
+  background-origin: content-box;
+  padding-bottom: 1rem;
+
+  /* defaults (overridden by th:style) */
+  --star-url:none;
+  --star-size:28px;
+  --star-x:50%;
+  --star-y-offset:0px;
+
+  --star2-url:none;
+  --star2-size:0px;
+  --star2-x:85%;
+  --star2-y-offset:0px;
+
+  /* 2px divider + up to two SVGs placed on the line */
+  background-image:
+    linear-gradient(currentColor,currentColor),
+    var(--star-url),
+    var(--star2-url);
+  background-repeat:no-repeat,no-repeat,no-repeat;
+  background-size:
+    100% 2px,
+    var(--star-size) var(--star-size),
+    var(--star2-size) var(--star2-size);
+  background-position:
+    0 calc(100% - 1px),
+    var(--star-x) calc(100% - 1px + var(--star-y-offset)),
+    var(--star2-x) calc(100% - 1px + var(--star2-y-offset));
 }
+
+/* simple placement helpers */
+.has-star-left{ --star-x:0%; }
+.has-star-center{ --star-x:50%; }
+.has-star-right{ --star-x:100%; }
+
+// Various offsets 
+.star-offset-1 { --star-y-offset: 3px; }
+.star-offset-2 { --star-y-offset: 5px; }
+.star-offset-3 { --star-y-offset: 7px; }
 
 // Input group with thicker borders 
 .oa-input-group {

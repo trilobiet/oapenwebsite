@@ -17,8 +17,13 @@
 <th:block th:fragment="funders">
   <section class="oa-collections">
     <div class="bulma-container">
-      <header class="bulma-level bulma-is-mobile bulma-pb-4 oa-section-header">
-				<h2 class="bulma-title bulma-is-4 bulma-mb-0 bulma-has-text-weight-normal">Our funder’s collections</h2>
+			<header
+				class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header has-star-center"
+  			th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
+				th:style="'--star-url:url(' + @{/static-assets/svg/Star3.svg} + '); --star-size:32px'">
+				<h2 class="bulma-title bulma-is-4  bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">
+					Our funders’ collections
+				</h2>
 			</header>
 
 			<ul class="bulma-columns bulma-is-mobile bulma-is-multiline bulma-is-variable bulma-is-5 bulma-is-centered" role="list">
