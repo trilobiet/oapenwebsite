@@ -17,9 +17,14 @@
 	<link rel="stylesheet" th:href="@{/static-assets/css/main.min.css}"/>
 	<link rel="shortcut icon" th:href="@{/favicon.ico}" type="image/x-icon">
 	<link rel="icon" th:href="@{/favicon.ico}" type="image/x-icon">	
-	
-    <meta property="og:title" content="Online library and publication platform"/>
-    <meta property="og:image" content="//oapen.org/static-assets/images/oapenlogo-banner.png"/>
+
+  <!-- Preload font files -->
+  <link rel="preload" th:href="@{/static-assets/fonts/vremena-grotesk/vremenagrotesk-webfont.woff2}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" th:href="@{/static-assets/fonts/vremena-grotesk/vremenagroteskmedium-webfont.woff2}" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" th:href="@{/static-assets/fonts/vremena-grotesk/vremenagroteskbold-webfont.woff2}" as="font" type="font/woff2" crossorigin>
+
+  <meta property="og:title" content="Online library and publication platform"/>
+  <meta property="og:image" content="//oapen.org/static-assets/images/oapenlogo-banner.png"/>
 	
 </head>
 
