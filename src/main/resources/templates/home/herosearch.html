@@ -43,12 +43,20 @@
   <!-- Browse shortcuts -->
   <div class="bulma-mt-4" role="group" aria-label="Browse by">
     <span class="bulma-mr-2">Browse by:</span>
-    <div class="bulma-buttons bulma-are-small">
-      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
-      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
-      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
-      <a class="bulma-button bulma-is-outlined bulma-is-shadowless" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
-    </div>
+    <ul class="bulma-tags">
+      <li>
+				<a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-semibold" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
+			</li>
+      <li>
+      <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-semibold" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
+			</li>
+      <li>
+      <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-semibold" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
+			</li>
+      <li>
+      <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-semibold" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
+			</li>
+		</ul>
   </div>
 </th:block>
 

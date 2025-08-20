@@ -68,8 +68,10 @@
 		</section>
 		
 		<!-- Toolkit (or any other promo) CTA -->
-		<section class="bulma-section bulma-has-background-gold bulma-has-text-ink bulma-py-6 oa-promo" th:if="${topictoolkit}">
-			<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
+		<section class="bulma-hero bulma-is-halfheight bulma-has-background-primary bulma-has-text-ink oa-promo">
+			<div class="bulma-hero-body bulma-is-align-items-center">
+				<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
+			</div>
 		</section>
 
 		<!-- Funders collections — logo grid -->
