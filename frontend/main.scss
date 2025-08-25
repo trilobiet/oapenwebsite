@@ -40,21 +40,26 @@
 
 // Map Bulma’s semantic colors to our custom variables
 @use "bulma/sass/utilities/derived-variables" with (
-  $primary:  $oa-celestial-blue,
-  $link:     $oa-ink-black,
-  $info:     $oa-scholarly-gold,
-  $success:  $oa-celestial-blue,
-  $warning:  $oa-scholarly-gold,
-  $danger:   $oa-tomato-red,
-  $scheme-main:   $oa-parchment-white,
-  $scheme-invert: $oa-ink-black,
-  $text:          $oa-ink-black,
+  $primary:       $brand-primary-600,
+  $link:          $brand-primary-500,
+  $info:          $brand-primary-500,
+
+  $success:       $oa-colour-moss-600,
+  $warning:       $oa-colour-ochre-500,
+  $danger:        $oa-colour-rust-600,
+
+  $scheme-main:   $oa-colour-paper,
+  $scheme-invert: $oa-colour-ink,
+  $text:          $oa-colour-ink,
   $custom-colors: (
-    "ink":       ($oa-ink-black,       $oa-parchment-white),
-    "parchment": ($oa-parchment-white, $oa-ink-black),
-    "celestial": ($oa-celestial-blue,  $oa-parchment-white),
-    "gold":      ($oa-scholarly-gold,  $oa-ink-black),
-    "tomato":    ($oa-tomato-red,      $oa-parchment-white),
+    "brand":      ($brand-primary-600,     $oa-colour-paper),
+    "brand-hero": ($brand-primary-700,     $oa-colour-paper),
+    "ink":        ($oa-colour-ink,         $oa-colour-paper),
+    "paper":      ($oa-colour-paper,       $oa-colour-ink),
+    "stone":      ($oa-colour-stone-600,   $oa-colour-paper),
+    "moss":       ($oa-colour-moss-600,    $oa-colour-paper),
+    "ochre":      ($oa-colour-ochre-500,   $oa-colour-ink),
+    "rust":       ($oa-colour-rust-600,    $oa-colour-paper)
   )
 );
 

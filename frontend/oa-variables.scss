@@ -7,19 +7,51 @@
 // OAPEN colour palette
 // ————————————————————————————————————————
 
-// NEUTRALS
-/// Deep Ink black
-$oa-ink-black:       hsl(220, 10%, 4%)   !default; // #0B0C0E
-/// Parchment Off-white
-$oa-parchment-white: hsl(40,  20%, 98%)  !default; // #FDFBEA
+// Core neutrals
+$oa-colour-ink:        #0B0C0E !default; // main body text / iverted (dark theme) background
+$oa-colour-paper:      #F7F3E8 !default; // main background / inveted (dark theme) body text
+$oa-colour-stone-600:  #6B6A65 !default; // secondary text / inverted (dark theme) borders
+$oa-colour-stone-300:  #DAD5C8 !default; // subtle borders / inverted (dark theme) text
 
-// PRIMARY COLOUR
-/// Celestial Blue – primary & links
-$oa-celestial-blue:  hsl(220, 65%, 55%)  !default; // #4273D7
+// ————————————————————————————————————————
+// Primary colour families (to be selected with the team)
+// Tones: 700=hero/dark sections, 600=primary UI, 500=links/focus
+// All 500s pass AA against $color-paper.
+// ————————————————————————————————————————
 
-// SECONDARY COLOURS
-/// Scholarly Gold – accents & info
-$oa-scholarly-gold:  hsl(46, 92%, 50%)   !default; // #F5BE0A
+$brand-sets: (
+  "navy": (
+    700: #0F1A33, // hero/dark sections
+    600: #1E2F57, // primary UI
+    500: #385BC2  // links & focus states
+  ),
+  "aubergine": (
+    700: #3A215B, // hero/dark sections
+    600: #603A8C, // primary UI 
+    500: #7A4EA9  // links & focus states
+  ),
+  "moss": (
+    700: #12483A, // hero/dark sections
+    600: #246B55, // primary UI 
+    500: #1C7A64  // links & focus states
+  )
+);
 
-/// Tomato Red – warning and other alerts
-$oa-tomato-red:      hsl(10, 70%, 50%)   !default; // #D94426
+$brand: "navy" !default; // Swap between the three options above
+
+// Function to get brand colours by tone
+@function brand($tone) {
+  $family: map-get($brand-sets, $brand);
+  @return if($family != null, map-get($family, $tone), null);
+}
+
+// Exposed tokens
+$brand-primary-700: brand(700);
+$brand-primary-600: brand(600);
+$brand-primary-500: brand(500);
+
+// Support accents
+// ***Use sparingly for semantics & emphasis***
+$oa-colour-moss-600:      #246B55 !default; // success
+$oa-colour-ochre-500:     #C69300 !default; // warning
+$oa-colour-rust-600:      #A33A2B !default; // danger
