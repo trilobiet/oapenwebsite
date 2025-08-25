@@ -23,35 +23,6 @@ html {
   }
 }
 
-/* Base: background image + overlay driven by CSS vars */
-.oa-bg {
-  /* Set these per element */
-  --bg-image: none;                     /* e.g. url(...) */
-  --overlay-strength: .6;               /* 0–1 */
-  --overlay-color: rgba(11,12,14,.0);   /* will be overridden by helpers */
-
-  background-image:
-    linear-gradient(var(--overlay-color), var(--overlay-color)),
-    var(--bg-image);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Overlay presets (ink/parchment), text color included */
-.oa-bg.oa-is-ink-overlay {
-  /* ink = rgb(11,12,14) with variable alpha */
-  --overlay-color: rgba(11, 12, 14, var(--overlay-strength, .6));
-  color: #FDFBEA; /* parchment text */
-}
-
-.oa-bg.oa-is-parchment-overlay {
-  /* parchment = rgb(253,251,234) with variable alpha */
-  --overlay-color: rgba(253, 251, 234, var(--overlay-strength, .75));
-  color: #0B0C0E; /* ink text */
-}
-
-
 // Section header divider
 // .oa-section-header {
 //   border-bottom: 2px solid currentColor;
