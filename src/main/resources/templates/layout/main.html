@@ -33,7 +33,7 @@
   <!--
     HEADER
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <header id="OapenHeader" class="oa-header" role="banner">
+  <header class="oa-header" role="banner">
     <nav class="bulma-navbar bulma-has-background-ink bulma-is-shadowless"
         role="navigation" aria-label="Main navigation">
       <div class="bulma-container">
@@ -77,6 +77,44 @@
       </div>
     </nav>
   </header>
+
+  <script>
+    (function () {
+      const header = document.getElementById('OapenHeader');
+      const nav    = header.querySelector('.bulma-navbar');
+      const burger = header.querySelector('.bulma-navbar-burger');
+      const menu   = document.getElementById('mainNav');
+
+      // helper: expand (big padding) vs condense (small padding)
+      function expand() {
+        header.classList.remove('is-condensed');
+        nav.classList.add('bulma-py-5');   // Bulma spacing utilities
+        nav.classList.remove('bulma-py-2');
+      }
+      function condense() {
+        header.classList.add('is-condensed');
+        nav.classList.add('bulma-py-2');
+        nav.classList.remove('bulma-py-5');
+      }
+
+      // initial state: expanded at top
+      function onScroll() {
+        if (window.scrollY <= 8) expand();
+        else condense();
+      }
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // quick Bulma burger toggle (accessible)
+      if (burger && menu) {
+        burger.addEventListener('click', () => {
+          const active = menu.classList.toggle('is-active');
+          burger.classList.toggle('is-active', active);
+          burger.setAttribute('aria-expanded', active ? 'true' : 'false');
+        });
+      }
+    })();
+  </script>
 
   <!--
     MAIN

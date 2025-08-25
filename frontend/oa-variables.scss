@@ -37,7 +37,7 @@ $brand-sets: (
   )
 );
 
-$brand: "navy" !default; // Swap between the three options above
+$brand: "aubergine" !default; // Swap between the three options above
 
 // Function to get brand colours by tone
 @function brand($tone) {

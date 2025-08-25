@@ -23,6 +23,28 @@ html {
   }
 }
 
+/* Sticky header nav + smooth size transitions */
+.oa-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  
+  .oa-header .bulma-navbar {
+    background-color: var(--oa-navy) !important;
+    transition: padding .25s ease, background-color .25s ease;
+  }
+
+  .oa-logo img {
+    height: 40px;              /* expanded size */
+    transition: height .25s ease;
+  }
+
+  /* condensed state */
+  &.is-condensed .oa-logo img { 
+    height: 28px; 
+  }
+}
+
 // Section header divider
 // .oa-section-header {
 //   border-bottom: 2px solid currentColor;
