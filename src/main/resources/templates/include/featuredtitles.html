@@ -32,12 +32,13 @@
 
       <a th:each="item : ${featuredItems}"
          th:href="${item.url}"
-         class="bulma-card bulma-is-shadowless bulma-is-radiusless bulma-has-background-paper oa-slide"
+         class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
          role="listitem"
          th:attr="aria-label=${item.title}">
         <div class="bulma-card-image">
           <figure class="bulma-image bulma-is-radiusless oa-cover-box">
             <img class="oa-cover bulma-is-radiusless"
+                 loading="lazy" decoding="async" draggable="false"
                  th:src="${#strings.isEmpty(item.thumbnailPath)} ?
                            @{/static-assets/images/missing.png} :
                            @{|${settings.dspace_api}${item.thumbnailPath}|}"
@@ -45,7 +46,7 @@
           </figure>
         </div>
         <div class="bulma-card-content">
-          <p class="bulma-is-size-7" th:text="${item.title}">Item title</p>
+          <p class="bulma-is-size-7 oa-cover-title" th:text="${item.title}">Item title</p>
         </div>
       </a>
 
