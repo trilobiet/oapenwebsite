@@ -28,18 +28,17 @@ html {
   position: sticky;
   top: 0;
   z-index: 50;
-  
-  .oa-header .bulma-navbar {
+
+  .bulma-navbar {
     background-color: var(--oa-navy) !important;
     transition: padding .25s ease, background-color .25s ease;
   }
 
   .oa-logo img {
-    height: 40px;              /* expanded size */
+    height: 40px;
     transition: height .25s ease;
   }
 
-  /* condensed state */
   &.is-condensed .oa-logo img { 
     height: 28px; 
   }
