@@ -37,10 +37,15 @@ $brand-sets: (
     700: #12483A, // hero/dark sections
     600: #246B55, // primary UI 
     500: #1C7A64  // links & focus states
+  ),
+  "charcoal": (
+    700: #1A1715, // hero/dark sections
+    600: #2A2420, // primary UI 
+    500: #3A332D  // links & focus states
   )
 );
 
-$brand: "aubergine" !default; // Swap between the three options above
+$brand: "charcoal" !default; // Swap between the three options above
 
 // Function to get brand colours by tone
 @function brand($tone) {
