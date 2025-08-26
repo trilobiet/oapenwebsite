@@ -526,6 +526,7 @@ html {
     width: auto;
     height: auto;
     object-fit: contain;
+    mix-blend-mode: multiply;
   }
 
   @media (min-width: 1024px) {

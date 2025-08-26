@@ -30,7 +30,7 @@
 				<li class="bulma-column bulma-is-half-mobile bulma-is-one-third-tablet bulma-is-one-fifth-desktop"
 						th:each="funder : ${funders}" role="listitem">
 					<a class="oa-logo-link" th:href="@{'/topic/' + ${funder.slug}}">
-						<figure class="bulma-image bulma-is-128x128 oa-logo-box">
+						<figure class="bulma-image bulma-is-128x128 bulma-has-background-paper oa-logo-box">
 							<img th:src="${funderlogos[funder.id]}" th:alt="${'Logo ' + funder.name}" loading="lazy" decoding="async" />
 							<figcaption class="bulma-is-sr-only" th:text="${funder.name}">Funder name</figcaption>
 						</figure>
