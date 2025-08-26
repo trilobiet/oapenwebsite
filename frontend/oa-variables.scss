@@ -45,7 +45,7 @@ $brand-sets: (
   )
 );
 
-$brand: "charcoal" !default; // Swap between the three options above
+$brand: "navy" !default; // Swap between the three options above
 
 // Function to get brand colours by tone
 @function brand($tone) {
