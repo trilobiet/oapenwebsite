@@ -38,7 +38,7 @@
   $weight-bold:    700      // Bold
 );
 
-// Map Bulma’s semantic colors to our custom variables
+// Map Bulma’s semantic colours to our custom variables
 @use "bulma/sass/utilities/derived-variables" with (
   $primary:       $brand-primary-600,
   $link:          $brand-primary-500,
@@ -51,6 +51,19 @@
   $scheme-main:   $oa-colour-paper,
   $scheme-invert: $oa-colour-ink,
   $text:          $oa-colour-ink,
+
+  // Link states
+  $link-hover:    mix($brand-primary-600, $brand-primary-500, 60%),
+  $link-visited:  $brand-primary-700,
+
+  // Neutral surfaces & borders
+  $background:    $oa-colour-paper,
+  $border:        $oa-colour-stone-300,
+
+  // Form controls
+  $input-border-color:         $oa-colour-stone-300,
+  $input-hover-border-color:   $oa-colour-stone-600,
+
   $custom-colors: (
     "brand":      ($brand-primary-600,     $oa-colour-paper),
     "brand-hero": ($brand-primary-700,     $oa-colour-paper),
