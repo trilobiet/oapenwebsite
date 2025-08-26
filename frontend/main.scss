@@ -52,17 +52,9 @@
   $scheme-invert: $oa-colour-ink,
   $text:          $oa-colour-ink,
 
-  // Link states
-  $link-hover:    mix($brand-primary-600, $brand-primary-500, 60%),
-  $link-visited:  $brand-primary-700,
-
   // Neutral surfaces & borders
   $background:    $oa-colour-paper,
   $border:        $oa-colour-stone-300,
-
-  // Form controls
-  $input-border-color:         $oa-colour-stone-300,
-  $input-hover-border-color:   $oa-colour-stone-600,
 
   $custom-colors: (
     "brand":      ($brand-primary-600,     $oa-colour-paper),
@@ -101,4 +93,4 @@
   outline: 2px solid var(--bulma-link);
   outline-offset: 2px;
   box-shadow: none;
-};
+}

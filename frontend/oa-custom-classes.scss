@@ -1,10 +1,27 @@
+// For colour functions
+@use "sass:color";
+
+// To access $brand-primary-* and $oa-colour-*
+@use "./oa-variables" as *; 
+
 // ————————————————————————————————————————
 // oa-custom-classes.scss
 // Custom classes for OAPEN
 // ————————————————————————————————————————
 
 :root {
-  --oa-navy: color-mix(in srgb, var(--bulma-celestial) 55%, black);
+  // Link states via CSS vars instead of Sass
+  --bulma-link-hover: #{color.mix($brand-primary-600, $brand-primary-500, 60%)};
+  --bulma-link-visited: #{$brand-primary-700};
+
+
+  // Align borders/backgrounds
+  --bulma-border: #{$oa-colour-stone-300};
+  --bulma-background: #{$oa-colour-paper};
+
+  // Form control borders
+  --bulma-input-border-color: #{$oa-colour-stone-300};
+  --bulma-input-hover-border-color: #{$oa-colour-stone-600};
 }
 
 // Smoothing for web fonts and kerning

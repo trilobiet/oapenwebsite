@@ -3,6 +3,9 @@
 // Our custom colour and type variables
 // ————————————————————————————————————————
 
+// For map functions
+@use "sass:map";
+
 // ————————————————————————————————————————
 // OAPEN colour palette
 // ————————————————————————————————————————
@@ -41,8 +44,8 @@ $brand: "aubergine" !default; // Swap between the three options above
 
 // Function to get brand colours by tone
 @function brand($tone) {
-  $family: map-get($brand-sets, $brand);
-  @return if($family != null, map-get($family, $tone), null);
+  $family: map.get($brand-sets, $brand);
+  @return if($family != null, map.get($family, $tone), null);
 }
 
 // Exposed tokens
