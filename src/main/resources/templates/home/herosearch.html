@@ -16,7 +16,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="hero_left">
   <p class="bulma-title bulma-is-5 bulma-mb-1">OAPEN</p>
-  <h1 class="bulma-title bulma-is-2 bulma-mb-4">
+  <h1 class="bulma-title bulma-is-2 bulma-is-semibold bulma-mb-4">
 		A world of open access books<br>
 		Open to all, built to last.
 	</h1>
@@ -29,13 +29,13 @@
 
   <!-- Search form -->
   <form th:action="${settings.dspace_site+'discover'}" class="oapen-hero-search-form" role="search">
-    <div class="bulma-has-text-ink bulma-field bulma-has-addons oa-input-group">
+    <div class="bulma-field bulma-has-addons oa-input-group">
       <p class="bulma-control bulma-is-expanded">
         <label for="ipt_search" class="bulma-is-sr-only">Search query</label>
         <input id="ipt_search" class="bulma-input oa-placeholder-75" type="text" name="query" placeholder="Search OAPEN Library" autofocus="autofocus">
       </p>
       <p class="bulma-control">
-        <button type="submit" class="bulma-button bulma-is-ink bulma-is-shadowless">Search</button>
+        <button type="submit" class="bulma-button bulma-has-background-ink bulma-has-text-paper bulma-is-shadowless">Search</button>
       </p>
     </div>
   </form>
@@ -45,16 +45,16 @@
     <p class="bulma-is-size-5 bulma-mb-2">Browse by:</p>
     <ul class="bulma-tags">
       <li>
-				<a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
+				<a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
 			</li>
       <li>
-        <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
+        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
 			</li>
       <li>
-        <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
+        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
 			</li>
       <li>
-        <a class="bulma-tag bulma-is-rounded bulma-is-dark bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
+        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
 			</li>
 		</ul>
   </div>

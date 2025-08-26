@@ -34,7 +34,7 @@
     HEADER
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
   <header class="oa-header" role="banner">
-    <nav class="bulma-navbar bulma-has-background-ink bulma-is-shadowless"
+    <nav class="bulma-navbar bulma-has-background-brand-hero bulma-has-text-paper bulma-is-shadowless"
         role="navigation" aria-label="Main navigation">
       <div class="bulma-container">
 
@@ -49,7 +49,7 @@
         </div>
 
         <!-- Full menu -->
-        <div id="mainNav" class="bulma-navbar-menu oa-nav-mobile">
+        <div id="oa-nav" class="bulma-navbar-menu oa-nav-mobile">
           <ul class="bulma-navbar-start oa-navbar-list" role="menubar">
             <!-- Left sections -->
             <li th:each="mnusection : ${menuLeftSections}"
@@ -78,12 +78,13 @@
     </nav>
   </header>
 
+  <!-- TEMP: Interactive navbar that expands/contracts on scroll-->
   <script>
     (function () {
-      const header = document.getElementById('OapenHeader');
+      const header = document.getElementById('oa-header');
       const nav    = header.querySelector('.bulma-navbar');
       const burger = header.querySelector('.bulma-navbar-burger');
-      const menu   = document.getElementById('mainNav');
+      const menu   = document.getElementById('oa-nav');
 
       // helper: expand (big padding) vs condense (small padding)
       function expand() {
@@ -148,7 +149,7 @@
   <!--
     FOOTER
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-  <footer class="oa-footer bulma-section bulma-py-6 bulma-has-background-ink bulma-has-text-parchment" role="contentinfo">
+  <footer class="oa-footer bulma-section bulma-py-6 bulma-has-background-ink bulma-has-text-paper" role="contentinfo">
     <div class="oa-footer-bg" aria-hidden="true">
       <img th:src="@{/static-assets/images/logotype.svg}" alt="">
     </div>

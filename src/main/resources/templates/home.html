@@ -12,12 +12,12 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
-	<main layout:fragment="content" class="oapen-main bulma-has-background-parchment">
+	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
 
 		<!-- Hero (Featured Titles + Search + Intro/Slogan) -->
 		<section role="region" 
 						 aria-label="Homepage hero"
-  					 class="bulma-hero bulma-is-fullheight oapen-home-hero bulma-is-medium oa-bg bulma-has-background-celestial">
+  					 class="bulma-hero bulma-is-fullheight oapen-home-hero bulma-is-medium oa-bg bulma-has-background-brand-hero bulma-has-text-paper">
 			<div class="bulma-hero-body">
 				<div class="bulma-container">
 					<div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
@@ -36,7 +36,7 @@
 		</section>
 
 		<!-- By the numbers -->
-		<section id="oapen-numbers" class="bulma-hero bulma-is-medium bulma-has-background-ink bulma-has-text-parchment oapen-home-numbers">
+		<section id="oapen-numbers" class="bulma-hero bulma-is-medium bulma-has-background-ink bulma-has-text-paper oapen-home-numbers">
 		<!-- <section id="oapen-numbers"
   					 class="bulma-hero bulma-is-medium oa-home-numbers oa-bg oa-is-ink-overlay"
   					 th:style="'--bg-image:url(' + @{/static-assets/bg/bg1.png} + '); --overlay-strength:.55'"> -->
@@ -118,9 +118,9 @@
 					<div class="bulma-level-left">
 						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">The latest from OAPEN</h2>
 					</div>
-					<!-- <div class="bulma-level-right">
+					<div class="bulma-level-right">
 						<a th:href="@{/news}" class="bulma-link oa-link-underline">See all news →</a>
-					</div> -->
+					</div>
 				</header>
 				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-feed" role="list">
 					<th:block th:insert="home/spotlights :: spotlights">Spotlights</th:block>
@@ -130,7 +130,7 @@
 		</section>
 		
 		<!-- Toolkit (or any other promo) CTA -->
-		<section class="bulma-hero bulma-is-halfheight bulma-has-background-primary bulma-has-text-ink oa-promo">
+		<section class="bulma-hero bulma-is-halfheight bulma-has-background-brand bulma-has-text-paper oa-promo">
 			<div class="bulma-hero-body bulma-is-align-items-center">
 				<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
 			</div>

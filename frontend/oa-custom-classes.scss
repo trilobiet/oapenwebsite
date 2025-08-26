@@ -22,6 +22,9 @@
   // Form control borders
   --bulma-input-border-color: #{$oa-colour-stone-300};
   --bulma-input-hover-border-color: #{$oa-colour-stone-600};
+
+  // Focus outline (60% brand colour + 40% paper)
+  --oa-focus: color-mix(in srgb, #{$brand-primary-600} 55%, #{$oa-colour-paper});
 }
 
 // Smoothing for web fonts and kerning
@@ -47,8 +50,12 @@ html {
   z-index: 50;
 
   .bulma-navbar {
-    background-color: var(--oa-navy) !important;
     transition: padding .25s ease, background-color .25s ease;
+
+    .bulma-navbar-link,
+    .bulma-navbar-item {
+      text-decoration: none;;
+    }
   }
 
   .oa-logo img {
@@ -179,12 +186,12 @@ html {
       --bulma-navbar-item-background-a: 0;
     }
 
-    // Keep underline while hovering the dropdown panel   
+    // Display & keep underline while hovering the dropdown panel   
     &.bulma-has-dropdown:hover > .bulma-navbar-link,
     &.bulma-has-dropdown:focus > .bulma-navbar-link,
     &.bulma-has-dropdown:focus-within > .bulma-navbar-link {
       text-decoration-line: underline;
-      text-decoration-color: var(--bulma-celestial);
+      text-decoration-color: var(--oa-colour-paper);
       text-decoration-thickness: 2.5px;
       text-underline-offset: 10px;
     }
@@ -210,7 +217,7 @@ html {
     width: 100vw;
     margin-left: calc(50% - 50vw);
     display: none;
-    background: var(--bulma-celestial);
+    background: var(--bulma-brand);
     color: var(--bulma-scheme-main);
     border: 0;
     padding: 0;
@@ -251,7 +258,6 @@ html {
   }
 
   .oa-header .oa-megamenu .bulma-navbar-item:is(:hover, :focus, .bulma-is-active) {
-    background-color: var(--oa-navy);
     color: var(--bulma-scheme-main);
     outline: 0;
   }

@@ -31,11 +31,12 @@
   $family-sans-serif: ("Vremena Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial),
 
   // Map weights Bulma uses to our files
-  $weight-light:   300,     // (Unused for now)
-  $weight-normal:  400,     // Regular
-  $weight-medium:  500,     // Medium
-  $weight-semibold:600,     // (falls back to 700)
-  $weight-bold:    700      // Bold
+  $weight-light:     300,
+  $weight-normal:    400,
+  $weight-medium:    500,
+  $weight-semibold:  500,
+  $weight-bold:      600,
+  $weight-extrabold: 600
 );
 
 // Map Bulma’s semantic colours to our custom variables
@@ -94,3 +95,73 @@
   outline-offset: 2px;
   box-shadow: none;
 }
+
+// Context-aware link colours on dark brand-colour surfaces (700, 600)
+.bulma-has-background-brand-hero,
+.bulma-has-background-brand,
+.bulma-has-background-ink {
+  // Force high-contrast link colours
+  --bulma-link-text:         var(--bulma-paper);
+  --bulma-link-text-visited: var(--bulma-paper);
+  --bulma-link-text-hover:   color-mix(in srgb, var(--bulma-paper) 90%, var(--bulma-brand) 10%);
+
+  // Set a visible focus token for white controls inside dark sections
+  --oa-focus: color-mix(in srgb, var(--bulma-brand) 55%, var(--oa-colour-paper)); 
+  
+  // High-contrast form elements
+  --bulma-input-border-color:        #{$oa-colour-stone-300};
+  --bulma-input-placeholder-color:   #{$oa-colour-stone-600};
+
+  .bulma-input,
+  .bulma-textarea,
+  .bulma-select select {
+    background-color: var(--bulma-paper);
+    color: var(--bulma-ink);
+    border-color: var(--bulma-input-border-color);
+  }
+
+  .bulma-input::placeholder,
+  .bulma-textarea::placeholder {
+    color: var(--bulma-input-placeholder-color);
+    opacity: 1;
+  }
+
+  .bulma-button:not([class*="bulma-is-"]) {
+    background-color: var(--bulma-ink);
+    color: var(--bulma-paper);
+    border-color: transparent;
+  }
+
+  // Enforce a11y link appearance ONLY for content links
+  // Exclude navbar items, buttons, tags
+  .bulma-content a {
+    &:not(.bulma-navbar-item),
+    &:not(.bulma-button),
+    &:not(.bulma-tag) {
+      text-decoration-line: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: .18em;
+    }
+    &.bulma-tag {
+      color: $oa-colour-ink;
+    }
+  }
+}
+
+// Ensure link colours actually flip on dark sections
+// .bulma-has-background-brand-hero,
+// .bulma-has-background-brand,
+// .bulma-has-background-ink {
+//   .bulma-link,
+//   a:not(.bulma-button) {
+//     color: var(--bulma-link) !important;
+//   }
+//   .bulma-link:hover,
+//   a:not(.bulma-button):hover {
+//     color: var(--bulma-link-hover) !important;
+//   }
+//   .bulma-link:visited,
+//   a:not(.bulma-button):visited {
+//     color: var(--bulma-link-visited) !important;
+//   }
+// }

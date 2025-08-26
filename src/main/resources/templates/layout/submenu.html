@@ -14,19 +14,19 @@
   Drop down submenu
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="section_navigation">
-  <a class="bulma-navbar-link bulma-has-text-weight-semibold bulma-is-block bulma-has-text-parchment bulma-is-flex bulma-is-align-items-center bulma-is-align-self-stretch"
+  <a class="bulma-navbar-link bulma-has-text-weight-medium bulma-is-block bulma-has-text-paper bulma-is-flex bulma-is-align-items-center bulma-is-align-self-stretch"
      data-no-caret
      th:href="@{'/'+${mnusection.slug}}"
      th:text="${mnusection.name}"
      th:classappend="${(section != null and mnusection.id == section.id) or #httpServletRequest.requestURI.startsWith('/' + mnusection.slug)} ? ' bulma-is-active' : ''">
   </a>
 
-  <div class="bulma-navbar-dropdown oa-megamenu"
+  <div class="bulma-navbar-dropdown bulma-has-background-brand oa-megamenu"
        th:if="${mnusection.topics != null and !#lists.isEmpty(mnusection.topics)}">
     <ul class="bulma-columns bulma-is-multiline bulma-is-gapless">
       <li class="bulma-column bulma-is-one-quarter-desktop bulma-is-one-third-tablet bulma-is-full-mobile"
           th:each="mnutopic : ${mnusection.topics}">
-        <a class="bulma-navbar-item bulma-is-shadowless bulma-has-text-weight-semibold bulma-has-text-parchment"
+        <a class="bulma-navbar-item bulma-is-shadowless bulma-has-text-weight-medium bulma-has-text-paper"
            th:href="@{'/'+${mnusection.slug}+'/'+${mnutopic.slug}}"
            th:text="${mnutopic.name}"
            th:classappend="${#httpServletRequest.requestURI.startsWith('/' + mnusection.slug + '/' + mnutopic.slug)} ? ' bulma-is-active' : ''">
