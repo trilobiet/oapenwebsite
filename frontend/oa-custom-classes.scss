@@ -359,7 +359,7 @@ html {
 
   // Each slide is a link (.bulma-card)
   .oa-slide {
-    flex: 0 0 9.25rem;
+    flex: 0 0 8.75rem;
     scroll-snap-align: start;
 
     display: flex;
@@ -398,6 +398,7 @@ html {
     aspect-ratio: 2 / 3;
     overflow: hidden;
     border-radius: 0;
+    border: 0;
   }
 
   .oa-cover {
@@ -420,7 +421,7 @@ html {
     color: var(--bulma-paper);
     font-weight: 500;
     line-height: 1.3;
-    font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.1rem);
+    font-size: clamp(1rem, .96rem + .25vw, 1.15rem);
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3; // clamp for long titles
