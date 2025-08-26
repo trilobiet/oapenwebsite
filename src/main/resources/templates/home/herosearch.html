@@ -11,53 +11,59 @@
 </div>
 
 <!--
-	Hero (with search form and
-	browse shortcuts)
+	Hero search prompt 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-<th:block th:fragment="hero_left">
-  <p class="bulma-title bulma-is-5 bulma-mb-1">OAPEN</p>
-  <h1 class="bulma-title bulma-is-2 bulma-is-semibold bulma-mb-4">
-		A world of open access books<br>
-		Open to all, built to last.
-	</h1>
-  <p class="bulma-is-size-5 bulma-mb-4">
-    OAPEN connects diverse, peer-reviewed open access books through a global, multilingual infrastructure.
-  </p>
-  <p class="bulma-is-size-5 bulma-mb-6">
-    <a th:href="@{'/about'}" class="bulma-link">Learn more about us →</a>
-  </p>
+<th:block th:fragment="search">
+  <section role="search" aria-labelledby="home-search-title" class="bulma-section bulma-py-5">
+    <div class="bulma-container bulma-has-text-centered">
 
-  <!-- Search form -->
-  <form th:action="${settings.dspace_site+'discover'}" class="oapen-hero-search-form" role="search">
-    <div class="bulma-field bulma-has-addons oa-input-group">
-      <p class="bulma-control bulma-is-expanded">
-        <label for="ipt_search" class="bulma-is-sr-only">Search query</label>
-        <input id="ipt_search" class="bulma-input oa-placeholder-75" type="text" name="query" placeholder="Search OAPEN Library" autofocus="autofocus">
-      </p>
-      <p class="bulma-control">
-        <button type="submit" class="bulma-button bulma-has-background-ink bulma-has-text-paper bulma-is-shadowless">Search</button>
-      </p>
+      <h2 id="home-search-title" class="bulma-title bulma-is-4 bulma-mb-2">Looking for more?</h2>
+      <p class="bulma-is-size-5 bulma-mb-4">Find open access books in the OAPEN Library.</p>
+
+      <form th:action="${settings.dspace_site+'discover'}" class="oapen-hero-search-form" role="search">
+        <div class="bulma-field bulma-has-addons oa-input-group"
+            style="max-width:48rem;width:100%;margin-inline:auto;color:var(--bulma-paper);">
+          <p class="bulma-control bulma-is-expanded">
+            <label for="ipt_search" class="bulma-is-sr-only">Search query</label>
+            <input id="ipt_search"
+                  class="bulma-input bulma-is-large oa-placeholder-75"
+                  type="text" name="query"
+                  placeholder="Search OAPEN Library"
+                  style="background:transparent;color:var(--bulma-paper);">
+          </p>
+          <p class="bulma-control">
+            <button type="submit"
+                    class="bulma-button bulma-is-large bulma-has-background-brand-hero bulma-has-text-paper bulma-is-shadowless"
+                    aria-label="Search">
+              <span class="bulma-is-sr-only">Search</span>
+              <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"
+                  xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+                <line x1="16.65" y1="16.65" x2="21" y2="21"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+          </p>
+        </div>
+      </form>
+
+
+      <div class="bulma-mt-4" role="group" aria-label="Browse by">
+        <h3 class="bulma-is-size-5 bulma-mb-4">&hellip;or browse books by content type:</h3>
+        <ul class="bulma-tags bulma-is-justify-content-center">
+          <li><a class="bulma-tag bulma-is-medium bulma-is-paper bulma-is-rounded bulma-has-text-weight-medium"
+                 th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a></li>
+          <li><a class="bulma-tag bulma-is-medium bulma-is-paper bulma-is-rounded bulma-has-text-weight-medium"
+                 th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a></li>
+          <li><a class="bulma-tag bulma-is-medium bulma-is-paper bulma-is-rounded bulma-has-text-weight-medium"
+                 th:href="${settings.dspace_site+'browse?type=language'}">Language</a></li>
+          <li><a class="bulma-tag bulma-is-medium bulma-is-paper bulma-is-rounded bulma-has-text-weight-medium"
+                 th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a></li>
+        </ul>
+      </div>
+
     </div>
-  </form>
-
-  <!-- Browse shortcuts -->
-  <div class="bulma-mt-4" role="group" aria-label="Browse by">
-    <p class="bulma-is-size-5 bulma-mb-2">Browse by:</p>
-    <ul class="bulma-tags">
-      <li>
-				<a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=classification_text'}">Subject</a>
-			</li>
-      <li>
-        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=publisher'}">Publisher</a>
-			</li>
-      <li>
-        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=language'}">Language</a>
-			</li>
-      <li>
-        <a class="bulma-tag bulma-is-rounded bulma-has-text-weight-medium" th:href="${settings.dspace_site+'browse?type=collection'}">Collections</a>
-			</li>
-		</ul>
-  </div>
+  </section>
 </th:block>
 
 <footer th:fragment="footer">

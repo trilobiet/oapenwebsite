@@ -15,24 +15,28 @@
 	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
 
 		<!-- Hero (Featured Titles + Search + Intro/Slogan) -->
-		<section role="region" 
-						 aria-label="Homepage hero"
-  					 class="bulma-hero bulma-is-fullheight oapen-home-hero bulma-is-medium oa-bg bulma-has-background-brand-hero bulma-has-text-paper">
+		<section role="region"
+						aria-label="Homepage hero"
+						class="bulma-hero bulma-is-halfheight oapen-home-hero oa-bg bulma-has-background-brand-hero bulma-has-text-paper">
+
+			<!-- Tagline & intro -->
 			<div class="bulma-hero-body">
 				<div class="bulma-container">
-					<div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
-						<!-- Left: title, tagline, blurb, search, browse -->
-						<div class="bulma-column bulma-is-6-desktop">
-							<th:block th:insert="~{home/herosearch :: hero_left}">Hero content</th:block>
-						</div>
+					<th:block th:insert="home/herotagline :: tagline">Tagline</th:block>
+				</div>
+			</div>
 
-						<!-- Right: featured titles stream -->
-						<div class="bulma-column bulma-is-6-desktop" role="region" aria-label="New additions" aria-live="polite">
-							<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
-						</div>
+			<!-- Featured titles -->
+			<div class="bulma-hero-foot">
+				<div class="bulma-container">
+					<div class="bulma-mt-4" role="region" aria-label="New additions" aria-live="polite">
+						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
 					</div>
 				</div>
 			</div>
+
+			<!-- Search -->
+			<th:block th:insert="home/herosearch :: search">Tagline</th:block>
 		</section>
 
 		<!-- By the numbers -->

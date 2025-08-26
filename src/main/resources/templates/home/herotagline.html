@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Boot Thymeleaf Application - Fragments</title>
+</head>
+<body>
+
+<div th:fragment="header">
+    <h1>Thymeleaf Fragments</h1>
+</div>
+
+<!--
+	Hero tagline and intro
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="tagline">
+  <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
+  <h1 class="bulma-title bulma-is-1 bulma-has-text-weight-semibold bulma-mb-4 bulma-mx-auto">
+    A world of open access books<br>
+    Open to all, built to last.
+  </h1>
+  <p class="bulma-is-size-5 bulma-mb-4 bulma-has-text-weight-light" style="max-width: 60ch;">
+    OAPEN connects diverse, peer-reviewed open access books through a global, multilingual infrastructure.
+  </p>
+  <p class="bulma-is-size-5 bulma-mb-0 bulma-has-text-weight-light">
+    <a th:href="@{'/about'}" class="bulma-link">Learn more about how we can help you →</a>
+  </p>
+</th:block>
+
+<footer th:fragment="footer">
+	<p>2020 trilobiet.nl</p>
+</footer>
+
+</body>
+</html>
+
