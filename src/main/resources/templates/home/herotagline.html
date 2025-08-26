@@ -11,20 +11,35 @@
 </div>
 
 <!--
-	Hero tagline and intro
+  Hero tagline + intro + doodle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="tagline">
-  <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
-  <h1 class="bulma-title bulma-is-1 bulma-has-text-weight-semibold bulma-mb-4 bulma-mx-auto">
-    A world of open access books<br>
-    Open to all, built to last.
-  </h1>
-  <p class="bulma-is-size-5 bulma-mb-4 bulma-has-text-weight-light" style="max-width: 60ch;">
-    OAPEN connects diverse, peer-reviewed open access books through a global, multilingual infrastructure.
-  </p>
-  <p class="bulma-is-size-5 bulma-mb-0 bulma-has-text-weight-light">
-    <a th:href="@{'/about'}" class="bulma-link">Learn more about how we can help you →</a>
-  </p>
+  <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
+
+    <!-- Tagline -->
+    <div class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-tablet bulma-is-half-desktop">
+      <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
+      <h1 class="bulma-title bulma-is-2 bulma-has-text-weight-semibold bulma-mb-4 bulma-mx-auto">
+        A world of open access books<br>
+        Open to all, built to last.
+      </h1>
+      <p class="bulma-is-size-5 bulma-mb-4 bulma-has-text-weight-light" style="max-width:60ch;">
+        OAPEN connects diverse, peer-reviewed open access books through a global, multilingual infrastructure.
+      </p>
+      <p class="bulma-is-size-5 bulma-mb-0 bulma-has-text-weight-light">
+        <a th:href="@{'/about'}" class="bulma-link">Learn more about how we can help you →</a>
+      </p>
+    </div>
+
+    <!-- Doodle: centered on mobile, right-aligned tablet+ -->
+    <div class="bulma-column bulma-is-full-mobile bulma-is-one-third-tablet bulma-is-half-desktop bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
+      <img class="oa-doodle"
+           th:src="@{/static-assets/svg/doodles.svg}"
+           alt="" aria-hidden="true"
+           style="max-width: 15vw; width: auto; height:auto;">
+    </div>
+
+  </div>
 </th:block>
 
 <footer th:fragment="footer">
