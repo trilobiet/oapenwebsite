@@ -127,19 +127,18 @@
     color: var(--bulma-paper);
     border-color: transparent;
   }
+}
 
-  // Enforce a11y link appearance ONLY for content links
-  // Exclude navbar items, buttons, tags
-  .bulma-content a {
-    &:not(.bulma-navbar-item),
-    &:not(.bulma-button),
-    &:not(.bulma-tag) {
-      text-decoration-line: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: .18em;
-    }
-    &.bulma-tag {
-      color: $oa-colour-ink;
-    }
+// Enforce a11y link appearance ONLY for text links
+// Exclude navbar items, buttons, tags
+.bulma-section a {
+  &:not(.bulma-navbar-item),
+  &:not(.bulma-button),
+  &:not(.bulma-tag)
+  &:not(.bulma-panel-block),
+  &:not(.bulma-pagination-link) {
+    text-decoration-line: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: .18em;
   }
 }
