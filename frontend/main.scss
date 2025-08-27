@@ -5,7 +5,6 @@
 // and other customisations of Bulma
 // ————————————————————————————————————————
 
-
 // ————————————————————————————————————————
 // Import Bulma and OAPEN’s styles
 // ————————————————————————————————————————
@@ -144,21 +143,3 @@
     }
   }
 }
-
-// Ensure link colours actually flip on dark sections
-// .bulma-has-background-brand-hero,
-// .bulma-has-background-brand,
-// .bulma-has-background-ink {
-//   .bulma-link,
-//   a:not(.bulma-button) {
-//     color: var(--bulma-link) !important;
-//   }
-//   .bulma-link:hover,
-//   a:not(.bulma-button):hover {
-//     color: var(--bulma-link-hover) !important;
-//   }
-//   .bulma-link:visited,
-//   a:not(.bulma-button):visited {
-//     color: var(--bulma-link-visited) !important;
-//   }
-// }

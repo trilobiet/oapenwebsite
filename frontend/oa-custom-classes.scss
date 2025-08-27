@@ -240,7 +240,7 @@ html {
 }
 
 // Megamenu (desktop)
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
   .oa-header .bulma-navbar-item.bulma-has-dropdown { 
     position: static; 
   }
@@ -254,7 +254,6 @@ html {
     margin-left: calc(50% - 50vw);
     display: none;
     background: var(--bulma-brand);
-    color: var(--bulma-scheme-main);
     border: 0;
     padding: 0;
     overflow: visible;
@@ -287,12 +286,15 @@ html {
     display: block;
     padding: .875rem 1rem;
     text-align: left;
-    color: var(--bulma-scheme-main);
     white-space: normal;
     word-break: normal;
     overflow-wrap: normal;
     transition: background-color .15s ease, color .15s ease;
     color: var(--bulma-paper); 
+
+    &:not(.is-active,.is-selected) {
+      color: var(--bulma-paper)
+    }
     
     &:hover, 
     &:focus, 
@@ -343,10 +345,6 @@ html {
   .oa-nav-mobile .bulma-navbar-item:first-child > .bulma-navbar-link {
     border-top: 0;
   }
-}
-
-@media (min-width: 1024px) {
-  
 }
 
 // Hero — featured titles
