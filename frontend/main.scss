@@ -62,7 +62,8 @@
     "brand-hero": ($brand-primary-700,     $oa-colour-paper),
     "ink":        ($oa-colour-ink,         $oa-colour-paper),
     "paper":      ($oa-colour-paper,       $oa-colour-ink),
-    "stone":      ($oa-colour-stone-600,   $oa-colour-paper),
+    "stone-dark": ($oa-colour-stone-600,   $oa-colour-paper),
+    "stone-light":($oa-colour-stone-300,   $oa-colour-ink),
     "moss":       ($oa-colour-moss-600,    $oa-colour-paper),
     "ochre":      ($oa-colour-ochre-500,   $oa-colour-ink),
     "rust":       ($oa-colour-rust-600,    $oa-colour-paper)
@@ -107,22 +108,18 @@
 
   // Set a visible focus token for white controls inside dark sections
   --oa-focus: color-mix(in srgb, var(--bulma-brand) 55%, var(--oa-colour-paper)); 
-  
-  // High-contrast form elements
-  --bulma-input-border-color:        #{$oa-colour-stone-300};
-  --bulma-input-placeholder-color:   #{$oa-colour-stone-600};
 
   .bulma-input,
   .bulma-textarea,
   .bulma-select select {
-    background-color: var(--bulma-paper);
-    color: var(--bulma-ink);
-    border-color: var(--bulma-input-border-color);
+    background-color: transparent;
+    color: var(--bulma-paper);
+    border-color: var(--bulma-paper);
   }
 
   .bulma-input::placeholder,
   .bulma-textarea::placeholder {
-    color: var(--bulma-input-placeholder-color);
+    color: var(--bulma-stone-light);
     opacity: 1;
   }
 

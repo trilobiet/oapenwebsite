@@ -163,6 +163,9 @@ html {
   border: 2px solid currentColor;
   border-radius: 0;
   overflow: hidden;
+  max-width:48rem;
+  width: 100%;
+  margin-inline: auto;
 
   // Cancel Bulma’s -1px addon joiner
   .bulma-control:not(:first-child) { 
@@ -176,15 +179,6 @@ html {
     border: 0;
     box-shadow: none;
     border-radius: 0;
-  }
-
-  .bulma-input {
-    background: transparent;
-
-    &::placeholder {
-      color: color-mix(in srgb, currentColor 50%, transparent);
-      opacity: 1;
-    }
   }
 
   // A11y focus styles
@@ -297,11 +291,17 @@ html {
     white-space: normal;
     word-break: normal;
     overflow-wrap: normal;
-  }
-
-  .oa-header .oa-megamenu .bulma-navbar-item:is(:hover, :focus, .bulma-is-active) {
-    color: var(--bulma-scheme-main);
-    outline: 0;
+    transition: background-color .15s ease, color .15s ease;
+    color: var(--bulma-paper); 
+    
+    &:hover, 
+    &:focus, 
+    &:focus-visible, 
+    &.bulma-is-active {
+      background: color-mix(in srgb, var(--bulma-brand) 15%, var(--bulma-paper));
+      color: var(--bulma-ink);
+      outline: 0; 
+    }
   }
 }
 
@@ -343,6 +343,10 @@ html {
   .oa-nav-mobile .bulma-navbar-item:first-child > .bulma-navbar-link {
     border-top: 0;
   }
+}
+
+@media (min-width: 1024px) {
+  
 }
 
 // Hero — featured titles
@@ -549,7 +553,6 @@ html {
 
 // Footer
 .oa-footer {
-  color: var(--bulma-scheme-main);
 
   // Footer logo watermark image
   .oa-footer-bg {
@@ -578,21 +581,6 @@ html {
 
     li + li {
       margin-top: .25rem;
-    }
-  }
-
-  // Keep inputs and buttons clean in the footer form
-  .oa-footer-form {
-    .bulma-input {
-      background: transparent;
-
-      &:focus {
-        box-shadow: none;
-      }
-    }
-
-    .bulma-button {
-      box-shadow: none;
     }
   }
 }
