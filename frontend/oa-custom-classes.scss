@@ -351,7 +351,7 @@ html {
 // CSS-only, a11y-friendly horizontal scroll
 .oa-carousel {
   display: flex;
-  gap: .75rem; 
+  gap: 1.5rem; 
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scroll-snap-type: x mandatory;
