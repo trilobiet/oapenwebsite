@@ -22,7 +22,24 @@
       summary=${@viewhelpers.abbreviate(blogPost.description, 220)},
       category='Blog post'
     )}"></th:block>
-</li>
+  </li>
+
+  <!-- Bluesky feed -->
+  <li class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-is-one-third-desktop bulma-is-flex">
+    <article class="bulma-card bulma-is-radiusless bulma-is-shadowless bulma-is-flex bulma-is-flex-direction-column bulma-is-flex-grow-1 oa-feed-item">
+      <header class="bulma-card-header">
+        <p class="bulma-card-header-title bulma-text-has-weight-normal">Find us on Bluesky</p>
+      </header>
+
+      <div class="bulma-card-content oa-bluesky-feed">
+        <bsky-embed username="oapenbooks.bsky.social" mode="light" limit="5"></bsky-embed>
+      </div>
+
+      <footer class="bulma-card-footer">
+        <a href="https://bsky.app/profile/oapenbooks.bsky.social" class="bulma-card-footer-item" rel="noopener">Open on Bluesky</a>
+      </footer>
+    </article>
+  </li>
 </th:block>
 
 <footer th:fragment="footer">

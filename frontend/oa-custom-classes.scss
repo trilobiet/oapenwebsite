@@ -482,6 +482,25 @@ html {
   }
 }
 
+// Bluesky feed card
+.oa-bluesky-feed {
+  max-block-size: 28rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable both-edges;
+  -webkit-overflow-scrolling: touch;
+  min-height: 0;
+
+  bsky-embed {
+    display: block;
+    inline-size: 100%;
+    max-inline-size: 100%;
+    min-inline-size: 0;
+  }
+}
+
+
 // Promo section
 .oa-promo {
   p {
