@@ -60,10 +60,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Get all "navbar-burger" elements
     const burgers = $all('.bulma-navbar-burger');
     burgers.forEach((el) => {
-      el.addEventListener('click', () => {
+      el.addEventListener('click', (evt) => {
+        evt.preventDefault();
         // Get the target from the "data-target" attribute
-        const targetId = el.dataset.target;
-        const target = document.getElementById(targetId);
+        const targetId = el.dataset.target || 'oa-nav';
+        const target = document.getElementById(targetId) || document.getElementById('oa-nav');
         if (!target) return;
 
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
