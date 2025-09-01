@@ -14,23 +14,17 @@
 		<!--
 		Hero
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="bulma-hero bulma-is-medium"
-						th:style="${funderBanner!=null
-							? 'background-image:url('+funderBanner+');background-size:cover;background-position:center;'
-							: ''}">
-			<div style="position:relative;">
-				<div aria-hidden="true"
-						style="position:absolute;inset:0;
-										background:linear-gradient(0deg, rgba(11,12,14,.55), rgba(11,12,14,.55));">
-				</div>
+		<section class="bulma-hero bulma-is-medium oa-funder-hero">
+			<th:block th:if="${funderBanner}">
+				<img class="oa-hero-bg" th:src="${funderBanner}" alt="" aria-hidden="true">
+			</th:block>
 
-				<div class="bulma-hero-body" style="position:relative;">
-					<div class="bulma-container bulma-has-text-paper">
-						<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">Funder name</h1>
-						<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
-							Funder tagline (description)
-						</h2>
-					</div>
+			<div class="bulma-hero-body">
+				<div class="bulma-container bulma-has-text-paper">
+					<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">Funder name</h1>
+					<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
+						Funder tagline (description)
+					</h2>
 				</div>
 			</div>
 		</section>
