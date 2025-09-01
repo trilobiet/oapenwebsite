@@ -78,30 +78,6 @@
     </nav>
   </header>
 
-  <!-- TEMP: Interactive navbar that expands/contracts on scroll-->
-  <script>
-    (function () {
-      const header = document.getElementById('oa-header');
-      const burger = header.querySelector('.bulma-navbar-burger');
-      const menu   = document.getElementById('oa-nav');
-
-      function expand()   { header.classList.remove('is-condensed'); }
-      function condense() { header.classList.add('is-condensed'); }
-
-      function onScroll() { (window.scrollY <= 8 ? expand : condense)(); }
-      onScroll();
-      window.addEventListener('scroll', onScroll, { passive: true });
-
-      if (burger && menu) {
-        burger.addEventListener('click', () => {
-          const active = menu.classList.toggle('is-active');
-          burger.classList.toggle('is-active', active);
-          burger.setAttribute('aria-expanded', active ? 'true' : 'false');
-        });
-      }
-    })();
-  </script>
-
   <!--
     MAIN
   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
@@ -250,7 +226,6 @@
   <script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
   <script th:src="@{/static-assets/js/jquery.fancybox.min.js}"></script>
   <script th:src="@{/static-assets/js/main.min.js}"></script>
-  <script th:src="@{/static-assets/js/scripts.js}"></script>
   <script th:src="@{/static-assets/js/bsky-embed.es.js}"></script>
   <th:block th:insert="include/googleanalyticsscript :: script">
     Google Analytics

@@ -1,21 +1,144 @@
+/* main.js
+ * OAPEN UI interactions (navbar, loaders, utilities)
+ * Includes legacy code from scripts.js
+ */
+
+'use strict';
+
 document.addEventListener('DOMContentLoaded', () => {
+  // ===== Helpers ============================================================
 
-  // Get all "navbar-burger" elements
-  const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.bulma-navbar-burger'), 0);
+  /**
+   * Shorthand querySelectorAll into an array.
+   * @param {string} sel - CSS selector
+   * @param {ParentNode|Document} [root=document]
+   * @returns {HTMLElement[]}
+   */
+  const $all = (sel, root = document) => Array.prototype.slice.call(root.querySelectorAll(sel), 0);
 
-  // Add a click event on each of them
-  $navbarBurgers.forEach( el => {
-    el.addEventListener('click', () => {
+  /**
+   * Safe innerHTML load via fetch with basic error swallow.
+   * @param {HTMLElement} el - target element
+   * @param {string} url - source URL
+   * @returns {Promise<void>}
+   */
+  async function loadHTML(el, url) {
+    try {
+      const res = await fetch(url, { credentials: 'same-origin' });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      el.innerHTML = await res.text();
+    } catch (e) {
+      // whatever
+    }
+  }
 
-      // Get the target from the "data-target" attribute
-      const target = el.dataset.target;
-      const $target = document.getElementById(target);
+  // ===== Navbar: burger + expand/condense on scroll =========================
 
-      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-      el.classList.toggle('bulma-is-active');
-      $target.classList.toggle('bulma-is-active');
+  /**
+   * Wire up Bulma burger: toggles 'bulma-is-active' on burger and its target,
+   * and maintains aria-expanded. 
+   */
+  (function initBurger() {
+    // Get all "navbar-burger" elements
+    const burgers = $all('.bulma-navbar-burger');
+    burgers.forEach((el) => {
+      el.addEventListener('click', () => {
+        // Get the target from the "data-target" attribute
+        const targetId = el.dataset.target;
+        const target = document.getElementById(targetId);
+        if (!target) return;
 
+        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+        const active = target.classList.toggle('bulma-is-active');
+        el.classList.toggle('bulma-is-active', active);
+        el.setAttribute('aria-expanded', active ? 'true' : 'false');
+      });
     });
-  });
+  })();
 
+  /**
+   * Navbar expand/condense on scroll
+   */
+  (function initHeaderScroll() {
+    const header = document.getElementById('oa-header');
+    if (!header) return;
+
+    const expand   = () => header.classList.remove('is-condensed');
+    const condense = () => header.classList.add('is-condensed');
+    const onScroll = () => (window.scrollY <= 8 ? expand() : condense());
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  })();
+
+  // ===== Legacy behaviours (from scripts.js) ================================
+
+  // make iframes full height
+  (function autoHeightIframes() {
+    $all('.oapen-snippet iframe').forEach((ifr) => {
+      ifr.addEventListener('load', () => {
+        try {
+          const doc = ifr.contentDocument || ifr.contentWindow?.document;
+          if (doc && doc.body) {
+            ifr.style.height = doc.body.scrollHeight + 'px';
+          }
+        } catch (e) {
+          // Cross-origin: cannot measure; ignore.
+        }
+      });
+    });
+  })();
+
+  // ajaxloader
+  (function initAjaxLoader() {
+    $all('.ajaxloader').forEach((el) => {
+      const src = el.getAttribute('data-src');
+      if (!src) return;
+      el.innerHTML = " <i class='fa fa-spinner fa-pulse fa-fw'></i><i>Connecting to library&hellip;</i>";
+      loadHTML(el, src);
+    });
+  })();
+
+  // carouselloader (initializes bulmaCarousel after load)
+  (function initCarouselLoader() {
+    $all('.carouselloader').forEach(async (el) => {
+      const src = el.getAttribute('data-src');
+      if (!src) return;
+      el.innerHTML = " <i class='fa fa-spinner fa-pulse fa-fw'></i><i>Connecting to library&hellip;</i>";
+      await loadHTML(el, src);
+      if (window.bulmaCarousel && typeof window.bulmaCarousel.attach === 'function') {
+        window.bulmaCarousel.attach('#slider', {
+          slidesToScroll: 1,
+          slidesToShow: 7,
+          pagination: false,
+        });
+      }
+    });
+  })();
+
+  // wrap content tables in a horizontal scrolling div
+  (function wrapTables() {
+    const tables = $all('.content table');
+    tables.forEach((tbl) => {
+      if (tbl.closest('.oapen-table-wrapper')) return;
+      const wrapper = document.createElement('div');
+      wrapper.className = 'oapen-table-wrapper';
+      tbl.parentNode.insertBefore(wrapper, tbl);
+      wrapper.appendChild(tbl);
+
+      const hint = document.createElement('div');
+      hint.className = 'oapen-table-swipe';
+      hint.textContent = 'swipe to view table';
+      wrapper.parentNode.insertBefore(hint, wrapper);
+    });
+  })();
+
+  // faqs
+  (function initFaqs() {
+    $all('.oapen-foldout h3').forEach((h3) => {
+      h3.addEventListener('click', () => {
+        h3.classList.toggle('expanded');
+      });
+    });
+  })();
 });
