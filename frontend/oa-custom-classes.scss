@@ -43,31 +43,6 @@ html {
   }
 }
 
-/* Sticky header nav + smooth size transitions */
-.oa-header {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-
-  .bulma-navbar {
-    transition: padding .25s ease, background-color .25s ease;
-
-    .bulma-navbar-link,
-    .bulma-navbar-item {
-      text-decoration: none;;
-    }
-  }
-
-  .oa-logo img {
-    height: 40px;
-    transition: height .25s ease;
-  }
-
-  &.is-condensed .oa-logo img { 
-    height: 28px; 
-  }
-}
-
 // Section header divider
 // .oa-section-header {
 //   border-bottom: 2px solid currentColor;
@@ -188,41 +163,60 @@ html {
   }
 }
 
-
-// Header
+// Header & navigation
 .oa-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
 
-  // Let the dropdown overflow the bar so hover doesn't break
+  .bulma-navbar {
+    transition: all .25s ease;
+    min-height: 72px;
+    padding-block: 0;
+
+    .bulma-navbar-link,
+    .bulma-navbar-item {
+      text-decoration: none;
+    }
+  }
+
+  .oa-logo img {
+    height: 40px;
+    transition: height .25s ease;
+  }
+
+  // let the dropdown overflow the bar so hover doesn't break
   .bulma-navbar,
-  .bulma-navbar-menu { 
+  .bulma-navbar-menu {
     overflow: visible;
   }
-  // Remove Bulma’s default carets from navbar links
+
   .bulma-navbar-link,
   .bulma-navbar-item {
-    font-size: 0.9rem;
+    font-size: .9rem;
 
+    // remove Bulma’s default carets from navbar links
     &[data-no-caret]::after {
       display: none;
     }
 
-    // A11y 
+    // a11y
     &:focus-visible {
       outline: 2px solid var(--bulma-link);
       outline-offset: 2px;
       box-shadow: none;
     }
 
+    // stop Bulma hover bg tint
     &:hover,
     &:focus,
     &:focus-within,
     &.bulma-is-active {
-      // stop Bulma hover bg tint
       background: transparent;
       --bulma-navbar-item-background-a: 0;
     }
 
-    // Display & keep underline while hovering the dropdown panel   
+    // display & keep underline while hovering the dropdown panel
     &.bulma-has-dropdown:hover > .bulma-navbar-link,
     &.bulma-has-dropdown:focus > .bulma-navbar-link,
     &.bulma-has-dropdown:focus-within > .bulma-navbar-link {
@@ -235,14 +229,26 @@ html {
 
   .bulma-navbar-dropdown .bulma-navbar-item {
     font-weight: 600;
-    font-size: 0.9rem;
+  }
+
+  // condensed state (on scroll)
+  &.is-condensed {
+    .oa-logo img {
+      height: 28px;
+    }
+
+    .bulma-navbar {
+      min-height: 52px;
+    }
   }
 }
 
 // Megamenu (desktop)
 @media screen and (min-width: 1024px) {
-  .oa-header .bulma-navbar-item.bulma-has-dropdown { 
-    position: static; 
+  .oa-header .bulma-navbar { position: relative; }
+
+  .oa-header .bulma-navbar-item.bulma-has-dropdown {
+    position: static;
   }
 
   .oa-header .oa-megamenu {
@@ -260,8 +266,8 @@ html {
   }
 
   .oa-header .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-megamenu,
-  .oa-header .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu { 
-    display: block; 
+  .oa-header .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu {
+    display: block;
   }
 
   .oa-header .oa-megamenu .bulma-columns {
@@ -276,10 +282,10 @@ html {
     padding-right: 0;
   }
 
-  // Remove Bulma’s white tile background in dropdown
+  // remove Bulma’s white tile background in dropdown
   .oa-header .bulma-navbar-dropdown a.bulma-navbar-item,
-  .oa-header .bulma-navbar-dropdown .bulma-navbar-item { 
-    background: transparent; 
+  .oa-header .bulma-navbar-dropdown .bulma-navbar-item {
+    background: transparent;
   }
 
   .oa-header .oa-megamenu .bulma-navbar-item {
@@ -290,19 +296,19 @@ html {
     word-break: normal;
     overflow-wrap: normal;
     transition: background-color .15s ease, color .15s ease;
-    color: var(--bulma-paper); 
+    color: var(--bulma-paper);
 
-    &:not(.is-active,.is-selected) {
-      color: var(--bulma-paper)
+    &:not(.is-active, .is-selected) {
+      color: var(--bulma-paper);
     }
-    
-    &:hover, 
-    &:focus, 
-    &:focus-visible, 
+
+    &:hover,
+    &:focus,
+    &:focus-visible,
     &.bulma-is-active {
       background: color-mix(in srgb, var(--bulma-brand) 15%, var(--bulma-paper));
       color: var(--bulma-ink);
-      outline: 0; 
+      outline: 0;
     }
   }
 }
