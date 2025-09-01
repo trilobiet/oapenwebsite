@@ -10,77 +10,72 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="bulma-section oapen-topic oapen-main" th:classappend="${topic.cssClass}">
-
+	<main layout:fragment="content" class="bulma-section" th:classappend="${topic.cssClass}">
 		<div class="bulma-container">
-		
 			<th:block th:insert="include/breadcrumbs :: breadcrumbs"/>
-		
-			<div class="bulma-columns">
-			
-				<!-- main content -->
-				<div class="bulma-column bulma-is-three-quarters"> 
-				
-					<div class="bulma-content oapen-primary">
 
-						<h1 th:text="${topic.name}">
-							Topic title
-						</h1>
-		
-						<div th:utext="${topic.description}"
-						     class="topic" th:classappend="${topic.cssClass}">
-		
+			<div class="bulma-columns">
+				<!-- Left: main content -->
+				<div class="bulma-column bulma-is-three-quarters">
+					<div class="bulma-content">
+						<h1 th:text="${topic.name}">Topic title</h1>
+
+						<div th:utext="${topic.description}" class="topic" th:classappend="${topic.cssClass}">
 							<p>
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
 								Phasellus et placerat elit.
 							</p>
-		
 						</div>
-						
-					</div>	
-					
-					<div class="oapen-summaries">
-					
-						<article th:each="article: ${articles}" class="bulma-content oapen-summary">
-			
-							<h2 th:text="${article.title}">
-								Article title
-							</h2>
-			
+					</div>
+
+					<div>
+						<article th:each="article: ${articles}" class="bulma-content">
+							<h2 th:text="${article.title}">Article title</h2>
+
 							<div th:utext="${article.summary}">
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit.
+								Summary…
 							</div>
-			
+
 							<p>
 								<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
 									Read more
 								</a>
 							</p>
-			
 						</article>
-						
-					</div>	
-					
-				</div>	
-					
-				<!-- sidebar -->
-				<div class="bulma-column">
-				
-					<th:block th:insert="include/currentsection :: topics"/>
-				
+					</div>
 				</div>
 
-			</div>
-			
-		</div>	
+				<!-- Right: sidebar with sibling articles -->
+				<aside class="bulma-column" aria-labelledby="sidenav-title">
+					<nav class="bulma-panel bulma-is-shadowless">
+						<header
+							class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header oa-has-star-right"
+							th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
+							th:style="'--star-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star-size:16px; ' +
+												'--star2-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star2-size:24px; --star2-x:50%;'">
+							<div class="bulma-level-left">
+								<h2
+									id="sidenav-title"
+									class="bulma-title bulma-is-5 bulma-pb-4 bulma-has-text-weight-normal"
+									th:text="${section.name}">
+									Section name
+								</h2>
+							</div>
+						</header>
 
+						<a th:each="t : ${section.topics}"
+							th:href="@{'/'+${section.slug}+'/'+${t.slug}}"
+							class="bulma-panel-block">
+							<span th:text="${t.name}">Topic name</span>
+						</a>
+					</nav>
+
+					<th:block th:insert="include/relatedarticles :: linked"/>
+					<th:block th:insert="include/relatedarticles :: related"/>
+				</aside>
+			</div>
+		</div>
 	</main>
 
 </body>
