@@ -31,12 +31,36 @@
         <h3 class="bulma-is-sr-only">Find us on Bluesky</h3>
 
         <div class="oa-bluesky-feed">
-          <bsky-embed username="oapenbooks.bsky.social" mode="light" limit="5" disable-images="true"></bsky-embed>
+          <bsky-embed 
+            username="oapenbooks.bsky.social" 
+            mode="light" 
+            limit="5"
+            custom-styles="
+              /* hide profile avatar */
+              img[alt='profile picture'] { display:none !important; }
+
+              /* remove left indent used when an avatar is present */
+              .ml-10 { margin-left: 0 !important; }
+
+              /* inherit typography from page */
+              :host { font-family: inherit !important; font-size: inherit !important; line-height: 1.6 !important } 
+              .light, .dark, article, p, a, span, div, time, h1, h2, h3, h4, h5, h6 {font-size: 0.95em !important font-family: inherit !important; }
+              
+              /* reduce boldness of headings */
+              .font-bold { font-weight: 500 !important; } 
+          ">
+          </bsky-embed>
         </div>
 
-        <footer class="bulma-card-footer">
-          <a href="https://bsky.app/profile/oapenbooks.bsky.social" class="bulma-card-footer-item bulma-pb-0" rel="noopener">OAPEN on Bluesky</a>
-        </footer>
+        <!-- CTA -->
+        <div class="bulma-mt-5">
+          <a class="bulma-card-footer-item bulma-button bulma-is-small bulma-is-outlined bulma-is-dark bulma-is-shadowless"
+            href="https://bsky.app/profile/oapenbooks.bsky.social" 
+            th:attrappend="aria-label=${'Read more: ' + title}">
+            OAPEN on Bluesky
+          </a>
+        </div>
+      </div>
       </div>
     </article>
   </li>
