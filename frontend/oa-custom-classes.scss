@@ -370,20 +370,13 @@ html {
 
   .oa-header {
     // align logo and burger vertically
-    .bulma-navbar-brand { 
-      display: flex;
-      align-items: center; 
-      min-height: inherit;
-    }
-
+    .bulma-container,
+    .bulma-navbar-brand,
     .bulma-navbar-brand .bulma-navbar-item,
     .bulma-navbar-burger {
-      display: flex;
-      align-items: center;
       min-height: inherit;
-      height: auto;
     }
-
+    
     // allow scrolling when condensed
     &.is-condensed .oa-nav-mobile {
       max-height: calc(100vh - 52px);
