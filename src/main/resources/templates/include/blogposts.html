@@ -12,25 +12,47 @@
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 	<main class="oapen-main" layout:fragment="content">
 
-		<aside class="oapen-hypotheses-items" th:fragment="hypotheses" th:if="${not #lists.isEmpty(blogPosts)}">
+		<aside class="oapen-hypotheses-items"
+					th:fragment="hypotheses"
+					th:if="${not #lists.isEmpty(blogPosts)}">
 
-			<h2 class="bulma-is-title bulma-is-5 oapen-section-caption">More blog posts</h2>
+			<ul class="bulma-columns bulma-is-multiline bulma-mt-4">
 
-			<ul class="bulma-content">
+				<li th:each="blogPost : ${blogPosts}"
+						class="bulma-column
+									bulma-is-full-mobile
+									bulma-is-one-third-desktop">
 
-				<li th:each="blogPost:${blogPosts}">
-					<p class="oapen-date" th:text="${#temporals.format(blogPost.publicationDate,'E dd MMM yyyy')}">
-						THU 26 Mar 2020				
-					</p>
-					<h3 class="oapen-blogpost-title">
-						<a th:href="@{'/blog/?link='+${@viewhelpers.urlEncode(blogPost.link)}}" th:text="${blogPost.title}">
-							Blogpost title
+					<div class="bulma-panel bulma-is-shadowless" style="height:100%;">
+						<a th:href="@{'/blog/?link='+${@viewhelpers.urlEncode(blogPost.link)}}"
+							class="bulma-panel-block
+											bulma-has-background-paper
+											bulma-is-flex
+											bulma-is-flex-direction-column
+											bulma-is-justify-content-flex-start
+											bulma-is-align-items-stretch
+											bulma-is-flex-grow-1"
+							style="height:100%;">
+
+							<!-- Date -->
+							<p class="bulma-mb-2 bulma-is-size-7">
+								<time th:text="${#temporals.format(blogPost.publicationDate,'E dd MMM yyyy')}">
+									THU 26 Mar 2020
+								</time>
+							</p>
+
+							<!-- Title row with arrow -->
+							<div th:text="${blogPost.title}" class="bulma-is-size-4">Blogpost title</div>
+
+							<!-- Excerpt -->
+							<p class="bulma-mt-2 bulma-is-size-6"
+								th:utext="${@viewhelpers.abbreviate(blogPost.description,300)}">
+								Blogpost Description
+							</p>
+
 						</a>
-					</h3>
-					<p class="oapen-blogpost-description" th:utext="${@viewhelpers.abbreviate(blogPost.description,300)}">
-						Blogpost Description
-					</p>
-					 
+					</div>
+
 				</li>
 
 			</ul>
@@ -38,6 +60,7 @@
 		</aside>
 
 	</main>
+
 
 </body>
 
