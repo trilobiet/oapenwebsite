@@ -22,11 +22,29 @@ document.addEventListener('DOMContentLoaded', () => {
    * @param {string} url - source URL
    * @returns {Promise<void>}
    */
-  async function loadHTML(el, url) {
+  async function loadHTML(el, urlWithOptionalSelector) {
     try {
+      const raw = (urlWithOptionalSelector || '').trim();
+      if (!raw) return;
+
+      // Split "url selector" (first space separates them)
+      const spaceIdx = raw.indexOf(' ');
+      const url = (spaceIdx === -1 ? raw : raw.slice(0, spaceIdx)).trim();
+      const selector = spaceIdx === -1 ? '' : raw.slice(spaceIdx + 1).trim();
+
       const res = await fetch(url, { credentials: 'same-origin' });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      el.innerHTML = await res.text();
+      const text = await res.text();
+
+      if (!selector) {
+        el.innerHTML = text;
+        return;
+      }
+
+      // Extract only the requested fragment(s)
+      const doc = new DOMParser().parseFromString(text, 'text/html');
+      const nodes = Array.from(doc.querySelectorAll(selector));
+      el.innerHTML = nodes.map(n => n.outerHTML).join('') || '';
     } catch (e) {
       // whatever
     }
