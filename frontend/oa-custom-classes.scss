@@ -32,15 +32,6 @@ html {
   -webkit-font-smoothing: antialiased; 
   -moz-osx-font-smoothing: grayscale; 
   letter-spacing: 0.025em;
-
-  strong,
-  b,
-  .bulma-title:not(.bulma-has-text-weight-normal),
-  [class*="has-text-weight-semibold"],
-  [class*="has-text-weight-bold"],
-  [class*="has-text-weight-medium"] {
-    letter-spacing: 0.045em; 
-  }
 }
 
 // Section header divider
