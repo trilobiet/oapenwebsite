@@ -10,174 +10,128 @@
 	<!--
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-	<main layout:fragment="content" class="oapen-main oapen-funder-feature">
-
+	<main layout:fragment="content" class="oa-main oa-funder-feature">
 		<!--
 		Hero
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="bulma-hero oapen-funder-hero"
-		 th:style="${funderBanner!=null?'background-image:url('+funderBanner+')':''}">
+		<section class="bulma-hero bulma-is-medium"
+						th:style="${funderBanner!=null
+							? 'background-image:url('+funderBanner+');background-size:cover;background-position:center;'
+							: ''}">
+			<div style="position:relative;">
+				<div aria-hidden="true"
+						style="position:absolute;inset:0;
+										background:linear-gradient(0deg, rgba(11,12,14,.55), rgba(11,12,14,.55));">
+				</div>
 
-			<div class="bulma-hero-body">
-
-				<div class="bulma-container">
-
-					<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">
-						Funder name
-					</h1>
-
-					<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
-						Funder tagline (description)
-				    </h2>
-
+				<div class="bulma-hero-body" style="position:relative;">
+					<div class="bulma-container bulma-has-text-paper">
+						<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">Funder name</h1>
+						<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
+							Funder tagline (description)
+						</h2>
+					</div>
 				</div>
 			</div>
-
 		</section>
 
 		<!--
 		Intro
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="bulma-section">
-
 			<div class="bulma-container" th:if="${firstarticle}">
-			
-				<article class="oapen-article" th:classappend="${firstarticle.cssClass}">
-
+				<article th:classappend="${firstarticle.cssClass}">
 					<div class="bulma-columns">
-
 						<div class="bulma-column bulma-is-three-quarter">
-						
-							<div class="oapen-primary bulma-content" th:utext="${firstarticle.content}">
+							<div class="bulma-content bulma-is-size-4"
+									th:utext="${firstarticle.content}">
 								Article content
 							</div>
-						
 						</div>
 
-						<div class="bulma-column bulma-is-one-quarter oapen-funder-logo">
-							<a th:href="${funderUrl}" target="_blank"><!-- argument='homepage' -->
-								<img th:src="${funderLogo}" alt="logo"/>
-							</a>	
+						<div class="bulma-column bulma-is-one-quarter">
+							<a th:href="${funderUrl}" target="_blank" rel="noopener">
+								<img th:src="${funderLogo}" alt="Funder logo"/>
+							</a>
 						</div>
-
 					</div>
-
 				</article>
-				
+
+				<!-- More reading (skip first article?) -->
 				<div class="bulma-columns" th:if="${#lists.size(articles) gt 1}">
-				
 					<div class="bulma-column bulma-is-three-quarter">
-				
-						<div class="bulma-content oapen-toc bulma-is-three-quarter" >
-			
-							<div class="oapen-toc-header">Read more</div>
-							<hr class="bulma-is-hidden"/>
-			
+						<div class="bulma-content bulma-is-three-quarter">
+							<div>Read more</div>
+
 							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
-								<!--/* skip first article (index=1) */-->
-								<li th:if="${articleStat.index>0}"
-								    th:each="article: ${articles}">
-			
-									<a th:href="@{'/article/'+${article.slug}}"
-									   th:text="${article.title}">
+								<li th:if="${articleStat.index>0}" th:each="article,articleStat: ${articles}">
+									<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
 										Link to Article
 									</a>
-			
 								</li>
-			
 							</ul>
-			
 						</div>
-						
-					</div>	
-					
-					<div class="bulma-column bulma-is-one-quarter"></div>
-	
+					</div>
 				</div>
-				
 			</div>
-
 		</section>
 
 		<!--
-		Featured titles
+		Featured titles, search, & browse this collection
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="bulma-section">
-
 			<div class="bulma-container">
+				<header
+					class="bulma-pb-2 oa-section-header oa-has-star-left"
+					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
+					th:style="'--star-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star-size:32px; ' +
+										'--star2-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star2-size:24px; --star2-x:78%;'">
 
-				<a class="bulma-is-hidden" th:href="@{'/fundertitles/'+${topic.slug}}" 
-					th:text="'From the ' + ${topic.name} + ' collection'">Funder Titles</a>
+					<div class="bulma-columns bulma-is-vcentered bulma-pb-4">
+						<div class="bulma-column bulma-is-full-mobile bulma-is-half-desktop">
+							<h3 class="bulma-title bulma-is-4 bulma-mb-0 bulma-has-text-weight-normal">
+								Access the <span th:text="${topic.name}">Funder name</span> collection
+							</h3>
+						</div>
 
-				<div class="ajaxloader" th:data-src="@{'/fundertitles/'+${topic.slug}} + ' #FunderTitles'">
+						<div class="bulma-column bulma-is-full-mobile bulma-is-half-desktop bulma-has-text-left-mobile bulma-has-text-right-desktop">
+							<a th:href="@{/news}" class="bulma-button bulma-is-brand bulma-is-shadowless">Browse all →</a>
+						</div>
+					</div>
+				</header>
+
+				<div class="ajaxloader bulma-mb-6"
+						th:data-src="@{'/fundertitles/'+${topic.slug}} + ' #FunderTitles'">
 				</div>
 
-			</div><!-- container -->
-
-		</section>
-
-		<!--
-		Search this collection
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="bulma-section oapen-funder-search">
-
-			<div class="bulma-container">
-
-				<h3 class="bulma-title bulma-is-5">
-					Search the <span th:text="${topic.name}">Funder name</span> collection
-				</h3>
-
-				<!-- /* 
-					http://doab-test.huma-num.fr/discover
-						?filtertype_1=collection
-						&filter_relational_operator_1=equals
-						&filter_1=Swiss+National+Science+Foundation+(SNF)
-						&submit_apply_filter=
-						&query=Ordnung 
-				*/ -->
-				
-				<div class="bulma-level">
-
-					<!-- Left side -->
-					<div class="bulma-level-left">
-					
-						<form th:action="${settings.dspace_site+'discover'}" class="bulma-level-item">
-							<div class="bulma-field bulma-has-addons">
-								<p class="bulma-control">
-									<input class="bulma-input" type="text" name="query" placeholder="Search term">
-									<input type="hidden" name="filtertype_1" value="collection" />
-									<input type="hidden" name="filter_relational_operator_1" value="equals" />
-									<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}" />
-								</p>
-								<p class="bulma-control">
-									<button type="submit" class="bulma-button is-dark">
-										<span class="bulma-icon bulma-is-small">
-											<i class="fas fa-search" aria-hidden="true"></i>
-										</span>
-									</button>
-								</p>
-							</div>
-						</form>
-
-					</div>
-
-					<!-- Right side -->
-					<div class="bulma-level-right">
-						<p class="bulma-level-item">
-							<a class="bulma-button is-danger"
-							   th:href="${settings.dspace_site+'browse?type=collection&value='+collection}">
-								<span>Browse this collection</span>
-								<span class="bulma-icon bulma-is-small">
-									<i class="fas fa-caret-circle-right" aria-hidden="true"></i>
-								</span>
-							</a>
+				<form th:action="${settings.dspace_site+'discover'}" class="bulma-level-item" role="search" aria-label="Search this collection">
+					<div class="bulma-field bulma-has-addons oa-input-group">
+						<p class="bulma-control bulma-is-expanded">
+							<label for="funder_search" class="bulma-is-sr-only">Search query</label>
+							<input id="funder_search"
+										class="bulma-input"
+										type="text"
+										name="query"
+										placeholder="Find open access books by keyword">
+							<input type="hidden" name="filtertype_1" value="collection"/>
+							<input type="hidden" name="filter_relational_operator_1" value="equals"/>
+							<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}"/>
+						</p>
+						<p class="bulma-control">
+							<button type="submit"
+											class="bulma-button bulma-has-background-ink bulma-has-text-paper bulma-is-shadowless"
+											aria-label="Search">
+								<span class="bulma-is-sr-only">Search</span>
+								<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+									<circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+									<line x1="16.65" y1="16.65" x2="21" y2="21"
+												stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+								</svg>
+							</button>
 						</p>
 					</div>
-
-				</div>
-
+				</form>
 			</div>
-
 		</section>
 
 	</main>
