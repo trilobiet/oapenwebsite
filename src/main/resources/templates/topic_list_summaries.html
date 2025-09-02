@@ -17,33 +17,48 @@
 			<div class="bulma-columns">
 				<!-- Left: main content -->
 				<div class="bulma-column bulma-is-three-quarters">
+
+					<!-- Topic heading + intro -->
 					<div class="bulma-content">
 						<h1 th:text="${topic.name}">Topic title</h1>
+					</div>
 
-						<div th:utext="${topic.description}" class="topic" th:classappend="${topic.cssClass}">
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-								Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
-								Phasellus et placerat elit.
-							</p>
+					<div class="bulma-columns">
+						<div class="bulma-column bulma-is-12-mobile bulma-is-9-tablet">
+							<div th:utext="${topic.description}"
+									class="topic bulma-content bulma-is-size-5"
+									th:classappend="${topic.cssClass}">
+								<p>
+									Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+									Praesent scelerisque neque neque, ac elementum quam dignissim interdum.
+									Phasellus et placerat elit.
+								</p>
+							</div>
 						</div>
 					</div>
 
-					<div>
-						<article th:each="article: ${articles}" class="bulma-content">
-							<h2 th:text="${article.title}">Article title</h2>
+					<!-- Summaries list -->
+					<article th:each="article : ${articles}" class="bulma-mb-6">
+							<div class="bulma-columns">
+								<div class="bulma-column bulma-is-12-mobile bulma-is-9-tablet">
+									<div class="bulma-content bulma-is-size-5">
+										<h2 th:text="${article.title}">Article title</h2>
 
-							<div th:utext="${article.summary}">
-								Summary…
+										<div th:utext="${article.summary}">
+											Summary…
+										</div>
+
+										<p class="bulma-mt-2">
+											<a class="bulma-button bulma-is-medium bulma-is-outlined bulma-is-dark bulma-is-shadowless"
+												th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
+												Read more
+											</a>
+										</p>
+									</div>
+								</div>
 							</div>
-
-							<p>
-								<a th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
-									Read more
-								</a>
-							</p>
 						</article>
-					</div>
+
 				</div>
 
 				<!-- Right: sidebar with sibling articles -->
@@ -55,10 +70,9 @@
 							th:style="'--star-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star-size:16px; ' +
 												'--star2-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star2-size:24px; --star2-x:50%;'">
 							<div class="bulma-level-left">
-								<h2
-									id="sidenav-title"
-									class="bulma-title bulma-is-5 bulma-pb-4 bulma-has-text-weight-normal"
-									th:text="${section.name}">
+								<h2 id="sidenav-title"
+										class="bulma-title bulma-is-6 bulma-pb-4 bulma-has-text-weight-semibold"
+										th:text="${section.name}">
 									Section name
 								</h2>
 							</div>
@@ -77,6 +91,7 @@
 			</div>
 		</div>
 	</main>
+
 
 </body>
 </html>

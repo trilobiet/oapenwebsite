@@ -22,7 +22,7 @@
 					<p th:if="${#lists.isEmpty(articles)}">Nothing here yet...</p>
 
 					<th:block th:if="${firstarticle}">
-						<article class="bulma-is-clearfix" th:classappend="${firstarticle.cssClass}">
+						<article th:classappend="${firstarticle.cssClass}">
 							<div class="bulma-columns">
 								<div class="bulma-column
 														bulma-is-12-mobile
@@ -63,7 +63,7 @@
 						>
 							<div class="bulma-level-left">
 								<h2
-									class="bulma-title bulma-is-5 bulma-pb-4 bulma-has-text-weight-normal"
+									class="bulma-title bulma-is-6 bulma-pb-4 bulma-has-text-weight-semibold"
 									th:text="${section.name}"
 								>
 									Section name
