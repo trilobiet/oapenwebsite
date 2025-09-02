@@ -186,6 +186,7 @@
 				</configuration>
 
 			</plugin>			
+<<<<<<< HEAD
 			
 			<!-- copy generated jar to oapen-latest.jar -->
 			<plugin>
@@ -249,6 +250,8 @@
 					</execution>
 				</executions>
 			</plugin>
+=======
+>>>>>>> branch 'master' of git@github.com:trilobiet/oapenwebsite.git
 
 		</plugins>
 
