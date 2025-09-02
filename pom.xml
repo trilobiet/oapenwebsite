@@ -208,7 +208,7 @@
 							<version>${project.version}</version>
 							<type>${project.packaging}</type>
 							<overWrite>true</overWrite>
-							<outputDirectory>${basedir}/latest-build</outputDirectory>
+							<outputDirectory>${project.build.directory}</outputDirectory>
 							<destFileName>oapen-latest.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
