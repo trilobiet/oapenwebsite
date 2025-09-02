@@ -11,32 +11,31 @@
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-	<!-- /* Content of this page will be decorated by the elements of layout.html (layout/main) */ -->
 	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
 
-		<!-- Hero (Featured Titles + Search + Intro/Slogan) -->
-		<section role="region"
-						aria-label="Homepage hero">
+		<!-- Hero -->
+		<section class="bulma-hero bulma-is-fullheight-with-navbar"
+						role="region" aria-label="Homepage hero">
+			<div class="bulma-hero-body bulma-py-6">
+				<div class="bulma-container bulma-is-max-widescreen">
 
-			<!-- Tagline & intro -->
-			<div class="bulma-hero-body">
-				<div class="bulma-container">
+					<!-- Tagline + intro + doodle -->
 					<th:block th:insert="home/herotagline :: tagline">Tagline</th:block>
-				</div>
-			</div>
 
-			<!-- Featured titles -->
-			<div class="bulma-hero-foot">
-				<div class="bulma-container">
-					<div class="bulma-mt-4" role="region" aria-label="New additions" aria-live="polite">
+					<!-- Featured titles -->
+					<div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
 						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
 					</div>
+
+					<!-- Search -->
+					<div class="bulma-mt-6">
+						<th:block th:insert="home/herosearch :: search">Tagline</th:block>
+					</div>
+
 				</div>
 			</div>
-
-			<!-- Search -->
-			<th:block th:insert="home/herosearch :: search">Tagline</th:block>
 		</section>
+
 
 		<!-- By the numbers -->
 		<section class="bulma-hero bulma-is-medium bulma-has-background-ink bulma-has-text-paper">

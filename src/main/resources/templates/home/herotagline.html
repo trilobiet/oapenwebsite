@@ -14,10 +14,10 @@
   Hero tagline + intro + doodle
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="tagline">
-  <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-vcentered">
+  <div class="bulma-columns bulma-is-variable bulma-is-8 bulma-is-vcentered">
 
-    <!-- Tagline -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-tablet bulma-is-half-desktop">
+    <!-- Tagline + intro -->
+    <div class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-tablet bulma-is-two-thirds-desktop">
       <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
       <h1 class="bulma-title bulma-is-2 bulma-has-text-weight-semibold bulma-mb-4 bulma-mx-auto">
         A world of scholarly books<br>
@@ -31,8 +31,8 @@
       </p>
     </div>
 
-    <!-- Doodle: centered on mobile, right-aligned tablet+ -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-one-third-tablet bulma-is-half-desktop bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
+    <!-- Doodle -->
+    <div class="bulma-column bulma-is-full-mobile bulma-is-one-third-tablet bulma-is-one-third-desktop bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
       <img class="oa-doodle"
            th:src="@{/static-assets/svg/doodles.svg}"
            alt="" aria-hidden="true"
