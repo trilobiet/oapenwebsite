@@ -7,7 +7,7 @@
 .DS_Store
 
 # ignore application profiles - containing sensitive data ...
-application*.properties
+application-*.properties
 # ... except the anonymized template
 !application-xyz.properties
 
