@@ -16,7 +16,7 @@
 		<!-- Hero -->
 		<section class="bulma-hero bulma-is-fullheight-with-navbar"
 						role="region" aria-label="Homepage hero">
-			<div class="bulma-hero-body bulma-py-6">
+			<div class="bulma-hero-body bulma-py-6 bulma-mt-6">
 				<div class="bulma-container bulma-is-max-widescreen">
 
 					<!-- Tagline + intro + doodle -->
@@ -27,7 +27,7 @@
 						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
 					</div>
 
-					<!-- Search -->
+					<!-- Search + browse tags -->
 					<div class="bulma-mt-6">
 						<th:block th:insert="home/herosearch :: search">Tagline</th:block>
 					</div>
@@ -104,7 +104,7 @@
 						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">The latest from OAPEN</h2>
 					</div>
 					<div class="bulma-level-right">
-						<a th:href="@{/news}" class="bulma-link oa-link-underline">See all news →</a>
+						<a th:href="@{/resources}" class="bulma-link oa-link-underline">See all news →</a>
 					</div>
 				</header>
 				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-feed" role="list">
