@@ -57,32 +57,53 @@
 						<div class="bulma-column bulma-is-8-desktop">
 							<div class="bulma-columns">
 								<article class="bulma-column bulma-is-one-quarter">
-									<div class="oa-stat bulma-has-text-centered bulma-py-4">
-										<p class="bulma-title bulma-is-2 bulma-mb-3">2,640</p>
-										<p class="bulma-is-size-6">Subjects included</p>
-									</div>
+									<a th:href="${settings.dspace_site+'browse?type=classification_text'}"
+										class="bulma-is-block bulma-has-text-centered bulma-py-4 bulma-px-3">
+										<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+											<dt class="bulma-is-size-6 bulma-is-block">Subjects included</dt>
+											<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
+												<data value="2,640">2,640</data>
+											</dd>
+										</dl>
+									</a>
 								</article>
 
 								<article class="bulma-column bulma-is-one-quarter">
-									<div class="oa-stat bulma-has-text-centered bulma-py-4">
-										<p class="bulma-title bulma-is-2 bulma-mb-3">487</p>
-										<p class="bulma-is-size-6">Participating publishers</p>
-									</div>
+									<a th:href="${settings.dspace_site+'browse?type=publisher'}"
+										class="bulma-is-block bulma-has-text-centered bulma-py-4 bulma-px-3">
+										<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+											<dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
+											<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
+												<data value="487">487</data>
+											</dd>
+										</dl>
+									</a>
 								</article>
 
 								<article class="bulma-column bulma-is-one-quarter">
-									<div class="oa-stat bulma-has-text-centered bulma-py-4">
-										<p class="bulma-title bulma-is-2 bulma-mb-3">125</p>
-										<p class="bulma-is-size-6">Funded collections</p>
-									</div>
+									<a th:href="${settings.dspace_site+'browse?type=collection'}"
+										class="bulma-is-block bulma-has-text-centered bulma-py-4 bulma-px-3">
+										<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+											<dt class="bulma-is-size-6 bulma-is-block">Funded collections</dt>
+											<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
+												<data value="125">125</data>
+											</dd>
+										</dl>
+									</a>
 								</article>
 
 								<article class="bulma-column bulma-is-one-quarter">
-									<div class="oa-stat bulma-has-text-centered bulma-py-4">
-										<p class="bulma-title bulma-is-2 bulma-mb-3">86</p>
-										<p class="bulma-is-size-6">Languages represented</p>
-									</div>
+									<a th:href="${settings.dspace_site+'browse?type=language'}"
+										class="bulma-is-block bulma-has-text-centered bulma-py-4 bulma-px-3">
+										<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+											<dt class="bulma-is-size-6 bulma-is-block">Languages represented</dt>
+											<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
+												<data value="86">86</data>
+											</dd>
+										</dl>
+									</a>
 								</article>
+
 							</div>
 						</div>
 					</div>
