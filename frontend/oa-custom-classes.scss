@@ -160,9 +160,10 @@ html {
   top: 0;
   z-index: 50;
 
+  // expanded state (default)
   .bulma-navbar {
     transition: all .25s ease;
-    min-height: 72px;
+    min-height: 100px;
     padding-block: 0;
 
     .bulma-navbar-link,
@@ -171,9 +172,11 @@ html {
     }
   }
 
-  .oa-logo img {
-    height: 40px;
-    transition: height .25s ease;
+  // condensed state (on scroll)
+  &.is-condensed {
+    .bulma-navbar {
+      min-height: 50px;
+    }
   }
 
   // let the dropdown overflow the bar so hover doesn't break
@@ -220,17 +223,6 @@ html {
 
   .bulma-navbar-dropdown .bulma-navbar-item {
     font-weight: 600;
-  }
-
-  // condensed state (on scroll)
-  &.is-condensed {
-    .oa-logo img {
-      height: 28px;
-    }
-
-    .bulma-navbar {
-      min-height: 52px;
-    }
   }
 }
 
