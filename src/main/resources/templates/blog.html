@@ -44,7 +44,7 @@
 			<p th:if="${featuredPost == null}">Nothing here yet...</p>
 
 			<article th:if="${featuredPost != null}">
-				<div class="bulma-columns bulma-is-centered">
+				<div class="bulma-columns bulma-is-centered bulma-has-text-centered">
 					<div class="bulma-column bulma-is-10-tablet bulma-is-7-desktop">
 						<div class="bulma-content bulma-is-size-5">
 							<div th:utext="${featuredPost.contents}">
