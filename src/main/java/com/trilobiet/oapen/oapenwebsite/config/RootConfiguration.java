@@ -31,6 +31,7 @@ import com.trilobiet.oapen.oapenwebsite.repositoryclient.RepositoryService;
 import com.trilobiet.oapen.oapenwebsite.repositoryclient.dspace.DSpaceRepositoryService;
 import com.trilobiet.oapen.oapenwebsite.rss.RssService;
 import com.trilobiet.oapen.oapenwebsite.rss.hypotheses.HypothesesRssService;
+import com.trilobiet.oapen.oapenwebsite.rss.mailchimp.MailchimpRssService;
 
 @Configuration
 @ComponentScan (
@@ -101,6 +102,11 @@ public class RootConfiguration {
 		return new HypothesesRssService(env.getProperty("url_feed_hypotheses"));
 	}
 
+	@Bean 
+	public RssService mailchimpService() {
+		return new MailchimpRssService(env.getProperty("url_feed_mailchimp"));
+	}
+	
 	@Value("#{${dspace_repo_client_config}}")
 	public Map<String,String> repoClientConfig;
 	

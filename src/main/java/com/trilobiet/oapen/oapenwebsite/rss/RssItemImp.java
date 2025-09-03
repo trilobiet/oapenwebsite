@@ -1,9 +1,7 @@
-package com.trilobiet.oapen.oapenwebsite.rss.hypotheses;
+package com.trilobiet.oapen.oapenwebsite.rss;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-
-import com.trilobiet.oapen.oapenwebsite.rss.RssItem;
 
 public class RssItemImp implements RssItem, Serializable {
 	

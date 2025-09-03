@@ -1,0 +1,45 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>OAPEN Web - Mailchimp Newsletters</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main class="oapen-main" layout:fragment="content">
+
+		<aside class="oapen-hypotheses-items" th:fragment="mailchimp" th:if="${not #lists.isEmpty(newsletters)}">
+
+			<h2 class="is-title is-5 oapen-section-caption">More blog posts</h2>
+
+			<ul class="content">
+
+				<li th:each="newsletter:${newsletters}">
+					<p class="oapen-date" th:text="${#temporals.format(newsletter.publicationDate,'E dd MMM yyyy')}">
+						THU 26 Mar 2020				
+					</p>
+					<h3 class="oapen-blogpost-title">
+						<a th:href="@{'/newsletter/?link='+${@viewhelpers.urlEncode(newsletter.link)}}" th:text="${newsletter.title}">
+							Blogpost title
+						</a>
+					</h3>
+					 
+				</li>
+
+			</ul>
+
+		</aside>
+
+	</main>
+
+</body>
+
+</html>
+
+
+
+

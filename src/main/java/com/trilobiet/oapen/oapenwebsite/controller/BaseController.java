@@ -46,6 +46,9 @@ public class BaseController {
 	protected RssService rssService;	
 
 	@Autowired
+	protected RssService mailchimpService;	
+	
+	@Autowired
 	protected Environment environment;	
 	
 	/**
