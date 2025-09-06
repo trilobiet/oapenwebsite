@@ -17,7 +17,10 @@
   <li class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-is-one-third-desktop">
     <article class="bulma-card bulma-is-radiusless bulma-is-shadowless oa-feed-item">
       <div class="bulma-card-content">
-        <h3 class="bulma-is-sr-only">Bluesky Feed</h3>
+        <h3 class="bulma-tag bulma-is-rounded bulma-is-light bulma-is-uppercase bulma-is-size-7 bulma-mb-3 bulma-is-align-self-flex-start">
+          <img th:src="@{/static-assets/svg/bluesky.svg}" alt="Bluesky" class="bulma-mr-2" style="height:1em; vertical-align:middle;" />
+          Bluesky Feed
+        </h3>
 
         <div class="oa-bluesky-feed">
           <bsky-embed
@@ -40,16 +43,6 @@
             ">
           </bsky-embed>
         </div>
-
-        <p class="bulma-mt-5">
-          <a
-            class="bulma-button bulma-is-small bulma-is-outlined bulma-is-dark bulma-is-shadowless"
-            href="https://bsky.app/profile/oapenbooks.bsky.social"
-            aria-label="OAPEN on Bluesky"
-          >
-            OAPEN on Bluesky
-          </a>
-        </p>
       </div>
     </article>
   </li>
