@@ -13,7 +13,7 @@
 <th:block th:fragment="featured">
   <div id="FeaturedTitles" class="oa-featured-titles" role="region" aria-label="New additions">
     <header
-					class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header oa-has-star-center"
+					class="bulma-level bulma-pb-2 oa-section-header oa-has-star-center"
 					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
 					th:style="'--star-url:url(' + @{/static-assets/svg/Star3.svg} + '); --star-size:32px; ' +
           '--star2-url:url(' + @{/static-assets/svg/Star2.svg} + '); --star2-size:24px; --star2-x:78%;'">
@@ -24,7 +24,7 @@
 
     <!-- CSS-only, a11y-friendly carousel (improved later with JS) -->
     <div id="slider"
-         class="oa-carousel"
+         class="bulma-is-clipped oa-carousel"
          role="list"
          aria-roledescription="carousel"
          aria-label="New additions – book covers"

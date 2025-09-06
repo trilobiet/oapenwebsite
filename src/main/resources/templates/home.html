@@ -14,8 +14,7 @@
 	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
 
 		<!-- Hero -->
-		<section class="bulma-hero bulma-is-fullheight-with-navbar"
-						role="region" aria-label="Homepage hero">
+		<section class="bulma-hero" role="region" aria-label="Homepage hero">
 			<div class="bulma-hero-body bulma-py-6 bulma-mt-6">
 				<div class="bulma-container bulma-is-max-widescreen">
 
@@ -35,7 +34,6 @@
 				</div>
 			</div>
 		</section>
-
 
 		<!-- By the numbers -->
 		<section class="bulma-hero bulma-is-medium bulma-has-background-ink bulma-has-text-paper">
@@ -117,15 +115,15 @@
 		<section class="bulma-section">
 			<div class="bulma-container">
 				<header
-					class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header oa-has-star-left"
+					class="bulma-level bulma-pb-2 oa-section-header oa-has-star-left"
 					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
 					th:style="'--star-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star-size:32px; ' +
-          '--star2-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star2-size:24px; --star2-x:78%;'">
+										'--star2-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star2-size:24px; --star2-x:78%;'">
 					<div class="bulma-level-left">
 						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">The latest from OAPEN</h2>
 					</div>
 					<div class="bulma-level-right">
-						<a th:href="@{/resources}" class="bulma-link oa-link-underline">See all news →</a>
+						<a th:href="@{/resources}" class="bulma-link oa-link-underline bulma-pb-4">See all news →</a>
 					</div>
 				</header>
 				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-feed" role="list">
