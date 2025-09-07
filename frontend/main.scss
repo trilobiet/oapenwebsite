@@ -10,7 +10,7 @@
 // ————————————————————————————————————————
 
 // Bring in OAPEN’s colour palette and typography variables
-@use "./oa-variables" as *;
+@use "./oa-colours" as *;
 
 // Import Bulma’s entry-point with overrides
 @use "bulma/sass/utilities/initial-variables" with (
