@@ -8,48 +8,51 @@
 <body>
 
 <!--
-	Featured Titles (new additions)
+  Featured Titles (new additions)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="featured">
   <div id="FeaturedTitles" class="oa-featured-titles" role="region" aria-label="New additions">
     <header
-					class="bulma-level bulma-pb-2 oa-section-header oa-has-star-center"
-					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
-					th:style="'--star-url:url(' + @{/static-assets/svg/Star3.svg} + '); --star-size:32px; ' +
-          '--star2-url:url(' + @{/static-assets/svg/Star2.svg} + '); --star2-size:24px; --star2-x:78%;'">
+      class="bulma-level bulma-pb-2 oa-section-header oa-has-star-center"
+      th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
+      th:style="'--star-url:url(' + @{/static-assets/svg/Star3.svg} + '); --star-size:32px; ' +
+                '--star2-url:url(' + @{/static-assets/svg/Star2.svg} + '); --star2-size:24px; --star2-x:78%;'">
       <div class="bulma-level-left">
         <h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
       </div>
     </header>
 
-    <!-- CSS-only, a11y-friendly carousel (improved later with JS) -->
-    <div id="slider"
-         class="bulma-is-clipped oa-carousel"
-         role="list"
-         aria-roledescription="carousel"
-         aria-label="New additions – book covers"
-         tabindex="0">
+    <!-- Splide carousel -->
+    <div class="splide oa-carousel" aria-label="New additions – book covers">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide" th:each="item : ${featuredItems}">
+            <a th:href="${item.url}"
+               class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
+               th:attr="aria-label=${item.title}">
+              <div class="bulma-card-image">
+                <figure class="bulma-image bulma-is-radiusless oa-cover-box">
+                  <img class="oa-cover bulma-is-radiusless"
+                       loading="lazy" decoding="async" draggable="false"
+                       th:src="${#strings.isEmpty(item.thumbnailPath)} ?
+                                 @{/static-assets/images/missing.png} :
+                                 @{|${settings.dspace_api}${item.thumbnailPath}|}"
+                       th:alt="|${item.title} – cover|">
+                </figure>
+              </div>
+              <div class="bulma-card-content">
+                <p class="bulma-is-size-7 oa-cover-title" th:text="${item.title}">Item title</p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
 
-      <a th:each="item : ${featuredItems}"
-         th:href="${item.url}"
-         class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
-         role="listitem"
-         th:attr="aria-label=${item.title}">
-        <div class="bulma-card-image">
-          <figure class="bulma-image bulma-is-radiusless oa-cover-box">
-            <img class="oa-cover bulma-is-radiusless"
-                 loading="lazy" decoding="async" draggable="false"
-                 th:src="${#strings.isEmpty(item.thumbnailPath)} ?
-                           @{/static-assets/images/missing.png} :
-                           @{|${settings.dspace_api}${item.thumbnailPath}|}"
-                 th:alt="|${item.title} – cover|">
-          </figure>
-        </div>
-        <div class="bulma-card-content">
-          <p class="bulma-is-size-7 oa-cover-title" th:text="${item.title}">Item title</p>
-        </div>
-      </a>
-
+      <!-- Arrows below (Splide’s own classes, scoped by .oa-carousel) -->
+      <div class="splide__arrows">
+        <button class="splide__arrow splide__arrow--prev" aria-label="Previous">‹</button>
+        <button class="splide__arrow splide__arrow--next" aria-label="Next">›</button>
+      </div>
     </div>
   </div>
 </th:block>

@@ -225,10 +225,19 @@
   </footer>
 
   <!-- Scripts -->
-  <script th:src="@{/static-assets/js/jquery-3.4.1.min.js}"></script>
-  <script th:src="@{/static-assets/js/jquery.fancybox.min.js}"></script>
-  <script th:src="@{/static-assets/js/main.min.js}"></script>
+  <script th:src="@{/static-assets/js/jquery-3.4.1.min.js}" defer></script>
+  <script th:src="@{/static-assets/js/jquery.fancybox.min.js}" defer></script>
+
+  <!-- Splide (Carousel) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+
+  <!-- Bluesky embed script -->
   <script th:src="@{/static-assets/js/bsky-embed.es.js}"></script>
+
+  <!-- Our app scripts -->
+  <script defer th:src="@{/static-assets/js/main.min.js(v=${T(java.lang.System).currentTimeMillis()})}"></script>
+
   <th:block th:insert="include/googleanalyticsscript :: script">
     Google Analytics
   </th:block>

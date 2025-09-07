@@ -369,35 +369,20 @@ html {
   }
 }
 
-// Hero — featured titles in a carousel
-// CSS-only, a11y-friendly horizontal scroll
+// Hero — featured titles in a carousel (Splide version)
+// Keep visual styles; Splide handles layout/scroll/overflow.
 .oa-carousel {
-  display: flex;
-  gap: 1.5rem; 
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scroll-snap-type: x mandatory;
-  padding: 0 0 .25rem;
 
   .oa-slide {
-    flex: 0 0 6.75rem;
-    scroll-snap-align: start;
-    display: flex;
-    flex-direction: column;
-    gap: .45rem;
     text-decoration: none;
     background: transparent;
     border: 0;
     transition: transform .16s ease;
 
-    &:hover { 
-      transform: translateY(-2px); 
-    }
+    &:hover { transform: translateY(-2px); }
 
-    @media (prefers-reduced-motion: reduce) { 
-      &:hover { 
-        transform: none;
-      } 
+    @media (prefers-reduced-motion: reduce) {
+      &:hover { transform: none; }
     }
 
     &:focus-visible {
@@ -406,10 +391,8 @@ html {
     }
   }
 
-  // Cover image area, keep strict 2:3
-  .bulma-card-image { 
-    margin: 0; 
-  }
+  // Keep your cover & content visuals
+  .bulma-card-image { margin: 0; }
 
   .oa-cover-box {
     aspect-ratio: 2 / 3;
@@ -445,20 +428,33 @@ html {
     overflow: hidden;
   }
 
-  @media (min-width: 768px) {
-    .oa-slide { 
-      flex-basis: 7.5rem; 
-    }
+  // Place arrows below & style them (scoped here so we don't touch global Splide)
+  > .splide__arrows {
+    position: static;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: .75rem;
+    gap: .75rem;
   }
 
-  // wider cards on desktop
-  @media (min-width: 1024px) {
-    .oa-slide { 
-      flex-basis: 8.5rem; 
+  .splide__arrow {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid currentColor;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    font-size: 1.25rem;
+    line-height: 1;
+    opacity: .9;
+
+    &:focus-visible {
+      outline: 2px solid var(--oa-focus, currentColor);
+      outline-offset: 2px;
     }
   }
 }
-
 
 // News feed & cards
 .oa-feed {

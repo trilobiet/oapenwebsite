@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Safe innerHTML load via fetch with basic error swallow.
+   * Accepts "url [space] selector" to extract a fragment.
    * @param {HTMLElement} el - target element
-   * @param {string} url - source URL
+   * @param {string} urlWithOptionalSelector - "URL" or "URL CSS_SELECTOR"
    * @returns {Promise<void>}
    */
   async function loadHTML(el, urlWithOptionalSelector) {
@@ -54,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   /**
    * Wire up Bulma burger: toggles 'bulma-is-active' on burger and its target,
-   * and maintains aria-expanded. 
+   * and maintains aria-expanded.
    */
   (function initBurger() {
     // Get all "navbar-burger" elements
@@ -118,20 +119,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
-  // carouselloader (initializes bulmaCarousel after load)
-  (function initCarouselLoader() {
+  // ===== Featured Titles: Splide carousel =========
+  (function initFeaturedTitles() {
+    function mount(scope = document) {
+      const root = scope.querySelector('#FeaturedTitles .splide');
+      if (!root || root.__splide) return;
+
+      root.__splide = new Splide(root, {
+        type: 'loop',
+        perPage: 6,
+        gap: '1.5rem',
+        arrows: true,          // we supply arrows in markup
+        pagination: false,
+        drag: true,
+        wheel: true,           // ← trackpad / mouse wheel
+        releaseWheel: true,    // let page scroll when reaching ends
+        wheelMinThreshold: 10,
+        wheelSleep: 200,
+        breakpoints: {
+          1280: { perPage: 5 },
+          1024: { perPage: 4 },
+          768:  { perPage: 3 },
+          480:  { perPage: 2 },
+        },
+      }).mount();
+    }
+
+    // SSR case
+    mount(document);
+
+    // Async loader case
     $all('.carouselloader').forEach(async (el) => {
       const src = el.getAttribute('data-src');
       if (!src) return;
       el.innerHTML = " <i class='fa fa-spinner fa-pulse fa-fw'></i><i>Connecting to library&hellip;</i>";
       await loadHTML(el, src);
-      if (window.bulmaCarousel && typeof window.bulmaCarousel.attach === 'function') {
-        window.bulmaCarousel.attach('#slider', {
-          slidesToScroll: 1,
-          slidesToShow: 7,
-          pagination: false,
-        });
-      }
+      mount(el);
     });
   })();
 
