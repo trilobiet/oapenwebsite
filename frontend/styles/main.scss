@@ -81,20 +81,20 @@
 @use "bulma/bulma";
 
 // --- Bulma overrides 
-@use "styles/overrides/bulma-overrides";
+@use "overrides/bulma-overrides";
 
 // --- Site-wide base (resets, root vars, typography helpers)
-@use "styles/core/base";
+@use "core/base";
 
 // --- Our own custom oa-* classes
-@use "styles/oa/bluesky-feed";
-@use "styles/oa/carousel";
-@use "styles/oa/collections";
-@use "styles/oa/feed";
-@use "styles/oa/footer";
-@use "styles/oa/funder-hero";
-@use "styles/oa/header";
-@use "styles/oa/input-group";
-@use "styles/oa/promo";
-@use "styles/oa/section-header";
+@use "oa/bluesky-feed";
+@use "oa/carousel";
+@use "oa/collections";
+@use "oa/feed";
+@use "oa/footer";
+@use "oa/funder-hero";
+@use "oa/header";
+@use "oa/input-group";
+@use "oa/promo";
+@use "oa/section-header";
 

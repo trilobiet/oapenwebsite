@@ -2,7 +2,7 @@
 @use "sass:color";
 
 // To access $brand-primary-* and $oa-colour-*
-@use "../../oa-colours" as *;
+@use "../oa-colours" as *;
 
 :root {
   // Link states via CSS vars instead of Sass
