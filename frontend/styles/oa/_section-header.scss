@@ -1,4 +1,10 @@
-// Section header divider
+// oa/_section-header.scss
+// Section headers with star-decorated divider
+// Used on: homepage section intros, secondary page headers
+// Can contain link or button to its right (e.g. News feed, Funder collection carousels)
+// Always use with <h1...h6> inside
+// Note: controlled via inlined CSS, up to 2 stars can be added on the divider
+
 .oa-section-header {
   position: relative;
   background-origin: content-box;

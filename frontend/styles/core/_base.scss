@@ -1,3 +1,9 @@
+// core/_base.scss
+// Base resets & global tokens (vars, root CSS vars)
+// Used on: entire site
+// Depends on: oa-colours, sass:color
+// Note: keep minimal and global-only, no custom or component styles
+
 // For colour functions
 @use "sass:color";
 

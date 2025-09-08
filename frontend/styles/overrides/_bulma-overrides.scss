@@ -1,7 +1,9 @@
+// overrides/_bulma-overrides.scss
+// Bulma variable overrides & tiny behavior tweaks
+// Used on: entire site
+// Depends on: Bulma classes
+// Note: override via @use ... with(...), avoid ad-hoc selectors
 
-// ————————————————————————————————————————
-// Bulma class overrides
-// ————————————————————————————————————————
 
 // Include a11y focus without shadows, since we are disabling/overriding them
 .bulma-input:focus,

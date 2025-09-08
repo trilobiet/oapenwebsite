@@ -1,4 +1,8 @@
-// Input group with thicker borders 
+// oa/_input-group.scss
+// Thick-border input + button group
+// Used on: search bars, newsletter sign-up form
+// Depends on: Bulma form controls
+
 .oa-input-group {
   display: flex;
   min-height: 3rem;

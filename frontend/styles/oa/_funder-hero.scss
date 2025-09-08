@@ -1,4 +1,8 @@
-// Funder page hero
+// oa/_funder-hero.scss
+// Funder page hero with image tint (or brand colour background as fallback)
+// Used on: funder detail pages
+// Note: overlay uses color-mix, so ensure sufficient colour contrast (WCAG AA) with image and text
+
 .oa-funder-hero {
   position: relative;
   isolation: isolate;

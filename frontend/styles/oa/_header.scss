@@ -1,4 +1,8 @@
-// Header & navigation
+// oa/_header.scss
+// Site header + navigation, incl. desktop megamenu & mobile menu
+// Used globally
+// Depends on: Bulma navbar and columns
+
 .oa-header {
   position: sticky;
   top: 0;
