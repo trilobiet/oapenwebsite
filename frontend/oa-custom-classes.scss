@@ -370,7 +370,6 @@ html {
 }
 
 // Hero — featured titles in a carousel (Splide version)
-// Keep visual styles; Splide handles layout/scroll/overflow.
 .oa-carousel {
 
   .oa-slide {
@@ -378,21 +377,26 @@ html {
     background: transparent;
     border: 0;
     transition: transform .16s ease;
+  }
 
-    &:hover { transform: translateY(-2px); }
+  .oa-slide:hover {
+    transform: translateY(-2px);
+  }
 
-    @media (prefers-reduced-motion: reduce) {
-      &:hover { transform: none; }
-    }
-
-    &:focus-visible {
-      outline: 3px solid var(--oa-focus, var(--bulma-link-text));
-      outline-offset: 2px;
+  @media (prefers-reduced-motion: reduce) {
+    .oa-slide:hover {
+    transform: none;
     }
   }
 
-  // Keep your cover & content visuals
-  .bulma-card-image { margin: 0; }
+  .oa-slide:focus-visible {
+    outline: 3px solid var(--oa-focus, var(--bulma-link-text));
+    outline-offset: 2px;
+  }
+
+  .bulma-card-image {
+    margin: 0;
+  }
 
   .oa-cover-box {
     aspect-ratio: 2 / 3;
@@ -424,35 +428,29 @@ html {
     font-size: clamp(1.05rem, 1rem + .28vw, 1.22rem);
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3; // clamp for long titles
+    -webkit-line-clamp: 3;
     overflow: hidden;
   }
 
-  // Place arrows below & style them (scoped here so we don't touch global Splide)
   > .splide__arrows {
     position: static;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: .75rem;
-    gap: .75rem;
   }
 
   .splide__arrow {
+    position: static;
+    transform: none;
     width: 2.5rem;
     height: 2.5rem;
     border: 2px solid currentColor;
     border-radius: 0;
     background: transparent;
     box-shadow: none;
-    font-size: 1.25rem;
     line-height: 1;
-    opacity: .9;
+  }
 
-    &:focus-visible {
-      outline: 2px solid var(--oa-focus, currentColor);
-      outline-offset: 2px;
-    }
+  .splide__arrow:focus-visible {
+    outline: 2px solid var(--oa-focus, currentColor);
+    outline-offset: 2px;
   }
 }
 
