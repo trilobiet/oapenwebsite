@@ -1,0 +1,29 @@
+// For colour functions
+@use "sass:color";
+
+// To access $brand-primary-* and $oa-colour-*
+@use "../../oa-colours" as *;
+
+:root {
+  // Link states via CSS vars instead of Sass
+  --bulma-link-hover: #{color.mix($brand-primary-600, $brand-primary-500, 60%)};
+  --bulma-link-visited: #{$brand-primary-700};
+
+  // Align borders/backgrounds
+  --bulma-border: #{$oa-colour-stone-300};
+  --bulma-background: #{$oa-colour-paper};
+
+  // Form control borders
+  --bulma-input-border-color: #{$oa-colour-stone-300};
+  --bulma-input-hover-border-color: #{$oa-colour-stone-600};
+
+  // Focus outline (60% brand colour + 40% paper)
+  --oa-focus: color-mix(in srgb, #{$brand-primary-600} 55%, #{$oa-colour-paper});
+}
+
+// Smoothing for web fonts and kerning
+html { 
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale; 
+  letter-spacing: 0.025em;
+}

@@ -1,0 +1,33 @@
+// Footer
+.oa-footer {
+
+  // Footer logo watermark image
+  .oa-footer-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    img {
+      width: 80%;
+      max-width: 800px;
+      opacity: .07;
+      transform: translateY(5%);
+      filter: brightness(1.5);
+      mix-blend-mode: lighten;
+    }
+  }
+
+  .oa-footer-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+
+    li + li {
+      margin-top: .25rem;
+    }
+  }
+}

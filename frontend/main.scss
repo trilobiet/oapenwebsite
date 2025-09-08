@@ -77,66 +77,24 @@
   $subtitle-strong-color: inherit
 );
 
-// Pull in all of Bulma (base, components, layout, themes, helpers…)
+// --- Pull in all of Bulma (base, components, layout, themes, helpers…)
 @use "bulma/bulma";
 
-// Our own custom oa-* classes — last resort, as Bulma should cover most use cases
-@use "./oa-custom-classes";
+// --- Bulma overrides 
+@use "styles/overrides/bulma-overrides";
 
-// ————————————————————————————————————————
-// Bulma class overrides
-// ————————————————————————————————————————
+// --- Site-wide base (resets, root vars, typography helpers)
+@use "styles/core/base";
 
-// Include a11y focus without shadows, since we are disabling/overriding them
-.bulma-input:focus,
-.bulma-textarea:focus,
-.bulma-select select:focus {
-  outline: 2px solid var(--bulma-link);
-  outline-offset: 2px;
-  box-shadow: none;
-}
+// --- Our own custom oa-* classes
+@use "styles/oa/bluesky-feed";
+@use "styles/oa/carousel";
+@use "styles/oa/collections";
+@use "styles/oa/feed";
+@use "styles/oa/footer";
+@use "styles/oa/funder-hero";
+@use "styles/oa/header";
+@use "styles/oa/input-group";
+@use "styles/oa/promo";
+@use "styles/oa/section-header";
 
-// Context-aware link colours on dark brand-colour surfaces (700, 600)
-.bulma-has-background-brand-hero,
-.bulma-has-background-brand,
-.bulma-has-background-ink {
-  // Force high-contrast link colours
-  --bulma-link-text:         var(--bulma-paper);
-  --bulma-link-text-visited: var(--bulma-paper);
-  --bulma-link-text-hover:   color-mix(in srgb, var(--bulma-paper) 90%, var(--bulma-brand) 10%);
-
-  // Set a visible focus token for white controls inside dark sections
-  --oa-focus: color-mix(in srgb, var(--bulma-brand) 55%, var(--oa-colour-paper)); 
-
-  .bulma-input,
-  .bulma-textarea,
-  .bulma-select select {
-    background-color: transparent;
-    color: var(--bulma-paper);
-    border-color: var(--bulma-paper);
-  }
-
-  .bulma-input::placeholder,
-  .bulma-textarea::placeholder {
-    color: var(--bulma-stone-light);
-    opacity: 1;
-  }
-
-  .bulma-button:not([class*="bulma-is-"]) {
-    background-color: var(--bulma-ink);
-    color: var(--bulma-paper);
-    border-color: transparent;
-  }
-}
-
-// Enforce a11y link appearance ONLY for text links
-// Exclude navbar items, buttons, tags
-.bulma-content a {
-  &:not(.bulma-navbar-item),
-  &:not(.bulma-button),
-  &:not(.bulma-tag) {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: .18em;
-  }
-}

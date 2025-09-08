@@ -1,0 +1,43 @@
+// News feed & cards
+.oa-feed {
+  .oa-feed-item {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    height: 100%;
+  }
+
+  // Align all titles to the same visual height
+  .oa-feed-title {
+    --oa-title-lines: 2;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--oa-title-lines);
+    overflow: hidden;
+    min-height: calc(1em * 1.2 * var(--oa-title-lines));
+    margin-bottom: .25rem;
+  }
+
+  // Clamp the excerpt so cards stay even
+  .oa-feed-excerpt {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+
+  .oa-feed-more:hover {
+    text-decoration: underline;
+  }
+
+  // Mobile adjustments
+  @media (max-width: 1023.98px) {
+    .oa-feed-title {
+      --oa-title-lines: 3;
+    }
+    .oa-feed-excerpt {
+      --oa-excerpt-lines: 5;
+    }
+  }
+}
