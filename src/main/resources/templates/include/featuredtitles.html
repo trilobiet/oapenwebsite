@@ -28,18 +28,17 @@
         <ul class="splide__list">
           <li class="splide__slide" th:each="item : ${featuredItems}">
             <a th:href="${item.url}"
-              class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
+              class="bulma-card bulma-is-shadowless oa-slide"
               th:attr="aria-label=${item.title}">
               <div class="bulma-card-image">
-                <figure class="bulma-image bulma-is-radiusless">
+                <figure class="bulma-image">
                   <div class="oa-cover-box">
                     <img class="oa-cover bulma-is-radiusless"
                         loading="lazy" decoding="async" draggable="false"
                         th:src="${#strings.isEmpty(item.thumbnailPath)} ? @{/static-assets/images/missing.png} : @{|${settings.dspace_api}${item.thumbnailPath}|}"
                         th:alt="|${item.title} – cover|">
                   </div>
-                  <figcaption class="bulma-is-size-7 oa-cover-title bulma-mt-2"
-                              th:text="${item.title}">Item title</figcaption>
+                  <figcaption class="bulma-is-size-7 oa-cover-title bulma-mt-2" th:text="${item.title}">Item title</figcaption>
                 </figure>
               </div>
             </a>
