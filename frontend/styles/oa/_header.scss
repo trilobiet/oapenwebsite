@@ -16,6 +16,7 @@
 
     .bulma-navbar-link,
     .bulma-navbar-item {
+      color: var(--bulma-paper);
       text-decoration: none;
     }
   }
@@ -140,7 +141,6 @@
     &:focus-visible,
     &.bulma-is-active {
       background: color-mix(in srgb, var(--bulma-brand) 15%, var(--bulma-paper));
-      color: var(--bulma-ink);
       outline: 0;
     }
   }
@@ -159,9 +159,8 @@
   }
 
   .oa-nav-mobile {
-    background: var(--bulma-scheme-invert);
-    color: var(--bulma-scheme-main);
-    padding: .25rem 0;
+    padding: 0;
+    background: var(--bulma-brand);
     max-height: calc(100vh - 72px); // fallback
     max-height: calc(100dvh - 72px); // modern viewports
     -webkit-overflow-scrolling: touch;
@@ -176,16 +175,16 @@
       min-height: 44px;
       border-top: 1px solid var(--bulma-border, currentColor);
     }
-    .bulma-navbar-item:first-child > .bulma-navbar-link { border-top: 0; }
+
+    .bulma-navbar-item:first-child > .bulma-navbar-link { 
+      border-top: 0; 
+    }
 
     .oa-megamenu {
-      background: var(--bulma-scheme-invert);
       margin: 0;
       padding: 0;
 
       .bulma-navbar-item {
-        background: var(--bulma-scheme-invert);
-        color: var(--bulma-scheme-main);
         font-weight: 400;
         padding: .4375rem 1rem;
         white-space: normal;

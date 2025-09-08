@@ -21,12 +21,12 @@
      th:classappend="${(section != null and mnusection.id == section.id) or #httpServletRequest.requestURI.startsWith('/' + mnusection.slug)} ? ' bulma-is-active' : ''">
   </a>
 
-  <div class="bulma-navbar-dropdown bulma-has-background-brand oa-megamenu"
+  <div class="bulma-navbar-dropdown oa-megamenu"
        th:if="${mnusection.topics != null and !#lists.isEmpty(mnusection.topics)}">
     <ul class="bulma-columns bulma-is-multiline bulma-is-gapless">
       <li class="bulma-column bulma-is-one-quarter-desktop bulma-is-one-third-tablet bulma-is-full-mobile"
           th:each="mnutopic : ${mnusection.topics}">
-        <a class="bulma-navbar-item bulma-is-shadowless bulma-has-text-weight-medium"
+        <a class="bulma-navbar-item bulma-is-shadowless bulma-has-text-weight-medium bulma-has-background-brand"
            th:href="@{'/'+${mnusection.slug}+'/'+${mnutopic.slug}}"
            th:text="${mnutopic.name}"
            th:classappend="${#httpServletRequest.requestURI.startsWith('/' + mnusection.slug + '/' + mnutopic.slug)} ? ' bulma-is-active' : ''">
