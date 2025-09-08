@@ -122,18 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===== Featured Titles: Splide carousel =========
   (function initFeaturedTitles() {
     function mount(scope = document) {
-      const root = scope.querySelector('#FeaturedTitles .splide');
-      if (!root || root.__splide) return;
-
-      root.__splide = new Splide(root, {
+      const opts = {
         type: 'loop',
         perPage: 6,
         gap: '1.5rem',
-        arrows: true,          // we supply arrows in markup
+        arrows: true,
         pagination: false,
         drag: true,
-        wheel: true,           // ← trackpad / mouse wheel
-        releaseWheel: true,    // let page scroll when reaching ends
+        wheel: true,
+        releaseWheel: true,
         wheelMinThreshold: 10,
         wheelSleep: 200,
         breakpoints: {
@@ -142,7 +139,13 @@ document.addEventListener('DOMContentLoaded', () => {
           768:  { perPage: 3 },
           480:  { perPage: 2 },
         },
-      }).mount();
+      };
+
+      const roots = $all('.splide', scope);
+      roots.forEach((root) => {
+        if (root.__splide) return;
+        root.__splide = new Splide(root, opts).mount();
+      });
     }
 
     // SSR case

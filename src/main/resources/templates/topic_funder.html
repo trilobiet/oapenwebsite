@@ -94,8 +94,8 @@
 					</div>
 				</header>
 
-				<div class="ajaxloader bulma-mb-6"
-						th:data-src="@{'/fundertitles/'+${topic.slug}} + ' #FunderTitles'">
+				<div class="carouselloader bulma-mb-6" 
+					th:data-src="@{'/fundertitles/'+${topic.slug}} + ' #FunderTitles'">
 				</div>
 
 				<form th:action="${settings.dspace_site+'discover'}"
