@@ -142,7 +142,7 @@
         <!-- Websites -->
         <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
           <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Websites</h3>
-          <ul class="oa-footer-list bulma-is-size-5">
+          <ul class="oa-footer__list bulma-is-size-5">
             <li><a class="bulma-has-text-white" href="https://www.oapen.org">oapen.org</a></li>
             <li><a class="bulma-has-text-white" href="https://library.oapen.org">library.oapen.org</a></li>
             <li><a class="bulma-has-text-white" href="https://oabooks-toolkit.org">oabooks-toolkit.org</a></li>
@@ -153,7 +153,7 @@
         <!-- Explore -->
         <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
           <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Explore</h3>
-          <ul class="oa-footer-list bulma-is-size-5">
+          <ul class="oa-footer__list bulma-is-size-5">
             <li th:each="mnusection: ${footerSections}">
               <a class="bulma-has-text-white" th:href="@{'/'+${mnusection.slug}}" th:text="${mnusection.name}">Section</a>
             </li>

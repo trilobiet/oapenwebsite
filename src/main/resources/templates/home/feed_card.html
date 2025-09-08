@@ -16,7 +16,7 @@
   spotlights)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="card(title, url, summary, category)">
-  <article class="bulma-card bulma-is-radiusless bulma-is-shadowless oa-feed-item">
+  <article class="bulma-card bulma-is-radiusless bulma-is-shadowless oa-news-feed__item">
 
     <div class="bulma-card-content bulma-is-flex bulma-is-flex-direction-column">
       <span class="bulma-tag bulma-is-rounded bulma-is-light bulma-is-uppercase bulma-is-size-7 bulma-mb-3 bulma-is-align-self-flex-start"
@@ -36,7 +36,7 @@
         </figure>
 
         <!-- Excerpt as fallback (and for now) -->
-        <p class="oa-feed-excerpt bulma-is-size-6" th:unless="${imageUrl}" th:utext="${summary}">
+        <p class="oa-news-feed__excerpt bulma-is-size-6" th:unless="${imageUrl}" th:utext="${summary}">
           Summary
         </p>
       </div>
