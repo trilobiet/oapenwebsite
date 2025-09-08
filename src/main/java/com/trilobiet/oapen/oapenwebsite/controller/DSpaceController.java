@@ -41,7 +41,7 @@ public class DSpaceController extends BaseController {
 		}*/
 		
 		try {
-			featuredItems = repositoryService.getNewestItems(20);
+			featuredItems = repositoryService.getNewestItems(24);
 			mv.addObject("featuredItems", featuredItems);
 		} catch (Exception e) {
 			log.error(e);
