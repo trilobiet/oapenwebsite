@@ -28,29 +28,28 @@
         <ul class="splide__list">
           <li class="splide__slide" th:each="item : ${featuredItems}">
             <a th:href="${item.url}"
-               class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
-               th:attr="aria-label=${item.title}">
+              class="bulma-card bulma-is-shadowless bulma-is-radiusless oa-slide"
+              th:attr="aria-label=${item.title}">
               <div class="bulma-card-image">
-                <figure class="bulma-image bulma-is-radiusless oa-cover-box">
-                  <img class="oa-cover bulma-is-radiusless"
-                       loading="lazy" decoding="async" draggable="false"
-                       th:src="${#strings.isEmpty(item.thumbnailPath)} ?
-                                 @{/static-assets/images/missing.png} :
-                                 @{|${settings.dspace_api}${item.thumbnailPath}|}"
-                       th:alt="|${item.title} – cover|">
+                <figure class="bulma-image bulma-is-radiusless">
+                  <div class="oa-cover-box">
+                    <img class="oa-cover bulma-is-radiusless"
+                        loading="lazy" decoding="async" draggable="false"
+                        th:src="${#strings.isEmpty(item.thumbnailPath)} ? @{/static-assets/images/missing.png} : @{|${settings.dspace_api}${item.thumbnailPath}|}"
+                        th:alt="|${item.title} – cover|">
+                  </div>
+                  <figcaption class="bulma-is-size-7 oa-cover-title bulma-mt-2"
+                              th:text="${item.title}">Item title</figcaption>
                 </figure>
-              </div>
-              <div class="bulma-card-content">
-                <p class="bulma-is-size-7 oa-cover-title" th:text="${item.title}">Item title</p>
               </div>
             </a>
           </li>
         </ul>
       </div>
 
-      <div class="splide__arrows bulma-is-flex bulma-is-justify-content-space-between bulma-is-align-items-center bulma-mt-4">
-        <button class="splide__arrow splide__arrow--prev bulma-button bulma-is-light" aria-label="Previous">‹</button>
-        <button class="splide__arrow splide__arrow--next bulma-button bulma-is-light" aria-label="Next">›</button>
+      <div class="splide__arrows bulma-is-flex bulma-is-justify-content-space-between bulma-is-align-items-center bulma-mt-2 oa-carousel__arrows">
+        <button class="splide__arrow splide__arrow--prev bulma-button bulma-has-background-paper oa-carousel__arrow" aria-label="Previous">‹</button>
+        <button class="splide__arrow splide__arrow--next bulma-button bulma-has-background-paper oa-carousel__arrow" aria-label="Next">›</button>
       </div>
     </div>
   </div>
