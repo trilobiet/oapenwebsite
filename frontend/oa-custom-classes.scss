@@ -369,37 +369,37 @@ html {
   }
 }
 
-// Hero — featured titles in a carousel (Splide version)
+// Carousel (using Splide) for book covers & titles
 .oa-carousel {
 
-  .oa-slide {
+  &__item {
     text-decoration: none;
     background: transparent;
     border: 0;
     transition: transform .16s ease;
-  }
 
-  .oa-slide:hover {
-    transform: translateY(-2px);
-  }
+    &:hover {
+      transform: translateY(-2px);
+    }
 
-  @media (prefers-reduced-motion: reduce) {
-    .oa-slide:hover {
-    transform: none;
+    &:focus-visible {
+      outline: 3px solid var(--oa-focus, var(--bulma-link-text));
+      outline-offset: 2px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      &:hover {
+        transform: none;
+      }
     }
   }
 
-  .oa-slide:focus-visible {
-    outline: 3px solid var(--oa-focus, var(--bulma-link-text));
-    outline-offset: 2px;
-  }
-
-  .oa-cover-box {
+  &__box {
     aspect-ratio: 2 / 3;
     overflow: hidden;
   }
 
-  .oa-cover {
+  &__img {
     width: 100%;
     height: 100%;
     display: block;
@@ -409,7 +409,7 @@ html {
     border: .5px solid;
   }
   
-  .oa-cover-title {
+  &__title {
     font-weight: 500;
     line-height: 1.3;
     font-size: clamp(1.05rem, 1rem + .28vw, 1.22rem);
@@ -419,21 +419,21 @@ html {
     overflow: hidden;
   }
 
-  > .oa-carousel__arrows {
+  &__arrows {
     position: static;
   }
 
-  .oa-carousel__arrow {
+  &__arrow {
     position: static;
     transform: none;
     border: 2px solid currentColor;
     box-shadow: none;
     line-height: 1;
-  }
 
-  .oa-carousel__arrow:focus-visible {
-    outline: 2px solid var(--oa-focus, currentColor);
-    outline-offset: 2px;
+    &:focus-visible {
+      outline: 2px solid var(--oa-focus, var(--bulma-link-text));
+      outline-offset: 2px;
+    }
   }
 }
 
