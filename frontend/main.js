@@ -129,10 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         arrows: true,
         pagination: false,
         drag: true,
-        wheel: true,
-        releaseWheel: true,
-        wheelMinThreshold: 10,
-        wheelSleep: 200,
+        autoplay: true,
+        interval: 7000,
+        speed: 1200,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        pauseOnHover: true,
+        pauseOnFocus: true,
+        wheel: false,
         breakpoints: {
           1280: { perPage: 5 },
           1024: { perPage: 4 },
@@ -160,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mount(el);
     });
   })();
+
 
   // wrap content tables in a horizontal scrolling div
   (function wrapTables() {
