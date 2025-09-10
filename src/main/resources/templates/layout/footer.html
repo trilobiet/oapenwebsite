@@ -1,0 +1,113 @@
+<!--
+  FOOTER
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+
+<th:block th:fragment="header">
+  <footer class="oa-footer bulma-section bulma-py-6 bulma-has-background-ink bulma-has-text-paper" role="contentinfo">
+    <div class="bulma-container oa-footer-content">
+      <h2 class="bulma-is-sr-only">OAPEN – Publishing in European Networks</h2>
+
+      <!-- Row A: Newsletter / Websites / Explore links -->
+      <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-desktop bulma-mb-6">
+        <!-- Newsletter -->
+        <section class="bulma-column bulma-is-6-desktop bulma-is-6-tablet oapen-newsletter">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Stay up to date</h3>
+          <form action="https://eepurl.com/kEPGr" method="get" target="_blank" class="oa-footer-form">
+            <div class="bulma-field bulma-has-addons oa-input-group">
+              <p class="bulma-control bulma-is-expanded">
+                <label class="bulma-is-sr-only" for="oa_newsletter">Email</label>
+                <input id="oa_newsletter" class="bulma-input bulma-is-shadowless bulma-has-text-white bulma-is-outlined" type="email" placeholder="you@email.com">
+              </p>
+              <p class="bulma-control">
+                <button type="submit" class="bulma-button bulma-is-shadowless">Sign up</button>
+              </p>
+            </div>
+          </form>
+          <p class="bulma-mt-4 oa-footer-small">
+            <a class="bulma-has-text-white" href="https://us4.campaign-archive2.com/home/?u=314fa411ba5eaaee7244c95e1&amp;id=e31e6f80e1" target="_blank">View newsletter archive</a>
+          </p>
+        </section>
+
+        <!-- Websites -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Websites</h3>
+          <ul class="oa-footer__list bulma-is-size-5">
+            <li><a class="bulma-has-text-white" href="https://www.oapen.org">oapen.org</a></li>
+            <li><a class="bulma-has-text-white" href="https://library.oapen.org">library.oapen.org</a></li>
+            <li><a class="bulma-has-text-white" href="https://oabooks-toolkit.org">oabooks-toolkit.org</a></li>
+            <li><a class="bulma-has-text-white" href="https://www.doabooks.org">doabooks.org</a></li>
+          </ul>
+        </section>
+
+        <!-- Explore -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Explore</h3>
+          <ul class="oa-footer__list bulma-is-size-5">
+            <li th:each="mnusection: ${footerSections}">
+              <a class="bulma-has-text-white" th:href="@{'/'+${mnusection.slug}}" th:text="${mnusection.name}">Section</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- Donate / Funding / Licence / Address -->
+      <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-multiline">
+        <!-- Donate -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Donate</h3>
+          <p class="oa-footer-small bulma-mb-3">Scan this QR code to support the OAPEN Library and DOAB</p>
+          <img th:src="@{/static-assets/images/donation-qr-code.png}" alt="Donate to OAPEN Foundation" width="128" height="128" class="bulma-mb-3">
+          <form action="https://www.paypal.com/donate" method="post" target="_top" class="oa-footer-paypal">
+            <input type="hidden" name="hosted_button_id" value="VPW4DRBLBM9J8">
+            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal" style="border:none">
+            <img alt="" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1">
+          </form>
+        </section>
+
+        <!-- Funding -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Funding</h3>
+          <p class="bulma-mb-2">
+            <a href="https://europa.eu/european-union/index_en">
+              <img th:src="@{/static-assets/images/eu-flag.png}" alt="European Union" width="100">
+              <span class="bulma-is-sr-only">European Union</span>
+            </a>
+          </p>
+          <p class="oa-footer-small">
+            OAPEN received funding from the EU’s Horizon 2020 research and innovation programme (grants 683680, 810640, 871069, 964352).
+          </p>
+        </section>
+
+        <!-- Licence -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Licence</h3>
+          <p class="oa-footer-small bulma-mb-2">
+            Unless noted otherwise, all content is available under
+            <a class="bulma-has-text-white" href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.
+          </p>
+          <a href="https://creativecommons.org/licenses/by/4.0/">
+            <img th:src="@{/static-assets/images/CC-BY-300x105.png}" width="100" alt="CC-BY">
+          </a>
+        </section>
+
+        <!-- Address -->
+        <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
+          <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Address</h3>
+          <address class="oa-footer-small bulma-mb-2">
+            OAPEN Foundation<br>
+            Prins Willem-Alexanderhof 5<br>
+            2595 BE The Hague<br>
+            Netherlands
+          </address>
+          <p class="oa-footer-small"><span class="bulma-has-text-weight-semibold">Managing Director:</span> Niels Stern</p>
+        </section>
+      </div>
+
+      <div class="bulma-content bulma-has-text-centered bulma-mt-6">
+        <div class="bulma-is-size-7">
+          <a class="bulma-has-text-white" href="https://www.trilobiet.nl">website by Trilobiet</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</th:block>
