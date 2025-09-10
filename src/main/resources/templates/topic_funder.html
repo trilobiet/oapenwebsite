@@ -14,27 +14,29 @@
 		<!--
 		Hero
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
-		<section class="bulma-hero bulma-is-medium oa-funder-hero">
+		<div class="bulma-hero bulma-is-medium oa-funder-hero">
 			<th:block th:if="${funderBanner}">
 				<img class="oa-funder-hero__bg" th:src="${funderBanner}" alt="" aria-hidden="true">
 			</th:block>
 
-			<div class="bulma-hero-body">
+			<header class="bulma-hero-body">
 				<div class="bulma-container bulma-has-text-paper">
 					<h1 class="bulma-title bulma-is-1" th:text="${topic.name}">Funder name</h1>
-					<h2 class="bulma-title bulma-is-3" th:utext="${topic.description}">
+					<div class="bulma-title bulma-is-3" th:utext="${topic.description}">
 						Funder tagline (description)
-					</h2>
+					</div>
 				</div>
-			</div>
-		</section>
+			</header>
+		</div>
 
 		<!--
 		Intro
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="bulma-section">
+			<h2 class="bulma-is-sr-only">About this funder</h2>
 			<div class="bulma-container" th:if="${firstarticle}">
 				<article th:classappend="${firstarticle.cssClass}">
+					<h3 class="bulma-is-sr-only">Description</h3>
 					<div class="bulma-columns">
 						<div class="bulma-column bulma-is-three-quarter">
 							<div class="bulma-content bulma-is-size-4"
@@ -55,7 +57,7 @@
 				<article class="bulma-columns bulma-mt-6" th:if="${#lists.size(articles) gt 1}">
 					<div class="bulma-column bulma-is-three-quarter">
 						<div class="bulma-content bulma-is-three-quarter">
-							<h3 class="bulma-title bulma-is-5">Read more</h3>
+							<h2 class="bulma-title bulma-is-5">Read more</h2>
 
 							<ul th:classappend="${#lists.size(articles) gt 7} ? 'oapen-two-col'">
 								<li th:if="${articleStat.index>0}" th:each="article,articleStat: ${articles}">
