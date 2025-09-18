@@ -93,29 +93,49 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== Newsletter modal =================================================
   (function initNewsletterModal() {
-    const ACTIVE = 'bulma-is-active';
-
-    const modal   = document.getElementById('newsletter-modal');
+    const modal    = document.getElementById('newsletter-modal');
     const triggers = $all('.js-open-modal[data-modal="newsletter-modal"]');
     if (!modal || !triggers.length) return;
 
-    const closeEls = $all('.js-close-modal, .bulma-modal-background', modal);
-    const outside  = $all('header, main, footer, .site-wrap');
+    const ACTIVE_CLASSES = ['bulma-is-active', 'is-active'];
+
+    // Keep a list of top-level siblings so we can flip aria-hidden
+    const bodyChildren = Array.from(document.body.children);
 
     let lastFocused = null;
 
-    function setInert(on) {
-      outside.forEach((el) => {
-        if (!el) return;
+    function setActive(on) {
+      ACTIVE_CLASSES.forEach(c => modal.classList.toggle(c, on));
+    }
+
+    function lockScroll(on) {
+      const html = document.documentElement;
+      const body = document.body;
+      if (on) {
+        html.__prevOverflow = html.style.overflow;
+        body.__prevOverflow = body.style.overflow;
+        html.style.overflow = 'hidden';
+        body.style.overflow = 'hidden';
+      } else {
+        html.style.overflow = html.__prevOverflow || '';
+        body.style.overflow = body.__prevOverflow || '';
+      }
+    }
+
+    // Hide non-modal content from screen readers
+    function setBackgroundAriaHidden(on) {
+      bodyChildren.forEach(el => {
+        if (el === modal || el.contains(modal)) return; // skip the modal and any ancestor
         if (on) {
-          el.setAttribute('inert', '');
+          if (!el.hasAttribute('aria-hidden')) el.__wasAriaHidden = null;
+          else el.__wasAriaHidden = el.getAttribute('aria-hidden');
           el.setAttribute('aria-hidden', 'true');
         } else {
-          el.removeAttribute('inert');
-          el.removeAttribute('aria-hidden');
+          if (el.__wasAriaHidden === null) el.removeAttribute('aria-hidden');
+          else if (el.__wasAriaHidden !== undefined) el.setAttribute('aria-hidden', el.__wasAriaHidden);
+          delete el.__wasAriaHidden;
         }
       });
-      document.documentElement.style.overflow = on ? 'hidden' : '';
     }
 
     function focusables(root) {
@@ -143,43 +163,60 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') close();
     }
 
-    function open() {
-      lastFocused = document.activeElement;
-      modal.classList.add(ACTIVE);
-      setInert(true);
+    function open(triggerEl) {
+      lastFocused = triggerEl || document.activeElement;
 
+      setActive(true);
+      lockScroll(true);
+      setBackgroundAriaHidden(true);
+
+      // focus into the dialog
       modal.setAttribute('tabindex', '-1');
       modal.focus();
       const first = focusables(modal)[0];
       if (first) first.focus();
+
+      // reflect expanded state for a11y on the triggering control(s)
+      triggers.forEach(t => t.setAttribute('aria-expanded', 'true'));
 
       modal.addEventListener('keydown', trapTab);
       document.addEventListener('keydown', onEsc);
     }
 
     function close() {
-      modal.classList.remove(ACTIVE);
-      setInert(false);
+      setActive(false);
+      lockScroll(false);
+      setBackgroundAriaHidden(false);
 
       modal.removeEventListener('keydown', trapTab);
       document.removeEventListener('keydown', onEsc);
+
+      triggers.forEach(t => t.setAttribute('aria-expanded', 'false'));
 
       if (lastFocused && typeof lastFocused.focus === 'function') {
         lastFocused.focus();
       }
     }
 
-    // Bind all triggers
+    // Open handlers (support multiple triggers)
     triggers.forEach((btn) => {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        open();
+        open(btn);
       });
     });
 
-    // Bind closers
-    closeEls.forEach((el) => el.addEventListener('click', close));
+    // Close handlers (x and backdrop)
+    modal.addEventListener('click', (e) => {
+      if (
+        e.target.classList.contains('bulma-modal-background') ||
+        e.target.closest('.js-close-modal')
+      ) {
+        e.preventDefault();
+        close();
+      }
+    });
   })();
 
   // ===== Legacy behaviours (from scripts.js) ================================
