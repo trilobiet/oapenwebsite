@@ -91,6 +91,97 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
 
+  // ===== Newsletter modal =================================================
+  (function initNewsletterModal() {
+    const ACTIVE = 'bulma-is-active';
+
+    const modal   = document.getElementById('newsletter-modal');
+    const triggers = $all('.js-open-modal[data-modal="newsletter-modal"]');
+    if (!modal || !triggers.length) return;
+
+    const closeEls = $all('.js-close-modal, .bulma-modal-background', modal);
+    const outside  = $all('header, main, footer, .site-wrap');
+
+    let lastFocused = null;
+
+    function setInert(on) {
+      outside.forEach((el) => {
+        if (!el) return;
+        if (on) {
+          el.setAttribute('inert', '');
+          el.setAttribute('aria-hidden', 'true');
+        } else {
+          el.removeAttribute('inert');
+          el.removeAttribute('aria-hidden');
+        }
+      });
+      document.documentElement.style.overflow = on ? 'hidden' : '';
+    }
+
+    function focusables(root) {
+      return $all(
+        'a[href], area[href], input:not([disabled]), select:not([disabled]), ' +
+        'textarea:not([disabled]), button:not([disabled]), iframe, object, embed, ' +
+        '[contenteditable], [tabindex]:not([tabindex="-1"])',
+        root
+      ).filter(el => (el.offsetParent !== null) || el === root);
+    }
+
+    function trapTab(e) {
+      if (e.key !== 'Tab') return;
+      const f = focusables(modal);
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
+
+    function onEsc(e) {
+      if (e.key === 'Escape') close();
+    }
+
+    function open() {
+      lastFocused = document.activeElement;
+      modal.classList.add(ACTIVE);
+      setInert(true);
+
+      modal.setAttribute('tabindex', '-1');
+      modal.focus();
+      const first = focusables(modal)[0];
+      if (first) first.focus();
+
+      modal.addEventListener('keydown', trapTab);
+      document.addEventListener('keydown', onEsc);
+    }
+
+    function close() {
+      modal.classList.remove(ACTIVE);
+      setInert(false);
+
+      modal.removeEventListener('keydown', trapTab);
+      document.removeEventListener('keydown', onEsc);
+
+      if (lastFocused && typeof lastFocused.focus === 'function') {
+        lastFocused.focus();
+      }
+    }
+
+    // Bind all triggers
+    triggers.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        open();
+      });
+    });
+
+    // Bind closers
+    closeEls.forEach((el) => el.addEventListener('click', close));
+  })();
+
   // ===== Legacy behaviours (from scripts.js) ================================
 
   // make iframes full height
