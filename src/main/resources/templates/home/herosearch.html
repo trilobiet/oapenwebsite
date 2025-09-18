@@ -21,26 +21,37 @@
         Searching for something specific?
       </h2>
 
-      <form th:action="${settings.dspace_site+'discover'}" role="search" aria-labelledby="home-search-title">
-        <label for="ipt_search" class="bulma-label bulma-is-size-5 bulma-mb-3" id="search-label">
+      <form
+        th:action="${settings.dspace_site+'discover'}"
+        role="search"
+        aria-labelledby="home-search-title"
+        class="oa-footer-form"
+      >
+        <label for="ipt_search" class="bulma-is-sr-only" id="search-label">
           Find open access books by keyword
         </label>
 
-        <div class="bulma-field bulma-has-addons" style="max-width:48rem;margin-inline:auto;">
+        <div class="bulma-field bulma-has-addons oa-input-group">
           <p class="bulma-control bulma-is-expanded">
-            <input id="ipt_search"
-                  class="bulma-input bulma-is-radiusless bulma-is-shadowless bulma-has-background-paper bulma-has-text-ink"
-                  type="text" name="query"
-                  placeholder="Search OAPEN Library"
-                  style="height:3.25rem;border:2px solid var(--bulma-brand-hero);">
+            <input
+              id="ipt_search"
+              class="bulma-input bulma-is-shadowless bulma-is-outlined bulma-has-background-paper"
+              type="search"
+              name="query"
+              placeholder="Search OAPEN Library"
+              autocomplete="off"
+              required
+            >
           </p>
 
           <p class="bulma-control">
-            <button type="submit"
-                    class="bulma-button bulma-is-radiusless bulma-is-shadowless bulma-has-background-brand-hero bulma-has-text-paper"
-                    aria-label="Search"
-                    style="height:3.25rem;border:2px solid var(--bulma-brand-hero);border-left-width:0;line-height:normal;padding-inline:1rem;">
+            <button
+              type="submit"
+              class="bulma-button bulma-is-shadowless bulma-has-background-paper"
+              aria-label="Search"
+            >
               <span class="bulma-is-sr-only">Search</span>
+              <!-- magnifying glass icon -->
               <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"
                   xmlns="http://www.w3.org/2000/svg">
                 <circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
@@ -51,6 +62,7 @@
           </p>
         </div>
       </form>
+
 
       <div class="bulma-mt-5" role="group" aria-label="Browse by">
         <h3 class="bulma-is-size-5 bulma-mb-3 bulma-has-text-weight-medium">Browse</h3>
