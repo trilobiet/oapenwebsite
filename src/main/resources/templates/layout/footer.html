@@ -2,32 +2,52 @@
   FOOTER
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-<th:block th:fragment="header">
+<th:block th:fragment="footer">
   <footer class="oa-footer bulma-section bulma-py-6 bulma-has-background-ink bulma-has-text-paper" role="contentinfo">
     <div class="bulma-container oa-footer-content">
       <h2 class="bulma-is-sr-only">OAPEN – Publishing in European Networks</h2>
 
-      <!-- Row A: Newsletter / Websites / Explore links -->
+      <!-- Top row: Newsletter / Websites / Explore links -->
       <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-desktop bulma-mb-6">
         <!-- Newsletter -->
         <section class="bulma-column bulma-is-6-desktop bulma-is-6-tablet oapen-newsletter">
           <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Stay up to date</h3>
-          <form action="https://eepurl.com/kEPGr" method="get" target="_blank" class="oa-footer-form">
+          <form
+            action="https://oapen.us4.list-manage.com/subscribe/post?u=314fa411ba5eaaee7244c95e1&id=e31e6f80e1&f_id=008761eaf0"
+            method="post"
+            target="_blank"
+            class="oa-footer-form"
+            novalidate
+          >
             <div class="bulma-field bulma-has-addons oa-input-group">
               <p class="bulma-control bulma-is-expanded">
                 <label class="bulma-is-sr-only" for="oa_newsletter">Email</label>
-                <input id="oa_newsletter" class="bulma-input bulma-is-shadowless bulma-has-text-white bulma-is-outlined" type="email" placeholder="you@email.com">
+                <input
+                  id="oa_newsletter"
+                  class="bulma-input bulma-is-shadowless bulma-has-text-white bulma-is-outlined"
+                  type="email"
+                  name="EMAIL"
+                  placeholder="you@email.com"
+                  autocomplete="email"
+                  required
+                >
               </p>
               <p class="bulma-control">
                 <button type="submit" class="bulma-button bulma-is-shadowless">Sign up</button>
               </p>
             </div>
+
+            <!-- Honeypot for spam prevention (required by Mailchimp; do not modify; this stays offscreen) -->
+            <div aria-hidden="true" style="position:absolute; left:-5000px;">
+              <input type="text" name="b_314fa411ba5eaaee7244c95e1_e31e6f80e1" tabindex="-1" value="">
+            </div>
           </form>
+
           <p class="bulma-mt-4 oa-footer-small">
-            <a class="bulma-has-text-white" href="https://us4.campaign-archive2.com/home/?u=314fa411ba5eaaee7244c95e1&amp;id=e31e6f80e1" target="_blank">View newsletter archive</a>
+            <a class="bulma-has-text-white" href="https://us4.campaign-archive.com/home/?u=314fa411ba5eaaee7244c95e1&amp;id=e31e6f80e1" target="_blank" rel="noopener">View newsletter archive</a>
           </p>
         </section>
-
+        
         <!-- Websites -->
         <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
           <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-medium">Websites</h3>
@@ -50,7 +70,7 @@
         </section>
       </div>
 
-      <!-- Donate / Funding / Licence / Address -->
+      <!-- Bottom row: Donate / Funding / Licence / Address -->
       <div class="bulma-columns bulma-is-variable bulma-is-6 bulma-is-multiline">
         <!-- Donate -->
         <section class="bulma-column bulma-is-3-desktop bulma-is-6-tablet bulma-is-size-7">
@@ -110,4 +130,6 @@
       </div>
     </div>
   </footer>
+
+  <th:block th:insert="include/newsletter_modal :: newsletter">Newsletter Modal</th:block>
 </th:block>
