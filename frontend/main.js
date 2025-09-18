@@ -83,13 +83,45 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('oa-header');
     if (!header) return;
 
-    const expand   = () => header.classList.remove('is-condensed');
-    const condense = () => header.classList.add('is-condensed');
-    const onScroll = () => (window.scrollY <= 8 ? expand() : condense());
+    const EXPAND_AT   = 12; // expand when we scroll back near top
+    const CONDENSE_AT = 56; // condense only after a bit more scroll
 
-    onScroll();
+    let isCondensed = header.classList.contains('is-condensed');
+    let raf = 0;
+
+    const expand = () => {
+      if (!isCondensed) return;
+      header.classList.remove('is-condensed');
+      isCondensed = false;
+    };
+
+    const condense = () => {
+      if (isCondensed) return;
+      header.classList.add('is-condensed');
+      isCondensed = true;
+    };
+
+    function tick() {
+      raf = 0;
+      // Clamp to 0 to ignore iOS rubber-band negatives
+      const y = Math.max(0, window.scrollY || 0);
+
+      if (!isCondensed && y > CONDENSE_AT) condense();
+      else if (isCondensed && y < EXPAND_AT) expand();
+    }
+
+    function onScroll() {
+      if (raf) return;
+      raf = requestAnimationFrame(tick);
+    }
+
+    // initial state
+    (Math.max(0, window.scrollY || 0) > CONDENSE_AT) ? condense() : expand();
+
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
+
+
 
   // ===== Newsletter modal =================================================
   (function initNewsletterModal() {

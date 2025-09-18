@@ -10,7 +10,8 @@
 
   // expanded state (default)
   .bulma-navbar {
-    transition: all .25s ease;
+    transition: min-height .25s ease;
+    will-change: min-height;
     min-height: 100px;
     padding-block: 0;
 
