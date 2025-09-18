@@ -103,7 +103,6 @@
 
 	</dependencies>
 	
-	
     <profiles>
     
         <profile>
@@ -187,6 +186,69 @@
 				</configuration>
 
 			</plugin>			
+			
+			<!-- copy generated jar to oapen-latest.jar -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy</id>
+						<phase>package</phase>
+						<goals>
+							<goal>copy</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<artifactItems>
+						<artifactItem>
+							<groupId>${project.groupId}</groupId>
+							<artifactId>${project.artifactId}</artifactId>
+							<version>${project.version}</version>
+							<type>${project.packaging}</type>
+							<overWrite>true</overWrite>
+							<outputDirectory>${project.build.directory}</outputDirectory>
+							<destFileName>oapen-latest.jar</destFileName>
+						</artifactItem>
+					</artifactItems>
+				</configuration>
+			</plugin>
+
+			<!-- To prevent sensitive data from ending up in the jar, exclude all application-*.properties files. 
+			We will use an external application.properties instead. -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>**/application-*.properties</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		
+			<!-- install home brewn artifacts locally -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<configuration>
+					<groupId>com.trilobiet</groupId>
+					<artifactId>graphqlweb</artifactId>
+					<version>0.0.46</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/dependencies/graphqlweb-0.0.46-jar-with-dependencies.jar</file>
+					<generatePom>true</generatePom>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
 
 		</plugins>
 

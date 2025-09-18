@@ -11,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.trilobiet.graphqlweb.datamodel.File;
 import com.trilobiet.graphqlweb.datamodel.Snippet;
 import com.trilobiet.graphqlweb.datamodel.Topic;
@@ -36,6 +38,27 @@ public class HomeController extends BaseController {
 		try {
 			Optional<SnippetImp> introText = snippetService.getSnippet("home-intro");
 			if (introText.isPresent() ) mv.addObject("home_intro",introText.get().getCode());
+		} catch (Exception e) {
+			log.error(e);
+		}
+		
+		/**
+		 * Display in Thymeleaf as 
+		 * 		th:text="${stats_subjects}" 
+		 * 		th:text="${stats_publishers}"
+		 * 		th:text="${stats_collections}"
+		 * 		th:text="${stats_languages}"
+		 */
+		try {
+			Optional<SnippetImp> stats = snippetService.getSnippet("collection-stats");
+			if (stats.isPresent() ) {
+				String json = stats.get().getCode();
+				Map<String,Integer> result = new ObjectMapper().readValue(json, new TypeReference<Map<String, Integer>>(){});
+				mv.addObject("stats_subjects",result.get("subjects") );
+				mv.addObject("stats_publishers",result.get("publishers") );
+				mv.addObject("stats_collections",result.get("collections") );
+				mv.addObject("stats_languages",result.get("languages") );
+			}
 		} catch (Exception e) {
 			log.error(e);
 		}

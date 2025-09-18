@@ -1,0 +1,87 @@
+<!doctype html>
+<html layout:decorate="~{layout/main}"
+      xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.thymeleaf.org">
+<head>
+    <title>Blog</title>
+</head>
+
+<body>
+
+	<!--
+		BODY
+	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<main layout:fragment="content" class="section oapen-blog oapen-main">
+	
+		<div class="container">
+		
+			<nav class="breadcrumb" aria-label="breadcrumbs">
+				<ul>
+					<li>
+						<a th:href="@{'/'}">Home</a>
+					</li>
+					<li class="is-active">
+						<a href="#" aria-current="page">OAPEN Newsletters</a>
+					</li>
+				</ul>
+			</nav>
+		
+			<div class="columns">
+			
+				<!-- main content left -->
+				<div class="column is-three-quarters">
+				
+					<p th:if="${featuredNewsletter==null}">Nothing here yet...</p>
+
+					<article th:if="${featuredNewsletter}"
+						class="is-clearfix oapen-blogpost">
+						
+						<div class="oapen-primary content">
+						
+							<h1 th:text="${featuredNewsletter.title}">Blog Title</h1>
+							
+							<div class="oapen-blogpost-hbar">
+								Read this newsletter at 
+								<a th:href="${featuredNewsletter.link}" target="_blank">
+									<img src="https://mailchimp.com/ctf/images/yzco4xsimv0y/30TVCb8RVDWLz7XG1XwhlY/2150df2b57f682ddeaa73e1251449f0c/MC_50-50_-_Brand_Assets_02.png?w=980&fm=avif&q=60" alt="mailchimp.com" width="100"/>
+								</a>
+							</div>
+							
+							<hr/>
+						
+							<iframe th:srcdoc="${featuredNewsletter.contents}" id="IfrMailchimp" 
+							 style="width:100%;box-shadow:0 0 10px #ccc;">
+								Blog Post
+							</iframe>
+							
+							<script>
+								window.onload = function() {
+									var iframe = document.getElementById("IfrMailchimp");
+									iframe.height = iframe.contentWindow.document.body.scrollHeight;
+								}
+							</script>							
+						
+						</div>
+	
+					</article>
+				
+				</div>
+			
+				<!-- sidebar right -->
+				<div class="column">
+				
+					<th:block th:insert="include/mailchimpposts :: mailchimp"/>
+				
+				</div>
+			
+			</div>
+
+		</div>
+
+	</main>
+
+</body>
+</html>
+
+
+
+
