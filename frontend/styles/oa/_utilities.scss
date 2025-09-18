@@ -1,0 +1,29 @@
+// oa/_utilities.scss
+// Small, reusable utility classes (project-wide helpers that Buulma doesn’t provide)
+// Used: globally
+
+// Comfortable line length for reading (max 60 characters)
+.oa-readable { 
+  max-width: 60ch; 
+}
+
+// Prevent wrapping
+.oa-nowrap   { 
+  white-space: nowrap; 
+}
+
+/* Adds a “↗” nudge after the element text, visually styled as superscript */
+.oa-link-arrow {
+  position: relative;
+
+  &::after {
+    content: "↗";
+    display: inline-block;
+    font-size: 0.5em;
+    font-weight: bold;
+    line-height: 1;
+    margin-left: -.45em;
+    color: currentColor;
+    transform: translateY(-0.75em);
+  }
+}

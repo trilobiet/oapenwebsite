@@ -87,6 +87,7 @@
 @use "core/base";
 
 // --- Our own custom oa-* classes
+@use "oa/utilities";
 @use "oa/bluesky-feed";
 @use "oa/carousel";
 @use "oa/collections";
