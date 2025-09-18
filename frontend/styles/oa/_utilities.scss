@@ -1,10 +1,16 @@
 // oa/_utilities.scss
-// Small, reusable utility classes (project-wide helpers that Buulma doesn’t provide)
+// Small, reusable utility classes 
+// (Project-wide helpers that we couldn’t find in Bulma)
 // Used: globally
 
 // Comfortable line length for reading (max 60 characters)
 .oa-readable { 
   max-width: 60ch; 
+}
+
+// Full height of parent container
+.oa-h-100 {
+  height: 100%;
 }
 
 // Prevent wrapping

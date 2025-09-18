@@ -56,15 +56,15 @@
 										bulma-is-half-tablet
 										bulma-is-one-third-desktop
 										bulma-is-one-quarter-widescreen">
-						<div class="bulma-panel bulma-is-shadowless" style="height:100%;">
+						<div class="bulma-panel bulma-is-shadowless oa-h-100">
 							<a th:href="@{'/'+${section.slug}+'/'+${topic.slug}}"
 								class="bulma-panel-block
 												bulma-has-background-paper
 												bulma-is-flex
 												bulma-is-justify-content-space-between
 												bulma-is-align-items-flex-start
-												bulma-is-flex-grow-1"
-								style="height:100%;">
+												bulma-is-flex-grow-1
+												oa-h-100">
 								<span th:text="${topic.name}" class="bulma-is-size-4">Topic name</span>
 								<span class="bulma-ml-5 bulma-icon bulma-tag bulma-is-large bulma-is-stone-light bulma-is-rounded" aria-hidden="true">
 									<svg width="18" height="18" viewBox="0 0 24 24" focusable="false">

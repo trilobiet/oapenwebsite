@@ -100,35 +100,44 @@
 							class="bulma-level-item"
 							role="search">
 
-					<div class="bulma-field" style="max-width:48rem;width:100%;">
-						<label for="funder_search" class="bulma-label">Search this collection</label>
+					<form th:action="${settings.dspace_site+'discover'}" role="search" aria-labelledby="funder_search_label">
+						<div class="bulma-field">
+							<label id="funder_search_label" for="funder_search" class="bulma-label">
+								Search this collection
+							</label>
 
-						<div class="bulma-field bulma-has-addons oa-input-group">
-							<p class="bulma-control bulma-is-expanded">
-								<input id="funder_search"
-											class="bulma-input"
-											type="search"
-											name="query"
-											placeholder="Find open access books by keyword">
-								<input type="hidden" name="filtertype_1" value="collection">
-								<input type="hidden" name="filter_relational_operator_1" value="equals">
-								<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}">
-							</p>
-							<p class="bulma-control">
-								<button type="submit"
-												class="bulma-button bulma-has-background-ink bulma-has-text-paper bulma-is-shadowless"
-												aria-label="Search this collection">
-									<span class="bulma-is-sr-only">Search</span>
-									<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-										<circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
-										<line x1="16.65" y1="16.65" x2="21" y2="21"
-													stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-									</svg>
-								</button>
-							</p>
+							<div class="bulma-field bulma-has-addons oa-input-group">
+								<p class="bulma-control bulma-is-expanded">
+									<input
+										id="funder_search"
+										class="bulma-input bulma-is-shadowless bulma-is-outlined"
+										type="search"
+										name="query"
+										placeholder="Find open access books by keyword"
+										autocomplete="off"
+									>
+									<input type="hidden" name="filtertype_1" value="collection">
+									<input type="hidden" name="filter_relational_operator_1" value="equals">
+									<input type="hidden" name="filter_1" th:value="${#strings.replace(collection,'+',' ')}">
+								</p>
+
+								<p class="bulma-control">
+									<button
+										type="submit"
+										class="bulma-button bulma-is-shadowless"
+										aria-label="Search this collection"
+									>
+										<svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+											<circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/>
+											<line x1="16.65" y1="16.65" x2="21" y2="21"
+														stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+										</svg>
+										<span class="bulma-is-sr-only">Search</span>
+									</button>
+								</p>
+							</div>
 						</div>
-					</div>
-				</form>
+					</form>
 
 			</div>
 		</section>
