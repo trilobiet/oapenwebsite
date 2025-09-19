@@ -20,7 +20,8 @@
 					<p th:if="${#lists.isEmpty(articles)}">Nothing here yet...</p>
 
 					<th:block th:each="article: ${articles}">
-						<article th:classappend="${article.cssClass}">
+						<article class="bulma-block"
+									 th:classappend="${article.cssClass}">
 							<div class="bulma-columns">
 								<div class="bulma-column bulma-is-12-mobile bulma-is-9-tablet">
 									<div th:utext="${article.content}" class="bulma-content bulma-is-size-5">
