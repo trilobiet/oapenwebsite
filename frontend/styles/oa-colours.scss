@@ -12,7 +12,7 @@
 
 // Core neutrals
 $oa-colour-ink:        #0B0C0E !default; // main body text / iverted (dark theme) background
-$oa-colour-paper:      #F7F3E8 !default; // main background / inveted (dark theme) body text
+$oa-colour-paper:      #F9F9F7 !default; // main background / inveted (dark theme) body text
 $oa-colour-stone-600:  #6B6A65 !default; // secondary text / inverted (dark theme) borders
 $oa-colour-stone-300:  #DAD5C8 !default; // subtle borders / inverted (dark theme) text
 
@@ -34,9 +34,9 @@ $brand-sets: (
     500: #7A4EA9  // links & focus states
   ),
   "moss": (
-    700: #12483A, // hero/dark sections
-    600: #246B55, // primary UI 
-    500: #1C7A64  // links & focus states
+    700: #0B3D2E, // hero / dark sections
+    600: #116048, // primary UI
+    500: #178262  // links & focus states
   ),
   "charcoal": (
     700: #1A1715, // hero/dark sections
