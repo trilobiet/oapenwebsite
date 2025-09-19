@@ -77,18 +77,14 @@
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="bulma-section">
 			<div class="bulma-container">
-				<header
-					class="bulma-level bulma-pb-2 oa-section-header oa-has-star-left"
-					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
-					th:style="'--star-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star-size:32px; ' +
-										'--star2-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star2-size:24px; --star2-x:78%;'">
+				<header class="bulma-level bulma-pb-2 oa-section-header">
 					<div class="bulma-level-left">
-						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">
+						<h2 class="bulma-title bulma-is-4 bulma-has-text-weight-normal">
 							Access the <span th:text="${topic.name}">Funder name</span> collection
 						</h2>
 					</div>
 					<div class="bulma-level-right">
-						<a th:href="${settings.dspace_site+'browse?type=collection&value='+collection}" class="bulma-button bulma-is-brand bulma-is-shadowless bulma-mb-4">Browse all →</a>
+						<a th:href="${settings.dspace_site+'browse?type=collection&value='+collection}" class="bulma-is-block bulma-button bulma-is-brand bulma-is-shadowless bulma-mb-2">Browse all →</a>
 					</div>
 				</header>
 

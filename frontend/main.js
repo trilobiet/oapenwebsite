@@ -123,7 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  // ===== Newsletter modal =================================================
+  // ===== Newsletter modal ===================================================
   (function initNewsletterModal() {
     const modal    = document.getElementById('newsletter-modal');
     const triggers = $all('.js-open-modal[data-modal="newsletter-modal"]');
@@ -251,6 +251,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   })();
 
+  // ===== Section headers w/ random decorative stars =========================
+  (function initSectionHeaderStars() {
+    const els = $all('.oa-section-header');
+    if (!els.length) return;
+
+    const STAR_SVGS = [
+      '/static-assets/svg/Star1.svg',
+      '/static-assets/svg/Star2.svg',
+      '/static-assets/svg/Star3.svg',
+      '/static-assets/svg/Star4.svg',
+    ];
+    const SIZES = [16, 18, 24, 28, 32];
+
+    const rand = (min, max) => min + Math.random() * (max - min);
+    const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+    const jitterPx = (px) => (Math.random() * 2 - 1) * px;
+
+    els.forEach((el) => {
+      // Star #1
+      const url1  = pick(STAR_SVGS);
+      const size1 = pick(SIZES);
+      const x1    = `${Math.round(rand(8, 92))}%`; // avoid extreme edges
+      const y1    = `${Math.round(jitterPx(7))}px`; // slight vertical offset
+      const rot1  = `${Math.round(jitterPx(18))}deg`;
+      const op1   = (0.85 + Math.random() * 0.15).toFixed(2);
+
+      // Star #2 (70% chance)
+      const show2 = Math.random() < 0.7;
+      const url2  = show2 ? pick(STAR_SVGS.filter(u => u !== url1)) : 'none';
+      const size2 = show2 ? pick(SIZES.filter(s => s !== size1)) : 0;
+      const x2    = show2 ? `${Math.round(rand(18, 88))}%` : '50%';
+      const y2    = show2 ? `${Math.round(jitterPx(7))}px` : '0px';
+      const rot2  = show2 ? `${Math.round(jitterPx(18))}deg` : '0deg';
+      const op2   = show2 ? (0.85 + Math.random() * 0.15).toFixed(2) : '0';
+
+      el.style.setProperty('--star-url', `url(${url1})`);
+      el.style.setProperty('--star-size', `${size1}px`);
+      el.style.setProperty('--star-x', x1);
+      el.style.setProperty('--star-y-offset', y1);
+      el.style.setProperty('--star-rotate', rot1);
+      el.style.setProperty('--star-opacity', op1);
+
+      el.style.setProperty('--star2-url', `url(${url2})`);
+      el.style.setProperty('--star2-size', `${size2}px`);
+      el.style.setProperty('--star2-x', x2);
+      el.style.setProperty('--star2-y-offset', y2);
+      el.style.setProperty('--star2-rotate', rot2);
+      el.style.setProperty('--star2-opacity', op2);
+    });
+  })();
+
   // ===== Legacy behaviours (from scripts.js) ================================
 
   // make iframes full height
@@ -274,7 +325,8 @@ document.addEventListener('DOMContentLoaded', () => {
     $all('.ajaxloader').forEach((el) => {
       const src = el.getAttribute('data-src');
       if (!src) return;
-      el.innerHTML = " <i class='fa fa-spinner fa-pulse fa-fw'></i><i>Connecting to library&hellip;</i>";
+      el.innerHTML = " <i class='fa fa-spinner fa-pulse fa-fw'></i>\
+        <i>Connecting to library&hellip;</i>";
       loadHTML(el, src);
     });
   })();

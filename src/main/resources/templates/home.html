@@ -23,6 +23,11 @@
 
 					<!-- Featured titles -->
 					<div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
+						<header class="bulma-level bulma-pb-2 oa-section-header">
+							<div class="bulma-level-left">
+								<h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
+							</div>
+						</header>
 						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
 					</div>
 
@@ -114,11 +119,7 @@
 		<!-- Feed (Spotlights + Blog) -->
 		<section class="bulma-section">
 			<div class="bulma-container">
-				<header
-					class="bulma-level bulma-pb-2 oa-section-header oa-has-star-left"
-					th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
-					th:style="'--star-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star-size:32px; ' +
-										'--star2-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star2-size:24px; --star2-x:78%;'">
+				<header class="bulma-level bulma-pb-2 oa-section-header">
 					<div class="bulma-level-left">
 						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">The latest from OAPEN</h2>
 					</div>

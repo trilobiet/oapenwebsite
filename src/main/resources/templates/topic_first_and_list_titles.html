@@ -66,11 +66,7 @@
 				<!-- Right: sidebar with sibling articles -->
 				<aside class="bulma-column" aria-labelledby="sidenav-title">
 					<nav class="bulma-panel bulma-is-shadowless">
-						<header
-							class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header oa-has-star-right"
-							th:classappend="' star-offset-' + ${T(java.lang.Math).round(T(java.lang.Math).random()*2 + 1)}"
-							th:style="'--star-url:url(' + @{/static-assets/svg/Star1.svg} + '); --star-size:16px; ' +
-												'--star2-url:url(' + @{/static-assets/svg/Star4.svg} + '); --star2-size:24px; --star2-x:50%;'">
+						<header class="bulma-level bulma-is-mobile bulma-pb-2 oa-section-header">
 							<div class="bulma-level-left">
 								<h2
 									id="sidenav-title"
