@@ -16,9 +16,9 @@
 <th:block th:fragment="tagline">
   <div class="bulma-columns bulma-is-multiline bulma-is-vcentered bulma-is-variable bulma-is-0-mobile bulma-is-8-tablet">
     <!-- Tagline + intro -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-tablet bulma-is-two-thirds-desktop">
+    <div class="bulma-column bulma-is-full-mobile bulma-is-half-tablet">
       <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
-      <h1 class="bulma-title bulma-is-1 bulma-has-text-weight-bold bulma-mb-4 bulma-mx-auto">
+      <h1 class="bulma-title bulma-is-2 bulma-has-text-weight-bold bulma-mb-6 bulma-mx-auto">
         A world of scholarly books:<br>
         Open to all, built to last.
       </h1>
@@ -46,11 +46,10 @@
     </div>
 
     <!-- Doodle -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-one-third-tablet bulma-is-one-third-desktop bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
-      <img class="oa-doodle"
-           th:src="@{/static-assets/svg/doodles.svg}"
-           alt="" aria-hidden="true"
-           style="max-width: 15vw; width: auto; height:auto;">
+    <div class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
+      <img class="bulma-is-block oa-doodle oa-bleed-right"
+           th:src="@{/static-assets/svg/doodle.svg}"
+           alt="" aria-hidden="true">
     </div>
   </div>
 </th:block>

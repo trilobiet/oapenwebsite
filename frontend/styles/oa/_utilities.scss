@@ -18,7 +18,7 @@
   white-space: nowrap; 
 }
 
-/* Adds a “↗” nudge after the element text, visually styled as superscript */
+// Adds a “↗” nudge after the element text, visually styled as superscript
 .oa-link-arrow {
   position: relative;
 
@@ -32,4 +32,16 @@
     color: currentColor;
     transform: translateY(-0.75em);
   }
+}
+
+// Bleed an element to the right edge of the viewport
+.oa-bleed-right {
+  margin-right: calc(50% - 50vw);
+}
+
+// Half-page doodle styling
+.oa-doodle {
+  max-width: none;
+  height: auto;
+  width: min(50vw, 820px);
 }
