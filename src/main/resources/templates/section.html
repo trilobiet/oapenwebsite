@@ -29,14 +29,26 @@
 				</div>
 			</header>
 
-			<div class="bulma-columns">
+			<div class="bulma-columns bulma-mt-6">
+				<!-- intro -->
 				<div
 					class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-desktop bulma-is-size-4"
-					th:utext="${section.description}"
-				>
+					th:utext="${section.description}">
 					Section description
 				</div>
+
+				<!-- stakeholder illustration -->
+				<div class="bulma-is-flex bulma-is-justify-content-flex-end bulma-is-justify-content-center-mobile oa-stakeholder-doodle"
+						th:if="${#lists.contains({'section-funders','section-librarians','section-researchers','section-publishers'}, bodyClass)}"
+						th:with="slug=${#strings.replace(bodyClass, 'section-', '')}">
+					<figure class="bulma-image">
+						<img th:src="@{'/static-assets/svg/stakeholders/doodle-' + ${slug} + '.svg'}"
+								alt="" aria-hidden="true" decoding="async" />
+					</figure>
+				</div>
+
 			</div>
+
 
 			<nav class="bulma-mt-6" aria-labelledby="section-nav-title">
 				<h2 id="section-nav-title"

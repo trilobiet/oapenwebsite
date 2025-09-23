@@ -1,0 +1,21 @@
+<svg width="818" height="565" viewBox="0 0 818 565" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="319.752" height="453.548" transform="matrix(0.965926 -0.258819 -0.258819 -0.965926 503.391 525.852)" fill="#FFF" stroke="currentColor" stroke-width="8"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 -0.258819 -0.258819 -0.965926 494.438 341.719)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 -0.258819 -0.258819 -0.965926 476.812 275.938)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 -0.258819 -0.258819 -0.965926 459.188 210.164)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 -0.258819 -0.258819 -0.965926 441.562 144.383)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<rect width="319.752" height="453.548" transform="matrix(0.965926 0.258819 0.258819 -0.965926 226 477.164)" fill="#FFF" stroke="currentColor" stroke-width="8"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 0.258819 0.258819 -0.965926 310.312 313.219)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 0.258819 0.258819 -0.965926 327.938 247.438)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 0.258819 0.258819 -0.965926 345.562 181.664)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line y1="-4" x2="240.624" y2="-4" transform="matrix(0.965926 0.258819 0.258819 -0.965926 363.188 115.883)" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<path d="M490.61 526.129H170.328V72.1328H379.997L490.61 182.743V526.129Z" fill="#FFF"/>
+<path d="M379.997 72.1328H170.328V526.129H490.61V182.743M379.997 72.1328L490.61 182.743M379.997 72.1328V182.743H490.61" stroke="currentColor" stroke-width="8"/>
+<line x1="210.047" y1="248.602" x2="450.671" y2="248.602" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line x1="210.047" y1="316.703" x2="450.671" y2="316.703" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line x1="210.047" y1="384.797" x2="450.671" y2="384.797" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<line x1="210.047" y1="452.898" x2="450.671" y2="452.898" stroke="currentColor" stroke-width="8" stroke-dasharray="20 20"/>
+<path d="M256.443 365.341C256.443 419.468 212.564 463.346 158.436 463.346C104.309 463.346 60.4296 419.468 60.4296 365.341C60.4296 311.214 104.309 267.336 158.436 267.336C212.564 267.336 256.443 311.214 256.443 365.341Z" fill="#FFF"/>
+<path d="M93.4224 435.694L3 526.114M256.443 365.341C256.443 419.468 212.564 463.346 158.436 463.346C104.309 463.346 60.4296 419.468 60.4296 365.341C60.4296 311.214 104.309 267.336 158.436 267.336C212.564 267.336 256.443 311.214 256.443 365.341Z" stroke="currentColor" stroke-width="8"/>
+<path d="M394.554 208.723C395.888 206.733 401.263 208.651 401.036 211.036C399.98 222.14 399.995 235.956 404.574 245.615C409.153 255.273 419.84 264.03 429.105 270.241C431.095 271.575 429.177 276.95 426.792 276.724C415.687 275.667 401.871 275.683 392.213 280.261C382.554 284.84 373.797 295.527 367.586 304.792C366.251 306.782 360.876 304.864 361.103 302.479C362.159 291.375 362.144 277.558 357.565 267.9C352.986 258.242 342.3 249.485 333.035 243.274C331.044 241.94 332.962 236.564 335.348 236.791C346.452 237.847 360.268 237.832 369.926 233.253C379.585 228.674 388.342 217.988 394.554 208.723Z" fill="#FFF" stroke="currentColor" stroke-width="8"/>
+</svg>
