@@ -16,7 +16,7 @@
 <th:block th:fragment="tagline">
   <div class="bulma-columns bulma-is-multiline bulma-is-vcentered bulma-is-variable bulma-is-0-mobile bulma-is-8-tablet">
     <!-- Tagline + intro -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-half-tablet">
+    <div class="bulma-column bulma-is-full-mobile bulma-is-two-thirds-tablet">
       <p class="bulma-title bulma-has-text-weight-semibold bulma-is-5 bulma-mb-2">OAPEN</p>
       <h1 class="bulma-title bulma-is-2 bulma-has-text-weight-bold bulma-mb-6 bulma-mx-auto">
         A world of scholarly books:<br>
@@ -40,13 +40,21 @@
         with a global infrastructure for peer-reviewed open access books to advance research and the public good.
       </p>
 
-      <p class="bulma-is-size-4 bulma-mb-0 bulma-has-text-weight-light">
-        <a th:href="@{'/oapen'}" class="bulma-link">Learn more about how we support our community →</a>
+      <p class="bulma-is-size-4 bulma-mb-4 bulma-has-text-weight-light">
+        Learn about how we support our community.
       </p>
+      <p class="bulma-mb-4">
+        <a th:href="@{'/oapen'}"
+          class="bulma-button bulma-is-primary bulma-has-text-weight-medium"
+          aria-label="Learn about how OAPEN supports our community: Our approach">
+          Our approach <span aria-hidden="true">→</span>
+        </a>
+      </p>
+
     </div>
 
     <!-- Doodle -->
-    <div class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
+    <div class="bulma-column bulma-is-full-mobile bulma-is-one-third-tablet bulma-has-text-centered-mobile bulma-has-text-right-tablet bulma-has-text-right-desktop">
       <img class="bulma-is-block oa-doodle oa-bleed-right"
            th:src="@{/static-assets/svg/doodle.svg}"
            alt="" aria-hidden="true">
