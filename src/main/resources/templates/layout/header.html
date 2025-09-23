@@ -30,33 +30,29 @@
         
         <!-- Full menu -->
         <div id="oa-nav" class="bulma-navbar-menu oa-nav-mobile">
-          <ul class="bulma-navbar-start oa-navbar-list" role="menubar">
-            <!-- Left sections -->
+          <ul class="bulma-navbar-end oa-navbar-list" role="menubar"></ul>
+            <!-- Originally left section -->
             <li th:each="mnusection : ${menuLeftSections}"
                 class="bulma-navbar-item"
                 th:classappend="${#lists.isEmpty(mnusection.topics)} ? '' : ' bulma-has-dropdown bulma-is-hoverable'">
               <th:block th:insert="layout/submenu :: section_navigation">submenu</th:block>
             </li>
 
-            <!-- Right sections -->
+            <!-- Originally right section -->
             <li th:each="mnusection : ${menuRightSections}"
                 class="bulma-navbar-item"
                 th:classappend="${#lists.isEmpty(mnusection.topics)} ? '' : ' bulma-has-dropdown bulma-is-hoverable'">
               <th:block th:insert="layout/submenu :: section_navigation">submenu</th:block>
             </li>
-          </ul>
-
-          <!-- Newsletter button to modal -->
-          <div class="bulma-navbar-end">
-            <div class="bulma-navbar-item">
+            
+            <!-- Newsletter, treated as a menu item -->
+             <li class="bulma-navbar-item">
               <a class="bulma-button bulma-is-small bulma-is-outlined bulma-is-shadowless js-open-modal"
-                data-modal="newsletter-modal"
-                aria-haspopup="dialog"
-                aria-controls="newsletter-modal">
+                data-modal="newsletter-modal" aria-haspopup="dialog" aria-controls="newsletter-modal">
                 Newsletter
               </a>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
 
       </div>

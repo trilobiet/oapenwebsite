@@ -225,10 +225,7 @@
         padding: .5rem 1rem;
         min-height: 44px;
         border-top: 1px solid var(--bulma-border, currentColor);
-        text-decoration-line: underline;
-        text-decoration-color: currentColor;
-        text-decoration-thickness: 2.5px;
-        text-underline-offset: 10px;
+        text-transform: uppercase;
       }
 
       &:first-child > .bulma-navbar-link { 
@@ -245,6 +242,7 @@
         background: $brand-primary-500;
         white-space: normal;
         text-align: left;
+        font-weight: 400;
 
         &:hover,
         &:focus { 
@@ -260,7 +258,8 @@
     .bulma-navbar-brand,
     .bulma-navbar-brand .bulma-navbar-item,
     .bulma-navbar-burger { 
-      min-height: inherit; 
+      min-height: inherit;
+      color: inherit;
     }
 
     &.js-is-condensed .oa-nav-mobile {
