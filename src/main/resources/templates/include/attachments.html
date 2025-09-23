@@ -16,9 +16,7 @@
 
 			<div class="oapen-attachments bulma-content" th:if="${not #lists.isEmpty(attachments)}">
 			
-				<div class="oapen-attachments-header">Files</div>
-				
-				<hr class="bulma-is-hidden"/>
+				<h2 class="oapen-attachments-header bulma-title bulma-is-2 bulma-mt-6">Files</h2>
 			
 				<ul>
 					<li th:each="attachment:${attachments}">
