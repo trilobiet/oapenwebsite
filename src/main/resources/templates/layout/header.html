@@ -3,8 +3,11 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
 <th:block th:fragment="header">
-  <header id="oa-header" class="oa-header" role="banner">
-    <nav class="bulma-navbar bulma-has-background-brand-hero bulma-has-text-paper bulma-is-shadowless"
+  <header id="oa-header" 
+          class="oa-header" 
+          role="banner"
+          th:classappend="${#httpServletRequest.requestURI == '/'} ? ' oa-is-home' : ''">
+    <nav class="bulma-navbar bulma-is-shadowless"
         role="navigation" aria-label="Main navigation">
       <h2 class="bulma-is-sr-only">Main navigation</h2>
       <div class="bulma-container">
@@ -12,10 +15,11 @@
         <!-- brand + burger -->
         <div class="bulma-navbar-brand">
           <a class="bulma-navbar-item oa-logo" th:href="@{'/'}" aria-label="OAPEN homepage">
-            <img th:src="@{/static-assets/images/logotype.svg}" alt="OAPEN" width="132" height="32">
+            <!-- <img th:src="@{/static-assets/images/logotype.svg}" alt="OAPEN" width="132" height="32"> -->
+            <th:block th:replace="~{include/logotype :: logo(160, 50, 'oa-logo-svg')}"></th:block>
           </a>
           <a role="button"
-            class="bulma-navbar-burger bulma-burger bulma-has-text-paper"
+            class="bulma-navbar-burger bulma-burger"
             aria-label="menu" aria-expanded="false"
             data-target="oa-nav">
             <span aria-hidden="true"></span>

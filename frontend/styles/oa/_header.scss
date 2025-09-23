@@ -1,38 +1,68 @@
 // oa/_header.scss
 // Site header + navigation, incl. desktop megamenu & mobile menu
 // Used globally
-// Depends on: Bulma navbar and columns
+// Depends on: Bulma navbar and columns, oa-colours
+
+@use "../oa-colours" as *;
 
 .oa-header {
   position: sticky;
   top: 0;
   z-index: 25;
 
+  // homepage-only white header before scroll
+  &.oa-is-home {
+    .bulma-navbar {
+      background-color: var(--bulma-paper);
+      color: var(--bulma-ink);
+      border-bottom: 1px solid $oa-colour-stone-300;
+    }
+  }
+
   // expanded state (default)
   .bulma-navbar {
-    transition: min-height .25s ease;
+    transition: min-height .25s ease, background-color .25s ease, color .25s ease, border-color .25s ease;
     will-change: min-height;
     min-height: 100px;
     padding-block: 0;
+    background-color: $brand-primary-700;
+    color: var(--bulma-paper);
+    border-bottom: transparent;
 
     .bulma-navbar-link,
     .bulma-navbar-item {
-      color: var(--bulma-paper);
+      color: currentColor;
       text-decoration: none;
+    }
+
+    .oa-logo-svg { 
+      max-height: 100%; 
     }
   }
 
   // condensed state (on scroll)
-  &.is-condensed {
+  &.js-is-condensed {
     .bulma-navbar {
       min-height: 50px;
+      background-color: $brand-primary-700;
+      color: var(--bulma-paper);
+      border-bottom-color: transparent;
+    }
+
+    .bulma-navbar-link,
+    .bulma-navbar-item { 
+      color: currentColor; 
+    }
+
+    .oa-logo-svg { 
+      max-height: 70%; 
     }
   }
 
   // let the dropdown overflow the bar so hover doesn't break
   .bulma-navbar,
-  .bulma-navbar-menu {
-    overflow: visible;
+  .bulma-navbar-menu { 
+    overflow: visible; 
   }
 
   .bulma-navbar-link,
@@ -40,8 +70,8 @@
     font-size: .9rem;
 
     // remove Bulma’s default carets from navbar links
-    &[data-no-caret]::after {
-      display: none;
+    &[data-no-caret]::after { 
+      display: none; 
     }
 
     // a11y
@@ -65,92 +95,115 @@
     &.bulma-has-dropdown:focus > .bulma-navbar-link,
     &.bulma-has-dropdown:focus-within > .bulma-navbar-link {
       text-decoration-line: underline;
-      text-decoration-color: var(--oa-colour-paper);
+      text-decoration-color: currentColor;
       text-decoration-thickness: 2.5px;
       text-underline-offset: 10px;
     }
   }
 
-  .bulma-navbar-dropdown .bulma-navbar-item {
-    font-weight: 600;
+  .bulma-navbar-dropdown .bulma-navbar-item { 
+    font-weight: 600; 
+  }
+
+  // force inherit colours for Newsletter button
+  .js-open-modal {
+    color: inherit;
+    border-color: inherit;
   }
 }
 
 // Megamenu (desktop)
 @media screen and (min-width: 1024px) {
-  .oa-header .bulma-navbar { 
-    position: relative; 
-  }
 
-  .oa-header .bulma-navbar-item.bulma-has-dropdown {
-    position: static;
-  }
+  .oa-header {
 
-  .oa-header .oa-megamenu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    display: none;
-    background: var(--bulma-brand);
-    border: 0;
-    padding: 0;
-    overflow: visible;
-  }
-
-  .oa-header .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-megamenu,
-  .oa-header .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu {
-    display: block;
-  }
-
-  .oa-header .oa-megamenu .bulma-columns {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .oa-header .oa-megamenu .bulma-column {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  // remove Bulma’s white tile background in dropdown
-  .oa-header .bulma-navbar-dropdown a.bulma-navbar-item,
-  .oa-header .bulma-navbar-dropdown .bulma-navbar-item {
-    background: transparent;
-  }
-
-  .oa-header .oa-megamenu .bulma-navbar-item {
-    display: block;
-    padding: .875rem 1rem;
-    text-align: left;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: normal;
-    transition: background-color .15s ease, color .15s ease;
-    color: var(--bulma-paper);
-
-    &:not(.is-active, .is-selected) {
-      color: var(--bulma-paper);
+    .bulma-navbar { 
+      position: relative; 
     }
 
-    &:hover,
-    &:focus,
-    &:focus-visible,
-    &.bulma-is-active {
-      background: color-mix(in srgb, var(--bulma-brand) 15%, var(--bulma-paper));
-      outline: 0;
+    .bulma-navbar-item.bulma-has-dropdown { 
+      position: static; 
+    }
+    
+    // show megamenu on hover/focus of parent link
+    .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-megamenu,
+    .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu { 
+      display: block; 
+    }
+
+    .oa-megamenu {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      display: none;
+      background: $oa-colour-stone-300; // expanded
+      color: var(--bulma-ink);
+      border: 0;
+      padding: 0;
+      overflow: visible;
+
+      a.bulma-navbar-item { 
+        color: inherit; 
+      }
+
+      .bulma-columns {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 0;
+        margin-right: 0;
+      }
+
+      .bulma-column {
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .bulma-navbar-item {
+        display: block;
+        padding: .875rem 1rem;
+        text-align: left;
+        white-space: normal;
+        word-break: normal;
+        overflow-wrap: normal;
+        transition: background-color .15s ease, color .15s ease;
+        color: currentColor;
+
+        &:hover,
+        &:focus,
+        &:focus-visible,
+        &.bulma-is-active {
+          background: color-mix(in srgb, currentColor 10%, transparent);
+          outline: 0;
+        }
+      }
+    }
+
+    // remove Bulma’s white tile background in dropdown
+    .bulma-navbar-dropdown {
+      a.bulma-navbar-item,
+      .bulma-navbar-item { 
+        background: transparent; 
+      }
+    }
+
+    // condensed state (on scroll)
+    &.js-is-condensed .oa-megamenu {
+      background: $brand-primary-500;
+      color: var(--bulma-paper);
+
+      a.bulma-navbar-item { 
+        color: var(--bulma-paper); 
+      }
     }
   }
 }
 
 // Megamenu (mobile)
-@media (max-width: 1023.98px) {
-  // .98 here is to avoid conflict with the 1024px breakpoint in Bulma
-
+@media (max-width: 1023.98px) { // .98 to avoid conflict with Bulma 1024px breakpoint
+  
   .bulma-navbar-menu { 
     display: none; 
   }
@@ -161,24 +214,30 @@
 
   .oa-nav-mobile {
     padding: 0;
-    background: var(--bulma-brand);
-    max-height: calc(100vh - 72px); // fallback
-    max-height: calc(100dvh - 72px); // modern viewports
+    background: $oa-colour-stone-300; // expanded
+    color: var(--bulma-ink);
+    max-height: calc(100vh - 72px);
+    max-height: calc(100dvh - 72px);
     -webkit-overflow-scrolling: touch;
     overflow-y: auto;
     overscroll-behavior: contain;
     scrollbar-gutter: stable;
 
-    .bulma-navbar-item > .bulma-navbar-link {
-      color: var(--bulma-scheme-main);
-      font-weight: 700;
-      padding: .5rem 1rem;
-      min-height: 44px;
-      border-top: 1px solid var(--bulma-border, currentColor);
-    }
+    .bulma-navbar-item {
+      > .bulma-navbar-link {
+        color: currentColor;
+        padding: .5rem 1rem;
+        min-height: 44px;
+        border-top: 1px solid var(--bulma-border, currentColor);
+        text-decoration-line: underline;
+        text-decoration-color: currentColor;
+        text-decoration-thickness: 2.5px;
+        text-underline-offset: 10px;
+      }
 
-    .bulma-navbar-item:first-child > .bulma-navbar-link { 
-      border-top: 0; 
+      &:first-child > .bulma-navbar-link { 
+        border-top: 0; 
+      }
     }
 
     .oa-megamenu {
@@ -186,8 +245,8 @@
       padding: 0;
 
       .bulma-navbar-item {
-        font-weight: 400;
         padding: .4375rem 1rem;
+        background: $brand-primary-500;
         white-space: normal;
         text-align: left;
 
@@ -204,15 +263,17 @@
     .bulma-container,
     .bulma-navbar-brand,
     .bulma-navbar-brand .bulma-navbar-item,
-    .bulma-navbar-burger {
-      min-height: inherit;
+    .bulma-navbar-burger { 
+      min-height: inherit; 
     }
-    
-    // allow scrolling when condensed
-    &.is-condensed .oa-nav-mobile {
+
+    &.js-is-condensed .oa-nav-mobile {
+      background: $brand-primary-500; // condensed
+      color: var(--bulma-paper);
+      // allow scrolling when condensed
       max-height: calc(100vh - 52px);
       max-height: calc(100dvh - 52px);
-      overflow-y: auto; 
+      overflow-y: auto;
     }
   }
 }

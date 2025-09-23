@@ -83,45 +83,56 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.getElementById('oa-header');
     if (!header) return;
 
-    const EXPAND_AT   = 12; // expand when we scroll back near top
-    const CONDENSE_AT = 56; // condense only after a bit more scroll
+    // expand when we scroll back near top; condense only after a bit more scroll
+    const EXPAND_AT   = 12;
+    const CONDENSE_AT = 56; 
 
-    let isCondensed = header.classList.contains('is-condensed');
+    let isCondensed = header.classList.contains('js-is-condensed');
     let raf = 0;
 
-    const expand = () => {
+    // apply expanded state (at the top)
+    function expand() {
       if (!isCondensed) return;
-      header.classList.remove('is-condensed');
+      header.classList.remove('js-is-condensed');
       isCondensed = false;
-    };
-
-    const condense = () => {
-      if (isCondensed) return;
-      header.classList.add('is-condensed');
-      isCondensed = true;
-    };
-
-    function tick() {
-      raf = 0;
-      // Clamp to 0 to ignore iOS rubber-band negatives
-      const y = Math.max(0, window.scrollY || 0);
-
-      if (!isCondensed && y > CONDENSE_AT) condense();
-      else if (isCondensed && y < EXPAND_AT) expand();
     }
 
+    // apply condensed state (after scrolling down)
+    function condense() {
+      if (isCondensed) return;
+      header.classList.add('js-is-condensed');
+      isCondensed = true;
+    }
+
+    // read scroll position and apply hysteresis thresholds.
+    function tick() {
+      raf = 0;
+      const y = Math.max(0, window.scrollY || 0);
+
+      if (!isCondensed && y > CONDENSE_AT) {
+        condense();
+      } else if (isCondensed && y < EXPAND_AT) {
+        expand();
+      }
+    }
+
+    // scroll handler
     function onScroll() {
       if (raf) return;
       raf = requestAnimationFrame(tick);
     }
 
-    // initial state
-    (Math.max(0, window.scrollY || 0) > CONDENSE_AT) ? condense() : expand();
+    // initial state (also apply immediately so first paint is correct)
+    if (Math.max(0, window.scrollY || 0) > CONDENSE_AT) {
+      header.classList.add('js-is-condensed');
+      isCondensed = true;
+    } else {
+      header.classList.remove('js-is-condensed');
+      isCondensed = false;
+    }
 
     window.addEventListener('scroll', onScroll, { passive: true });
   })();
-
-
 
   // ===== Newsletter modal ===================================================
   (function initNewsletterModal() {
