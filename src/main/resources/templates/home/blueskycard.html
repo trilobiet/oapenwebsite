@@ -16,7 +16,7 @@
 <th:block th:fragment="blueskycard">
   <li class="bulma-column bulma-is-full-mobile bulma-is-half-tablet bulma-is-one-third-desktop">
     <article class="bulma-card bulma-is-radiusless bulma-is-shadowless oa-news-feed__item">
-      <div class="bulma-card-content">
+      <div class="bulma-card-content bulma-is-flex bulma-is-flex-direction-column bulma-is-flex-grow-1">
         <h3 class="bulma-tag bulma-is-rounded bulma-is-light bulma-is-uppercase bulma-is-size-7 bulma-mb-3 bulma-is-align-self-flex-start">
           <a href="https://bsky.app/profile/oapenbooks.bsky.social" target="_blank" rel="noopener" class="bulma-has-text-inherit">
             <img th:src="@{/static-assets/svg/bluesky.svg}" alt="Bluesky" class="bulma-mr-2" style="height:1em; vertical-align:middle;" />
@@ -45,6 +45,15 @@
             ">
           </bsky-embed>
         </div>
+
+        <!-- Spacer to push CTA to bottom -->
+        <div class="bulma-is-flex-grow-1"></div>
+
+        <!-- CTA -->
+      <div class="bulma-mt-5 bulma-has-text-right">
+        <a th:href="${url}"th:attrappend="aria-label=${'Read more: ' + title}">Find us on Bluesky &rarr;
+        </a>
+      </div>
       </div>
     </article>
   </li>
