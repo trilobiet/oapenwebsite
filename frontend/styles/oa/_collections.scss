@@ -22,25 +22,20 @@
     align-items: center;
     justify-content: center;
     padding: .75rem;
-    background: transparent;
-    border: 0;
-    box-shadow: none;
-    transition: transform 160ms ease;
+    transition: transform .16s ease;
     will-change: transform;
   }
 
   .oa-logo-link:hover .oa-logo-box,
   .oa-logo-link:focus .oa-logo-box,
   .oa-logo-link:focus-visible .oa-logo-box {
-    transform: scale(1.03);
+    transform: scale(1.05);
   }
 
   .oa-logo-box img {
     display: block;
-    max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
+    max-width: 100%;
     object-fit: contain;
     mix-blend-mode: multiply;
   }

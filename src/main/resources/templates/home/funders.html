@@ -23,12 +23,12 @@
 				</h2>
 			</header>
 
-			<ul class="bulma-columns bulma-is-mobile bulma-is-multiline bulma-is-variable bulma-is-5 bulma-is-centered" role="list">
+			<ul class="bulma-columns bulma-is-mobile bulma-is-multiline bulma-is-variable bulma-is-1 bulma-is-centered" role="list">
 				<li class="bulma-column bulma-is-half-mobile bulma-is-one-third-tablet bulma-is-one-fifth-desktop"
 						th:each="funder : ${funders}" role="listitem">
 					<a class="oa-logo-link" th:href="@{'/topic/' + ${funder.slug}}">
-						<figure class="bulma-image bulma-is-128x128 bulma-has-background-paper oa-logo-box">
-							<img th:src="${funderlogos[funder.id]}" th:alt="${'Logo ' + funder.name}" loading="lazy" decoding="async" />
+						<figure class="bulma-image bulma-has-background-paper oa-logo-box oa-h-50">
+							<img th:src="${funderlogos[funder.id]}" th:alt="${'Logo ' + funder.name}" loading="lazy" decoding="async"/>
 							<figcaption class="bulma-is-sr-only" th:text="${funder.name}">Funder name</figcaption>
 						</figure>
 					</a>
