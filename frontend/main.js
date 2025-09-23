@@ -87,20 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const EXPAND_AT   = 12;
     const CONDENSE_AT = 56; 
 
-    let isCondensed = header.classList.contains('js-is-condensed');
+    let isCondensed = header.classList.contains('oa-is-condensed');
     let raf = 0;
 
     // apply expanded state (at the top)
     function expand() {
       if (!isCondensed) return;
-      header.classList.remove('js-is-condensed');
+      header.classList.remove('oa-is-condensed');
       isCondensed = false;
     }
 
     // apply condensed state (after scrolling down)
     function condense() {
       if (isCondensed) return;
-      header.classList.add('js-is-condensed');
+      header.classList.add('oa-is-condensed');
       isCondensed = true;
     }
 
@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // initial state (also apply immediately so first paint is correct)
     if (Math.max(0, window.scrollY || 0) > CONDENSE_AT) {
-      header.classList.add('js-is-condensed');
+      header.classList.add('oa-is-condensed');
       isCondensed = true;
     } else {
-      header.classList.remove('js-is-condensed');
+      header.classList.remove('oa-is-condensed');
       isCondensed = false;
     }
 
@@ -279,34 +279,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
     const jitterPx = (px) => (Math.random() * 2 - 1) * px;
 
+    const Y_UP = 3; // px star can go up
+    const Y_DOWN = 1; // px star can go down
+    const jitterY = () => Math.round((Math.random() * Y_DOWN) - Y_UP);
+
+    const MIN_MARGIN = 6;  // px: extra gap to avoid overlap
+
     els.forEach((el) => {
-      // Star #1
+      // --- Star #1
       const url1  = pick(STAR_SVGS);
       const size1 = pick(SIZES);
-      const x1    = `${Math.round(rand(8, 92))}%`; // avoid extreme edges
-      const y1    = `${Math.round(jitterPx(7))}px`; // slight vertical offset
+      const x1Pct = Math.round(rand(8, 92));
+      const y1    = `${jitterY()}px`;
       const rot1  = `${Math.round(jitterPx(18))}deg`;
       const op1   = (0.85 + Math.random() * 0.15).toFixed(2);
 
-      // Star #2 (70% chance)
+      // --- Star #2 (70% chance)
       const show2 = Math.random() < 0.7;
-      const url2  = show2 ? pick(STAR_SVGS.filter(u => u !== url1)) : 'none';
-      const size2 = show2 ? pick(SIZES.filter(s => s !== size1)) : 0;
-      const x2    = show2 ? `${Math.round(rand(18, 88))}%` : '50%';
-      const y2    = show2 ? `${Math.round(jitterPx(7))}px` : '0px';
-      const rot2  = show2 ? `${Math.round(jitterPx(18))}deg` : '0deg';
-      const op2   = show2 ? (0.85 + Math.random() * 0.15).toFixed(2) : '0';
+      let url2 = 'none', size2 = 0, x2Pct = 50, y2 = '0px', rot2 = '0deg', op2 = '0';
 
+      if (show2) {
+        url2  = pick(STAR_SVGS.filter(u => u !== url1));
+        size2 = pick(SIZES.filter(s => s !== size1));
+        y2    = `${jitterY()}px`;
+        rot2  = `${Math.round(jitterPx(18))}deg`;
+        op2   = (0.85 + Math.random() * 0.15).toFixed(2);
+
+        const w = Math.max(1, el.clientWidth || 1); // avoid div by 0
+        const minDxPx = (size1 + size2) / 2 + MIN_MARGIN;
+        const minDxPct = (minDxPx / w) * 100;
+
+        let attempts = 0;
+        do {
+          x2Pct = Math.round(rand(18, 88));
+          attempts++;
+        } while (Math.abs(x2Pct - x1Pct) < minDxPct && attempts < 12);
+        if (Math.abs(x2Pct - x1Pct) < minDxPct) {
+          x2Pct = (x1Pct < 50) ? Math.min(95, x1Pct + minDxPct) : Math.max(5, x1Pct - minDxPct);
+        }
+      }
+
+      // Apply CSS vars (percent positions as strings with %)
       el.style.setProperty('--star-url', `url(${url1})`);
       el.style.setProperty('--star-size', `${size1}px`);
-      el.style.setProperty('--star-x', x1);
+      el.style.setProperty('--star-x', `${x1Pct}%`);
       el.style.setProperty('--star-y-offset', y1);
       el.style.setProperty('--star-rotate', rot1);
       el.style.setProperty('--star-opacity', op1);
 
       el.style.setProperty('--star2-url', `url(${url2})`);
       el.style.setProperty('--star2-size', `${size2}px`);
-      el.style.setProperty('--star2-x', x2);
+      el.style.setProperty('--star2-x', `${x2Pct}%`);
       el.style.setProperty('--star2-y-offset', y2);
       el.style.setProperty('--star2-rotate', rot2);
       el.style.setProperty('--star2-opacity', op2);
