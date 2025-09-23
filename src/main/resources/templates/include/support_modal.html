@@ -1,0 +1,43 @@
+<!--
+  SUPPORT/CONTACT MODAL 
+  (JIRA SERVICE DESK WIDGET)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="support">
+  <div id="support-modal"
+       class="bulma-modal"
+       role="dialog"
+       aria-modal="true"
+       aria-labelledby="support-modal-title"
+       aria-describedby="support-modal-desc"
+       tabindex="-1">
+    <div class="bulma-modal-background js-close-modal" aria-hidden="true"></div>
+
+    <div class="bulma-modal-card">
+      <header class="bulma-modal-card-head bulma-p-4 bulma-is-shadowless">
+        <h2 id="support-modal-title"
+            class="bulma-modal-card-title bulma-is-size-6 bulma-has-text-weight-semibold">
+          Contact support
+        </h2>
+        <button class="bulma-delete js-close-modal" aria-label="Close dialog"></button>
+      </header>
+
+      <section class="bulma-modal-card-body bulma-p-4">
+        <p id="support-modal-desc" class="bulma-mb-4">
+          Open our support form to send a request to the team.
+        </p>
+
+        <div class="bulma-buttons">
+          <button type="button"
+                  class="bulma-button bulma-is-primary bulma-is-shadowless js-open-jsd">
+            Open support form
+          </button>
+          <a href="https://oapen.atlassian.net/servicedesk/customer/portals"
+             target="_blank" rel="noopener"
+             class="bulma-button bulma-is-light">
+            Open in new tab
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+</th:block>
