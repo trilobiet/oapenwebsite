@@ -84,7 +84,7 @@
 		<dependency>
 			<groupId>com.trilobiet</groupId>
 			<artifactId>graphqlweb</artifactId>
-			<version>0.0.46</version>
+			<version>0.0.47</version>
 		</dependency>
 
 		<!-- Rome Java RSS feeds -->
@@ -98,7 +98,7 @@
 		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-text</artifactId>
-			<version>1.8</version>
+			<version>1.10.0</version>
 		</dependency>
 
 	</dependencies>
@@ -234,9 +234,9 @@
 				<configuration>
 					<groupId>com.trilobiet</groupId>
 					<artifactId>graphqlweb</artifactId>
-					<version>0.0.46</version>
+					<version>0.0.47</version>
 					<packaging>jar</packaging>
-					<file>${basedir}/dependencies/graphqlweb-0.0.46-jar-with-dependencies.jar</file>
+					<file>${basedir}/dependencies/graphqlweb-0.0.47-jar-with-dependencies.jar</file>
 					<generatePom>true</generatePom>
 				</configuration>
 				<executions>
