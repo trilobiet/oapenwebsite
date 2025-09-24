@@ -57,4 +57,25 @@
   max-width: none;
   height: auto;
   width: min(50vw, 820px);
+
+  // On smaller screens, display as a background illustration
+  @media (max-width: 1023.98px) {
+    position: fixed;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    margin-right: -15vw;
+    margin-top: 10vh;
+    width: min(90vw, 900px);
+    height: auto;
+    opacity: 0.25;
+    pointer-events: none;
+    transform: translateZ(0);
+  }
+}
+
+
+// Break words anywhere to avoid overflow
+.oa-wrap {
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
