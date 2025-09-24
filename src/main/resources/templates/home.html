@@ -111,6 +111,10 @@
 			</div>
 		</section>
 
+		<!-- Highlights -->
+		<th:block th:if="${highlights != null and !#lists.isEmpty(highlights)}" th:insert="home/highlights :: highlights">
+			Highlights
+		</th:block>
 
 		<!-- Feed (Spotlights + Blog) -->
 		<section class="bulma-section">

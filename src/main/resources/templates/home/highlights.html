@@ -1,59 +1,46 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Spring Boot Thymeleaf Application - Fragments</title>
-</head>
-<body>
-
-<div th:fragment="header">
-    <h1>Thymeleaf Fragments</h1>
-</div>
-
 <!--
-	Highlights
+  Highlights
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="highlights">
+<section class="bulma-hero bulma-is-small bulma-container bulma-has-background-brand-hero bulma-has-text-paper">
+	<div class="bulma-hero-body bulma-is-align-items-center">
+		<div class="bulma-columns bulma-is-variable bulma-is-5"
+				th:each="article : ${highlights}"
+				th:classappend="${article.cssClass}">
 
-	<div class="bulma-title bulma-is-6 oapen-section-caption bulma-is-hidden">Highlights</div>
-	
-	<hr class="bulma-is-hidden"/>
-
-	<div class="bulma-columns oapen-home-highlight" th:each="article: ${highlights}" th:classappend="${article.cssClass}">
-
-		<div class="bulma-column bulma-is-three-quarter-desktop bulma-is-two-third-tablet">
-
-			<div>
-				<h2 class="bulma-title bulma-is-5">
-					<a th:href="@{'/article/'+${article.slug}}" th:text="${article.title}">
+			<!-- Text -->
+			<div class="bulma-column bulma-is-three-quarters-desktop bulma-is-two-thirds-tablet">
+				<h2 class="bulma-title bulma-is-3 bulma-mb-2">
+					<a class="bulma-has-text-current bulma-has-text-weight-normal"
+						th:href="@{'/article/'+${article.slug}}"
+						th:text="${article.title}">
 						Highlight title
 					</a>
 				</h2>
-				<th:block th:utext="${article.summary}">
-					Highlight dummy text
-				</th:block>
+
+				<div class="bulma-is-size-5 oa-readable">
+					<th:block th:utext="${article.summary}">
+						Highlight dummy text
+					</th:block>
+				</div>
+			</div>
+
+			<!-- Media (optional) -->
+			<div class="bulma-column bulma-is-one-quarter-desktop bulma-is-one-third-tablet"
+					th:if="${not #lists.isEmpty(article.media)}">
+
+				<figure class="bulma-image"
+								th:each="media : ${@viewhelpers.images(article.media)}">
+					<a data-fancybox="gallery" th:href="${media.url}">
+						<img th:src="${media.url}"
+								th:alt="${article.title}"
+								loading="lazy"
+								decoding="async" />
+					</a>
+				</figure>
 			</div>
 
 		</div>
-		
-		<div class="bulma-column bulma-is-one-quarter-desktop bulma-is-one-third-tablet" th:if="${not #lists.isEmpty(article.media)}">
-
-			<figure class="oapen-image" th:each="media: ${@viewhelpers.images(article.media)}">
-				<a data-fancybox="gallery" th:href="${media.url}">
-					<img th:src="${media.url}" alt="">
-				</a>
-			</figure>
-
-		</div>
-
 	</div>
-	
+</section>
 </th:block>
-
-<footer th:fragment="footer">
-	<p>2020 trilobiet.nl</p>
-</footer>
-
-</body>
-</html>
-
