@@ -87,20 +87,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const EXPAND_AT   = 12;
     const CONDENSE_AT = 56; 
 
-    let isCondensed = header.classList.contains('oa-is-condensed');
+    let isCondensed = header.classList.contains('js-is-condensed');
     let raf = 0;
 
     // apply expanded state (at the top)
     function expand() {
       if (!isCondensed) return;
-      header.classList.remove('oa-is-condensed');
+      header.classList.remove('js-is-condensed');
       isCondensed = false;
     }
 
     // apply condensed state (after scrolling down)
     function condense() {
       if (isCondensed) return;
-      header.classList.add('oa-is-condensed');
+      header.classList.add('js-is-condensed');
       isCondensed = true;
     }
 
@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // initial state (also apply immediately so first paint is correct)
     if (Math.max(0, window.scrollY || 0) > CONDENSE_AT) {
-      header.classList.add('oa-is-condensed');
+      header.classList.add('js-is-condensed');
       isCondensed = true;
     } else {
-      header.classList.remove('oa-is-condensed');
+      header.classList.remove('js-is-condensed');
       isCondensed = false;
     }
 
