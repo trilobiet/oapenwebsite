@@ -14,7 +14,7 @@
 	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
 
 		<!-- Hero -->
-		<section class="bulma-hero" role="region" aria-label="Homepage hero">
+		<section class="bulma-hero bulma-is-fullheight" role="region" aria-label="Homepage hero">
 			<div class="bulma-hero-body bulma-pt-6 bulma-mt-4">
 				<div class="bulma-container bulma-is-max-widescreen">
 
@@ -23,10 +23,8 @@
 
 					<!-- Featured titles -->
 					<div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
-						<header class="bulma-level bulma-pb-2 oa-section-header">
-							<div class="bulma-level-left">
-								<h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
-							</div>
+						<header class="bulma-pb-2 oa-section-header">
+							<h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
 						</header>
 						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
 					</div>

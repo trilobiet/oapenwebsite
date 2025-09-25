@@ -210,7 +210,7 @@
 
   .oa-nav-mobile {
     padding: 0;
-    background: $oa-colour-stone-300; // expanded
+    background: var(--bulma-stone-light); // expanded
     color: var(--bulma-ink);
     max-height: calc(100vh - 72px);
     max-height: calc(100dvh - 72px);
@@ -221,7 +221,8 @@
 
     .bulma-navbar-item {
       > .bulma-navbar-link {
-        color: currentColor;
+        background: var(--bulma-brand);
+        color: var(--bulma-paper);
         padding: .5rem 1rem;
         min-height: 44px;
         border-top: 1px solid var(--bulma-border, currentColor);
@@ -239,7 +240,8 @@
 
       .bulma-navbar-item {
         padding: .4375rem 1rem;
-        background: $brand-primary-500;
+        background: var(--bulma-stone-light);
+        color: var(--bulma-ink);
         white-space: normal;
         text-align: left;
         font-weight: 400;
