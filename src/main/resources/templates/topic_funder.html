@@ -77,14 +77,16 @@
 		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 		<section class="bulma-section">
 			<div class="bulma-container">
-				<header class="bulma-level bulma-pb-2 oa-section-header">
-					<div class="bulma-level-left">
-						<h2 class="bulma-title bulma-is-4 bulma-has-text-weight-normal">
-							Access the <span th:text="${topic.name}">Funder name</span> collection
-						</h2>
-					</div>
-					<div class="bulma-level-right">
-						<a th:href="${settings.dspace_site+'browse?type=collection&value='+collection}" class="bulma-is-block bulma-button bulma-is-brand bulma-is-shadowless bulma-mb-2">Browse all →</a>
+				<header class="bulma-mb-4 oa-section-header">
+					<div class="bulma-columns bulma-is-vcentered bulma-pb-4">
+						<div class="bulma-column bulma-is-half-tablet">
+							<h2 class="bulma-title bulma-is-4 bulma-has-text-weight-normal">
+								Access the <span th:text="${topic.name}">Funder name</span> collection
+							</h2>
+						</div>
+						<div class="bulma-column bulma-is-half-tablet bulma-has-text-right-tablet">
+							<a th:href="${settings.dspace_site+'browse?type=collection&value='+collection}" class="bulma-button bulma-is-brand bulma-is-shadowless bulma-mb-2">Browse all →</a>
+						</div>
 					</div>
 				</header>
 

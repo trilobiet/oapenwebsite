@@ -23,7 +23,7 @@
 
 					<!-- Featured titles -->
 					<div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
-						<header class="bulma-pb-2 oa-section-header">
+						<header class="bulma-mb-4 oa-section-header">
 							<h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
 						</header>
 						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
@@ -47,8 +47,8 @@
 						<div class="bulma-column bulma-is-6-desktop">
 							<header>
 								<h2 class="bulma-title bulma-is-4 bulma-mb-0 bulma-has-text-weight-normal bulma-mb-4">Our collection, in numbers</h2>
-								<p class="bulma-mb-6 bulma-is-size-5">
-									These numbers reflect the collective global ambition to realise a fully open access books future.
+								<p class="bulma-mb-4 bulma-is-size-5">
+									These numbers reflect the collective global ambition to realise a fully open access (OA) books future.
 								</p>
 							</header>
 						</div>
@@ -56,12 +56,12 @@
 
 					<div class="bulma-columns">
 						<article class="bulma-column bulma-is-one-quarter">
-							<a th:href="${settings.dspace_site+'browse?type=classification_text'}"
+							<a th:href="${settings.dspace_site+'discover'}"
 								class="bulma-is-block">
 								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">Subjects included</dt>
-									<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
-										<data value="2,640">2,640</data>
+									<dt class="bulma-is-size-6 bulma-is-block">OA books and chapters</dt>
+									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
+										42,000+
 									</dd>
 								</dl>
 							</a>
@@ -72,8 +72,8 @@
 								class="bulma-is-block">
 								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
 									<dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
-									<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
-										<data value="487">487</data>
+									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
+										450+
 									</dd>
 								</dl>
 							</a>
@@ -83,9 +83,9 @@
 							<a th:href="${settings.dspace_site+'browse?type=collection'}"
 								class="bulma-is-block">
 								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">Funded collections</dt>
-									<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
-										<data value="125">125</data>
+									<dt class="bulma-is-size-6 bulma-is-block">Themed collections</dt>
+									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
+										125
 									</dd>
 								</dl>
 							</a>
@@ -96,8 +96,8 @@
 								class="bulma-is-block">
 								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
 									<dt class="bulma-is-size-6 bulma-is-block">Languages represented</dt>
-									<dd class="bulma-title bulma-is-2 bulma-mb-0 bulma-is-block">
-										<data value="86">86</data>
+									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
+										80+
 									</dd>
 								</dl>
 							</a>
@@ -117,12 +117,14 @@
 		<!-- Feed (Spotlights + Blog) -->
 		<section class="bulma-section">
 			<div class="bulma-container">
-				<header class="bulma-level bulma-pb-2 oa-section-header">
-					<div class="bulma-level-left">
-						<h2 class="bulma-title bulma-is-4 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">The latest from OAPEN</h2>
-					</div>
-					<div class="bulma-level-right">
-						<a th:href="@{/resources}" class="bulma-is-block bulma-button bulma-is-brand bulma-is-shadowless bulma-mb-4">See all news →</a>
+				<header class="bulma-mb-4 oa-section-header">
+					<div class="bulma-columns bulma-is-vcentered bulma-pb-4">
+						<div class="bulma-column bulma-is-half-tablet">
+							<h2 class="bulma-title bulma-is-4 bulma-has-text-weight-normal">The latest from OAPEN</h2>
+						</div>
+						<div class="bulma-column bulma-is-half-tablet bulma-has-text-right-tablet">
+							<a th:href="@{/resources}" class="bulma-button bulma-is-brand bulma-is-shadowless">See all news →</a>
+						</div>
 					</div>
 				</header>
 				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-news-feed" role="list">
