@@ -53,6 +53,10 @@
     .bulma-navbar-item { 
       color: currentColor; 
     }
+
+    svg .star {
+      fill: var(--bulma-accent);
+    }
   }
 
   // let the dropdown overflow the bar so hover doesn't break

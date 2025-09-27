@@ -26,17 +26,20 @@ $brand-sets: (
   "navy": (
     700: #0F1A33, // hero/dark sections
     600: #1E2F57, // primary UI
-    500: #385BC2  // links & focus states
+    500: #385BC2,  // links & focus states
+    accent: #79FFE1 // neon accent
   ),
   "aubergine": (
     700: #3A215B, // hero/dark sections
     600: #603A8C, // primary UI 
-    500: #7A4EA9  // links & focus states
+    500: #7A4EA9,  // links & focus states
+    accent: #C8A5FF // neon accent
   ),
   "moss": (
     700: #0B3D2E, // hero / dark sections
     600: #116048, // primary UI
-    500: #178262  // links & focus states
+    500: #178262,  // links & focus states
+    accent: #7CFC9E // neon accent
   ),
   "charcoal": (
     700: #1A1715, // hero/dark sections
@@ -57,6 +60,7 @@ $brand: "moss" !default; // Swap between the three options above
 $brand-primary-700: brand(700);
 $brand-primary-600: brand(600);
 $brand-primary-500: brand(500);
+$brand-accent:      brand(accent);
 
 // Support accents
 // ***Use sparingly for semantics & emphasis***
