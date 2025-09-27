@@ -37,9 +37,7 @@
 														bulma-is-3-tablet"
 										th:if="${not #lists.isEmpty(firstarticle.media)}">
 									<figure th:each="media: ${@viewhelpers.images(firstarticle.media)}">
-										<a th:href="${media.url}">
-											<img th:src="${media.url}" alt="">
-										</a>
+										<img th:src="${media.url}" alt="">
 									</figure>
 								</div>
 							</div>

@@ -32,9 +32,7 @@
 								<div class="bulma-column bulma-is-12-mobile bulma-is-3-tablet"
 										th:if="${not #lists.isEmpty(article.media)}">
 									<figure th:each="media: ${@viewhelpers.images(article.media)}" class="bulma-image">
-										<a th:href="${media.url}">
-											<img th:src="${media.url}" alt="" class="bulma-is-rounded">
-										</a>
+										<img th:src="${media.url}" alt="" class="bulma-is-rounded">
 									</figure>
 								</div>
 							</div>

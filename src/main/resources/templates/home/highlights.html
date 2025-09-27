@@ -31,12 +31,10 @@
 
 				<figure class="bulma-image"
 								th:each="media : ${@viewhelpers.images(article.media)}">
-					<a th:href="${media.url}">
-						<img th:src="${media.url}"
+					<img th:src="${media.url}"
 								th:alt="${article.title}"
 								loading="lazy"
 								decoding="async" />
-					</a>
 				</figure>
 			</div>
 
