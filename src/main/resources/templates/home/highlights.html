@@ -31,7 +31,7 @@
 
 				<figure class="bulma-image"
 								th:each="media : ${@viewhelpers.images(article.media)}">
-					<a data-fancybox="gallery" th:href="${media.url}">
+					<a th:href="${media.url}">
 						<img th:src="${media.url}"
 								th:alt="${article.title}"
 								loading="lazy"

@@ -20,7 +20,7 @@
 			
 				<ul>
 					<li th:each="attachment:${attachments}">
-						<a data-fancybox="gallery" th:href="${attachment.url}" th:text="${attachment.name}">
+						<a th:href="${attachment.url}" th:text="${attachment.name}">
 							Attachment name
 						</a>
 					</li>
