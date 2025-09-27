@@ -50,14 +50,25 @@
   }
 }
 
-// Enforce a11y link appearance ONLY for text links
-// Exclude navbar items, buttons, tags
-.bulma-content a {
-  &:not(.bulma-navbar-item),
-  &:not(.bulma-button),
-  &:not(.bulma-tag) {
-    text-decoration-line: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: .18em;
+.bulma-content {
+  // Enforce a11y link appearance ONLY for text links
+  // Exclude navbar items, buttons, tags
+  a {
+    &:not(.bulma-navbar-item),
+    &:not(.bulma-button),
+    &:not(.bulma-tag) {
+      text-decoration-line: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: .18em;
+    }
+  }
+
+  // Tables: remove left padding so cell content is flush with edge
+  table {
+    td, th {
+      padding: 1.25em 1em 1.25em 0;
+      border-color: var(--bulma-stone-light);
+      border-width: 1px solid;
+    }
   }
 }

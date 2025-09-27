@@ -1,47 +1,33 @@
-<!DOCTYPE HTML>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>Spring Boot Thymeleaf Application - Fragments</title>
-</head>
-<body>
-
-<div th:fragment="header">
-    <h1>Thymeleaf Fragments</h1>
-</div>
-
 <!--
   Toolkit CTA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <th:block th:fragment="toolkit">
-  <div class="bulma-columns bulma-is-variable bulma-is-5">
+  <section class="bulma-hero bulma-is-halfheight bulma-container bulma-has-background-brand bulma-has-text-accent">
+		<div class="bulma-hero-body bulma-is-align-items-center">
+      <div class="bulma-columns bulma-is-variable bulma-is-5">
 
-      <!-- Heading -->
-      <div class="bulma-column bulma-is-two-fifths">
-        <header class="bulma-mb-4 oa-section-header">
-          <p class="bulma-title bulma-has-text-weight-semibold bulma-is-6 bulma-mb-2">OAPEN presents the</p>
-          <h2 class="bulma-title bulma-is-3 bulma-pb-2 bulma-has-text-weight-normal">OA Books Toolkit</h2>
-        </header>
-      </div>
-
-      <!-- Copy + CTA -->
-      <div class="bulma-column">
-        <h3 class="bulma-title bulma-is-4 bulma-mb-3 bulma-has-text-weight-normal">For authors</h3>
-        <div class="bulma-mb-5">
-          <p class="bulma-is-size-4">
-            The Toolkit offers clear guidance on open access (OA) book publishing for researchers and authors, and supports policy makers in shaping effective OA policies for books.
-          </p>
+        <!-- Heading -->
+        <div class="bulma-column bulma-is-two-fifths">
+          <header class="bulma-mb-4 oa-section-header">
+            <p class="bulma-title bulma-has-text-weight-semibold bulma-is-6 bulma-mb-2">OAPEN presents the</p>
+            <h2 class="bulma-title bulma-is-3 bulma-pb-2 bulma-has-text-weight-normal">OA Books Toolkit</h2>
+          </header>
         </div>
-        <a th:href="${toolkitUrl}" class="bulma-button bulma-is-outlined bulma-is-shadowless" target="_blank" rel="noopener">Go to the Toolkit</a>
+
+        <!-- Copy + CTA -->
+        <div class="bulma-column">
+          <h3 class="bulma-title bulma-is-4 bulma-mb-3 bulma-has-text-weight-normal">For authors</h3>
+          <div class="bulma-is-size-4">
+            <p class="bulma-mb-5">
+              The Toolkit offers clear guidance on open access (OA) book publishing for researchers and authors, and supports policy makers in shaping effective OA policies for books.
+            </p>
+            <p>
+              <a th:href="${toolkitUrl}" class="oa-link-arrow" target="_blank" rel="noopener">Go to the Toolkit</a>
+            </p>
+          </div>
+        </div>
+
       </div>
-
     </div>
+  </section>
 </th:block>
-
-<footer th:fragment="footer">
-	<p>2020 trilobiet.nl</p>
-</footer>
-
-</body>
-</html>
-

@@ -17,6 +17,10 @@
       color: var(--bulma-ink);
       border-bottom: 1px solid $oa-colour-stone-300;
     }
+
+    svg .star {
+      fill: var(--bulma-brand);
+    }
   }
 
   // expanded state (default)

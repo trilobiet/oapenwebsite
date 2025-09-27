@@ -136,21 +136,11 @@
 		</section>
 		
 		<!-- Toolkit (or any other promo) CTA -->
-		<section class="bulma-hero bulma-is-halfheight bulma-container bulma-has-background-brand bulma-has-text-paper">
-			<div class="bulma-hero-body bulma-is-align-items-center">
-				<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
-			</div>
-		</section>
+		<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>
 
 		<!-- Funders collections — logo grid -->
-		<section class="bulma-section">
-
-			<th:block th:insert="home/funders :: funders">
-				Funder collections
-			</th:block>
-
-		</section>
-
+		<th:block th:insert="home/funders :: funders">Funder collections</th:block>
+		
 		<span th:text="${ip}" style="display:none">your ip</span>
 
 	</main>
