@@ -11,7 +11,7 @@
 		BODY
 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
 
-	<main layout:fragment="content" class="oapen-main bulma-has-background-paper">
+	<main layout:fragment="content" class="bulma-has-background-paper bulma-pb-6">
 
 		<!-- Hero -->
 		<section class="bulma-hero bulma-is-fullheight" role="region" aria-label="Homepage hero">
@@ -140,7 +140,10 @@
 
 		<!-- Funders collections — logo grid -->
 		<th:block th:insert="home/funders :: funders">Funder collections</th:block>
-		
+
+		<!-- Newsletter sign-up -->
+		<th:block th:insert="home/newsletter :: newsletter">Newsletter</th:block>
+
 		<span th:text="${ip}" style="display:none">your ip</span>
 
 	</main>
