@@ -1,0 +1,26 @@
+ <!--
+  Hero section (search + tagline + featured titles)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="hero">
+  <section class="bulma-hero bulma-is-fullheight" role="region" aria-label="Homepage hero">
+    <div class="bulma-hero-body bulma-pt-6 bulma-mt-4">
+      <div class="bulma-container bulma-is-max-widescreen">
+
+        <!-- Tagline + intro + doodle -->
+        <th:block th:insert="home/herotagline :: tagline">Tagline</th:block>
+
+        <!-- Featured titles -->
+        <div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
+          <header class="bulma-mb-4 oa-section-header">
+            <h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
+          </header>
+          <div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
+        </div>
+
+        <!-- Search + browse tags -->
+        <th:block th:insert="home/herosearch :: search">Tagline</th:block>
+
+      </div>
+    </div>
+  </section>
+</th:block>

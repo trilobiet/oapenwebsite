@@ -13,125 +13,19 @@
 
 	<main layout:fragment="content" class="bulma-has-background-paper bulma-pb-6">
 
-		<!-- Hero -->
-		<section class="bulma-hero bulma-is-fullheight" role="region" aria-label="Homepage hero">
-			<div class="bulma-hero-body bulma-pt-6 bulma-mt-4">
-				<div class="bulma-container bulma-is-max-widescreen">
-
-					<!-- Tagline + intro + doodle -->
-					<th:block th:insert="home/herotagline :: tagline">Tagline</th:block>
-
-					<!-- Featured titles -->
-					<div class="bulma-mt-6" role="region" aria-label="New additions" aria-live="polite">
-						<header class="bulma-mb-4 oa-section-header">
-							<h2 class="bulma-title bulma-is-5 bulma-pb-4 bulma-mb-0 bulma-has-text-weight-normal">New from the OAPEN Library</h2>
-						</header>
-						<div class="carouselloader" th:data-src="|@{/featuredtitles} #FeaturedTitles|"></div>
-					</div>
-
-					<!-- Search + browse tags -->
-					<th:block th:insert="home/herosearch :: search">Tagline</th:block>
-
-				</div>
-			</div>
-		</section>
+		<!-- Hero (tagline + featured titles + search) -->
+		<th:block th:insert="home/hero :: hero">Hero</th:block>
 
 		<!-- By the numbers -->
-		<section class="bulma-hero">
-			<div class="bulma-hero-body">
-				<div class="bulma-container">
+		<th:block th:insert="home/stats :: stats">By the numbers</th:block>
 
-					<div class="bulma-columns bulma-is-vcentered">
-						<div class="bulma-column bulma-is-6-desktop">
-							<header>
-								<h2 class="bulma-title bulma-is-4 bulma-mb-0 bulma-has-text-weight-normal bulma-mb-4">Our collection, in numbers</h2>
-								<p class="bulma-mb-4 bulma-is-size-5">
-									These numbers reflect the collective global ambition to realise a fully open access (OA) books future.
-								</p>
-							</header>
-						</div>
-					</div>
-
-					<div class="bulma-columns">
-						<article class="bulma-column bulma-is-one-quarter">
-							<a th:href="${settings.dspace_site+'discover'}"
-								class="bulma-is-block">
-								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">OA books and chapters</dt>
-									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
-										42,000+
-									</dd>
-								</dl>
-							</a>
-						</article>
-
-						<article class="bulma-column bulma-is-one-quarter">
-							<a th:href="${settings.dspace_site+'browse?type=publisher'}"
-								class="bulma-is-block">
-								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
-									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
-										450+
-									</dd>
-								</dl>
-							</a>
-						</article>
-
-						<article class="bulma-column bulma-is-one-quarter">
-							<a th:href="${settings.dspace_site+'browse?type=collection'}"
-								class="bulma-is-block">
-								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">Themed collections</dt>
-									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
-										125
-									</dd>
-								</dl>
-							</a>
-						</article>
-
-						<article class="bulma-column bulma-is-one-quarter">
-							<a th:href="${settings.dspace_site+'browse?type=language'}"
-								class="bulma-is-block">
-								<dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-									<dt class="bulma-is-size-6 bulma-is-block">Languages represented</dt>
-									<dd class="bulma-title bulma-is-1 bulma-mb-0 bulma-is-block">
-										80+
-									</dd>
-								</dl>
-							</a>
-						</article>
-
-					</div>
-
-				</div>
-			</div>
-		</section>
-
-		<!-- Highlights -->
+		<!-- Highlights, if activated in Strapi -->
 		<th:block th:if="${highlights != null and !#lists.isEmpty(highlights)}" th:insert="home/highlights :: highlights">
 			Highlights
 		</th:block>
 
 		<!-- Feed (Spotlights + Blog) -->
-		<section class="bulma-section">
-			<div class="bulma-container">
-				<header class="bulma-mb-4 oa-section-header">
-					<div class="bulma-columns bulma-is-vcentered bulma-pb-4">
-						<div class="bulma-column bulma-is-half-tablet">
-							<h2 class="bulma-title bulma-is-4 bulma-has-text-weight-normal">The latest from OAPEN</h2>
-						</div>
-						<div class="bulma-column bulma-is-half-tablet bulma-has-text-right-tablet">
-							<a th:href="@{/resources}" class="bulma-button bulma-is-brand bulma-is-shadowless">See all news →</a>
-						</div>
-					</div>
-				</header>
-				<ul class="bulma-columns bulma-is-multiline bulma-is-variable bulma-is-6 bulma-is-align-items-stretch oa-news-feed" role="list">
-					<th:block th:insert="home/spotlights :: spotlights">Spotlights</th:block>
-					<th:block th:insert="home/blogposts :: blogposts">Blog posts</th:block>
-					<th:block th:insert="home/blueskycard :: blueskycard">Bluesky feed</th:block>
-				</ul>
-			</div>
-		</section>
+		<th:block th:insert="home/feed :: feed">Newsfeed</th:block>
 		
 		<!-- Toolkit (or any other promo) CTA -->
 		<th:block th:insert="home/toolkit :: toolkit">Toolkit banner</th:block>

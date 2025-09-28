@@ -1,0 +1,74 @@
+<!--
+  "By the numbers" stats section
+~~~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+<th:block th:fragment="stats">
+  <section class="bulma-hero">
+    <div class="bulma-hero-body">
+      <div class="bulma-container">
+
+        <div class="bulma-columns bulma-is-vcentered">
+          <div class="bulma-column bulma-is-6-desktop">
+            <header>
+              <h2 class="bulma-title bulma-is-4 bulma-mb-0 bulma-has-text-weight-normal bulma-mb-4">Our collection, in numbers</h2>
+              <p class="bulma-mb-4 bulma-is-size-5">
+                These numbers reflect the collective global ambition to realise a fully open access (OA) books future.
+              </p>
+            </header>
+          </div>
+        </div>
+
+        <div class="bulma-columns">
+          <article class="bulma-column bulma-is-one-quarter">
+            <a th:href="${settings.dspace_site+'discover'}"
+              class="bulma-is-block">
+              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+                <dt class="bulma-is-size-6 bulma-is-block">OA books and chapters</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                  42,000+
+                </dd>
+              </dl>
+            </a>
+          </article>
+
+          <article class="bulma-column bulma-is-one-quarter">
+            <a th:href="${settings.dspace_site+'browse?type=publisher'}"
+              class="bulma-is-block">
+              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+                <dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                  450+
+                </dd>
+              </dl>
+            </a>
+          </article>
+
+          <article class="bulma-column bulma-is-one-quarter">
+            <a th:href="${settings.dspace_site+'browse?type=collection'}"
+              class="bulma-is-block">
+              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+                <dt class="bulma-is-size-6 bulma-is-block">Themed collections</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                  125
+                </dd>
+              </dl>
+            </a>
+          </article>
+
+          <article class="bulma-column bulma-is-one-quarter">
+            <a th:href="${settings.dspace_site+'browse?type=language'}"
+              class="bulma-is-block">
+              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+                <dt class="bulma-is-size-6 bulma-is-block">Languages represented</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                  80+
+                </dd>
+              </dl>
+            </a>
+          </article>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+</th:block>
