@@ -46,10 +46,15 @@
           <h3 class="bulma-title bulma-is-7 bulma-is-uppercase bulma-has-text-weight-semibold bulma-mb-2">Donate</h3>
           <p class="oa-footer-small bulma-mb-3">Scan this QR code to support the OAPEN Library and DOAB</p>
           <img th:src="@{/static-assets/images/donation-qr-code.png}" alt="Donate to OAPEN Foundation" width="128" height="128" class="bulma-mb-3">
-          <form action="https://www.paypal.com/donate" method="post" target="_top" class="oa-footer-paypal">
+          <form action="https://www.paypal.com/donate" method="post" target="_blank" rel="noopener" class="oa-footer-paypal">
             <input type="hidden" name="hosted_button_id" value="VPW4DRBLBM9J8">
-            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="Donate with PayPal">
-            <img alt="" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1">
+            <button type="submit"
+                    class="bulma-button bulma-is-small bulma-is-outlined bulma-is-shadowless"
+                    aria-label="Donate with PayPal">
+              Donate
+            </button>
+            <!-- PayPal tracking pixel -->
+            <img alt="" src="https://www.paypal.com/en_NL/i/scr/pixel.gif" width="1" height="1" aria-hidden="true">
           </form>
         </section>
 
