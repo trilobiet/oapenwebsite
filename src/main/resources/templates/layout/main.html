@@ -38,6 +38,12 @@
   <!-- Safari pinned tab -->
   <link rel="mask-icon" th:href="@{/static-assets/icons/safari-pinned-tab.svg}" color="#111111">
 
+  <!-- Preload our fonts -->
+  <link rel="preload" as="font" type="font/woff2"
+      href="/static-assets/fonts/vremena-grotesk/vremenagroteskbook-webfont.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2"
+      href="/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_regular_master_web.woff2" crossorigin>
+
 </head>
 
 <body th:classappend="${bodyClass}">
