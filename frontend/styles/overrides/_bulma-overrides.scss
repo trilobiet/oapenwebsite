@@ -72,3 +72,8 @@
     }
   }
 }
+
+// Serif font requires tighter kerning
+.bulma-is-family-secondary {
+  letter-spacing: -.015em;
+}
