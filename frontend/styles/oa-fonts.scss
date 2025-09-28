@@ -1,35 +1,86 @@
 // ————————————————————————————————————————
 // oa-fonts.scss
-// Our typfaces
+// Our typefaces (serif + sans-serif)
+// ————————————————————————————————————————
+
+// ————————————————————————————————————————
+// Vremena Grotesk (sans-serif)
+// Weights:
+// 400 (Book)
+// 500 (Medium)
+// 700 (Bold)
+// With italics for each weight
 // ————————————————————————————————————————
 
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagrotesk-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbook-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbook-webfont.woff") format("woff");
   font-weight: 400; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagroteskitalic-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbookitalic-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbookitalic-webfont.woff") format("woff");
   font-weight: 400; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagroteskmedium-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskmedium-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskmedium-webfont.woff") format("woff");
   font-weight: 500; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagroteskmediumitalic-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskmediumitalic-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskmediumitalic-webfont.woff") format("woff");
   font-weight: 500; font-style: italic; font-display: swap;
 }
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagroteskbold-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbold-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbold-webfont.woff") format("woff");
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
   font-family: "Vremena Grotesk";
-  src: url("/static-assets/fonts/vremena-grotesk/vremenagroteskbolditalic-webfont.woff2") format("woff2");
+  src:
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbolditalic-webfont.woff2") format("woff2"),
+    url("/static-assets/fonts/vremena-grotesk/vremenagroteskbolditalic-webfont.woff") format("woff");
   font-weight: 700; font-style: italic; font-display: swap;
+}
+
+// ————————————————————————————————————————
+// Happy Times at the IKOB (serif)
+// Weights: 
+// 400 (Regular + Italic)
+// 700 (Bold, no Italics)
+// ————————————————————————————————————————
+
+@font-face {
+  font-family: "Happy Times at the IKOB";
+  src:
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_regular_master_web.woff2") format("woff2"),
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_regular_master_web.woff") format("woff");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Happy Times at the IKOB";
+  src:
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_italic_master_web.woff2") format("woff2"),
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_italic_master_web.woff") format("woff");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+
+@font-face {
+  font-family: "Happy Times at the IKOB";
+  src:
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_bold_master_web.woff2") format("woff2"),
+    url("/static-assets/fonts/happy-times-at-the-IKOB/happy-times-NG_bold_master_web.woff") format("woff");
+  font-weight: 700; font-style: normal; font-display: swap;
 }

@@ -27,7 +27,7 @@
   // Keep .is-rounded available in case we do need it
   $radius-rounded: 9999px,
 
-  // Make Bulma use Vremena Grotesk everywhere
+  // Set our default sans-serif font stack
   $family-sans-serif: ("Vremena Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial),
 
   // Map weights Bulma uses to our files
@@ -41,6 +41,8 @@
 
 // Map Bulma’s semantic colours to our custom variables
 @use "bulma/sass/utilities/derived-variables" with (
+  $family-secondary: ("Happy Times at the IKOB", Georgia, "Times New Roman", serif), // Use serif for secondary font
+
   $primary:       $brand-primary-600,
   $link:          $brand-primary-500,
   $info:          $brand-primary-500,
