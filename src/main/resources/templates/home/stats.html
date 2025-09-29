@@ -18,13 +18,26 @@
         </div>
 
         <div class="bulma-columns">
+
+          <article class="bulma-column bulma-is-one-quarter">
+            <a th:href="${settings.dspace_site+'browse?type=collection'}"
+              class="bulma-is-block">
+              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
+                <dt class="bulma-is-size-6 bulma-is-block">Monthly COUNTER downloads</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                  1.1 million+
+                </dd>
+              </dl>
+            </a>
+          </article>
+          
           <article class="bulma-column bulma-is-one-quarter">
             <a th:href="${settings.dspace_site+'discover'}"
               class="bulma-is-block">
               <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-                <dt class="bulma-is-size-6 bulma-is-block">OA books and chapters</dt>
+                <dt class="bulma-is-size-6 bulma-is-block">Open Access books</dt>
                 <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
-                  42,000+
+                  40,000+
                 </dd>
               </dl>
             </a>
@@ -37,18 +50,6 @@
                 <dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
                 <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
                   450+
-                </dd>
-              </dl>
-            </a>
-          </article>
-
-          <article class="bulma-column bulma-is-one-quarter">
-            <a th:href="${settings.dspace_site+'browse?type=collection'}"
-              class="bulma-is-block">
-              <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-                <dt class="bulma-is-size-6 bulma-is-block">Themed collections</dt>
-                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
-                  125
                 </dd>
               </dl>
             </a>
