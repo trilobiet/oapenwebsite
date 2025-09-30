@@ -98,9 +98,26 @@
   <!-- Our app scripts -->
   <script defer th:src="@{/static-assets/js/main.min.js(v=${T(java.lang.System).currentTimeMillis()})}"></script>
 
+  <!-- Google Analytics -->
   <th:block th:insert="include/googleanalyticsscript :: script">
     Google Analytics
   </th:block>
+
+
+  <!-- Jira Service Desk widget -->
+	<script data-jsd-embedded data-key="f2303b3d-99ab-4a24-9e2a-60502394d55c" 
+		data-base-url="https://jsd-widget.atlassian.com" 
+		src="https://jsd-widget.atlassian.com/assets/embed.js">
+  </script>						
+
+  <div>					
+    <style>
+      iframe[name='JSD widget'] {
+        right: 0; 
+        margin-bottom: 0;
+      }
+    </style>
+  </div>
 
 </body>
 
