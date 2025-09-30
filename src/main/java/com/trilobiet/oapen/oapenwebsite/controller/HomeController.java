@@ -44,19 +44,19 @@ public class HomeController extends BaseController {
 		
 		/**
 		 * Display in Thymeleaf as 
-		 * 		th:text="${stats_subjects}" 
+		 * 		th:text="${stats_books}" 
+		 * 		th:text="${stats_downloads}"
 		 * 		th:text="${stats_publishers}"
-		 * 		th:text="${stats_collections}"
 		 * 		th:text="${stats_languages}"
 		 */
 		try {
 			Optional<SnippetImp> stats = snippetService.getSnippet("collection-stats");
 			if (stats.isPresent() ) {
 				String json = stats.get().getCode();
-				Map<String,Integer> result = new ObjectMapper().readValue(json, new TypeReference<Map<String, Integer>>(){});
-				mv.addObject("stats_subjects",result.get("subjects") );
+				Map<String,String> result = new ObjectMapper().readValue(json, new TypeReference<Map<String,String>>(){});
+				mv.addObject("stats_books",result.get("books") );
+				mv.addObject("stats_downloads",result.get("downloads") );
 				mv.addObject("stats_publishers",result.get("publishers") );
-				mv.addObject("stats_collections",result.get("collections") );
 				mv.addObject("stats_languages",result.get("languages") );
 			}
 		} catch (Exception e) {
