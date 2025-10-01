@@ -50,7 +50,7 @@
 
 										<p class="bulma-mt-2">
 											<a class="bulma-button bulma-is-medium bulma-is-outlined bulma-is-dark bulma-is-shadowless"
-												th:href="@{'/'+${section.slug}+'/article/'+${article.slug}}">
+												th:href="@{'/'+${section?.slug}+'/article/'+${article.slug}}">
 												Read more
 											</a>
 										</p>
@@ -68,14 +68,14 @@
 							<div class="bulma-level-left">
 								<h2 id="sidenav-title"
 										class="bulma-title bulma-is-6 bulma-pb-4 bulma-has-text-weight-semibold"
-										th:text="${section.name}">
+										th:text="${section?.name}">
 									Section name
 								</h2>
 							</div>
 						</header>
 
-						<a th:each="t : ${section.topics}"
-							th:href="@{'/'+${section.slug}+'/'+${t.slug}}"
+						<a th:each="t : ${section?.topics}"
+							th:href="@{'/'+${section?.slug}+'/'+${t.slug}}"
 							class="bulma-panel-block">
 							<span th:text="${t.name}">Topic name</span>
 						</a>

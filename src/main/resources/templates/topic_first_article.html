@@ -57,15 +57,15 @@
 							<div class="bulma-level-left">
 								<h2
 									class="bulma-title bulma-is-6 bulma-pb-4 bulma-has-text-weight-semibold"
-									th:text="${section.name}"
+									th:text="${section?.name}"
 								>
 									Section name
 								</h2>
 							</div>
 						</header>
 
-						<a th:each="t : ${section.topics}"
-							th:href="@{'/'+${section.slug}+'/'+${t.slug}}"
+						<a th:each="t : ${section?.topics}"
+							th:href="@{'/'+${section?.slug}+'/'+${t.slug}}"
 							class="bulma-panel-block">
 							<span th:text="${t.name}">Topic name</span>
 						</a>
