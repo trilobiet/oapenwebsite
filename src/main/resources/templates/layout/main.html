@@ -12,7 +12,7 @@
   <link rel="preconnect" href="https://library.oapen.org" crossorigin>
   <link rel="dns-prefetch" href="//library.oapen.org">
   
-	<link rel="stylesheet" th:href="@{/static-assets/css/main.min.css}"/>
+  <link rel="stylesheet" th:href="@{/static-assets/css/main.min.css?v=1.0}"/>
 
   <!-- SVG favicons with automatic light/dark -->
   <link rel="icon" type="image/svg+xml" th:href="@{/static-assets/icons/favicon-light.svg}" media="(prefers-color-scheme: light)">
@@ -21,7 +21,7 @@
   <!-- PNG/ICO fallbacks -->
   <link rel="icon" type="image/png" th:href="@{/static-assets/icons/favicon-32.png}" sizes="32x32">
   <link rel="icon" type="image/png" th:href="@{/static-assets/icons/favicon-16.png}" sizes="16x16">
-  <link rel="icon" th:href="@{/favicon.ico}"sizes="any">
+  <link rel="icon" th:href="@{/favicon.ico}" sizes="any">
 
   <!-- Apple iOS -->
   <link rel="apple-touch-icon" th:href="@{/static-assets/icons/apple-touch-icon-180.png}" sizes="180x180">
@@ -80,9 +80,9 @@
 
   <th:block th:insert="layout/footer :: footer">Footer</th:block>
 
-  <!-- Scripts -->
+  <!-- Scripts 
   <script th:src="@{/static-assets/js/jquery-3.4.1.min.js}" defer></script>
-  <script th:src="@{/static-assets/js/jquery.fancybox.min.js}" defer></script>
+  <script th:src="@{/static-assets/js/jquery.fancybox.min.js}" defer></script>-->
 
   <!-- Splide (Carousel) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide-core.min.css">
