@@ -20,20 +20,22 @@
 				<p class="bulma-mb-4 bulma-tag bulma-is-small bulma-is-dark bulma-is-rounded bulma-has-text-weight-medium">
 					OAPEN Blog
 				</p>
-				<p class="bulma-mb-4 bulma-has-text-weight-semibold">
-					<span th:text="${featuredPost.author}">Author</span>
-					&middot;
-					<time th:text="${#temporals.format(featuredPost.publicationDate,'E dd MMM yyyy')}"
-								th:attr="datetime=${#temporals.format(featuredPost.publicationDate,'yyyy-MM-dd')}"
-								aria-label="Publication date">Publication Date</time>
-				</p>
-				<h1 class="bulma-title bulma-is-1" th:text="${featuredPost.title}">Blog Title</h1>
-				<p class="bulma-mb-6 bulma-has-text-weight-semibold">
-					Read this article at <br>
-					<a th:href="${featuredPost.link}" target="_blank" rel="noopener" title="Go to the hypotheses.org website">
-						<img th:src="@{/static-assets/images/logo-hypotheses.png}" alt="Hypotheses logo" width="100" height="24">
-					</a>
-				</p>
+				<div th:unless="${featuredPost == null}">
+					<p class="bulma-mb-4 bulma-has-text-weight-semibold">
+						<span th:text="${featuredPost.author}">Author</span>
+						&middot;
+						<time th:text="${#temporals.format(featuredPost.publicationDate,'E dd MMM yyyy')}"
+									th:attr="datetime=${#temporals.format(featuredPost.publicationDate,'yyyy-MM-dd')}"
+									aria-label="Publication date">Publication Date</time>
+					</p>
+					<h1 class="bulma-title bulma-is-1" th:text="${featuredPost.title}">Blog Title</h1>
+					<p class="bulma-mb-6 bulma-has-text-weight-semibold">
+						Read this article at <br>
+						<a th:href="${featuredPost.link}" target="_blank" rel="noopener" title="Go to the hypotheses.org website">
+							<img th:src="@{/static-assets/images/logo-hypotheses.png}" alt="Hypotheses logo" width="100" height="24">
+						</a>
+					</p>
+				</div>
 			</header>
 
 			<!-- Featured post -->

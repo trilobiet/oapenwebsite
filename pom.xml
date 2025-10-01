@@ -209,7 +209,7 @@
 							<type>${project.packaging}</type>
 							<overWrite>true</overWrite>
 							<outputDirectory>${project.build.directory}</outputDirectory>
-							<destFileName>oapen-latest.jar</destFileName>
+							<destFileName>oapenweb-latest.jar</destFileName>
 						</artifactItem>
 					</artifactItems>
 				</configuration>
