@@ -24,7 +24,8 @@
               class="bulma-is-block">
               <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
                 <dt class="bulma-is-size-6 bulma-is-block">Monthly downloads</dt>
-                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold"
+				 th:text="${stats_downloads}">
                   1.5 million+
                 </dd>
               </dl>
@@ -35,8 +36,9 @@
             <a th:href="${settings.dspace_site+'discover'}"
               class="bulma-is-block">
               <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
-                <dt class="bulma-is-size-6 bulma-is-block">Open Access books</dt>
-                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                <dt class="bulma-is-size-6 bulma-is-block">Open access books</dt>
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold"
+				 th:text="${stats_books}">
                   40,000+
                 </dd>
               </dl>
@@ -48,7 +50,8 @@
               class="bulma-is-block">
               <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
                 <dt class="bulma-is-size-6 bulma-is-block">Participating publishers</dt>
-                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold"
+				 th:text="${stats_publishers}">
                   450+
                 </dd>
               </dl>
@@ -60,7 +63,8 @@
               class="bulma-is-block">
               <dl class="bulma-m-0 bulma-is-flex bulma-is-flex-direction-column-reverse">
                 <dt class="bulma-is-size-6 bulma-is-block">Languages represented</dt>
-                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold">
+                <dd class="bulma-title bulma-is-1 bulma-mb-3 bulma-is-block bulma-is-family-secondary bulma-has-text-weight-bold"
+				 th:text="${stats_languages}">
                   80+
                 </dd>
               </dl>
