@@ -18,21 +18,27 @@ public class BlogController extends BaseController {
 		) throws Exception {
 
 		ModelAndView mv = new ModelAndView("blog");
-		List<RssItem> blogPosts = rssService.getItems(10);
 		
-		/* display post by link or first post */
-		RssItem featuredPost = null;
-		if (link != null) {
-			featuredPost = rssService.getItemByLink(blogPosts, link).orElse(featuredPost);
-		}	
-		else if ( !blogPosts.isEmpty() ){
-			featuredPost = blogPosts.get(0);
-		}
+		try {
+			List<RssItem> blogPosts = rssService.getItems(10);
+			
+			/* display post by link or first post */
+			RssItem featuredPost = null;
+			
+			if (link != null) 
+				featuredPost = rssService.getItemByLink(blogPosts, link).orElse(featuredPost);
+			else if ( !blogPosts.isEmpty() )
+				featuredPost = blogPosts.get(0);
+	
+			blogPosts.remove(featuredPost);
+			
+			mv.addObject("blogPosts", blogPosts);
+			mv.addObject("featuredPost", featuredPost);	
 
-		blogPosts.remove(featuredPost);
-		
-		mv.addObject("blogPosts", blogPosts);
-		mv.addObject("featuredPost", featuredPost);	
+		}
+		catch (Exception e) {
+			log.error(e);
+		}
 		
 		return mv;
 	}
