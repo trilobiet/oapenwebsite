@@ -116,7 +116,7 @@
   }
 }
 
-// Megamenu (desktop)
+// Desktop dropdowns (simple list)
 @media screen and (min-width: 1024px) {
 
   .oa-header {
@@ -126,52 +126,38 @@
     }
 
     .bulma-navbar-item.bulma-has-dropdown { 
-      position: static; 
+      position: relative; 
     }
     
-    // show megamenu on hover/focus of parent link
-    .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-megamenu,
-    .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-megamenu { 
+    // show dropdown on hover/focus of parent link
+    .bulma-navbar-item.bulma-has-dropdown.bulma-is-hoverable:hover > .oa-nav-dropdown,
+    .bulma-navbar-item.bulma-has-dropdown:focus-within > .oa-nav-dropdown { 
       display: block; 
     }
 
-    .oa-megamenu {
+    .oa-nav-dropdown {
+      $oa-nav-dropdown-bg: color-mix(in srgb, $brand-primary-700 82%, var(--bulma-paper) 18%);
       position: absolute;
+      top: calc(100% + 1px);
       left: 0;
-      right: 0;
-      top: 100%;
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
+      min-width: 240px;
       display: none;
-      background: $oa-colour-stone-300; // expanded
-      color: var(--bulma-ink);
-      border: 0;
-      padding: 0;
-      overflow: visible;
+      background: $oa-nav-dropdown-bg;
+      color: var(--bulma-paper);
+      border: 1px solid $oa-nav-dropdown-bg;
+      padding: .35rem 0;
 
       a.bulma-navbar-item { 
         color: inherit; 
-      }
-
-      .bulma-columns {
-        display: flex;
-        flex-wrap: wrap;
-        margin-left: 0;
-        margin-right: 0;
-      }
-
-      .bulma-column {
-        padding-left: 0;
-        padding-right: 0;
+        white-space: normal;
+        padding-inline: 1rem;
       }
 
       .bulma-navbar-item {
         display: block;
-        padding: .875rem 1rem;
+        padding-block: .6rem;
         text-align: left;
         white-space: normal;
-        word-break: normal;
-        overflow-wrap: normal;
         transition: background-color .15s ease, color .15s ease;
         color: currentColor;
 
@@ -179,7 +165,7 @@
         &:focus,
         &:focus-visible,
         &.bulma-is-active {
-          background: color-mix(in srgb, currentColor 10%, transparent);
+          background: color-mix(in srgb, currentColor 18%, transparent);
           outline: 0;
         }
       }
@@ -194,8 +180,10 @@
     }
 
     // condensed state (on scroll)
-    &.js-is-condensed .oa-megamenu {
-      background: $brand-primary-500;
+    &.js-is-condensed .oa-nav-dropdown {
+      $oa-nav-dropdown-bg: color-mix(in srgb, $brand-primary-700 82%, var(--bulma-paper) 18%);
+      background: $oa-nav-dropdown-bg;
+      border-color: $oa-nav-dropdown-bg;
       color: var(--bulma-paper);
 
       a.bulma-navbar-item { 
@@ -205,7 +193,7 @@
   }
 }
 
-// Megamenu (mobile)
+// Mobile dropdown
 @media (max-width: 1023.98px) { // .98 to avoid conflict with Bulma 1024px breakpoint
   
   .bulma-navbar-menu { 
@@ -242,12 +230,12 @@
       }
     }
 
-    .oa-megamenu {
+    .oa-nav-dropdown {
       margin: 0;
-      padding: 0;
+      padding: .25rem 0;
 
       .bulma-navbar-item {
-        padding: .4375rem 1rem;
+        padding: .6rem 1rem;
         background: var(--bulma-stone-light);
         color: var(--bulma-ink);
         white-space: normal;
