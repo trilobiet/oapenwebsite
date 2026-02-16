@@ -25,14 +25,14 @@
 	<main class="section">
 	
 		<div class="container content">
-			<a th:href="@{'/'}">
-				<img th:src="@{/static-assets/images/layout/oapenlogo_01_colour.jpg}" width="200" alt="Logo Oapen" class="oapen-logo">
+			<a th:href="@{'/'}" aria-label="OAPEN">
+				<th:block th:replace="~{include/logotype :: logo(200, 0, 'oa-logo-svg')}"></th:block>
 			</a>
-			
+
 			<div class="container content" layout:fragment="content">
 				Error shown here
 			</div>
-			
+
 		</div>
 		
 		<div class="container content">
@@ -49,4 +49,3 @@
 </body>
 
 </html>
-
